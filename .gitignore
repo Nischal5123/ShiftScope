@@ -1,0 +1,11 @@
+/dracovenv/
+/interface/node_modules/
+/interface/public/
+/assets/
+/.idea/
+/sourcedata/
+/gvae/
+/interface/gvaemodel/__pycache__/
+/interface/gvaemodel/node_modules/
+/interface/gvaemodel/public/
+/__pycache__/
