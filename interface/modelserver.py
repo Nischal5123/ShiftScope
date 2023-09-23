@@ -19,6 +19,7 @@ import pdb
 
 from gvaemodel.vis_vae import VisVAE, get_rules, get_specs
 from gvaemodel.vis_grammar import VisGrammar
+from environment import environment
 
 port = 5500
 rulesfile = './gvaemodel/rules-cfg.txt'
@@ -47,6 +48,7 @@ pca = None
 app = Flask(__name__)
 CORS(app)
 
+env = environment()
 
 class InvalidUsage(Exception):
     status_code = 400
@@ -74,13 +76,15 @@ def handle_invalid_usage(error):
 @app.route('/encode', methods=['POST'])
 def encode():
     specs = request.get_json()
-    print(specs)
+    for s in specs:
+        state = visvae.encode2(s)
+        print(state)
+        env.take_step(state)
     try:
         #tf.keras.backend.set_session(sess)
         z = visvae.encode(specs)
-        
-    except Exception as e:
         # pdb.set_trace()
+    except Exception as e:
         raise InvalidUsage(e.message)
     return jsonify(z.tolist())
 
@@ -92,6 +96,8 @@ def encode2():
     try:
         state = visvae.encode2(specs)
         print(state)
+        env.take_step(state)
+        pdb.set_trace()
     except Exception as e:
         raise InvalidUsage(e.message)
     return jsonify(state.tolist())
