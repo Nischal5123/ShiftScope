@@ -249,6 +249,8 @@ export default class SumView extends EventEmitter {
             })
             .on('click', (d) => {
                 this.selectedChartID = d.chid
+                console.log(this.selectedChartID)
+                console.log("This has been selected")
                 // this._selectedChart = d
                 // this._svgDrawing.selectAll('.chartdot.selected')
                 //     .classed('selected', false) 
@@ -599,6 +601,12 @@ export default class SumView extends EventEmitter {
         this.data.chartdata.attributes.forEach((d) => {
             attributesMap[d[0]] = d.concat([0])
         })
+        //Debug
+        // var myData = { message: "Attributes from data" };
+        // var jsonString = JSON.stringify(myData);
+        // console.log(jsonString);        
+        
+        // print(json.dumps(this.data.chartdata.attributes, indent = 4))
         // fill in data variables
         var re = /"field":"(\w+)"/g
         neighbors.forEach((ch) => {
@@ -608,6 +616,13 @@ export default class SumView extends EventEmitter {
             }
         })
         var attributes = _.sortBy(_.values(attributesMap), (d) => {return -d[3]})
+        //Debug
+        // var myData = { message: "Sorting Sth" };
+        // var jsonString = JSON.stringify(myData);
+        // console.log(jsonString);     
+        
+        // print(json.dumps(attributes, indent = 4))
+
         var numattrs = _.filter(attributes, (d) => {return d[1] == 'num'})
         numattrs.current = 0
         var strattrs = _.filter(attributes, (d) => {return d[1] == 'str'})
@@ -713,7 +728,7 @@ export default class SumView extends EventEmitter {
 
         var edist = this._estimateDistances(coords, [this._xscale.invert(pt[0]), this._yscale.invert(pt[1])])
         var chps = this._charts.map((ch) => {return ch.embedding})
-
+        console.log(this.conf.backend)
         $.ajax({
             context: this,
             type: 'POST',
@@ -740,6 +755,7 @@ export default class SumView extends EventEmitter {
                 //if(normspecs[i] in vlcharts) continue
                 var varnum = (normspecs[i].match(/num|str/g) || []).length
                 // no variable chart skip
+                // console.log(varnum)
                 if(varnum == 0) continue
 
                 var vars = []

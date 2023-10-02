@@ -2,6 +2,7 @@ import simplejson as json
 import re
 import numpy as np
 import nltk
+import pdb
 
 from .model_vae import ModelVAE
 from .vis_grammar import VisGrammar
@@ -70,14 +71,33 @@ class VisVAE():
         hypers = self._get_hypers(weights_file)
         self.vae = ModelVAE()
         self.vae.load(self.rules, weights_file, max_length=self.max_len, latent_rep_size=self.latent_dim, hypers=hypers)
-
+        self.attributes = [
+  ["Title", "str", "nominal"], 
+  ["US_Gross", "num", "quantitative"], 
+  ["Worldwide_Gross", "num", "quantitative"], 
+  ["US_DVD_Sales", "num", "quantitative"], 
+  ["Production_Budget", "num", "quantitative"], 
+  ["Release_Date", "str", "nominal"], 
+  ["MPAA_Rating", "str", "nominal"], 
+  ["Running_Time_min", "num", "quantitative"], 
+  ["Distributor", "str", "nominal"], 
+  ["Source", "str", "nominal"], 
+  ["Major_Genre", "str", "nominal"],
+  ["Creative_Type", "str", "nominal"], 
+  ["Director", "str", "nominal"], 
+  ["Rotten_Tomatoes_Rating", "num", "quantitative"], 
+  ["IMDB_Rating", "num", "quantitative"], 
+  ["IMDB_Votes", "num", "quantitative"]]
+        
     def encode(self, sentences):
         one_hot = np.zeros((len(sentences), self.max_len, self.input_dim), dtype=np.float32)
 
         for i, sentence in enumerate(sentences):
+            # print(sentence.type)
             json_obj = json.loads(sentence)
             sentence_rules = [] 
             get_rules(json_obj, 'root', sentence_rules)
+            # pdb.set_trace()
             indices = [self.rule2index[r] for r in sentence_rules]
 
             one_hot[i][np.arange(len(indices)), indices] = 1
@@ -85,6 +105,22 @@ class VisVAE():
 
         self.one_hot = one_hot
         return self.vae.encoderMV.predict(one_hot)[0]
+    
+    # // The following function will convert the vegalite encoding into a one-hot vector
+    def encode2(self, sentence):
+        one_hot = np.zeros(self.input_dim, dtype=np.int32)
+        json_obj = json.loads(sentence.replace('\n', '').replace(' ', ''))
+        json_obj = self.online_converter(json_obj)
+
+        # json_obj = json.loads(sentence)
+        # pdb.set_trace()
+        sentence_rules = [] 
+        get_rules(json_obj, 'root', sentence_rules)
+        indices = [self.rule2index[r] for r in sentence_rules]
+        # print(indices)
+        # pdb.set_trace()
+        one_hot[indices] = 1
+        return one_hot
 
     def decode(self, z):
         assert z.ndim == 2
@@ -143,3 +179,31 @@ class VisVAE():
 
         print('model hyper parameters:' + str(hypers))
         return hypers
+    
+    # // The following function will convert the vegalite encoding into a 
+    #processed vegalite encoding, replacing field names with str/num
+    def online_converter(self, json_data):
+        try:
+            # Create a mapping of field names to their corresponding replacements
+            field_mapping = {attr[0]: attr[1] for attr in self.attributes}
+
+            # Helper function to recursively update field values in the JSON object
+            def update_fields(obj):
+                if isinstance(obj, dict):
+                    # If the object is a dictionary, iterate through its items
+                    for key, value in obj.items():
+                        if key == 'field' and value in field_mapping:
+                            # Replace the 'field' value with its corresponding replacement
+                            obj[key] = field_mapping[value]
+                        elif isinstance(value, (dict, list)):
+                            update_fields(value)
+                elif isinstance(obj, list):
+                    for item in obj:
+                        update_fields(item)
+
+            update_fields(json_data)
+            return json_data
+
+        except json.JSONDecodeError:
+            # Handle JSON parsing errors here
+            return None

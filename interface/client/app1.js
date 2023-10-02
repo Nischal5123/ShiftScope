@@ -26,7 +26,7 @@ var app = {}
 app.logger = []
 window.app = app
 
-var datafile = '/data/cars.json'
+var datafile = '/data/movies_cleaned.json'
 
 $(document).ready(function() {
     var parameters = parseurl()

@@ -11,7 +11,7 @@ from keras.layers import Convolution1D
 from keras.layers import BatchNormalization
 
 from .vis_grammar import VisGrammar
-
+import tensorflow as tf
 
 # defaulthypers = {'hidden': 256, 'dense': 256, 'conv1': [8, 3], 'conv2': [8, 3], 'conv3': [8, 3]}
 
@@ -55,7 +55,7 @@ class ModelVAE():
             self.decoder.load_weights(weights_file, by_name=True)
             self.encoderMV.load_weights(weights_file, by_name=True)
 
-        adam = optimizers.Adam(lr=0.0001)
+        adam = tf.optimizers.Adam(lr=0.0001)
         self.autoencoder.compile(optimizer=adam, loss=vae_loss, metrics=['accuracy'])
         self.autoencoder.summary()
 
