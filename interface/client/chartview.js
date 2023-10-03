@@ -133,7 +133,7 @@ export default class ChartView extends EventEmitter {
             }
         })
     }
-
+    
     update(data, eventsource) {
         // handle data parsing, string or object
         if(typeof data == 'string') {

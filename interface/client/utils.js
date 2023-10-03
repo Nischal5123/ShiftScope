@@ -13,10 +13,7 @@ import vegaEmbed from 'vega-embed'
 import SumView from './sumview.js'
 import ChartView from './chartview.js'
 
-
-
 var logging = true
-
 
 export var vegaConfig = {
     axis: {labelFontSize:9, titleFontSize:9, labelAngle:-45, labelLimit:50},
@@ -163,6 +160,40 @@ export function handleEvents() {
         $('#dialog').css('display', 'none')
     })
 
+    // #Sanad
+    // If the user has clicked on the previous charts from the past users then 
+    // we are getting the state of the clicked chart
+    $('#allchartsview').click(() => {
+        console.log("A chart has been clicked in Chart View")
+        var specs = app.chartview._cheditor.session.getValue()
+        //geting the vegalite encoding of the clicked chart
+        //sending it to encode2 in modelserver.py to get the one-hot vector (state)
+        $.ajax({
+            type: 'POST',
+            crossDomain: true,
+            url: 'http://localhost:5500/encode2',
+            data: JSON.stringify(specs),
+            contentType: 'application/json'
+        }).done((data) => {
+            console.log(data)
+        })
+    })
+    //Sanad
+    // If the user has clicked on a recommended chart
+    $('#suggestionview').click(() => {
+        console.log("A chart has been clicked in Suggestion")
+        var specs = app.chartview._cheditor.session.getValue()
+        $.ajax({
+            type: 'POST',
+            crossDomain: true,
+            url: 'http://localhost:5500/encode2',
+            data: JSON.stringify(specs),
+            contentType: 'application/json'
+        }).done((data) => {
+            console.log(data)
+        })
+    })
+    
     $('#submit').click(() => {
         if($('#inputfile').val()) {
             var reader = new FileReader();
@@ -181,6 +212,7 @@ export function handleEvents() {
 
         $('.close').click()
     })
+
 
     $('#export').click(() => {
         download(JSON.stringify({
