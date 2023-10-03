@@ -15,7 +15,7 @@ from sklearn.decomposition import PCA
 from sklearn.manifold import MDS, smacof
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-import pdb
+import pdb 
 
 from gvaemodel.vis_vae import VisVAE, get_rules, get_specs
 from gvaemodel.vis_grammar import VisGrammar
@@ -86,7 +86,6 @@ def encode():
         # pdb.set_trace()
     except Exception as e:
         raise InvalidUsage(e.message)
-        env.save_to_csv('environment_data.csv')
     return jsonify(z.tolist())
 
 
@@ -101,7 +100,6 @@ def encode2():
         pdb.set_trace()
     except Exception as e:
         raise InvalidUsage(e.message)
-        env.save_to_csv('environment_data.csv')
     return jsonify(state.tolist())
 
 
@@ -115,7 +113,6 @@ def decode():
         # print(specs)
     except Exception as e:
         raise InvalidUsage(e.message)
-        env.save_to_csv('environment_data.csv')
     return jsonify(specs)
 
 
@@ -149,7 +146,7 @@ def mdsproject():
     mds = MDS(n_components=2, dissimilarity='precomputed', random_state=13, max_iter=3000, eps=1e-9)
     y = mds.fit(distm).embedding_
     # res = smacof(distm, n_components=2, random_state=13, max_iter=3000, eps=1e-9)
-    # y = res[0]
+    # y = res[0]    
     return jsonify(y.tolist())
 
 
