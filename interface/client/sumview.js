@@ -594,7 +594,7 @@ export default class SumView extends EventEmitter {
         this._yscale.domain([min1, max1])
     }
     
-    _restoreSpec(normspec, p, vars = []) {
+    _restoreSpec(normspec, p, baysian_attributes, vars = []) {
         // use kNN to get data variables
         var neighbors = this._kNN(p, this._params.ngbrN)
         var attributesMap = {}
@@ -622,7 +622,7 @@ export default class SumView extends EventEmitter {
         // console.log(jsonString);     
         
         // print(json.dumps(attributes, indent = 4))
-
+        var attributes = baysian_attributes
         var numattrs = _.filter(attributes, (d) => {return d[1] == 'num'})
         numattrs.current = 0
         var strattrs = _.filter(attributes, (d) => {return d[1] == 'str'})
@@ -724,7 +724,7 @@ export default class SumView extends EventEmitter {
             coords.push([x, y])
         }
         console.log(coords)
-        var embeddings = [], normspecs = []
+        var embeddings = [], normspecs = [], baysian_attributes = [] //here these attributes come from Baysian Learning
 
         var edist = this._estimateDistances(coords, [this._xscale.invert(pt[0]), this._yscale.invert(pt[1])])
         var chps = this._charts.map((ch) => {return ch.embedding})
@@ -746,9 +746,18 @@ export default class SumView extends EventEmitter {
                 url: this.conf.backend + '/decode',
                 data: JSON.stringify(data),
                 contentType: 'application/json'
+            }).then((data) => {
+            normspecs= data
+            return $.ajax({
+                context: this,
+                type: 'GET',
+                crossDomain: true,
+                url: this.conf.backend + '/predict',
+                contentType: 'application/json'
             })
+        })
         }).done((data) => {
-            normspecs = data
+            baysian_attributes = data
             console.log(data)
             var vlcharts = {}
             for(var i = 0; i < normspecs.length; i++) {
@@ -759,7 +768,7 @@ export default class SumView extends EventEmitter {
                 if(varnum == 0) continue
 
                 var vars = []
-                var sp = this._restoreSpec(normspecs[i], coords[i], vars)
+                var sp = this._restoreSpec(normspecs[i], coords[i], baysian_attributes, vars)
 
                 vlcharts[JSON.stringify(sp)] = {
                     originalspec: sp,
@@ -779,13 +788,18 @@ export default class SumView extends EventEmitter {
                 vlcharts = this._rankCharts(vlcharts)
 
                 for(var i = 0; i < vl.length; i++) {
+
                     if(vl[i]) {
+                        //Test block to force recommendation to stick to a specific column, didnt work
+                        // vl[i].spec.encoding.x.field="US_Gross"
+                        // vlcharts[i].vars=['Major_Genre','Release_Date']
+                        // vlcharts[i].index=6
                         var chart = {
                             originalspec: vlcharts[i].originalspec,
                             normspec: normspecs[vlcharts[i].index],
                             embedding: embeddings[vlcharts[i].index],
                             coords: coords[vlcharts[i].index],
-                            vars: vlcharts[i].vars,
+                            vars:vlcharts[i].vars,
                             created: true,
                             chid: this._charts[this._charts.length - 1].chid + 1,
                             uid: 0

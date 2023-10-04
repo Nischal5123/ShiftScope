@@ -1,4 +1,4 @@
-id,Title,US Gross,Worldwide Gross,US DVD Sales,Production Budget,Release Date,MPAA Rating,Running Time min,Distributor,Source,Major Genre,Creative Type,Director,Rotten Tomatoes Rating,IMDB Rating,IMDB Votes
+,Title,US Gross,Worldwide Gross,US DVD Sales,Production Budget,Release Date,MPAA Rating,Running Time min,Distributor,Source,Major Genre,Creative Type,Director,Rotten Tomatoes Rating,IMDB Rating,IMDB Votes
 0,The Land Girls,146083.0,146083.0,,8000000.0,Jun 12 1998,R,,Gramercy,,,,,,6.1,1071.0
 1,"First Love, Last Rites",10876.0,10876.0,,300000.0,Aug 07 1998,R,,Strand,,Drama,,,,6.9,207.0
 2,I Married a Strange Person,203134.0,203134.0,,250000.0,Aug 28 1998,,,Lionsgate,,Comedy,,,,6.8,865.0
@@ -1514,7 +1514,7 @@ id,Title,US Gross,Worldwide Gross,US DVD Sales,Production Budget,Release Date,MP
 1512,The Corruptor,15164492.0,15164492.0,,10000000.0,Mar 12 1999,R,110.0,New Line,Original Screenplay,Action,Contemporary Fiction,James Foley,48.0,5.8,9008.0
 1513,Man cheng jin dai huang jin jia,6566773.0,75566773.0,10581873.0,45000000.0,Dec 21 2006,R,113.0,Sony Pictures Classics,Based on Play,Action,Historical Fiction,Yimou Zhang,,7.0,17975.0
 1514,Crash,54557348.0,98387109.0,,6500000.0,May 06 2005,R,107.0,Lionsgate,Original Screenplay,Drama,Contemporary Fiction,Paul Haggis,75.0,6.1,20886.0
-1515,Crossover,7009668.0,7009668.0,2177636.0,5600000.0,Sep 01 2006,PG-13,,Sony Pictures,Original Screenplay,Drama,Contemporary Fiction,,3.0,1.7,7466.0
+1515,Crossover,7009668.0,7009668.0,2177636.0,5600000.0,Sep 01 2006,PG-13,,Sony Pictures,Original Screenplay,Drama,Contemporary Fiction,,3.0,1.7000000000000002,7466.0
 1516,Crossroads,37188667.0,57000000.0,,12000000.0,Feb 15 2002,PG-13,93.0,Paramount Pictures,Original Screenplay,Drama,Contemporary Fiction,,14.0,6.6,4894.0
 1517,The Count of Monte Cristo,54228104.0,54228104.0,,40000000.0,Jan 25 2002,PG-13,131.0,Walt Disney Pictures,Based on Book/Short Story,Drama,Historical Fiction,Kevin Reynolds,74.0,7.6,40605.0
 1518,Cruel Intentions,38230075.0,75803716.0,,11000000.0,Mar 05 1999,R,95.0,Sony Pictures,Based on Book/Short Story,Drama,Contemporary Fiction,Roger Kumble,47.0,6.7,66861.0
@@ -1589,7 +1589,7 @@ id,Title,US Gross,Worldwide Gross,US DVD Sales,Production Budget,Release Date,MP
 1587,Digimon: The Movie,9628751.0,16628751.0,,5000000.0,Oct 06 2000,PG,,20th Century Fox,Based on TV,Adventure,Kids Fiction,,,4.6,1727.0
 1588,Dirty Work,10020081.0,10020081.0,,13000000.0,Jun 12 1998,PG-13,,MGM,Original Screenplay,Comedy,Contemporary Fiction,,17.0,4.8,207.0
 1589,Banlieue 13,1200216.0,11208291.0,,15000000.0,Jun 02 2006,R,85.0,Magnolia Pictures,Original Screenplay,Action,Science Fiction,Pierre Morel,,7.1,21427.0
-1590,Disaster Movie,14190901.0,34690901.0,9859088.0,20000000.0,Aug 29 2008,PG-13,88.0,Lionsgate,Original Screenplay,Comedy,Contemporary Fiction,Jason Friedberg,2.0,1.7,34928.0
+1590,Disaster Movie,14190901.0,34690901.0,9859088.0,20000000.0,Aug 29 2008,PG-13,88.0,Lionsgate,Original Screenplay,Comedy,Contemporary Fiction,Jason Friedberg,2.0,1.7000000000000002,34928.0
 1591,District 9,115646235.0,206552113.0,30058184.0,30000000.0,Aug 14 2009,R,111.0,Sony Pictures,Original Screenplay,Thriller/Suspense,Science Fiction,Neill Blomkamp,91.0,8.3,151742.0
 1592,Disturbing Behavior,17507368.0,17507368.0,,15000000.0,Jul 24 1998,R,83.0,MGM,Original Screenplay,Thriller/Suspense,Contemporary Fiction,,30.0,5.2,9394.0
 1593,Le Scaphandre et le Papillon,5990075.0,19689095.0,2354497.0,14000000.0,Nov 30 2007,PG-13,,Miramax,Based on Book/Short Story,Drama,Dramatization,Julian Schnabel,,8.0,31172.0
