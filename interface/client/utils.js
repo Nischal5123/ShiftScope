@@ -16,7 +16,7 @@ import ChartView from './chartview.js'
 var logging = true
 
 export var vegaConfig = {
-    axis: {labelFontSize:9, titleFontSize:9, labelAngle:-45, labelLimit:50},
+    axis: {labelFontSize:11, titleFontSize:11, labelAngle:-45, labelLimit:50},
     legend: {gradientLength:20, labelFontSize:6, titleFontSize:6, clipHeight:20}
 }
 
@@ -47,7 +47,8 @@ export function createDataTable(scrollH) {
         columns: columns,
         scrollY: scrollH,
         scrollX: true,
-        paging: false,
+        paging: true,
+        pageLength: 30,
         scrollCollapse: true,
         searching: false,
         info: false
@@ -63,7 +64,8 @@ export function displayAllCharts(container, created) {
     app.sumview.charts.forEach((ch) => {
         if(ch.created == created) {
             var vegachart = _.extend({}, ch.originalspec, 
-                { width: 270, height: 125, autosize: 'fit' }, 
+                { width: 350, height: 320, autosize: 'fit' }, 
+                // {autosize: { type: 'fit', contains: 'padding' }},
                 { data: {values: app.data.chartdata.values} },
                 { config: vegaConfig})
             $(container).append($('<div />', {class: 'chartdiv', id: 'chart' + ch.chid}))
@@ -165,18 +167,21 @@ export function handleEvents() {
     // we are getting the state of the clicked chart
     $('#allchartsview').click(() => {
         console.log("A chart has been clicked in Chart View")
-        var specs = app.chartview._cheditor.session.getValue()
-        //geting the vegalite encoding of the clicked chart
-        //sending it to encode2 in modelserver.py to get the one-hot vector (state)
-        $.ajax({
-            type: 'POST',
-            crossDomain: true,
-            url: 'http://localhost:5500/encode2',
-            data: JSON.stringify(specs),
-            contentType: 'application/json'
-        }).done((data) => {
-            console.log(data)
-        })
+        // app.chartview.update(ch.originalspec, 'outside')
+        displayAllCharts('#suggestionview', true)
+        
+        // var specs = app.chartview._cheditor.session.getValue()
+        // //geting the vegalite encoding of the clicked chart
+        // //sending it to encode2 in modelserver.py to get the one-hot vector (state)
+        // $.ajax({
+        //     type: 'POST',
+        //     crossDomain: true,
+        //     url: 'http://localhost:5500/encode2',
+        //     data: JSON.stringify(specs),
+        //     contentType: 'application/json'
+        // }).done((data) => {
+        //     console.log(data)
+        // })
     })
     //Sanad
     // If the user has clicked on a recommended chart
@@ -263,10 +268,12 @@ export function updateData(data, name) {
 
     app.sumview = new SumView(d3.select('#sumview'), app.data, {
         backend: 'http://localhost:5500',
-        size: [$('#sumview').width(), $('#sumview').height()],
+        // size: [$('#sumview').width(), $('#sumview').height()],
+        size: [100, 100],
         margin: 10,
         chartclr: ['#f1a340', '#998ec3']
     })
+    // console.log(size)
     app.sumview.update()
 
     app.chartview = new ChartView({}, {
@@ -275,7 +282,7 @@ export function updateData(data, name) {
         vegaconfig: vegaConfig
     })
 
-    createDataTable(280)
+    createDataTable(350)
     displayAllCharts('#allchartsview', false)
     displayAllCharts('#suggestionview', true)
 

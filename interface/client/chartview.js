@@ -32,10 +32,10 @@ export default class ChartView extends EventEmitter {
 
     _init() {
         // text editor
-        this._cheditor = ace.edit('editorcontainer', {
-            mode: 'ace/mode/json',
-            minLines: 20
-        })
+        // this._cheditor = ace.edit('editorcontainer', {
+        //     mode: 'ace/mode/json',
+        //     minLines: 20
+        // })
 
         // ui controls
         var html = ''
@@ -150,13 +150,13 @@ export default class ChartView extends EventEmitter {
         }
 
         var vegachart = _.extend({}, this.data, 
-            { width: 335, height: 180, autosize: 'fit' }, 
+            { width: 500, height: 400, autosize: 'fit' }, 
             { data: {values: this.conf.datavalues} },
             { config: this.conf.vegaconfig})
         vegaEmbed('#chartview .chartcontainer', vegachart, {actions: false})
 
-        if(eventsource != 'texteditor')
-            this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '))
+        // if(eventsource != 'texteditor')
+        //     this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '))
         
         if(eventsource != 'uicontrols')
             this._updateChartComposer()
@@ -186,7 +186,7 @@ export default class ChartView extends EventEmitter {
             }
         })
     }
-
+    // The following function was used to check and display manually configured chart
     _validateChart(chart, callback) {
         var sp = chart
         if(typeof chart == 'object') 

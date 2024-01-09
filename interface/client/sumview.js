@@ -27,11 +27,11 @@ export default class SumView extends EventEmitter {
 
         this._params = {
             recradius: 0.1,
-            recnum: 5,
+            recnum: 6,
             dotr: 11,
             distw: 0.5,
             clthreshold: 0.4,
-            ngbrN: 5
+            ngbrN: 6
         }
         this._charts = []
         this._prevcharts = []
@@ -100,7 +100,7 @@ export default class SumView extends EventEmitter {
         this.svg.select('.background')
             .attr('width', this.conf.size[0])
             .attr('height', this.conf.size[1])
-        this._createBubbles()
+        // this._createBubbles()
         this.render()
     }
 
@@ -130,7 +130,7 @@ export default class SumView extends EventEmitter {
                     var p = d3.mouse(this._svgDrawing.node())
                     this._charts = _.filter(this._charts, (c) => {return !c.created})
                     this.render()
-                    this._recommendCharts(p)
+                    this._recommendCharts()
                 }
                 else {
                     alert('You need to create at least 3 charts.')
@@ -174,7 +174,8 @@ export default class SumView extends EventEmitter {
         if(this._charts.length != 0)
             this._computeProjection(false, () => {
                 this._computeClusters()
-                this._createBubbles()
+                // this._createBubbles()
+                this._recommendCharts()
                 this.render()
                 if(callback) callback()
             })
@@ -304,12 +305,12 @@ export default class SumView extends EventEmitter {
         
         chartsenter.style('opacity', 0)
             .transition()
-            .duration(500)
+            // .duration(500)
             .style('opacity', 1)
 
         // update
         charts.transition()
-            .duration(1000)
+            // .duration(1000)
             .attr('transform', (d) => {
                 return 'translate(' + this._xscale(d.coords[0]) + ',' + this._yscale(d.coords[1]) + ')'
             })
@@ -714,19 +715,20 @@ export default class SumView extends EventEmitter {
         return resultvlcharts
     }
 
-    _recommendCharts(pt) {
+    _recommendCharts() {
         var coords = []
+        var p1 = _.random(1, 100, true), p2 = _.random(1, 100, true)
         var xr = this._params.recradius * (this.conf.size[0] - this.conf.margin * 2),
             yr = this._params.recradius * (this.conf.size[1] - this.conf.margin * 2)
-        for(var i = 0; i < this._params.recnum * 5; i++) {
-            var x = this._xscale.invert(pt[0] + xr * _.random(-1, 1, true)),
-                y = this._yscale.invert(pt[1] + yr * _.random(-1, 1, true))
+        for(var i = 0; i < this._params.recnum * 6; i++) {
+            var x = this._xscale.invert(p1 + xr * _.random(-1, 1, true)),
+                y = this._yscale.invert(p2 + yr * _.random(-1, 1, true))
             coords.push([x, y])
         }
         console.log(coords)
         var embeddings = [], normspecs = []
 
-        var edist = this._estimateDistances(coords, [this._xscale.invert(pt[0]), this._yscale.invert(pt[1])])
+        var edist = this._estimateDistances(coords, [this._xscale.invert(p1), this._yscale.invert(p2)])
         var chps = this._charts.map((ch) => {return ch.embedding})
         console.log(this.conf.backend)
         $.ajax({

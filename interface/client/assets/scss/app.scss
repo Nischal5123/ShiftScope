@@ -39,32 +39,31 @@ html, body {
 
 #panel1 {
   position: absolute;
-  width: 350px;
+  width: 20%;  /* Set width to 25% of the screen */
   height: 100%;
   display: inline-block;
   top: 40px;
-  left: 0;
+  left: 0;      /* Starts from the left edge */
   margin: 0px;
 }
 
 #panel2 {
   position: absolute;
+  width: 55%;  /* Set width to 50% of the screen */
   height: 100%;
-  left: 350px;
-  right: 600px;
   display: inline-block;
   top: 40px;
+  left: 22%;   /* Starts from 25% of the screen width, where panel1 ends */
   margin: 0px;
-
 }
 
 #panel3 {
   position: absolute;
-  width: 600px;
-  right: 0;
+  width: 25%;  /* Set width to 25% of the screen */
   height: 100%;
   display: inline-block;
   top: 40px;
+  left: 75%;   /* Starts from 75% of the screen width, where panel2 ends */
   margin: 0px;
 }
 
@@ -73,10 +72,11 @@ html, body {
   width: 100%;
   background-color: black;
   color: white;
-  font-size: 15px;
-  height: 20px;
+  font-size: 20px;
+  height: 25px;
   display: inline-block;
   border-color: white;
+  text-align: center; 
 }
 
 #weight_slider {
@@ -89,7 +89,7 @@ html, body {
 
 #chartview {
   width: 100%;
-  height: 280px;
+  height: 100%;
   top: 20px;
   left: 0;
   display: inline-block;
@@ -100,13 +100,14 @@ html, body {
   margin: 2px;
 
   .chartcontainer {
-    height: 90%;
+    height: 100%;
+    width: 100%;
   }
 }
 
 #charteditor {
   width: 100%;
-  top: 300px;
+  top: 500px;
   bottom: 0px;
   left: 0;
   position: absolute;
@@ -118,10 +119,10 @@ html, body {
 
 #chartcomposer {
   width: 100%;
-  height: 130px;
-  padding: 5px 10px;
+  height: 180px;
+  padding: 15px 15px;
   display: inline-block;
-  font-size: 12px;
+  font-size: 14px;
 
   label {
     width: 50px;
@@ -137,15 +138,15 @@ html, body {
   }
 }
 
-#editorcontainer {
-  width: 100%;
-  top: 170px;
-  bottom: 20px;
-  left: 0;
-  position: absolute;
-  border-top: 1px solid gray;
-  display: inline-block;
-}
+// #editorcontainer {
+//   width: 100%;
+//   top: 170px;
+//   bottom: 20px;
+//   left: 0;
+//   position: absolute;
+//   border-top: 1px solid gray;
+//   display: inline-block;
+// }
 
 .editorbuttons {
   height: 20px;
@@ -183,11 +184,13 @@ html, body {
 
 #dataview {
   position: absolute;
+  top: 750px;
   left: 0;
-  width: 100%;
-  bottom: 0;
+  width: 90%;
+  height: 400px;
+  // bottom: 0;
   font-size: 11px;
-  display: inline-block;
+  // display: inline-block;
   border: gray 1px solid;
   border-radius: 5px;
   margin: 2px;
@@ -195,7 +198,7 @@ html, body {
 
 #allchartsview {
   position: absolute;
-  width: 300px;
+  width: 500px;
   top: 20px;
   bottom: 0;
   left: 0;
@@ -209,22 +212,37 @@ html, body {
 }
 
 #suggestionview {
+  // height: 100%;
+  // width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three columns of equal width */
+  grid-template-rows: auto auto;        /* Two rows of equal height */
+  gap: 10px;   
   position: absolute;
-  width: 300px;
   top: 20px;
-  bottom: 0;
-  left: 300px;
-  display: inline-block;
   border: gray 1px solid;
   border-radius: 5px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  vertical-align: top;
   margin: 2px;
+}
+#data-label {
+  top: 730px;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 35px;
+  height: 20px;
+  // display: inline-block;
+  border-color: white;
+  text-align: center; 
 }
 
 .chartdiv {
   position: relative;
+  // width: 100%; /* Full width of the grid cell */
+  // height: 100%; /* Full height of the grid cell */
+  // display: flex; /* Flex container to center the chart */
+  justify-content: center;
+  align-items: center;
   border-top: 1px dashed lightgray;
   border-bottom: 1px dashed lightgray;
 }
@@ -242,6 +260,8 @@ html, body {
   text-align: center;
   font-weight: bold;
 }
+
+
 
 #tooltip {
   position: absolute;
