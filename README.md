@@ -13,7 +13,7 @@ The front-end and back-end code of the interface is under the _interface/_ folde
 
 
 
-[//]: # (<img src="assets/chartseer.gif" width="100%">)
+<img src="assets/UI.png" width="100%">
 
 To build the app:
 * Install python packages: pip install -r requirements.txt (suggest using virtual environment https://docs.python.org/3/tutorial/venv.html)
