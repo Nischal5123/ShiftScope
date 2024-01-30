@@ -150,7 +150,7 @@ export default class ChartView extends EventEmitter {
         }
 
         var vegachart = _.extend({}, this.data, 
-            { width: 335, height: 180, autosize: 'fit' }, 
+            { width: 835, height: 550, autosize: 'fit' },
             { data: {values: this.conf.datavalues} },
             { config: this.conf.vegaconfig})
         vegaEmbed('#chartview .chartcontainer', vegachart, {actions: false})
