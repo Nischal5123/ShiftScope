@@ -34,17 +34,8 @@
     </button>
             </div>
             <div id="panel1">
-                <span class="panel-header"><label>Chart Editor</label></span>
-                <div id="chartview">
-                    <div class="chartcontainer"></div>
-                    <span class="chartlabel"></span>
-                    <span class="editorbuttons">
-                       <button id="add" style="color: #28a745">Similar</button>
+                <span class="panel-header"><label>-------------------------------Chart Editor--------------------------------</label></span>
 
-                        <button id="update" style="color:#007bff">Update</button>
-                        <button id="remove" style="color:#dc3545">Remove</button>
-                    </span>
-                </div>
                 <div id="charteditor">
                     <div id="chartcomposer">
                         <label>Mark</label><select id="ch-mark"></select><br/>
@@ -56,18 +47,18 @@
                     </div>
                     <span class="editorbuttons">
                         <button id="preview1" style="color:#007bff">Preview</button>
-                        <button id="cancel1" style="color:#dc3545;">Cancel</button>
+<!--                        <button id="cancel1" style="color:#dc3545;">Cancel</button>-->
                     </span>
                     <div id="editorcontainer"></div>
                     <span class="editorbuttons" id="editorbutton2">
                         <button id="preview2" style="color:#007bff">Preview</button>
-                        <button id="cancel2" style="color:#dc3545;">Cancel</button>
+<!--                        <button id="cancel2" style="color:#dc3545;">Cancel</button>-->
                     </span>
                 </div>
             </div>
             <div id="panel2">
                 <span class="panel-header">
-                    <label>Suggested Charts</label>
+                    <label></label>
                     <span id="slider_wrapper">
 <!--                        <i>Data/Encoding Ratio</i><label id="weight">0.50</label>-->
 <!--                        <input type="range" min="0" max="100" value="50" id="weight_slider">-->
@@ -77,16 +68,27 @@
 <!--                        <input type="checkbox" id="show_bubble" checked>-->
                     </span>
                 </span>
-                <div id="suggestionview"></div>
-                <div class="chartcontainer"></div>
+<!--                <div id="suggestionview"></div>-->
+<!--                <div class="chartcontainer"></div>-->
+                 <div id="chartview">
+                    <div class="chartcontainer"></div>
+                    <span class="chartlabel"></span>
+                    <span class="editorbuttons3">
+                       <button id="add" style="color: #28a745">Similar</button>
+<!--                        <button id="update" style="color:#007bff">Update</button>-->
+<!--                        <button id="remove" style="color:#dc3545">Remove</button>-->
+                    </span>
+                </div>
                 <div id="dataview">
                     <table class="compact hover cell-border nowrap"></table>
                 </div>
             </div>
             <div id="panel3">
-                <span class="panel-header"><label>History</label></span>
+                <span class="panel-header"><label>-----------------------------------------------------Suggested Charts---------------------------------------</label></span>
 <!--                <div id="sumview"></div>-->
-                <div id="allchartsview"></div>
+                 <div id="suggestionview"></div>
+                <div class="chartcontainer"></div>
+<!--                <div id="allchartsview"></div>-->
             </div>
         </div>
         <div id="tooltip">
