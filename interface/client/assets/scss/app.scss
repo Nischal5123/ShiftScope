@@ -12,7 +12,7 @@ html, body {
   position: absolute;
   left: 0;
   min-width: 1500px;
-  min-height: 800px;
+  min-height: 500px;
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -40,7 +40,7 @@ html, body {
 #panel1 {
   position: absolute;
   width: 350px;
-  height: 100%;
+  height: 96%;
   display: inline-block;
   top: 40px;
   left: 0;
@@ -89,7 +89,7 @@ html, body {
 
 #chartview {
   width: 100%;
-  height: 280px;
+  height: 250px;
   top: 20px;
   left: 0;
   display: inline-block;
@@ -100,14 +100,14 @@ html, body {
   margin: 2px;
 
   .chartcontainer {
-    height: 90%;
+    height: 80%;
     width: 90%;
   }
 }
 
 #charteditor {
   width: 100%;
-  top: 300px;
+  top: 270px;
   bottom: 0px;
   left: 0;
   position: absolute;
@@ -119,7 +119,7 @@ html, body {
 
 #chartcomposer {
   width: 100%;
-  height: 130px;
+  height: 90px;
   padding: 5px 10px;
   display: inline-block;
   font-size: 12px;
@@ -140,7 +140,7 @@ html, body {
 
 #editorcontainer {
   width: 100%;
-  top: 170px;
+  top: 150px;
   bottom: 20px;
   left: 0;
   position: absolute;
@@ -190,11 +190,11 @@ html, body {
   left: 0;
   width: 100%;
   bottom: 0;
-  font-size: 11px;
+  font-size: 9px;
   display: inline-block;
   border: gray 1px solid;
   border-radius: 5px;
-  margin: 2px;
+  margin: 1px;
 }
 
 //thi is old sumview now history
