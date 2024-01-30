@@ -8,7 +8,13 @@
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
-        <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+           <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+         <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/d494f7bb71.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/main.css" />
     </head>
     <body>
         <div id="main_window">
@@ -16,11 +22,19 @@
                 <!-- <input type="file" id="datafile" name="datafile" /> -->
                 <button id="import">Imports Data & Charts</button>
                 <label id="datafile"></label>
-                <button id="export">Export Data & Charts</button>
-                <label>Attribute Color Encodings: </label><span id="legend"></span>
+                <button id="export">Export Data & Charts </button>
+                 <label>Attribute Color Encodings: </label><span id="legend"></span>
+                <button
+              type="button"
+              class="btn btn-sm btn-outline-success"
+              id="bookmark"
+            >
+              <i class="fas fa-bookmark"></i> &nbsp; Your Bookmarked Charts
+            </button>
+    </button>
             </div>
             <div id="panel1">
-                <span class="panel-header"><label>Inspection</label></span>
+                <span class="panel-header"><label>Chart Editor</label></span>
                 <div id="chartview">
                     <div class="chartcontainer"></div>
                     <span class="chartlabel"></span>
@@ -52,25 +66,26 @@
             </div>
             <div id="panel2">
                 <span class="panel-header">
-                    <label>Summarization</label>
+                    <label>Suggested Charts</label>
                     <span id="slider_wrapper">
-                        <i>Data/Encoding Ratio</i><label id="weight">0.50</label>
-                        <input type="range" min="0" max="100" value="50" id="weight_slider">
+<!--                        <i>Data/Encoding Ratio</i><label id="weight">0.50</label>-->
+<!--                        <input type="range" min="0" max="100" value="50" id="weight_slider">-->
                     </span>
                     <span id="check_wrapper">
-                        <i>Annotation</i>
-                        <input type="checkbox" id="show_bubble" checked>
+<!--                        <i>Annotation</i>-->
+<!--                        <input type="checkbox" id="show_bubble" checked>-->
                     </span>
                 </span>
-                <div id="sumview"></div>
+                <div id="suggestionview"></div>
+                <div class="chartcontainer"></div>
                 <div id="dataview">
                     <table class="compact hover cell-border nowrap"></table>
                 </div>
             </div>
             <div id="panel3">
-                <span class="panel-header"><label>Charts and Recommendation</label></span>
+                <span class="panel-header"><label>History</label></span>
+                <div id="sumview"></div>
                 <div id="allchartsview"></div>
-                <div id="suggestionview"></div>
             </div>
         </div>
         <div id="tooltip">
@@ -94,7 +109,7 @@
                 </pre></p>
                 <button id="submit">Submit</button>
             </div>
-          
+
           </div>
         <div id="vegatest" style="visibility:hidden;"></div>
     </body>    

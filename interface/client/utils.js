@@ -57,13 +57,22 @@ export function createDataTable(scrollH) {
         $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
     })
 }
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
 
 export function displayAllCharts(container, created) {
     $(container).empty()
+    shuffleArray(app.sumview.charts);
     app.sumview.charts.forEach((ch) => {
         if(ch.created == created) {
-            var vegachart = _.extend({}, ch.originalspec, 
-                { width: 270, height: 125, autosize: 'fit' }, 
+
+            var vegachart = _.extend({}, ch.originalspec,
+                { width: 470, height: 225, autosize: 'fit' },
                 { data: {values: app.data.chartdata.values} },
                 { config: vegaConfig})
             $(container).append($('<div />', {class: 'chartdiv', id: 'chart' + ch.chid}))
@@ -126,8 +135,11 @@ export function handleEvents() {
 
         app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
         
-        displayAllCharts('#allchartsview', false)
-        $('#suggestionview').empty() 
+        //displayAllCharts('#allchartsview', false)
+        $('#suggestionview').empty()
+        displayAllCharts('#suggestionview', false)
+        //displayAllCharts('#allchartsview', true)
+
         
         if(logging) app.logger.push({time:Date.now(), action:'addchart', data:spec})
     })
@@ -138,7 +150,7 @@ export function handleEvents() {
 
         app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
         displayAllCharts('#allchartsview', false)
-        $('#suggestionview').empty()  
+        $('#suggestionview').empty()
 
         if(logging) app.logger.push({time:Date.now(), action:'updatechart', data:spec})
     })
@@ -147,7 +159,7 @@ export function handleEvents() {
         app.sumview.data.chartspecs = app.sumview.data.chartspecs.filter((d) => { return d._meta.chid != app.sumview.selectedChartID })
         app.sumview.update()
         displayAllCharts('#allchartsview', false)
-        $('#suggestionview').empty() 
+        $('#suggestionview').empty()
 
         if(logging) app.logger.push({time:Date.now(), action:'removechart', data:spec})
     })

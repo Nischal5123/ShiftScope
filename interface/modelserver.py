@@ -161,6 +161,7 @@ def find_interaction_id(interaction):
         ].index[0]
     except IndexError:
         # Handle the case where no match is found
+        print(f'No match found for {interaction} using default')
         index = 348
     return index
 
@@ -317,12 +318,10 @@ def processchartdata():
 if __name__ == "__main__":
     rules = []
     mapping = [
-        ["Title", "str", "nominal"],
         ["US_Gross", "num", "quantitative"],
         ["Worldwide_Gross", "num", "quantitative"],
         ["US_DVD_Sales", "num", "quantitative"],
         ["Production_Budget", "num", "quantitative"],
-        ["Release_Date", "str", "nominal"],
         ["MPAA_Rating", "str", "nominal"],
         ["Running_Time_min", "num", "quantitative"],
         ["Distributor", "str", "nominal"],
@@ -338,6 +337,8 @@ if __name__ == "__main__":
     underlying_data = pd.read_csv("../data/zheng/combinations.csv")
     underlying_data.set_index("id", drop=True, inplace=True)
     d_attrs = ["mark", "x_attribute", "y_attribute"]
+
+
     with open(rulesfile, "r") as inputs:
         for line in inputs:
             line = line.strip()
