@@ -66,8 +66,8 @@ function shuffleArray(array) {
 
 
 export function displayAllCharts(container, created) {
-    $(container).empty()
-    shuffleArray(app.sumview.charts);
+    // $(container).empty()
+    // shuffleArray(app.sumview.charts;
     app.sumview.charts.forEach((ch) => {
         if(ch.created == created) {
 
@@ -288,7 +288,7 @@ export function updateData(data, name) {
     })
 
     createDataTable(280)
-    displayAllCharts('#allchartsview', false)
+    displayAllCharts('#allchartsview', true)
     displayAllCharts('#suggestionview', true)
 
     // events handling
