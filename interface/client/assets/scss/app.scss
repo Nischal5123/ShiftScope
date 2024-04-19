@@ -12,7 +12,7 @@ html, body {
   position: absolute;
   left: 0;
   min-width: 1500px;
-  min-height: 800px;
+  min-height: 500px;
   width: 100%;
   height: 100%;
   display: inline-block;
@@ -24,12 +24,12 @@ html, body {
 
 #toolbar {
   width: 100%;
-  height: 40px;
+  height: 5px;
   display: inline-block;
-  font-size: 12px;
+  font-size: 8px;
 
   button {
-    margin: 10px;
+    margin: 8px;
   }
 }
 
@@ -39,31 +39,34 @@ html, body {
 
 #panel1 {
   position: absolute;
-  width: 20%;  /* Set width to 25% of the screen */
-  height: 100%;
+  width: 350px;
+  height: 96%;
   display: inline-block;
   top: 40px;
-  left: 0;      /* Starts from the left edge */
+  left: 0;
   margin: 0px;
 }
 
 #panel2 {
   position: absolute;
-  width: 55%;  /* Set width to 50% of the screen */
   height: 100%;
+  left: 350px;
+  right: 500px;
   display: inline-block;
+  bottom: 40px;
   top: 40px;
-  left: 22%;   /* Starts from 25% of the screen width, where panel1 ends */
   margin: 0px;
+
 }
 
 #panel3 {
   position: absolute;
-  width: 25%;  /* Set width to 25% of the screen */
+  left:1210px;
+  width: 600px;
+  right:0px;
   height: 100%;
   display: inline-block;
   top: 40px;
-  left: 75%;   /* Starts from 75% of the screen width, where panel2 ends */
   margin: 0px;
 }
 
@@ -72,11 +75,10 @@ html, body {
   width: 100%;
   background-color: black;
   color: white;
-  font-size: 20px;
-  height: 25px;
+  font-size: 15px;
+  height: 20px;
   display: inline-block;
   border-color: white;
-  text-align: center; 
 }
 
 #weight_slider {
@@ -87,42 +89,81 @@ html, body {
   outline: none;
 }
 
+//#chartview {
+//  width: 100%;
+//  height: 250px;
+//  top: 20px;
+//  left: 0;
+//  display: inline-block;
+//  background: white;
+//  border: gray 1px solid;
+//  border-radius: 5px;
+//  position: absolute;
+//  margin: 2px;
+//
+//  .chartcontainer {
+//    height: 80%;
+//    width: 90%;
+//  }
+//}
+
 #chartview {
+  position: absolute;
   width: 100%;
-  height: 100%;
-  top: 20px;
   left: 0;
+  top: 20px;
+  bottom: 321px;
   display: inline-block;
-  background: white;
   border: gray 1px solid;
   border-radius: 5px;
-  position: absolute;
+  vertical-align: top;
   margin: 2px;
 
   .chartcontainer {
-    height: 100%;
+    height: 90%;
     width: 100%;
   }
 }
 
+//#suggestionview {
+//  position: absolute;
+//  width: 100%;
+//  left: 0;
+//  top: 20px;
+//  bottom: 310px;
+//  display: inline-block;
+//  border: gray 1px solid;
+//  border-radius: 5px;
+//  overflow-y: auto;
+//  overflow-x: hidden;
+//  vertical-align: top;
+//  margin: 2px;
+//}
+
+
 #charteditor {
+   position: absolute;
   width: 100%;
-  top: 500px;
-  bottom: 0px;
   left: 0;
-  position: absolute;
+  top: 20px;
+  bottom: 0px;
   display: inline-block;
   border: gray 1px solid;
   border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
   margin: 2px;
 }
 
+
+
 #chartcomposer {
   width: 100%;
-  height: 180px;
-  padding: 15px 15px;
+  height: 280px;
+  padding: 5px 10px;
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
 
   label {
     width: 50px;
@@ -138,15 +179,15 @@ html, body {
   }
 }
 
-// #editorcontainer {
-//   width: 100%;
-//   top: 170px;
-//   bottom: 20px;
-//   left: 0;
-//   position: absolute;
-//   border-top: 1px solid gray;
-//   display: inline-block;
-// }
+#editorcontainer {
+  width: 100%;
+  top: 350px;
+  bottom: 20px;
+  left: 0;
+  position: absolute;
+  border-top: 1px solid gray;
+  display: inline-block;
+}
 
 .editorbuttons {
   height: 20px;
@@ -170,38 +211,45 @@ html, body {
   left: 0;
 }
 
-#sumview {
-  position: absolute;
-  width: 100%;
-  left: 0;
-  top: 20px;
-  bottom: 310px;
-  display: inline-block;
-  border: gray 1px solid;
-  border-radius: 5px;
-  margin: 2px;
-}
+.editorbuttons3 {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-#dataview {
-  position: absolute;
-  top: 750px;
-  left: 0;
-  width: 90%;
-  height: 400px;
-  // bottom: 0;
-  font-size: 11px;
-  // display: inline-block;
-  border: gray 1px solid;
-  border-radius: 5px;
-  margin: 2px;
-}
+  button {
+    margin: 2px;
+    height: 20px;
+    width: 80px;
+    border-radius: 2px;
+  }
 
-#allchartsview {
+  button:disabled {
+    opacity: 0.5;
+  }
+}
+//#suggestionview {
+//  position: absolute;
+//  width: 100%;
+//  left: 0;
+//  top: 20px;
+//  bottom: 310px;
+//  display: inline-block;
+//  border: gray 1px solid;
+//  border-radius: 5px;
+//  overflow-y: auto;
+//  overflow-x: hidden;
+//  vertical-align: top;
+//  margin: 2px;
+//}
+
+#suggestionview {
   position: absolute;
   width: 500px;
   top: 20px;
   bottom: 0;
-  left: 0;
+  left: 10px;
+  right: 20px;
   display: inline-block;
   border: gray 1px solid;
   border-radius: 5px;
@@ -211,40 +259,56 @@ html, body {
   margin: 2px;
 }
 
-#suggestionview {
-  // height: 100%;
-  // width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Three columns of equal width */
-  grid-template-rows: auto auto;        /* Two rows of equal height */
-  gap: 10px;   
+#dataview {
   position: absolute;
-  top: 20px;
+  top:630px;
+  left: 0;
+  width: 100%;
+  bottom: 20px;
+  font-size: 12px;
+  display: inline-block;
   border: gray 1px solid;
   border-radius: 5px;
+  margin: 1px;
+}
+
+//thi is old sumview now history
+#allchartsview {
+  position: absolute;
+  width: 100px;
+  top: 20px;
+  bottom: 0;
+  left: 0px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
   margin: 2px;
 }
-#data-label {
-  top: 730px;
-  width: 100%;
-  background-color: black;
-  color: white;
-  font-size: 35px;
-  height: 20px;
-  // display: inline-block;
-  border-color: white;
-  text-align: center; 
+
+//this is till sumview
+#sumview {
+  position: absolute;
+  width: 100px;
+  top: 20px;
+  bottom: 0;
+  left: 500px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
 }
 
 .chartdiv {
   position: relative;
-  // width: 100%; /* Full width of the grid cell */
-  // height: 100%; /* Full height of the grid cell */
-  // display: flex; /* Flex container to center the chart */
-  justify-content: center;
-  align-items: center;
   border-top: 1px dashed lightgray;
   border-bottom: 1px dashed lightgray;
+   height: 300px; /* Adjust the height as needed */
 }
 
 .chartlabel {
@@ -260,8 +324,6 @@ html, body {
   text-align: center;
   font-weight: bold;
 }
-
-
 
 #tooltip {
   position: absolute;
