@@ -12,8 +12,6 @@
 import './assets/scss/app.scss'
 
 // global libs
-// var $ = require('jquery')
-// window.$ = window.jQuery = $
 var d3 = require('d3')
 window.d3 = d3
 var _ = require('lodash');
@@ -26,7 +24,8 @@ var app = {}
 app.logger = []
 window.app = app
 
-var datafile = '/data/movies_cleaned.json'
+var datafile = '/data/birdstrikes.json'
+// var datafile = 'data/movies_cleaned.json'
 
 $(document).ready(function() {
     var parameters = parseurl()

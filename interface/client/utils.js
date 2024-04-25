@@ -69,38 +69,40 @@
      // $(container).empty()
      // shuffleArray(app.sumview.charts;
      app.sumview.charts.forEach((ch) => {
-         if(ch.created == created) {
- 
-             var vegachart = _.extend({}, ch.originalspec,
-                 { width: 470, height: 225, autosize: 'fit' },
-                 { data: {values: app.data.chartdata.values} },
-                 { config: vegaConfig})
-             $(container).append($('<div />', {class: 'chartdiv', id: 'chart' + ch.chid}))
-             $('#chart' + ch.chid).append('<div class="chartcontainer"></div><span class="chartlabel"></span>')
- 
-             vegaEmbed('#chart' + ch.chid + ' .chartcontainer', vegachart, {actions: false})
-             $('#chart' + ch.chid + ' .chartlabel').css('background-color', ch.created ? '#f1a340' : '#998ec3')
-             $('#chart' + ch.chid + ' .chartlabel').html('#' + ch.chid + '-u' + ch.uid)
-             
-             $('#chart' + ch.chid).hover((e) => {
-                 $('#chart' + ch.chid).css('border-color', 'crimson')
-                 app.sumview.highlight(ch.chid, true)
-             }, (e) => {
-                 $('#chart' + ch.chid).css('border-color', 'lightgray')
-                 app.sumview.highlight(ch.chid, false)
-             }).click((e) => {
-                 app.sumview.selectedChartID = ch.chid
-             })
-         }
+        //  if(ch.created == created) {
+            //  console.log(ch.originalspec)
+            var vegachart = _.extend({}, ch.originalspec,
+                { width: 470, height: 225, autosize: 'fit' },
+            //  { data: {values: app.data.chartdata.values} },
+                { config: vegaConfig})
+            // console.log(vegachart)
+            $(container).append($('<div />', {class: 'chartdiv', id: 'chart' + ch.chid}))
+            $('#chart' + ch.chid).append('<div class="chartcontainer"></div><span class="chartlabel"></span>')
+        
+            vegaEmbed('#chart' + ch.chid + ' .chartcontainer', vegachart, {actions: false})
+            $('#chart' + ch.chid + ' .chartlabel').css('background-color', ch.created ? '#f1a340' : '#998ec3')
+            $('#chart' + ch.chid + ' .chartlabel').html('#' + ch.chid)
+            
+            $('#chart' + ch.chid).hover((e) => {
+                $('#chart' + ch.chid).css('border-color', 'crimson')
+                app.sumview.highlight(ch.chid, true)
+            }, (e) => {
+                $('#chart' + ch.chid).css('border-color', 'lightgray')
+                app.sumview.highlight(ch.chid, false)
+            }).click((e) => {
+                app.sumview.selectedChartID = ch.chid
+                })
+        //  }
      })
  }
  
  export function handleEvents() {
      app.sumview.on('clickchart', (ch) => {
+         console.log(ch.originalspec)
          app.chartview.update(ch.originalspec, 'outside')
  
          $('#chartview .chartlabel').css('background-color', ch.created ? '#f1a340' : '#998ec3')
-         $('#chartview .chartlabel').html('#' + ch.chid + '-u' + ch.uid)
+         $('#chartview .chartlabel').html('#' + ch.chid)
          if(ch.created) {
              $('#update, #remove').attr('disabled', true)
          }
@@ -118,7 +120,7 @@
          vegaEmbed('#tooltip .chartcontainer', vegachart, {actions: false})
          
          $('#tooltip .chartlabel').css('background-color', ch.created ? '#f1a340' : '#998ec3')
-         $('#tooltip .chartlabel').html('#' + ch.chid + '-u' + ch.uid)
+         $('#tooltip .chartlabel').html('#' + ch.chid)
      })
      .on('recommendchart', () => {
          displayAllCharts('#suggestionview', true)
@@ -126,43 +128,41 @@
  
      })
  
-     app.chartview.on('add-chart', (spec) => {
-         if(app.sumview.data.chartspecs.length > 0)
-             spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
-         else
-             spec._meta = {chid:0, uid:0}
-         app.sumview.data.chartspecs.push(spec)
+     app.chartview.on('similar', (spec) => {
+         
+        //  if(app.sumview.data.chartspecs.length > 0)
+        //      spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
+        //  else
+         spec._meta = {chid:0, uid:0}
+        //  app.sumview.data.chartspecs.push(spec)
  
          app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
          
-         //displayAllCharts('#allchartsview', false)
          $('#suggestionview').empty()
          displayAllCharts('#suggestionview', false)
-         //displayAllCharts('#allchartsview', true)
- 
          
          if(logging) app.logger.push({time:Date.now(), action:'addchart', data:spec})
      })
  
-     app.chartview.on('update-chart', (spec) => {
-         spec._meta = app.sumview.data.chartspecs[app.sumview.selectedChartID]._meta
-         app.sumview.data.chartspecs[app.sumview.selectedChartID] = spec
+    //  app.chartview.on('update-chart', (spec) => {
+    //      spec._meta = app.sumview.data.chartspecs[app.sumview.selectedChartID]._meta
+    //      app.sumview.data.chartspecs[app.sumview.selectedChartID] = spec
  
-         app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
-         displayAllCharts('#allchartsview', false)
-         $('#suggestionview').empty()
+    //      app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
+    //      displayAllCharts('#allchartsview', false)
+    //      $('#suggestionview').empty()
  
-         if(logging) app.logger.push({time:Date.now(), action:'updatechart', data:spec})
-     })
+    //      if(logging) app.logger.push({time:Date.now(), action:'updatechart', data:spec})
+    //  })
  
-     app.chartview.on('remove-chart', (spec) => {
-         app.sumview.data.chartspecs = app.sumview.data.chartspecs.filter((d) => { return d._meta.chid != app.sumview.selectedChartID })
-         app.sumview.update()
-         displayAllCharts('#allchartsview', false)
-         $('#suggestionview').empty()
+    //  app.chartview.on('remove-chart', (spec) => {
+    //      app.sumview.data.chartspecs = app.sumview.data.chartspecs.filter((d) => { return d._meta.chid != app.sumview.selectedChartID })
+    //      app.sumview.update()
+    //      displayAllCharts('#allchartsview', false)
+    //      $('#suggestionview').empty()
  
-         if(logging) app.logger.push({time:Date.now(), action:'removechart', data:spec})
-     })
+    //      if(logging) app.logger.push({time:Date.now(), action:'removechart', data:spec})
+    //  })
  
      $('#import').click(() => {
          $('#dialog').css('display', 'block')
@@ -233,17 +233,6 @@
                  data: app.sumview.data.chartdata.values 
              }, null, '  '), 'datacharts.json', 'text/json')
          if(logging) download(JSON.stringify(app.logger, null, '  '), 'logs.json', 'text/json')
-     })
- 
-     $('#weight_slider').change(() => {
-         var w = $('#weight_slider').val() / 100.0
-         $('#weight').html( w.toFixed(2) )
-         app.sumview.weight = w
-     })
- 
-     $('#show_bubble').change(() => {
-         var showbubbles = $('#show_bubble').is(':checked')
-         app.sumview.showBubbles = showbubbles
      })
  
      $(window).resize(() => {

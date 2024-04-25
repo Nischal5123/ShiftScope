@@ -39,23 +39,27 @@ def recommend_charts(
 
     renderer = AltairRenderer()
     chart_specs = {}
+    chart_vega_specs = {}
     for i, model in enumerate(draco.complete_spec(spec, num)):
         # print(i)
         chart_name = labeler(i)
         spec = drc.answer_set_to_dict(model.answer_set)
         chart_specs[chart_name] = drc.dict_to_facts(spec), spec
-        print(chart_name)
-        print(f"COST: {model.cost}")
+        # print(chart_name)
+        # print(f"COST: {model.cost}")
         chart = renderer.render(spec=spec, data=df)
+        chart_vega_specs[chart_name] = chart.to_json()
         # # Adjust column-faceted chart size
         if (
             isinstance(chart, alt.FacetChart)
             and chart.facet.column is not alt.Undefined
         ):
             chart = chart.configure_view(continuousWidth=130, continuousHeight=130)
+        # print(chart.to_json())
         # display(chart)
 
-    return chart_specs
+    # return chart_specs
+    return chart_vega_specs
 
 def rec_from_generated_spec(
     marks: list[str],
@@ -126,16 +130,22 @@ def start_draco(fields,datasetname='movies'):
     # marks = ['bar', 'point', 'area', 'circle', 'line', 'tick'],
     fields=fields,
     # encoding_channels=["x", "y", "color"],
-    # encoding_channels=["color", "shape", "size"],
-    encoding_channels=["x", "y", "color", "shape", "size"],
+    encoding_channels=["color", "shape", "size"],
+    # encoding_channels=["x", "y", "color", "shape", "size"],
     draco=d,
     input_spec_base=input_spec_base,
     data=df
     )
     return recommendations
 
-# Joining the data `schema` dict with the view specification dict
+def get_draco_recommendations(attributes):
+    ret = [f.replace('__', '_').lower() for f in attributes]
+    field_names_renamed = [f.replace('$', 'a') for f in ret]
+    # print(field_names_renamed)
+    recommendations=start_draco(fields=field_names_renamed, datasetname='birdstrikes')
+    return recommendations
 
+# Joining the data `schema` dict with the view specification dict
 if __name__ == '__main__':
     fields_birdstrikes = ['airport_name', 'flight_date', 'origin_state']
     fields_seattle=["weather", "temp_min", "date"]
@@ -144,12 +154,15 @@ if __name__ == '__main__':
     recommendations=start_draco(fields=fields_birdstrikes, datasetname='birdstrikes')
 
     # recommendations=start_draco(fields=fields_seattle, datasetname='seattle')
-    print(len(recommendations))
+    # print(len(recommendations))
     # Loop through the dictionary and print recommendations
     for chart_key, _ in recommendations.items():
-        (_,chart)=(recommendations[chart_key])
-
+        # (_,chart)=(recommendations[chart_key])
+        chart = recommendations[chart_key]
         print(f"Recommendation for {chart_key}:")
         print(f"**Draco Specification of {chart_key}**")
-        localpprint(chart)
+        # localpprint(chart)
+        # print(chart)
         # print("\n")
+        break
+

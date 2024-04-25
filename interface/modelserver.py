@@ -7,18 +7,18 @@ import nltk
 import numpy as np
 from scipy.optimize import minimize
 from scipy.spatial import procrustes
-import h5py
 
-import tensorflow as tf
-from tensorflow.keras import backend as K
-from sklearn.decomposition import PCA
-from sklearn.manifold import MDS, smacof
+# import tensorflow as tf
+# from tensorflow.keras import backend as K
+# from sklearn.decomposition import PCA
+# from sklearn.manifold import MDS, smacof
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import pdb 
+import draco_test
 
-from gvaemodel.vis_vae import VisVAE, get_rules, get_specs
-from gvaemodel.vis_grammar import VisGrammar
+# from gvaemodel.vis_vae import VisVAE, get_rules, get_specs
+# from gvaemodel.vis_grammar import VisGrammar
 from environment import environment
 
 port = 5500
@@ -76,120 +76,59 @@ def handle_invalid_usage(error):
 @app.route('/encode', methods=['POST'])
 def encode():
     specs = request.get_json()
-    for s in specs:
-        state = visvae.encode2(s)
-        print(state)
-        env.take_step(state)
-    try:
-        #tf.keras.backend.set_session(sess)
-        z = visvae.encode(specs)
-        # pdb.set_trace()
-    except Exception as e:
-        raise InvalidUsage(e.message)
-    return jsonify(z.tolist())
+    # print(specs)
+    parsed_data = [json.loads(item) for item in specs]
+
+    # Extract field names from the parsed JSON
+    field_names = []
+    for item in parsed_data:
+        # Assuming 'encoding' contains the fields and is structured consistently as shown in your sample
+        encodings = item.get('encoding', {})
+        for key in encodings:
+            field_info = encodings[key]
+            field_name = field_info.get('field')
+            if field_name:
+                field_names.append(field_name)
+
+    #get_draco recommendations
+    recommendations = draco_test.get_draco_recommendations(field_names)
+    chart_recom = []
+    for chart_key, _ in recommendations.items():
+        # (_,chart)=(recommendations[chart_key])
+        chart = recommendations[chart_key]
+        chart_recom.append(chart)
+    return jsonify(chart_recom)
 
 
 #This encode2 will handle the state finding request based on what the user clicked on
 @app.route('/encode2', methods=['POST'])
 def encode2():
+    #To-do: We need to encode the vegalite specs into one-hot vector
     specs = request.get_json()
     try:
-        state = visvae.encode2(specs)
-        print(state)
-        env.take_step(state)
-        pdb.set_trace()
+        state = []
+        # print(state)
+        # env.take_step(state)
+        # pdb.set_trace()
     except Exception as e:
         raise InvalidUsage(e.message)
-    return jsonify(state.tolist())
+    return jsonify(state)
 
 
-@app.route('/decode', methods=['POST'])
-def decode():
-    z = np.array(request.get_json())
-    # print(z)
-    try:
-        #tf.keras.backend.set_session(sess)
-        specs = visvae.decode(z)
-        # print(specs)
-    except Exception as e:
-        raise InvalidUsage(e.message)
-    return jsonify(specs)
+@app.route('/top_k', methods=['POST'])
+def top_k():
+    data = request.get_json()
+    if data and isinstance(data, list):
+        attributes = data[0]
 
-
-@app.route('/orientate', methods=['POST'])
-def orientate():
-    locations = request.get_json()
-    mt1, mt2, disparity = procrustes(locations[0], locations[1])
-    return jsonify(mt2.tolist())
-
-
-@app.route('/pca', methods=['POST'])
-def pcaproject():
-    global pca
-    pca = PCA(n_components=2)
-    x = np.array(request.get_json())
-    y = pca.fit_transform(x)
-    return jsonify(y.tolist())
-
-
-@app.route('/invpca', methods=['POST'])
-def invpcaproject():
-    global pca
-    y = np.array(request.get_json())
-    x = pca.inverse_transform(y)
-    return jsonify(x.tolist())
-
-
-@app.route('/mds', methods=['POST'])
-def mdsproject():
-    distm = np.array(request.get_json())
-    mds = MDS(n_components=2, dissimilarity='precomputed', random_state=13, max_iter=3000, eps=1e-9)
-    y = mds.fit(distm).embedding_
-    # res = smacof(distm, n_components=2, random_state=13, max_iter=3000, eps=1e-9)
-    # y = res[0]    
-    return jsonify(y.tolist())
-
-
-@app.route('/invmds', methods=['POST'])
-def invmdsproject():
-    inputdata = request.get_json()
-    ps = np.array(inputdata['points'])
-    dsall = np.array(inputdata['distances'])
-
-    # res = myminimize((ps, dsall[0]))
-    pool = Pool(8)
-    res = pool.map(myminimize, [(ps, ds) for ds in dsall])
-    res = [r.tolist() for r in res]
-    pool.close()
-    pool.join()
-    return jsonify(res)
-
-
-def myminimize(args):
-    ps, ds = args
-    x0 = np.random.random_sample(ps[0].shape)
-    res = minimize(objfun, x0, args=(ps, ds), tol=1e-9, options={'maxiter': 3000})
-    return res.x
-
-
-def objfun(x, ps, ds):
-    d = np.tile(x, (ps.shape[0], 1)) - ps
-    d = np.sum(np.square(d), axis=1)
-    diff = np.sqrt(d) - ds
-    return np.sum(np.square(diff))
-
+    recommendations = draco_test.get_draco_recommendations(attributes)
+    chart_recom = []
+    for chart_key, _ in recommendations.items():
+        # (_,chart)=(recommendations[chart_key])
+        chart = recommendations[chart_key]
+        chart_recom.append(chart)
+    return jsonify(chart_recom)
 
 if __name__ == '__main__':
-    rules = []
-    with open(rulesfile, 'r') as inputs:
-        for line in inputs:
-            line = line.strip()
-            rules.append(line)
-
-
-    visvae = VisVAE(modelsave, rules, MAX_LEN, LATENT)
-
-
-    pca = PCA(n_components=2)
 
     app.run(port=port, debug=False)

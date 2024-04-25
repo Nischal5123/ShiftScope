@@ -70,20 +70,20 @@
          // buttons
          $('#add').click((e) => {
              this.update(this._cheditor.session.getValue(), 'texteditor')
-             this.emit('add-chart', this.data)
+             this.emit('similar', this.data)
          })
  
-         $('#update').click((e) => {
-             if(app.sumview.selectedChartID < 0) return
-             this.update(this._cheditor.session.getValue(), 'texteditor')
-             this.emit('update-chart', this.data)
-         })
+        //  $('#update').click((e) => {
+        //      if(app.sumview.selectedChartID < 0) return
+        //      this.update(this._cheditor.session.getValue(), 'texteditor')
+        //      this.emit('update-chart', this.data)
+        //  })
  
-         $('#remove').click((e) => {
-             if(app.sumview.selectedChartID < 0) return
+        //  $('#remove').click((e) => {
+        //      if(app.sumview.selectedChartID < 0) return
  
-             this.emit('remove-chart', this.data)
-         })
+        //      this.emit('remove-chart', this.data)
+        //  })
  
          $('#preview1').click((e) => {
              var data = _.cloneDeep(this.data)
@@ -117,8 +117,8 @@
                  else
                      delete data['encoding'][channel]
              })
- 
-             this._validateChart(data, () => {this.update(data, 'uicontrols')})
+            //  console.log(data)
+             this._validateChart(data, (recommended_chart_specs) => {this.update(recommended_chart_specs, 'uicontrols')})
          })
  
          $('#preview2').click((e) => {
@@ -134,25 +134,29 @@
          })
      }
      
-     update(data, eventsource) {
+     update(data_all, eventsource) {
          // handle data parsing, string or object
+        var data = data_all[0]
+        //  console.log(data)
          if(typeof data == 'string') {
              try {
                  this.data = JSON.parse(data)
              }
              catch(err) {
-                 console.log(err)
+                 console.log(err, data)
                  return
              }
          }
          else if(typeof data == 'object') {
              this.data = data
          }
- 
-         var vegachart = _.extend({}, this.data, 
+        var vegachart = _.extend({}, this.data, 
              { width: 835, height: 550, autosize: 'fit' },
-             { data: {values: this.conf.datavalues} },
+            //  { data: {values: this.conf.datavalues} },
              { config: this.conf.vegaconfig})
+        //  console.log(vegachart)
+        //  console.log(vegachart[0])
+         
          vegaEmbed('#chartview .chartcontainer', vegachart, {actions: false})
  
          if(eventsource != 'texteditor')
@@ -191,14 +195,16 @@
          var sp = chart
          if(typeof chart == 'object') 
              sp = JSON.stringify(chart)
-     
-         app.data.chartdata.attributes.forEach((attr) => {
-             sp = sp.replace(new RegExp(attr[0], 'g'), (m) => {
-                 return attr[1]
-             })
-         }) 
-         sp = sp.replace(/[\s|\n]+/g, '')
-         debugger
+            
+        //  app.data.chartdata.attributes.forEach((attr) => {
+        //      sp = sp.replace(new RegExp(attr[0], 'g'), (m) => {
+        //          return attr[1]
+        //      })
+        //  }) 
+        //  sp = sp.replace(/[\s|\n]+/g, '')
+        //  console.log(sp)
+        //  console.log(app.sumview.conf.backend)
+
          $.ajax({
              type: 'POST',
              crossDomain: true,
@@ -206,7 +212,8 @@
              data: JSON.stringify([sp]),
              contentType: 'application/json'
          }).done((data) => {
-             callback()
+            //  console.log(data)
+             callback(data)
          }).fail((xhr, status, error) => {
              alert('This chart is currently not supported.')
          })

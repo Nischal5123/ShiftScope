@@ -72,22 +72,21 @@ class VisVAE():
         self.vae = ModelVAE()
         self.vae.load(self.rules, weights_file, max_length=self.max_len, latent_rep_size=self.latent_dim, hypers=hypers)
         self.attributes = [
-  ["Title", "str", "nominal"], 
-  ["US_Gross", "num", "quantitative"], 
-  ["Worldwide_Gross", "num", "quantitative"], 
-  ["US_DVD_Sales", "num", "quantitative"], 
-  ["Production_Budget", "num", "quantitative"], 
-  ["Release_Date", "str", "nominal"], 
-  ["MPAA_Rating", "str", "nominal"], 
-  ["Running_Time_min", "num", "quantitative"], 
-  ["Distributor", "str", "nominal"], 
-  ["Source", "str", "nominal"], 
-  ["Major_Genre", "str", "nominal"],
-  ["Creative_Type", "str", "nominal"], 
-  ["Director", "str", "nominal"], 
-  ["Rotten_Tomatoes_Rating", "num", "quantitative"], 
-  ["IMDB_Rating", "num", "quantitative"], 
-  ["IMDB_Votes", "num", "quantitative"]]
+        ["Airport_Name"],
+        ["Aircraft_Make_Model"],
+        ["Effect_Amount_of_damage"],
+        ["Flight_Date"],
+        ["Aircraft_Airline_Operator"],
+        ["Origin_State"],
+        ["When_Phase_of_flight"],
+        ["Wildlife_Size"],
+        ["Wildlife_Species"],
+        ["When_Time_of_day"],
+        ["Cost_Other"],
+        ["Cost_Repair"],
+        ["Cost_Total_a"],
+        ["Speed_IAS_in_knots"]
+    ]
         
     def encode(self, sentences):
         one_hot = np.zeros((len(sentences), self.max_len, self.input_dim), dtype=np.float32)
@@ -96,9 +95,8 @@ class VisVAE():
             # print(sentence.type)
             json_obj = json.loads(sentence)
             sentence_rules = [] 
-            get_rules(json_obj, 'root', sentence_rules)
-            # pdb.set_trace()
-            indices = [self.rule2index[r] for r in sentence_rules]
+            
+            indices = [self.rule2index[r] for r in self.attributes]
 
             one_hot[i][np.arange(len(indices)), indices] = 1
             one_hot[i][np.arange(len(indices), self.max_len), -1] = 1
