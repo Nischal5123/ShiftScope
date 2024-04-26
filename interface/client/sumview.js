@@ -1,20 +1,14 @@
 /*************************************************************************
- * Copyright (c) 2018 Jian Zhao
+ * Copyright (c) 2024 Sanad Saha
  *
  *************************************************************************
  *
  * @author
- * Jian Zhao <zhao@fxpal.com>
+ * Sanad <sahasa@oregonstate.edu>
  *
  *************************************************************************/
 
 import EventEmitter from "events"
-import vegaEmbed from 'vega-embed'
-// import * as cql from 'compassql'
-// import {SpecQueryModel} from 'compassql/build/src/model'
-// import {rank} from 'compassql/build/src/ranking/ranking'
-
-// import clusterfck from '../components/clusterfck/lib/clusterfck'
 
 export default class SumView extends EventEmitter {
     constructor(container, data, conf) {
@@ -169,60 +163,6 @@ export default class SumView extends EventEmitter {
     }
 
     render() {
-        if(this._showBubbles) {
-            // draw bubbles
-            var bubbles =  this._svgDrawing.select('.bubblelayer')
-                .selectAll('.bubble')
-                .data(this._bubbleSets)
-
-            bubbles.enter()
-                .append('path')
-                .attr('class', 'bubble')
-                .attr('d', (d) => {return d})
-                .style('opacity', 0)
-                .transition()
-                .duration(1000)
-                .style('opacity', 1)
-
-            bubbles.style('opacity', 0)
-                .attr('d', (d) => {return d})
-                .transition()
-                .duration(1000)
-                .style('opacity', 1)
-
-            bubbles.exit()
-                .remove()
-
-            // draw text
-            var texts = this._svgDrawing.select('.textlayer')
-                .selectAll('.backtext')
-                .data(this._variableSets)
-
-            texts.enter()
-                .append('text')
-                .attr('class', 'backtext')
-                .attr('x', (d) => {return this._xscale(d.loc[0]) + _.random(-20, 20) })
-                .attr('y', (d) => {return this._yscale(d.loc[1]) + _.random(-20, 20) })
-                .style('font-size', (d) => {return 8 + d.count * 2})
-                .style('fill', (d) => {return this._varclr(d.text)})
-                .text((d) => {return d.text})
-                .style('opacity', 0)
-                .transition()
-                .duration(1000)
-                .style('opacity', 1)
-
-            texts.style('opacity', 0)
-                .attr('x', (d) => {return this._xscale(d.loc[0]) + _.random(-20, 20) })
-                .attr('y', (d) => {return this._yscale(d.loc[1]) + _.random(-20, 20) })
-                .style('font-size', (d) => {return 8 + d.count * 2})
-                .style('fill', (d) => {return this._varclr(d.text)})
-                .text((d) => {return d.text})
-                .transition()
-                .duration(1000)
-                .style('opacity', 1)
-
-            texts.exit().remove()
-        }
         // draw charts
         var charts = this._svgDrawing.select('.chartlayer')
             .selectAll('.chartdot')
@@ -239,13 +179,6 @@ export default class SumView extends EventEmitter {
                 this.selectedChartID = d.chid
                 console.log(this.selectedChartID)
                 console.log("This has been selected")
-                // this._selectedChart = d
-                // this._svgDrawing.selectAll('.chartdot.selected')
-                //     .classed('selected', false) 
-                // this._svgDrawing.selectAll('.chartdot')
-                //     .filter((c) => {return c.chid == d.chid})
-                //     .classed('selected', true) 
-                // this.emit('clickchart', d) 
             })
             .on('mouseover', (d) => {
                 this.highlight(d.chid, true)

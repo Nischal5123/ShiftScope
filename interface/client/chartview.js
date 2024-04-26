@@ -136,20 +136,26 @@
      
      update(data_all, eventsource) {
          // handle data parsing, string or object
-        var data = data_all[0]
-        //  console.log(data)
-         if(typeof data == 'string') {
-             try {
-                 this.data = JSON.parse(data)
+        if (eventsource == 'outside'){
+            this.data = data_all
+        }
+        else{
+            var data = data_all[0]
+            //  console.log(data)
+             if(typeof data == 'string') {
+                 try {
+                     this.data = JSON.parse(data)
+                 }
+                 catch(err) {
+                     console.log(err, data)
+                     return
+                 }
              }
-             catch(err) {
-                 console.log(err, data)
-                 return
+             else if(typeof data == 'object') {
+                 this.data = data
              }
-         }
-         else if(typeof data == 'object') {
-             this.data = data
-         }
+        }
+
         var vegachart = _.extend({}, this.data, 
              { width: 835, height: 550, autosize: 'fit' },
             //  { data: {values: this.conf.datavalues} },

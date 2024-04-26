@@ -98,7 +98,7 @@
  
  export function handleEvents() {
      app.sumview.on('clickchart', (ch) => {
-         console.log(ch.originalspec)
+        //  console.log(ch.originalspec)
          app.chartview.update(ch.originalspec, 'outside')
  
          $('#chartview .chartlabel').css('background-color', ch.created ? '#f1a340' : '#998ec3')
@@ -202,7 +202,7 @@
              data: JSON.stringify(specs),
              contentType: 'application/json'
          }).done((data) => {
-             console.log(data)
+            //  console.log(data)
          })
      })
      
