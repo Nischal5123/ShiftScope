@@ -14,7 +14,8 @@
  import ChartView from './chartview.js'
  
  var logging = true
- 
+ var interactionLogs = [];
+ var fieldsArray = [];
  export var vegaConfig = {
      axis: {labelFontSize:9, titleFontSize:9, labelAngle:-45, labelLimit:50},
      legend: {gradientLength:20, labelFontSize:6, titleFontSize:6, clipHeight:20}
@@ -66,11 +67,11 @@
  
  
  export function displayAllCharts(container, created) {
-     // $(container).empty()
+     $(container).empty()
      // shuffleArray(app.sumview.charts;
      app.sumview.charts.forEach((ch) => {
-        //  if(ch.created == created) {
-            //  console.log(ch.originalspec)
+         // if(ch.created == created) {
+         //    //  console.log(ch.originalspec)
             var vegachart = _.extend({}, ch.originalspec,
                 { width: 470, height: 225, autosize: 'fit' },
             //  { data: {values: app.data.chartdata.values} },
@@ -92,7 +93,7 @@
             }).click((e) => {
                 app.sumview.selectedChartID = ch.chid
                 })
-        //  }
+         // }
      })
  }
  
@@ -123,23 +124,62 @@
          $('#tooltip .chartlabel').html('#' + ch.chid)
      })
      .on('recommendchart', () => {
-         displayAllCharts('#suggestionview', true)
+         displayAllCharts('#suggestionview', false)
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart'})
  
      })
  
      app.chartview.on('similar', (spec) => {
-         
-        //  if(app.sumview.data.chartspecs.length > 0)
-        //      spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
-        //  else
-         spec._meta = {chid:0, uid:0}
-        //  app.sumview.data.chartspecs.push(spec)
- 
-         app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
+
+         if(app.sumview.data.chartspecs.length > 0)
+            spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
+        else
+            spec._meta = {chid:0, uid:0}
+        app.sumview.data.chartspecs.push(spec)
+
+        app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
+
+        //displayAllCharts('#allchartsview', false)
+        $('#suggestionview').empty()
+        displayAllCharts('#suggestionview', false)
+
+
+      // Parse JSON string into a JavaScript object
+         const visualizationConfig = spec.encoding;
+
+        // Array to store extracted fields
+
+
+        //  const colorField = visualizationConfig.color.field !== undefined ? visualizationConfig.color.field : null;
+        //  const xField = visualizationConfig.x.field !== undefined ? visualizationConfig.x.field : null;
+        //  const yField = visualizationConfig.y.field !== undefined ? visualizationConfig.y.field : null;
+        //
+        // // Remove null or undefined values from fieldsArray
+        //  fieldsArray = [colorField, xField, yField].filter(field => field !== null && field !== undefined);
+
+         const colorField = visualizationConfig.color?.field !== undefined ? visualizationConfig.color.field : null;
+         const xField = visualizationConfig.x?.field !== undefined ? visualizationConfig.x.field : null;
+         const yField = visualizationConfig.y?.field !== undefined ? visualizationConfig.y.field : null;
+
+        // Check if colorField, xField, and yField exist
+         if (colorField !== null && xField !== null && yField !== null) {
+            // Remove null or undefined values from fieldsArray
+            fieldsArray = [colorField, xField, yField].filter(field => field !== null && field !== undefined);
+         } else {
+            // Handle case where colorField, xField, or yField is null
+            console.error('Error: colorField, xField, or yField is null or undefined.');
+         }
+        // Remove null or undefined values from fieldsArray
+        fieldsArray = [colorField, xField, yField].filter(field => field !== null && field !== undefined);
+
+
+
+        // Log extracted fields array
+         console.log("Fields array:", fieldsArray);
+         app.sumview.update(()=> {app.sumview.selectedChartID = spec._meta.chid }, fieldsArray)
          
          $('#suggestionview').empty()
-         displayAllCharts('#suggestionview', false)
+         displayAllCharts('#suggestionview', true)
          
          if(logging) app.logger.push({time:Date.now(), action:'addchart', data:spec})
      })
@@ -263,7 +303,7 @@
      app.data.chartspecs = data.charts
  
      app.sumview = new SumView(d3.select('#sumview'), app.data, {
-         backend: 'http://localhost:5500',
+         backend: 'http://127.0.0.1:5500',
          size: [$('#sumview').width(), $('#sumview').height()],
          margin: 10,
          chartclr: ['#f1a340', '#998ec3']
@@ -293,3 +333,12 @@
  }
  
  export default {vegaConfig, handleEvents, parseurl, createDataTable, displayAllCharts, updateData}
+
+function storeInteractionLogs(interaction, value, time) {
+  console.log({ Interaction: interaction, Value: value, Time: time.getTime() });
+  interactionLogs.push({
+    Interaction: interaction,
+    Value: value,
+    Time: time.getTime(),
+  });
+}

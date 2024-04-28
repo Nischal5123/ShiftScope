@@ -20,6 +20,7 @@ import draco_test
 # from gvaemodel.vis_vae import VisVAE, get_rules, get_specs
 # from gvaemodel.vis_grammar import VisGrammar
 from environment import environment
+import datetime
 
 port = 5500
 rulesfile = './gvaemodel/rules-cfg.txt'
@@ -99,20 +100,56 @@ def encode():
         chart_recom.append(chart)
     return jsonify(chart_recom)
 
+@app.route('/get-fields', methods=['POST'])
+def encode_test():
+    specs = request.get_json()
+    # print(specs)
+    parsed_data = [json.loads(item) for item in specs]
 
-#This encode2 will handle the state finding request based on what the user clicked on
+    # Extract field names from the parsed JSON
+    field_names = []
+    for item in parsed_data:
+        # Assuming 'encoding' contains the fields and is structured consistently as shown in your sample
+        encodings = item.get('encoding', {})
+        for key in encodings:
+            field_info = encodings[key]
+            field_name = field_info.get('field')
+            if field_name:
+                field_names.append(field_name)
+    return jsonify(field_names)
+
+#This is to get the recommendation that the user has selected
 @app.route('/encode2', methods=['POST'])
 def encode2():
-    #To-do: We need to encode the vegalite specs into one-hot vector
     specs = request.get_json()
-    try:
-        state = []
-        # print(state)
-        # env.take_step(state)
-        # pdb.set_trace()
-    except Exception as e:
-        raise InvalidUsage(e.message)
-    return jsonify(state)
+    parsed_data = json.loads(specs)
+
+    # Extract field names from the parsed JSON
+    field_names = []
+    parsed_data.get('encoding', {})
+    if parsed_data.get('encoding', {})!= {}:
+        encodings = parsed_data.get('encoding', {})
+    elif parsed_data.get('spec', {}).get('encoding', {}) != {}:
+        encodings = parsed_data.get('spec', {}).get('encoding', {})
+    else:
+        encodings = {}
+    for key in encodings:
+        field_info = encodings[key]
+        field_name = field_info.get('field')
+        if field_name:
+            field_names.append(field_name)
+
+    #write to a log file the selected recommendation for current session. can i get current session id?
+
+    with open('selected_recommendation.txt', 'a') as f:
+       #write field names and time
+       time= datetime.datetime.now()
+       f.write(f'{field_names} {time}\n')
+
+
+
+
+    return jsonify(specs)
 
 
 @app.route('/top_k', methods=['POST'])
@@ -120,6 +157,9 @@ def top_k():
     data = request.get_json()
     if data and isinstance(data, list):
         attributes = data[0]
+
+    #remove undefined from attributes
+    attributes = [x for x in attributes if x != 'undefined']
 
     recommendations = draco_test.get_draco_recommendations(attributes)
     chart_recom = []

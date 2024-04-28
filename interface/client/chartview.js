@@ -136,10 +136,13 @@
      
      update(data_all, eventsource) {
          // handle data parsing, string or object
-        if (eventsource == 'outside'){
+       if (['outside'].includes(eventsource)){
             this.data = data_all
         }
         else{
+            if (typeof data_all == 'string') {
+                data_all = [data_all]
+            }
             var data = data_all[0]
             //  console.log(data)
              if(typeof data == 'string') {
@@ -168,8 +171,8 @@
          if(eventsource != 'texteditor')
              this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '))
          
-         if(eventsource != 'uicontrols')
-             this._updateChartComposer()
+         // if(eventsource != 'uicontrols')
+         //     this._updateChartComposer()
      }
  
      _updateChartComposer() {
@@ -218,7 +221,7 @@
              data: JSON.stringify([sp]),
              contentType: 'application/json'
          }).done((data) => {
-            //  console.log(data)
+             console.log(data)
              callback(data)
          }).fail((xhr, status, error) => {
              alert('This chart is currently not supported.')

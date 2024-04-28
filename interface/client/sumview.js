@@ -70,7 +70,6 @@ export default class SumView extends EventEmitter {
             this.emit('clickchart', selectedChart) 
         }
     }
-
     set weight(w) {
         this._params.distw = w
         this.update()
@@ -135,10 +134,11 @@ export default class SumView extends EventEmitter {
             .attr('class', 'chartlayer')
     }
 
-    update(callback) {
+    update(callback, fields=null) {
         this._prevcharts = this._charts
 
-        this.selectedChartID = -1
+
+        //this.selectedChartID = -1
         // this._charts = this.data.chartspecs.map((d, i) => {
         //     var osp = _.extend({}, d)
         //     delete osp._meta
@@ -156,7 +156,7 @@ export default class SumView extends EventEmitter {
         //         vars: _.union(vars), created: false, chid: d._meta.chid, uid: d._meta.uid}
         // })
         
-        this._recommendCharts()
+        this._recommendCharts(fields)
         this.render()
         if(callback) callback()
     
@@ -265,8 +265,14 @@ export default class SumView extends EventEmitter {
         }
     }
   
-    _recommendCharts() {
-        var attributes = ['airport_name', 'flight_date', 'origin_state']
+    _recommendCharts(fields) {
+        if (fields == null) {
+            var attributes = ['airport_name', 'flight_date', 'origin_state']
+        }
+        else {
+            var attributes = fields
+        }
+
 
         $.ajax({
             context: this,
@@ -277,8 +283,10 @@ export default class SumView extends EventEmitter {
             contentType: 'application/json'
         }).done((data) => {
             // this._charts = data
+            this._charts = []
             for(var i = 0; i < data.length; i++) {
                 if(data[i]) {
+
                     var chart = {
                         originalspec: JSON.parse(data[i]),
                         // normspec: normspecs[vlcharts[i].index],
