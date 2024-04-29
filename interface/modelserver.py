@@ -16,11 +16,16 @@ from flask import Flask, jsonify, request
 from flask_cors import CORS
 import pdb 
 import draco_test
+import pandas as pd
+from collections import Counter
+
 
 # from gvaemodel.vis_vae import VisVAE, get_rules, get_specs
 # from gvaemodel.vis_grammar import VisGrammar
 from environment import environment
 import datetime
+from Momentum import Momentum
+from StateGenerator import StateGenerator
 
 port = 5500
 rulesfile = './gvaemodel/rules-cfg.txt'
@@ -156,10 +161,12 @@ def encode2():
 def top_k():
     data = request.get_json()
     if data and isinstance(data, list):
-        attributes = data[0]
+        attributesHistory = data
+    else:
+        attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
+                         ['flight_data', 'wildlife_size', 'airport_name']]
 
-    #remove undefined from attributes
-    attributes = [x for x in attributes if x != 'undefined']
+    attributes=onlinelearning(attributesHistory, algorithm='Momentum')
 
     recommendations = draco_test.get_draco_recommendations(attributes)
     chart_recom = []
@@ -169,6 +176,65 @@ def top_k():
         chart_recom.append(chart)
     return jsonify(chart_recom)
 
-if __name__ == '__main__':
+def onlinelearning(attributesHistory, algorithm='Momentum'):
+    #make all the attributes inside the list to be 3 in size fill with None if not enough
+    for i in range(len(attributesHistory)):
+        if len(attributesHistory[i])<3:
+            attributesHistory[i].extend(['none']*(3-len(attributesHistory[i])))
 
+    #make the array as a pandas dataframe with index and whole attribute as a State column
+    df = pd.DataFrame({'State': attributesHistory})
+
+    df_with_actions = process_actions(df)
+
+    if algorithm == 'Momentum':
+        algo=Momentum()
+        action=algo.MomentumDriver(df_with_actions)
+
+    generator = StateGenerator('birdstrikes')
+    next_state = generator.generate_next_states(df_with_actions['State'][len(df_with_actions)-1], action)
+
+    #there are too many combinations of next states, so we will just take the first one
+    next_state_filtered = list(filter(lambda x: x.lower() != 'none', next_state[0]))
+    return next_state_filtered
+
+
+
+def process_actions(data):
+    # print("Converting '{}'...".format(csv_filename))
+
+    df = data
+    actions = []
+
+    for index in range(len(df) - 1):
+        current_state = np.array(df['State'][index] ) # Convert string representation to list
+        next_state = np.array(df['State'][index + 1] ) # Convert string representation to list
+
+        # Count occurrences of each element in current_state and next_state
+        current_state_count = Counter(current_state)
+        next_state_count = Counter(next_state)
+
+        # Get the elements that are in next_state but not in current_state
+        difference_elements = list((next_state_count - current_state_count).elements())
+
+        # Get the number of different elements
+        num_different_elements = len(difference_elements)
+
+        if num_different_elements == 0:
+            action = 'same'
+        else:
+            action = f'modify-{num_different_elements}'
+            print('Reset')
+
+        actions.append(action)
+
+    actions.append('none')  # close the session resets everything to empty
+    df['Action'] = actions
+
+    return df
+
+if __name__ == '__main__':
+    # attributesHistory= [['flight_data','wildlife_size'],['flight_data','wildlife_size','airport_name'],['flight_data','wildlife_size','airport_name']]
+    # onlinelearning(attributesHistory)
+    # top_k()
     app.run(port=port, debug=False)

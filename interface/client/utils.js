@@ -16,6 +16,7 @@
  var logging = true
  var interactionLogs = [];
  var fieldsArray = [];
+ var attributesHistory = [];
  export var vegaConfig = {
      axis: {labelFontSize:9, titleFontSize:9, labelAngle:-45, labelLimit:50},
      legend: {gradientLength:20, labelFontSize:6, titleFontSize:6, clipHeight:20}
@@ -114,6 +115,7 @@
          if(logging) app.logger.push({time:Date.now(), action:'clickchart', data:ch.originalspec})
      })
      .on('mouseoverchart', (ch) => {
+         if(logging) app.logger.push({time:Date.now(), action:'mouseoverchart', data:ch})
          var vegachart = _.extend({}, ch.originalspec, 
              { width: 390, height: 190, autosize: 'fit' }, 
              { data: {values: app.data.chartdata.values} },
@@ -130,18 +132,19 @@
      })
  
      app.chartview.on('similar', (spec) => {
+         if(logging) app.logger.push({time:Date.now(), action:'recommendchart', data:spec})
 
-         if(app.sumview.data.chartspecs.length > 0)
-            spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
-        else
-            spec._meta = {chid:0, uid:0}
-        app.sumview.data.chartspecs.push(spec)
+        //  if(app.sumview.data.chartspecs.length > 0)
+        //     spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
+        // else
+         spec._meta = {chid:0, uid:0}
+        // app.sumview.data.chartspecs.push(spec)
 
-        app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
+
 
         //displayAllCharts('#allchartsview', false)
         $('#suggestionview').empty()
-        displayAllCharts('#suggestionview', false)
+        //displayAllCharts('#suggestionview', false)
 
 
       // Parse JSON string into a JavaScript object
@@ -164,21 +167,23 @@
         // Check if colorField, xField, and yField exist
          if (colorField !== null && xField !== null && yField !== null) {
             // Remove null or undefined values from fieldsArray
-            fieldsArray = [colorField, xField, yField].filter(field => field !== null && field !== undefined);
+            fieldsArray=[colorField, xField, yField].filter(field => field !== null && field !== undefined);
          } else {
             // Handle case where colorField, xField, or yField is null
             console.error('Error: colorField, xField, or yField is null or undefined.');
          }
         // Remove null or undefined values from fieldsArray
         fieldsArray = [colorField, xField, yField].filter(field => field !== null && field !== undefined);
+        attributesHistory.push(fieldsArray);
 
 
 
         // Log extracted fields array
          console.log("Fields array:", fieldsArray);
-         app.sumview.update(()=> {app.sumview.selectedChartID = spec._meta.chid }, fieldsArray)
+         app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid }, attributesHistory)
+         //app.sumview.update(()=> {app.sumview.selectedChartID = spec._meta.chid }, fieldsArray)
          
-         $('#suggestionview').empty()
+         //$('#suggestionview').empty()
          displayAllCharts('#suggestionview', true)
          
          if(logging) app.logger.push({time:Date.now(), action:'addchart', data:spec})
@@ -263,23 +268,24 @@
          }
  
          $('.close').click()
+         if(logging) app.logger.push({time:Date.now(), action:'submitdata'})
      })
  
- 
-     $('#export').click(() => {
+    $('#export').click(() => {
          download(JSON.stringify({
                  charts: app.sumview.data.chartspecs,
                  attributes: app.sumview.data.chartdata.attributes,
-                 data: app.sumview.data.chartdata.values 
+                 data: app.sumview.data.chartdata.values
              }, null, '  '), 'datacharts.json', 'text/json')
          if(logging) download(JSON.stringify(app.logger, null, '  '), 'logs.json', 'text/json')
+         restartProcess()
      })
- 
+
      $(window).resize(() => {
          app.sumview.svgsize = [$('#sumview').width(), $('#sumview').height()]
      })
  }
- 
+
  export function parseurl() {
      var parameters = {}
      var urlquery = location.search.substring(1)

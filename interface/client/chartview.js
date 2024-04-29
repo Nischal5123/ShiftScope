@@ -171,8 +171,9 @@
          if(eventsource != 'texteditor')
              this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '))
          
-         // if(eventsource != 'uicontrols')
-         //     this._updateChartComposer()
+         if(eventsource != 'uicontrols')
+             this._updateChartComposer()
+
      }
  
      _updateChartComposer() {

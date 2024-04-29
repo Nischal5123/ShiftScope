@@ -9,7 +9,7 @@
  *************************************************************************/
 
 import EventEmitter from "events"
-
+var logging = true
 export default class SumView extends EventEmitter {
     constructor(container, data, conf) {
         super()
@@ -134,7 +134,7 @@ export default class SumView extends EventEmitter {
             .attr('class', 'chartlayer')
     }
 
-    update(callback, fields=null) {
+    update(callback, attributesHistory=null) {
         this._prevcharts = this._charts
 
 
@@ -156,7 +156,7 @@ export default class SumView extends EventEmitter {
         //         vars: _.union(vars), created: false, chid: d._meta.chid, uid: d._meta.uid}
         // })
         
-        this._recommendCharts(fields)
+        this._recommendCharts(attributesHistory)
         this.render()
         if(callback) callback()
     
@@ -179,6 +179,7 @@ export default class SumView extends EventEmitter {
                 this.selectedChartID = d.chid
                 console.log(this.selectedChartID)
                 console.log("This has been selected")
+                if(logging) app.logger.push({time:Date.now(), action:'clickchart', data:d})
             })
             .on('mouseover', (d) => {
                 this.highlight(d.chid, true)
@@ -187,10 +188,12 @@ export default class SumView extends EventEmitter {
                     .style('display', 'inline-block')
                     .style('left', (d3.event.pageX + 8) + 'px')
                     .style('top', (d3.event.pageY + 8) + 'px')
+                if(logging) app.logger.push({time:Date.now(), action:'mousover', data:d})
             })
             .on('mouseout', (d) => {
                 this._svgDrawing.selectAll('.chartdot.hovered').classed('hovered', false) 
-                d3.select('#tooltip').style('display', 'none') 
+                d3.select('#tooltip').style('display', 'none')
+                if(logging) app.logger.push({time:Date.now(), action:'mouseout', data:d})
             })
 
         chartsenter.append('circle')
@@ -265,12 +268,12 @@ export default class SumView extends EventEmitter {
         }
     }
   
-    _recommendCharts(fields) {
-        if (fields == null) {
-            var attributes = ['airport_name', 'flight_date', 'origin_state']
+    _recommendCharts(attributesHistory) {
+        if (attributesHistory == null) {
+            var attributesHistory = [['airport_name', 'flight_date', 'origin_state']]
         }
         else {
-            var attributes = fields
+            var attributesHistory = attributesHistory
         }
 
 
@@ -279,7 +282,7 @@ export default class SumView extends EventEmitter {
             type: 'POST',
             crossDomain: true,
             url: this.conf.backend + '/top_k',    
-            data: JSON.stringify([attributes]),
+            data: JSON.stringify(attributesHistory),
             contentType: 'application/json'
         }).done((data) => {
             // this._charts = data
@@ -299,6 +302,7 @@ export default class SumView extends EventEmitter {
                     this._charts.push(chart)
                 }
             }
+           if(logging) app.logger.push({time:Date.now(), action:'system-recommendations', data:this._charts})
         }).fail((xhr, status, error) => {
             alert('Cannot Generate Recommendations.')
         })
