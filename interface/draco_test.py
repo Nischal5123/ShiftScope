@@ -33,7 +33,7 @@ def localpprint(obj):
         print(json.dumps(obj, indent=2, cls=NpEncoder))
 
 def recommend_charts(
-    spec: list[str], draco: drc.Draco, df: pd.DataFrame, num: int = 5, labeler=lambda i: f"CHART {i+1}"
+    spec: list[str], draco: drc.Draco, df: pd.DataFrame, num: int = 10, labeler=lambda i: f"CHART {i+1}"
 ) -> dict[str, tuple[list[str], dict]]:
     # Dictionary to store the generated recommendations, keyed by chart name
 

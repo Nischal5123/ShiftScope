@@ -18,6 +18,7 @@ import pdb
 import draco_test
 import pandas as pd
 from collections import Counter
+import time
 
 
 # from gvaemodel.vis_vae import VisVAE, get_rules, get_specs
@@ -159,21 +160,31 @@ def encode2():
 
 @app.route('/top_k', methods=['POST'])
 def top_k():
+    print('Starting Recommendation Engine...')
+    #get running time in console
+    start_time = time.time()
+
     data = request.get_json()
     if data and isinstance(data, list):
         attributesHistory = data
     else:
         attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
                          ['flight_data', 'wildlife_size', 'airport_name']]
-
+    print(attributesHistory)
     attributes=onlinelearning(attributesHistory, algorithm='Momentum')
+
+    # #greedy always use the last 3 attributes
+    # attributes=attributesHistory[-1]
+
 
     recommendations = draco_test.get_draco_recommendations(attributes)
     chart_recom = []
     for chart_key, _ in recommendations.items():
         # (_,chart)=(recommendations[chart_key])
         chart = recommendations[chart_key]
-        chart_recom.append(chart)
+        if len(chart_recom) < 10:
+          chart_recom.append(chart)
+    print("--- %s seconds ---" % (time.time() - start_time))
     return jsonify(chart_recom)
 
 def onlinelearning(attributesHistory, algorithm='Momentum'):
@@ -228,7 +239,7 @@ def process_actions(data):
 
         actions.append(action)
 
-    actions.append('none')  # close the session resets everything to empty
+    actions.append('none')  # This is the action we want to predict
     df['Action'] = actions
 
     return df

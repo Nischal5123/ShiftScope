@@ -50,26 +50,30 @@ export default class SumView extends EventEmitter {
     get charts() {
         return this._charts
     }
-    
+
     get selectedChartID() {
         return this._selectedChartID
     }
 
     set selectedChartID(ch) {
         this._svgDrawing.selectAll('.chartdot.selected')
-            .classed('selected', false) 
-        if(ch < 0) {
+            .classed('selected', false)
+        if (ch < 0) {
             this._selectedChartID = -1
-        }
-        else {
+        } else {
             this._selectedChartID = ch
             this._svgDrawing.selectAll('.chartdot')
-                .filter((c) => {return c.chid == ch})
+                .filter((c) => {
+                    return c.chid == ch
+                })
                 .classed('selected', true)
-            var selectedChart = _.find(this._charts, (d) => {return this._selectedChartID == d.chid}) 
-            this.emit('clickchart', selectedChart) 
+            var selectedChart = _.find(this._charts, (d) => {
+                return this._selectedChartID == d.chid
+            })
+            this.emit('clickchart', selectedChart)
         }
     }
+
     set weight(w) {
         this._params.distw = w
         this.update()
@@ -110,13 +114,14 @@ export default class SumView extends EventEmitter {
             .attr('width', this.conf.size[0])
             .attr('height', this.conf.size[1])
             .on('click', () => {
-                if(!this.conf.norecommend && this._charts.length >= 3) {
+                if (!this.conf.norecommend && this._charts.length >= 3) {
                     var p = d3.mouse(this._svgDrawing.node())
-                    this._charts = _.filter(this._charts, (c) => {return !c.created})
+                    this._charts = _.filter(this._charts, (c) => {
+                        return !c.created
+                    })
                     this.render()
                     this._recommendCharts()
-                }
-                else {
+                } else {
                     alert('You need to create at least 3 charts.')
                 }
             })
@@ -134,7 +139,7 @@ export default class SumView extends EventEmitter {
             .attr('class', 'chartlayer')
     }
 
-    update(callback, attributesHistory=null) {
+    update(callback, attributesHistory = null) {
         this._prevcharts = this._charts
 
 
@@ -155,18 +160,20 @@ export default class SumView extends EventEmitter {
         //     return {originalspec: osp, normspec: sp, 
         //         vars: _.union(vars), created: false, chid: d._meta.chid, uid: d._meta.uid}
         // })
-        
+
         this._recommendCharts(attributesHistory)
-        this.render()
-        if(callback) callback()
-    
+        // this.render()
+        // if (callback) callback()
+
     }
 
     render() {
         // draw charts
         var charts = this._svgDrawing.select('.chartlayer')
             .selectAll('.chartdot')
-            .data(this._charts, (d) => { return d.chid })
+            .data(this._charts, (d) => {
+                return d.chid
+            })
 
         // enter
         var chartsenter = charts.enter()
@@ -179,7 +186,7 @@ export default class SumView extends EventEmitter {
                 this.selectedChartID = d.chid
                 console.log(this.selectedChartID)
                 console.log("This has been selected")
-                if(logging) app.logger.push({time:Date.now(), action:'clickchart', data:d})
+                if (logging) app.logger.push({time: Date.now(), action: 'clickchart', data: d})
             })
             .on('mouseover', (d) => {
                 this.highlight(d.chid, true)
@@ -188,44 +195,54 @@ export default class SumView extends EventEmitter {
                     .style('display', 'inline-block')
                     .style('left', (d3.event.pageX + 8) + 'px')
                     .style('top', (d3.event.pageY + 8) + 'px')
-                if(logging) app.logger.push({time:Date.now(), action:'mousover', data:d})
+                if (logging) app.logger.push({time: Date.now(), action: 'mousover', data: d})
             })
             .on('mouseout', (d) => {
-                this._svgDrawing.selectAll('.chartdot.hovered').classed('hovered', false) 
+                this._svgDrawing.selectAll('.chartdot.hovered').classed('hovered', false)
                 d3.select('#tooltip').style('display', 'none')
-                if(logging) app.logger.push({time:Date.now(), action:'mouseout', data:d})
+                if (logging) app.logger.push({time: Date.now(), action: 'mouseout', data: d})
             })
 
         chartsenter.append('circle')
             .attr('r', this._params.dotr)
             .attr('cx', 0)
-            .attr('cy', 0)        
+            .attr('cy', 0)
 
         chartsenter.append('text')
             .attr('class', 'marktext')
             .attr('x', 0)
             .attr('y', 0)
-            .text((d) => {return d.originalspec.mark.substring(0,1).toUpperCase()})
+            .text((d) => {
+                return d.originalspec.mark.substring(0, 1).toUpperCase()
+            })
 
         chartsenter.append('rect')
             .attr('x', this._params.dotr - 5)
             .attr('y', this._params.dotr - 5)
             .attr('width', 10)
             .attr('height', 10)
-            
+
         chartsenter.append('text')
             .attr('class', 'uidtext')
             .attr('x', this._params.dotr)
             .attr('y', this._params.dotr)
-            .text((d) => { return d.created ? 'x' : d.uid })
-        
+            .text((d) => {
+                return d.created ? 'x' : d.uid
+            })
+
         var arcs = chartsenter.selectAll('path')
-            .data((d) => { return this._pie(d.vars.map((v) => {return {name: v, value: 1.0}})) })
+            .data((d) => {
+                return this._pie(d.vars.map((v) => {
+                    return {name: v, value: 1.0}
+                }))
+            })
         arcs.enter()
             .append('path')
             .attr('d', this._arc)
-            .style('fill', (d) => { return this._varclr(d.data.name) })
-        
+            .style('fill', (d) => {
+                return this._varclr(d.data.name)
+            })
+
         chartsenter.style('opacity', 0)
             .transition()
             // .duration(500)
@@ -239,73 +256,87 @@ export default class SumView extends EventEmitter {
             })
 
         chartsenter.select('.marktext')
-            .text((d) => {return d.originalspec.mark.substring(0,1).toUpperCase()})
+            .text((d) => {
+                return d.originalspec.mark.substring(0, 1).toUpperCase()
+            })
 
         chartsenter.select('.uidtext')
-            .text((d) => { return d.created ? 'x' : d.uid })
-        
+            .text((d) => {
+                return d.created ? 'x' : d.uid
+            })
+
         arcs = charts.selectAll('path')
-            .data((d) => { return this._pie(d.vars.map((v) => {return {name: v, value: 1.0}})) })
+            .data((d) => {
+                return this._pie(d.vars.map((v) => {
+                    return {name: v, value: 1.0}
+                }))
+            })
         arcs.enter()
             .append('path')
             .attr('d', this._arc)
-            .style('fill', (d) => { return this._varclr(d.data.name) })
+            .style('fill', (d) => {
+                return this._varclr(d.data.name)
+            })
         arcs.attr('d', this._arc)
-            .style('fill', (d) => { return this._varclr(d.data.name) })
+            .style('fill', (d) => {
+                return this._varclr(d.data.name)
+            })
         arcs.exit().remove()
-        
+
         // exit
         charts.exit()
             .remove()
     }
 
     highlight(chid, hoverin) {
-        this._svgDrawing.selectAll('.chartdot.hovered').classed('hovered', false) 
-        if(hoverin) {
+        this._svgDrawing.selectAll('.chartdot.hovered').classed('hovered', false)
+        if (hoverin) {
             this._svgDrawing.selectAll('.chartdot')
-                .filter((c) => {return c.chid == chid})
+                .filter((c) => {
+                    return c.chid == chid
+                })
                 .classed('hovered', true)
         }
     }
-  
-    _recommendCharts(attributesHistory) {
-        if (attributesHistory == null) {
-            var attributesHistory = [['airport_name', 'flight_date', 'origin_state']]
-        }
-        else {
-            var attributesHistory = attributesHistory
-        }
 
-
-        $.ajax({
-            context: this,
-            type: 'POST',
-            crossDomain: true,
-            url: this.conf.backend + '/top_k',    
-            data: JSON.stringify(attributesHistory),
-            contentType: 'application/json'
-        }).done((data) => {
-            // this._charts = data
-            this._charts = []
-            for(var i = 0; i < data.length; i++) {
-                if(data[i]) {
-
-                    var chart = {
-                        originalspec: JSON.parse(data[i]),
-                        // normspec: normspecs[vlcharts[i].index],
-                        // embedding: embeddings[vlcharts[i].index],
-                        // vars: vlcharts[i].vars,
-                        created: true,
-                        chid: i,
-                        // uid: 0
-                    }
-                    this._charts.push(chart)
-                }
-            }
-           if(logging) app.logger.push({time:Date.now(), action:'system-recommendations', data:this._charts})
-        }).fail((xhr, status, error) => {
-            alert('Cannot Generate Recommendations.')
-        })
-        
+   _recommendCharts(attributesHistory, callback) {
+    if (attributesHistory == null) {
+        attributesHistory = [['airport_name', 'flight_date', 'origin_state']];
     }
+
+    $.ajax({
+        context: this,
+        type: 'POST',
+        crossDomain: true,
+        url: this.conf.backend + '/top_k',
+        data: JSON.stringify(attributesHistory),
+        contentType: 'application/json'
+    }).done((data) => {
+        this._charts = [];
+        for (var i = 0; i < data.length; i++) {
+            if (data[i]) {
+                var chart = {
+                    originalspec: JSON.parse(data[i]),
+                    created: true,
+                    chid: i,
+                };
+                this._charts.push(chart);
+            }
+        }
+        if (logging) {
+            app.logger.push({ time: Date.now(), action: 'system-recommendations', data: this._charts });
+        }
+        // Trigger the render method only on success
+        this.render();
+        this.emit('recommendchart', this._charts);
+    }).fail((xhr, status, error) => {
+        alert('Cannot Generate Recommendations.');
+    }).always(() => {
+        // Trigger the callback function regardless of success or failure
+        if (callback) {
+            callback();
+        }
+    });
+}
+
 }

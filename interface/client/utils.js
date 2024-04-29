@@ -67,7 +67,7 @@
  }
  
  
- export function displayAllCharts(container, created) {
+ export function displayAllCharts(container, created=true) {
      $(container).empty()
      // shuffleArray(app.sumview.charts;
      app.sumview.charts.forEach((ch) => {
@@ -126,7 +126,7 @@
          $('#tooltip .chartlabel').html('#' + ch.chid)
      })
      .on('recommendchart', () => {
-         displayAllCharts('#suggestionview', false)
+         displayAllCharts('#suggestionview', true)
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart'})
  
      })
@@ -134,11 +134,13 @@
      app.chartview.on('similar', (spec) => {
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart', data:spec})
 
-        //  if(app.sumview.data.chartspecs.length > 0)
-        //     spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
-        // else
-         spec._meta = {chid:0, uid:0}
-        // app.sumview.data.chartspecs.push(spec)
+         if(app.sumview.data.chartspecs.length > 0)
+            spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
+        else
+            spec._meta = {chid:0, uid:0}
+        app.sumview.data.chartspecs.push(spec) //this holds all the charts that make it to the CenterView
+
+         // search through history and get spec?
 
 
 
@@ -160,20 +162,21 @@
         // // Remove null or undefined values from fieldsArray
         //  fieldsArray = [colorField, xField, yField].filter(field => field !== null && field !== undefined);
 
-         const colorField = visualizationConfig.color?.field !== undefined ? visualizationConfig.color.field : null;
+         const shapeField = visualizationConfig.shape?.field !== undefined ? visualizationConfig.shape.field : null;
+         const sizeField = visualizationConfig.size?.field !== undefined ? visualizationConfig.size.field : null;
          const xField = visualizationConfig.x?.field !== undefined ? visualizationConfig.x.field : null;
          const yField = visualizationConfig.y?.field !== undefined ? visualizationConfig.y.field : null;
-
+         const colorField = visualizationConfig.color?.field !== undefined ? visualizationConfig.color.field : null;
         // Check if colorField, xField, and yField exist
-         if (colorField !== null && xField !== null && yField !== null) {
+         if (shapeField!=null && colorField !== null && xField !== null && yField !== null && sizeField !== null) {
             // Remove null or undefined values from fieldsArray
-            fieldsArray=[colorField, xField, yField].filter(field => field !== null && field !== undefined);
+            fieldsArray=[colorField, xField, yField, shapeField,sizeField].filter(field => field !== null && field !== undefined);
          } else {
             // Handle case where colorField, xField, or yField is null
             console.error('Error: colorField, xField, or yField is null or undefined.');
          }
         // Remove null or undefined values from fieldsArray
-        fieldsArray = [colorField, xField, yField].filter(field => field !== null && field !== undefined);
+        fieldsArray = [colorField, xField, yField, shapeField,sizeField].filter(field => field !== null && field !== undefined);
         attributesHistory.push(fieldsArray);
 
 
@@ -189,16 +192,16 @@
          if(logging) app.logger.push({time:Date.now(), action:'addchart', data:spec})
      })
  
-    //  app.chartview.on('update-chart', (spec) => {
-    //      spec._meta = app.sumview.data.chartspecs[app.sumview.selectedChartID]._meta
-    //      app.sumview.data.chartspecs[app.sumview.selectedChartID] = spec
+     app.chartview.on('update-chart', (spec) => {
+         spec._meta = app.sumview.data.chartspecs[app.sumview.selectedChartID]._meta
+         app.sumview.data.chartspecs[app.sumview.selectedChartID] = spec
  
-    //      app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
-    //      displayAllCharts('#allchartsview', false)
-    //      $('#suggestionview').empty()
+         app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
+         displayAllCharts('#allchartsview', false)
+         $('#suggestionview').empty()
  
-    //      if(logging) app.logger.push({time:Date.now(), action:'updatechart', data:spec})
-    //  })
+         if(logging) app.logger.push({time:Date.now(), action:'updatechart', data:spec})
+     })
  
     //  app.chartview.on('remove-chart', (spec) => {
     //      app.sumview.data.chartspecs = app.sumview.data.chartspecs.filter((d) => { return d._meta.chid != app.sumview.selectedChartID })

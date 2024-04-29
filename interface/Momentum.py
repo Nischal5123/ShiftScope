@@ -47,12 +47,14 @@ class Momentum:
 
     def MomentumDriver(self, data):
         threshold= len(data)
+        #TRAINING PHASE : Storing the last action in each state
         for i in range(threshold-1):
             self.bestaction[str(data['State'][i])] = data['Action'][i]
 
+        #PREDICTION PHASE : Finding the last action in the current state
         try:  # Finding the last action in the current state
-            candidate = self.bestaction[str(data['State'][threshold-1])]
+            next_action = self.bestaction[str(data['State'][threshold-1])]
         except KeyError:  # Randomly picking an action if the current state is new
             candidate = random.choice(self.actions)
 
-        return candidate
+        return next_action
