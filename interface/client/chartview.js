@@ -24,7 +24,7 @@
  
          this._attributeTypeMap = {}
          this.conf.attributes.forEach((att) => {
-             this._attributeTypeMap[att[0]] = att[2]
+                 this._attributeTypeMap[att[0]] = att[2]
          })
  
          this._init()
@@ -36,6 +36,8 @@
              mode: 'ace/mode/json',
              minLines: 20
          })
+
+
  
          // ui controls
          var html = ''
@@ -44,6 +46,7 @@
          comps.forEach((comp) => {
              html = '<option value="-">-</option>'
              this.conf.attributes.forEach((d) => {
+                  d[0] = d[0].toString().toLowerCase();
                  html += '<option value="' + d[0] + '">' + d[0] + '</option>'
              })
              $('#' + comp).append(html)
@@ -172,24 +175,27 @@
              this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '))
          
          if(eventsource != 'uicontrols')
-             this._updateChartComposer()
+             this._updateChartComposer(this.data)
 
      }
  
-     _updateChartComposer() {
+     _updateChartComposer(chart_data){
          if(this.data['mark'])
-             $('#ch-mark').val(this.data['mark'])
-         
+             $('#ch-mark').val(this.data['mark']['type'])
          var channels = ['x', 'y', 'color', 'size', 'shape']
          channels.forEach((ch) => {
-             if(this.data['encoding'][ch]) {
-                 $('#ch-' + ch).val(this.data['encoding'][ch]['field'])
+             if(chart_data['encoding'][ch]) {
+                 // if (chart_data['encoding'][ch]['field'].toString()=='cost_total_a'){
+                 //     $('#ch-' + ch).val('Cost_Total_a')
+                 // }
+                 // else {
+                 $('#ch-' + ch).val(chart_data['encoding'][ch]['field'])
      
                  if(ch != 'shape') {
-                     if(this.data['encoding'][ch]['bin'] == true)
+                     if(chart_data['encoding'][ch]['bin'])
                          $('#ch-' + ch + 'trans').val('bin')
-                     else if(this.data['encoding'][ch]['aggregate'])
-                         $('#ch-' + ch + 'trans').val(this.data['encoding'][ch]['aggregate'])
+                     else if(chart_data['encoding'][ch]['aggregate'])
+                         $('#ch-' + ch + 'trans').val(chart_data['encoding'][ch]['aggregate'])
                      else
                          $('#ch-' + ch + 'trans').val('-')
                  }

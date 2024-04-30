@@ -101,11 +101,24 @@ def encode():
     recommendations = draco_test.get_draco_recommendations(field_names)
     chart_recom = []
     for chart_key, _ in recommendations.items():
-        # (_,chart)=(recommendations[chart_key])
         chart = recommendations[chart_key]
-        chart_recom.append(chart)
-    return jsonify(chart_recom)
+        encodings = json.loads(chart).get('encoding', {})
+        match=0
+        for f in field_names:
+            if f in str(encodings):
+                match+=1
+        if match==len(field_names):
+                chart_recom.append(chart)
+    return jsonify(chart_recom[0])
 
+# def check_fields(dictionary, fields):
+#     for key, value in dictionary.items():
+#         if isinstance(value, dict):
+#             if not check_fields(value, fields):  # Modify this line
+#                 return False  # Modify this line
+#         elif key not in fields and value not in fields:  # Modify this line
+#             return False
+#     return True  # Modify this line
 @app.route('/get-fields', methods=['POST'])
 def encode_test():
     specs = request.get_json()
