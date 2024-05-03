@@ -184,7 +184,7 @@ def top_k():
         attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
                          ['flight_data', 'wildlife_size', 'airport_name']]
     print(attributesHistory)
-    attributes=onlinelearning(attributesHistory, algorithm='Momentum')
+    attributes,distribution_map=onlinelearning(attributesHistory, algorithm='Momentum')
 
     # #greedy always use the last 3 attributes
     # attributes=attributesHistory[-1]
@@ -198,7 +198,47 @@ def top_k():
         if len(chart_recom) < 10:
           chart_recom.append(chart)
     print("--- %s seconds ---" % (time.time() - start_time))
-    return jsonify(chart_recom)
+    response_data = {
+        "chart_recommendations": chart_recom,
+        "distribution_map": distribution_map
+    }
+    return jsonify(response_data)
+
+
+def get_distribution_of_states(data):
+    """
+    Get the distribution of states in the data.
+
+    Args:
+    - data (pd.DataFrame): the data to analyze.
+
+    Returns:
+    - distribution (dict): a dictionary containing the probability of states.
+    """
+    # Define the list of all possible field names and convert them to lowercase
+    fieldnames = ['Airport_Name', 'Aircraft_Make_Model', 'Effect_Amount_of_damage', 'Flight_Date',
+                  'Aircraft_Airline_Operator', 'Origin_State', 'When_Phase_of_flight', 'Wildlife_Size',
+                  'Wildlife_Species', 'When_Time_of_day', 'Cost_Other', 'Cost_Repair', 'Cost_Total',
+                  'Speed_IAS_in_knots', 'None']
+    fieldnames = [f.lower() for f in fieldnames]
+
+    # Create a Counter with all possible field names
+    distribution = Counter({key: 0 for key in fieldnames})
+
+    # Count the frequency of field names in the data
+    for state_list in data['State']:
+        for state in state_list:
+            if state.lower() in distribution:
+                distribution[state.lower()] += 1
+
+    # Calculate the total count of states
+    total = sum(distribution.values())
+
+    # Normalize the counts to obtain probabilities
+    distribution = {key: count / total for key, count in distribution.items()}
+
+    return distribution
+
 
 def onlinelearning(attributesHistory, algorithm='Momentum'):
     #make all the attributes inside the list to be 3 in size fill with None if not enough
@@ -208,6 +248,9 @@ def onlinelearning(attributesHistory, algorithm='Momentum'):
 
     #make the array as a pandas dataframe with index and whole attribute as a State column
     df = pd.DataFrame({'State': attributesHistory})
+
+    distribution_map=get_distribution_of_states(df)
+
 
     df_with_actions = process_actions(df)
 
@@ -220,7 +263,7 @@ def onlinelearning(attributesHistory, algorithm='Momentum'):
 
     #there are too many combinations of next states, so we will just take the first one
     next_state_filtered = list(filter(lambda x: x.lower() != 'none', next_state[0]))
-    return next_state_filtered
+    return next_state_filtered, distribution_map
 
 
 

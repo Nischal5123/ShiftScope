@@ -33,6 +33,7 @@ export default class SumView extends EventEmitter {
         this._variableSets = []
         this._showBubbles = true
         this._selectedChartID = -1
+        this._performanceData = {}
         this._rscale = d3.scaleLinear().domain([0, 4]).range([0, this._params.dotr])
         this._xscale = d3.scaleLinear().domain([0, 1])
             .range([this.conf.margin, this.conf.size[0] - this.conf.margin])
@@ -313,10 +314,12 @@ export default class SumView extends EventEmitter {
         contentType: 'application/json'
     }).done((data) => {
         this._charts = [];
-        for (var i = 0; i < data.length; i++) {
-            if (data[i]) {
+        this._performanceData = data['distribution_map'];
+        for (var i = 0; i < data['chart_recommendations'].length; i++) {
+            // returns the recommendations and the distribution of fields
+            if (data['chart_recommendations'][i]) {
                 var chart = {
-                    originalspec: JSON.parse(data[i]),
+                    originalspec: JSON.parse(data['chart_recommendations'][i]),
                     created: true,
                     chid: i,
                 };
@@ -325,6 +328,9 @@ export default class SumView extends EventEmitter {
         }
         if (logging) {
             app.logger.push({ time: Date.now(), action: 'system-recommendations', data: this._charts });
+        }
+         if (logging) {
+            app.logger.push({ time: Date.now(), action: 'current_distribution', data: data['distribution_map'] });
         }
         // Trigger the render method only on success
         this.render();

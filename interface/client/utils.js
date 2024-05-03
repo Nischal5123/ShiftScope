@@ -253,6 +253,8 @@
             //  console.log(data)
          })
      })
+
+
      
      $('#submit').click(() => {
          if($('#inputfile').val()) {
@@ -283,6 +285,18 @@
          if(logging) download(JSON.stringify(app.logger, null, '  '), 'logs.json', 'text/json')
          restartProcess()
      })
+
+     $('#performaceViewOpen').click(() => {
+            console.log("User requested Performance View")
+            openNav()
+     })
+
+     $('#performaceViewClose').click(() => {
+            console.log("User requested Performance View to be closed")
+            closeNav()
+     })
+
+
 
      $(window).resize(() => {
          app.sumview.svgsize = [$('#sumview').width(), $('#sumview').height()]
@@ -350,4 +364,14 @@ function storeInteractionLogs(interaction, value, time) {
     Value: value,
     Time: time.getTime(),
   });
+}
+
+/* Open when someone clicks on the span element */
+function openNav() {
+  document.getElementById("myNav").style.width = "100%";
+}
+
+/* Close when someone clicks on the "x" symbol inside the overlay */
+function closeNav() {
+  document.getElementById("myNav").style.width = "0%";
 }

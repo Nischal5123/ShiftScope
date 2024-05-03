@@ -24,14 +24,8 @@
                 <label id="datafile"></label>
                 <button id="export">Export Data </button>
                  <label>Attribute Color Encodings: </label><span id="legend"></span>
-                <button
-              type="button"
-              class="btn btn-sm btn-outline-success"
-              id="bookmark"
-            >
-              <i class="fas fa-bookmark"></i> &nbsp; Your Bookmarked Charts
-            </button>
-    </button>
+                <button type="button" class="collapse" id="bookmark">
+                <i class="fas fa-bookmark"></i> &nbsp; Your Bookmarked Charts</button>
             </div>
             <div id="panel1">
                 <span class="panel-header"><label>--------------------Chart Editor---------------------</label></span>
@@ -72,7 +66,7 @@
 <!--                <div class="chartcontainer"></div>-->
                  <div id="chartview">
                     <div class="chartcontainer"></div>
-                    <span class="chartlabel"></span>
+
                     <span class="editorbuttons3">
                        <button id="add" style="color: #28a745">Similar</button>
 <!--                        <button id="update" style="color:#007bff">Update</button>-->
@@ -88,7 +82,27 @@
 <!--                <div id="sumview"></div>-->
                  <div id="suggestionview"></div>
                 <div class="chartcontainer"></div>
-<!--                <div id="allchartsview"></div>-->
+                                <!-- The overlay -->
+                <div id="myNav" class="overlay">
+
+                  <!-- Button to close the overlay navigation -->
+                  <a class="closebtn" id="performaceViewClose">&times;</a>
+
+                  <!-- Overlay content -->
+<!--                  <div class="overlay-content">-->
+<!--                    <h1>Performance View</h1>-->
+                   <div id="performanceView">
+                   <div class="chartcontainer"></div>
+<!--                   </div>-->
+
+                  </div>
+
+                </div>
+                <!-- Use any element to open/show the overlay navigation menu -->
+                <span class="collapse">
+                    <button id="performaceViewOpen"><i class="fas fa-bookmark"></i> &nbsp; Your Performance Charts</button>
+                </span>
+
             </div>
         </div>
         <div id="tooltip">

@@ -125,6 +125,9 @@ html, body {
   }
 }
 
+
+
+
 //#suggestionview {
 //  position: absolute;
 //  width: 100%;
@@ -291,7 +294,7 @@ html, body {
 //this is till sumview
 #sumview {
   position: absolute;
-  width: 100px;
+  width: 1000px;
   top: 20px;
   bottom: 0;
   left: 500px;
@@ -337,6 +340,8 @@ html, body {
   -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
 }
+
+
 
 .legend-item {
   margin: 1.5px;
@@ -391,4 +396,88 @@ html, body {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+.collapse {
+            background-color: #a2de96;
+            border: none;
+            outline: none;
+            font-size: 25px;
+        }
+
+        .active,
+        .collapse:hover {
+            background-color: #438a5e;
+        }
+
+        .text {
+            background-color: #e1ffc2;
+            display: none;
+            font-size: 20px;
+        }
+
+
+        /* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: rgb(0,0,0); /* Black fallback color */
+  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+
+#performanceView {
+  position: absolute;
+  width: 100%;
+  left: 100px;
+  right:500px;
+  top: 200px;
+  bottom: 321px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  vertical-align: top;
+  margin: 2px;
+
+  .chartcontainer {
+    height: 90%;
+    width: 50%;
+  }
 }

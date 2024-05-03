@@ -543,3 +543,54 @@ wildlife_species
 ['flight_date'] 2024-04-30 14:02:54.678655
 ['speed_ias_in_knots', 'flight_date'] 2024-04-30 14:03:04.304072
 ['speed_ias_in_knots', 'cost_other'] 2024-04-30 14:03:16.737237
+['origin_state', 'speed_ias_in_knots'] 2024-04-30 15:13:42.232319
+['origin_state'] 2024-04-30 15:14:04.816311
+['origin_state', 'speed_ias_in_knots'] 2024-04-30 15:14:25.843794
+['speed_ias_in_knots'] 2024-04-30 15:14:44.261662
+['speed_ias_in_knots'] 2024-04-30 15:15:17.194903
+['speed_ias_in_knots'] 2024-04-30 15:17:11.339665
+['airport_name'] 2024-05-02 18:23:35.589266
+['speed_ias_in_knots', 'airport_name'] 2024-05-02 18:23:48.923306
+['airport_name'] 2024-05-02 18:23:59.648825
+['airport_name'] 2024-05-02 18:24:15.720308
+['airport_name', 'speed_ias_in_knots'] 2024-05-02 18:24:36.401167
+['airport_name', 'cost_total_a'] 2024-05-02 18:24:55.229206
+['airport_name', 'cost_total_a'] 2024-05-02 18:24:58.049985
+['airport_name', 'speed_ias_in_knots'] 2024-05-02 18:24:59.349802
+['airport_name', 'cost_total_a'] 2024-05-02 18:25:52.861515
+['airport_name'] 2024-05-02 18:54:01.771728
+['airport_name'] 2024-05-02 18:54:03.929926
+['airport_name'] 2024-05-02 19:42:11.031260
+['airport_name'] 2024-05-02 19:43:10.187631
+['airport_name'] 2024-05-02 19:45:42.802449
+['airport_name'] 2024-05-02 19:45:53.890156
+['airport_name'] 2024-05-02 19:45:54.553133
+['airport_name'] 2024-05-02 19:54:30.693709
+['airport_name'] 2024-05-02 19:54:31.778531
+['airport_name'] 2024-05-02 19:55:28.703047
+['airport_name'] 2024-05-02 19:55:53.738043
+['airport_name'] 2024-05-02 19:56:42.699172
+['airport_name'] 2024-05-02 19:58:55.848436
+['airport_name'] 2024-05-02 20:04:00.099978
+['airport_name'] 2024-05-02 20:04:00.205016
+['airport_name'] 2024-05-02 20:04:00.950121
+['airport_name'] 2024-05-02 20:04:01.583274
+['airport_name', 'speed_ias_in_knots'] 2024-05-02 20:04:17.055882
+['airport_name'] 2024-05-02 20:04:30.553915
+['airport_name'] 2024-05-02 20:04:31.582845
+['airport_name'] 2024-05-02 20:07:29.143658
+['airport_name'] 2024-05-02 20:08:21.493644
+['airport_name'] 2024-05-02 20:08:42.462177
+['airport_name'] 2024-05-02 20:09:20.802181
+['airport_name', 'speed_ias_in_knots'] 2024-05-02 20:09:34.312239
+['speed_ias_in_knots', 'airport_name'] 2024-05-02 20:09:46.025673
+['airport_name', 'cost_total_a'] 2024-05-02 20:09:51.892072
+['speed_ias_in_knots'] 2024-05-02 20:09:57.884609
+['speed_ias_in_knots', 'cost_total_a'] 2024-05-02 20:10:06.383407
+['speed_ias_in_knots', 'cost_repair'] 2024-05-02 20:10:18.774715
+['cost_repair'] 2024-05-02 20:10:40.432534
+['airport_name'] 2024-05-02 20:12:35.400302
+['origin_state', 'speed_ias_in_knots'] 2024-05-02 20:12:39.059421
+['cost_total_a'] 2024-05-02 20:12:45.190084
+['airport_name'] 2024-05-02 20:35:16.170318
+['airport_name'] 2024-05-02 20:35:27.397511
