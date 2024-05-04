@@ -59,13 +59,13 @@
          $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
      })
  }
- function shuffleArray(array) {
-   for (let i = array.length - 1; i > 0; i--) {
-     const j = Math.floor(Math.random() * (i + 1));
-     [array[i], array[j]] = [array[j], array[i]];
-   }
- }
- 
+ // function shuffleArray(array) {
+ //   for (let i = array.length - 1; i > 0; i--) {
+ //     const j = Math.floor(Math.random() * (i + 1));
+ //     [array[i], array[j]] = [array[j], array[i]];
+ //   }
+ // }
+ //
  
  export function displayAllCharts(container, created=true) {
      $(container).empty()
@@ -289,6 +289,7 @@
      $('#performaceViewOpen').click(() => {
             console.log("User requested Performance View")
             openNav()
+
      })
 
      $('#performaceViewClose').click(() => {
@@ -367,11 +368,93 @@ function storeInteractionLogs(interaction, value, time) {
 }
 
 /* Open when someone clicks on the span element */
+let myChart;
+let baselineChart;// Declare a variable to store the chart instance
+
 function openNav() {
-  document.getElementById("myNav").style.width = "100%";
+    document.getElementById("myNav").style.width = "100%";
+
+    $.ajax({
+        type: 'GET',
+        crossDomain: true,
+        url: 'http://localhost:5500' + '/get-performance-data',
+        contentType: 'application/json'
+    }).done((data) => {
+
+        // data[0] contains the user data and data[1] contains the baseline data, we want 2 plots with titles
+        // 1. User Data
+        // Extract field names and probabilities from the data object
+
+        const fieldNames = Object.keys(data['distribution_map']);
+        let probabilities = Object.values(data['distribution_map']);
+            // Create a new Chart.js chart
+        myChart = new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: fieldNames,
+                datasets: [{
+                    label: "Probability",
+                    data: probabilities,
+                    backgroundColor: "rgba(54, 162, 235, 0.2)",
+                    borderColor: "rgba(54, 162, 235, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        // 2. Baseline Data
+        // Extract field names and probabilities from the data object
+        const baselineFieldNames = Object.keys(data['baseline_distribiton_map']);
+        let baselineProbabilities = Object.values(data['baseline_distribiton_map']);
+        // Create a new Chart.js chart
+        baselineChart = new Chart("baselineChart", {
+            type: "bar",
+            data: {
+                labels: baselineFieldNames,
+                datasets: [{
+                    label: "Probability",
+                    data: baselineProbabilities,
+                    backgroundColor: "rgba(255, 99, 132, 0.2)",
+                    borderColor: "rgba(255, 99, 132, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    }).fail((xhr, status, error) => {
+        alert('Cannot Generate Performance View.');
+    });
 }
+
+// Function to parse CSV data into an array of arrays
+function CSVToArray(text) {
+  const rows = text.split('\n');
+  return rows.map(row => row.split(','));
+}
+
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
+
+
+

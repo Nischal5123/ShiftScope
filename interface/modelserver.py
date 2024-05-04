@@ -172,7 +172,7 @@ def encode2():
 
 
 @app.route('/top_k', methods=['POST'])
-def top_k():
+def top_k(save_csv=False):
     print('Starting Recommendation Engine...')
     #get running time in console
     start_time = time.time()
@@ -184,7 +184,7 @@ def top_k():
         attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
                          ['flight_data', 'wildlife_size', 'airport_name']]
     print(attributesHistory)
-    attributes,distribution_map=onlinelearning(attributesHistory, algorithm='Momentum')
+    attributes,distribution_map,baseline_distribution_map=onlinelearning(attributesHistory, algorithm='Momentum')
 
     # #greedy always use the last 3 attributes
     # attributes=attributesHistory[-1]
@@ -202,8 +202,34 @@ def top_k():
         "chart_recommendations": chart_recom,
         "distribution_map": distribution_map
     }
+    #save distribution map as json
+    with open('distribution_map.json', 'w') as f:
+        json.dump(distribution_map, f)
+
+    with open('baseline_distribution_map.json', 'w') as f:
+        json.dump(baseline_distribution_map, f)
+
+    if save_csv:
+        distribution_map_dataframe = pd.DataFrame.from_dict(distribution_map, orient='index', columns=['Probability'])
+        distribution_map_dataframe.index.name = 'Fields'
+        pd.DataFrame.to_csv(distribution_map_dataframe, 'distribution_map.csv')
     return jsonify(response_data)
 
+@app.route('/get-performance-data', methods=['GET'])
+def read_json_file(file_path='distribution_map.json', baseline_file_path='baseline_distribution_map.json'):
+    #send both the distribution map and the baseline distribution map
+    with open(baseline_file_path, 'r') as file:
+        baseline_data = json.load(file)
+
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+
+    response_data = {
+        "baseline_distribiton_map": baseline_data,
+        "distribution_map": data
+    }
+
+    return jsonify(response_data)
 
 def get_distribution_of_states(data):
     """
@@ -218,7 +244,7 @@ def get_distribution_of_states(data):
     # Define the list of all possible field names and convert them to lowercase
     fieldnames = ['Airport_Name', 'Aircraft_Make_Model', 'Effect_Amount_of_damage', 'Flight_Date',
                   'Aircraft_Airline_Operator', 'Origin_State', 'When_Phase_of_flight', 'Wildlife_Size',
-                  'Wildlife_Species', 'When_Time_of_day', 'Cost_Other', 'Cost_Repair', 'Cost_Total',
+                  'Wildlife_Species', 'When_Time_of_day', 'Cost_Other', 'Cost_Repair', 'Cost_Total_a',
                   'Speed_IAS_in_knots', 'None']
     fieldnames = [f.lower() for f in fieldnames]
 
@@ -261,9 +287,16 @@ def onlinelearning(attributesHistory, algorithm='Momentum'):
     generator = StateGenerator('birdstrikes')
     next_state = generator.generate_next_states(df_with_actions['State'][len(df_with_actions)-1], action)
 
+
+
     #there are too many combinations of next states, so we will just take the first one
     next_state_filtered = list(filter(lambda x: x.lower() != 'none', next_state[0]))
-    return next_state_filtered, distribution_map
+
+    momentum_attributes_history = attributesHistory + [next_state_filtered]
+    df_momentum = pd.DataFrame({'State': momentum_attributes_history})
+    distribution_map_momentum = get_distribution_of_states(df_momentum)
+
+    return next_state_filtered, distribution_map, distribution_map_momentum
 
 
 

@@ -9,6 +9,7 @@
             crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
            <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
          <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/d494f7bb71.js"
@@ -24,8 +25,9 @@
                 <label id="datafile"></label>
                 <button id="export">Export Data </button>
                  <label>Attribute Color Encodings: </label><span id="legend"></span>
-                <button type="button" class="collapse" id="bookmark">
-                <i class="fas fa-bookmark"></i> &nbsp; Your Bookmarked Charts</button>
+                <button type="button" id="bookmark">
+                <i class="fas fa-bookmark"></i> &nbsp; Bookmarked Charts</button>
+                <button id="performaceViewOpen">Performance View</button>
             </div>
             <div id="panel1">
                 <span class="panel-header"><label>--------------------Chart Editor---------------------</label></span>
@@ -80,28 +82,10 @@
             <div id="panel3">
                 <span class="panel-header"><label>-----------------------------------------------------Suggested Charts---------------------------------------</label></span>
 <!--                <div id="sumview"></div>-->
-                 <div id="suggestionview"></div>
+                <div id="suggestionview"></div>
                 <div class="chartcontainer"></div>
-                                <!-- The overlay -->
-                <div id="myNav" class="overlay">
-
-                  <!-- Button to close the overlay navigation -->
-                  <a class="closebtn" id="performaceViewClose">&times;</a>
-
-                  <!-- Overlay content -->
-<!--                  <div class="overlay-content">-->
-<!--                    <h1>Performance View</h1>-->
-                   <div id="performanceView">
-                   <div class="chartcontainer"></div>
-<!--                   </div>-->
-
-                  </div>
-
-                </div>
                 <!-- Use any element to open/show the overlay navigation menu -->
-                <span class="collapse">
-                    <button id="performaceViewOpen"><i class="fas fa-bookmark"></i> &nbsp; Your Performance Charts</button>
-                </span>
+
 
             </div>
         </div>
@@ -129,5 +113,23 @@
 
           </div>
         <div id="vegatest" style="visibility:hidden;"></div>
+
+    <!-- The overlay -->
+    <div id="myNav" class="overlay">
+      <!-- Button to close the overlay navigation -->
+      <a class="closebtn" id="performaceViewClose">&times;</a>
+        <div class="chart-container-perf">
+    <div class="chart">
+        <h2>Users Focus</h2>
+        <canvas id="myChart" style="max-width:700px"></canvas>
+    </div>
+    <div class="chart">
+        <h2>Baseline's Focus</h2>
+        <canvas id="baselineChart" style="max-width:700px"></canvas>
+    </div>
+</div>
+
+
+    </div>
     </body>    
 </html>

@@ -107,6 +107,8 @@ def start_draco(fields,datasetname='movies'):
         # df = df.drop(columns = 'Worldwide_Gross')
     elif datasetname=='seattle':
         df: pd.DataFrame = vega_data.seattle_weather()
+    elif datasetname=='performance':
+        df = pd.read_csv('distribution_map.csv')
     else:
         df: pd.DataFrame = vega_data.birdstrikes()
         df = df.sample(n=500, random_state=1)
@@ -150,8 +152,10 @@ if __name__ == '__main__':
     fields_birdstrikes = ['airport_name', 'flight_date', 'origin_state']
     fields_seattle=["weather", "temp_min", "date"]
     fields_movies = ["major_genre", "us_gross", "source"]
+    fields_performance = ['Fields', 'Probability']
     # recommendations=start_draco(fields=fields_movies, datasetname='movies')
     recommendations=start_draco(fields=fields_birdstrikes, datasetname='birdstrikes')
+    #recommendations=start_draco(fields=fields_performance, datasetname='performance')
 
     # recommendations=start_draco(fields=fields_seattle, datasetname='seattle')
     # print(len(recommendations))
