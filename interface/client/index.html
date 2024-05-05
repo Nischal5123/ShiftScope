@@ -23,7 +23,7 @@
                 <!-- <input type="file" id="datafile" name="datafile" /> -->
                 <button id="import">Imports Data</button>
                 <label id="datafile"></label>
-                <button id="export">Export Data </button>
+                <button id="export">End Session </button>
                  <label>Attribute Color Encodings: </label><span id="legend"></span>
                 <button type="button" id="bookmark">
                 <i class="fas fa-bookmark"></i> &nbsp; Bookmarked Charts</button>
@@ -119,17 +119,25 @@
       <!-- Button to close the overlay navigation -->
       <a class="closebtn" id="performaceViewClose">&times;</a>
         <div class="chart-container-perf">
+            <div class="chart">
+        <h2>RL Focus</h2>
+        <canvas id="RLChart" style="max-width:700px"></canvas>
+    </div>
     <div class="chart">
         <h2>Users Focus</h2>
         <canvas id="myChart" style="max-width:700px"></canvas>
     </div>
     <div class="chart">
-        <h2>Baseline's Focus</h2>
-        <canvas id="baselineChart" style="max-width:700px"></canvas>
+        <h2>Baseline-R Focus</h2>
+        <canvas id="RandombaselineChart" style="max-width:700px"></canvas>
+    </div>
+             <div class="chart">
+        <h2>Baseline-M Focus</h2>
+        <canvas id="MomentumbaselineChart" style="max-width:700px"></canvas>
     </div>
 </div>
 
 
     </div>
-    </body>    
+    </body>
 </html>

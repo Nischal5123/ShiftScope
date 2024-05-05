@@ -283,7 +283,10 @@
                  data: app.sumview.data.chartdata.values
              }, null, '  '), 'datacharts.json', 'text/json')
          if(logging) download(JSON.stringify(app.logger, null, '  '), 'logs.json', 'text/json')
-         restartProcess()
+
+        // Redirect to the post-task-survey.html page with the correct port number
+        window.location.href = `${window.location.href}post-task-survey.html`; // Change 8000 to your actual port number
+        restartProcess()
      })
 
      $('#performaceViewOpen').click(() => {
@@ -381,6 +384,36 @@ function openNav() {
         contentType: 'application/json'
     }).done((data) => {
 
+
+        // 1. Rl Data
+        // Extract field names and probabilities from the data object
+        const RLFieldNames = Object.keys(data['baselines_distribution_maps']['Greedy']);
+        let RLProbabilities = Object.values(data['baselines_distribution_maps']['Greedy']);
+        // Create a new Chart.js chart
+        baselineChart = new Chart("RLChart", {
+            type: "bar",
+            data: {
+                labels: RLFieldNames,
+                datasets: [{
+                    label: "Probability",
+                    data: RLProbabilities,
+                    backgroundColor: "rgba(54, 160, 235, 0.2)",
+                    borderColor: "rgba(42, 160, 235, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+
         // data[0] contains the user data and data[1] contains the baseline data, we want 2 plots with titles
         // 1. User Data
         // Extract field names and probabilities from the data object
@@ -413,10 +446,10 @@ function openNav() {
 
         // 2. Baseline Data
         // Extract field names and probabilities from the data object
-        const baselineFieldNames = Object.keys(data['baseline_distribiton_map']);
-        let baselineProbabilities = Object.values(data['baseline_distribiton_map']);
+        const baselineFieldNames = Object.keys(data['baselines_distribution_maps']['Random']);
+        let baselineProbabilities = Object.values(data['baselines_distribution_maps']['Random']);
         // Create a new Chart.js chart
-        baselineChart = new Chart("baselineChart", {
+        baselineChart = new Chart("RandombaselineChart", {
             type: "bar",
             data: {
                 labels: baselineFieldNames,
@@ -439,8 +472,38 @@ function openNav() {
             }
         });
 
+
+
+         // 3. Momentum Baseline Data
+        // Extract field names and probabilities from the data object
+        const MomentumbaselineFieldNames = Object.keys(data['baselines_distribution_maps']['Momentum']);
+        let MomentumbaselineProbabilities = Object.values(data['baselines_distribution_maps']['Momentum']);
+        // Create a new Chart.js chart
+        baselineChart = new Chart("MomentumbaselineChart", {
+            type: "bar",
+            data: {
+                labels: MomentumbaselineFieldNames,
+                datasets: [{
+                    label: "Probability",
+                    data: MomentumbaselineProbabilities,
+                    backgroundColor: "rgba(220, 90, 132, 0.2)",
+                    borderColor: "rgba(220, 90, 132, 1)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
     }).fail((xhr, status, error) => {
-        alert('Cannot Generate Performance View.');
+        alert('Not Enough Data to Derive Performace View.');
     });
 }
 

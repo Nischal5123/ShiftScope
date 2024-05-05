@@ -19,6 +19,7 @@ import draco_test
 import pandas as pd
 from collections import Counter
 import time
+import random
 
 
 # from gvaemodel.vis_vae import VisVAE, get_rules, get_specs
@@ -56,6 +57,12 @@ app = Flask(__name__)
 CORS(app)
 
 env = environment()
+
+# memory for all algorithms history
+momentum_attributes_history = []
+greedy_attributes_history = []
+random_attributes_history = []
+
 
 class InvalidUsage(Exception):
     status_code = 400
@@ -184,10 +191,7 @@ def top_k(save_csv=False):
         attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
                          ['flight_data', 'wildlife_size', 'airport_name']]
     print(attributesHistory)
-    attributes,distribution_map,baseline_distribution_map=onlinelearning(attributesHistory, algorithm='Momentum')
-
-    # #greedy always use the last 3 attributes
-    # attributes=attributesHistory[-1]
+    attributes,distribution_map,baselines_distribution_maps=onlinelearning(attributesHistory, algorithms=['Momentum','Random','Greedy'])
 
 
     recommendations = draco_test.get_draco_recommendations(attributes)
@@ -202,12 +206,20 @@ def top_k(save_csv=False):
         "chart_recommendations": chart_recom,
         "distribution_map": distribution_map
     }
-    #save distribution map as json
-    with open('distribution_map.json', 'w') as f:
-        json.dump(distribution_map, f)
 
-    with open('baseline_distribution_map.json', 'w') as f:
-        json.dump(baseline_distribution_map, f)
+    #save all the basleine distribution maps
+    # baselines_distribution_maps = {
+    #     'Momentum': distribution_map_momentum,
+    #     'Greedy': distribution_map_greedy,
+    #     'Random': distribution_map_random
+    # }
+
+    for algo, base_distribution_map in baselines_distribution_maps.items():
+        with open(f'{algo}_distribution_map.json', 'w') as f:
+            json.dump(base_distribution_map, f)
+
+    with open('distribution_map.json', 'w') as file:
+        json.dump(distribution_map, file)
 
     if save_csv:
         distribution_map_dataframe = pd.DataFrame.from_dict(distribution_map, orient='index', columns=['Probability'])
@@ -216,22 +228,25 @@ def top_k(save_csv=False):
     return jsonify(response_data)
 
 @app.route('/get-performance-data', methods=['GET'])
-def read_json_file(file_path='distribution_map.json', baseline_file_path='baseline_distribution_map.json'):
-    #send both the distribution map and the baseline distribution map
-    with open(baseline_file_path, 'r') as file:
-        baseline_data = json.load(file)
-
+def read_json_file(file_path='distribution_map.json', algorithms=['Momentum','Random','Greedy']):
     with open(file_path, 'r') as file:
         data = json.load(file)
 
+    #for each algo get it from the file
+    baselines_distribution_maps = {}
+    for algo in algorithms:
+        with open(f'{algo}_distribution_map.json', 'r') as f:
+            baselines_distribution_maps[algo] = json.load(f)
+
+
     response_data = {
-        "baseline_distribiton_map": baseline_data,
-        "distribution_map": data
+        "distribution_map": data,
+        "baselines_distribution_maps": baselines_distribution_maps
     }
 
     return jsonify(response_data)
 
-def get_distribution_of_states(data):
+def get_distribution_of_states(data, dataset='birdstrikes'):
     """
     Get the distribution of states in the data.
 
@@ -242,11 +257,8 @@ def get_distribution_of_states(data):
     - distribution (dict): a dictionary containing the probability of states.
     """
     # Define the list of all possible field names and convert them to lowercase
-    fieldnames = ['Airport_Name', 'Aircraft_Make_Model', 'Effect_Amount_of_damage', 'Flight_Date',
-                  'Aircraft_Airline_Operator', 'Origin_State', 'When_Phase_of_flight', 'Wildlife_Size',
-                  'Wildlife_Species', 'When_Time_of_day', 'Cost_Other', 'Cost_Repair', 'Cost_Total_a',
-                  'Speed_IAS_in_knots', 'None']
-    fieldnames = [f.lower() for f in fieldnames]
+    if dataset == 'birdstrikes':
+        fieldnames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots']
 
     # Create a Counter with all possible field names
     distribution = Counter({key: 0 for key in fieldnames})
@@ -257,8 +269,8 @@ def get_distribution_of_states(data):
             if state.lower() in distribution:
                 distribution[state.lower()] += 1
 
-    # Calculate the total count of states
-    total = sum(distribution.values())
+    # Calculate the total count of states, small epsilon added to avoid division by zero
+    total = sum(distribution.values())+0.000000000000001
 
     # Normalize the counts to obtain probabilities
     distribution = {key: count / total for key, count in distribution.items()}
@@ -266,11 +278,24 @@ def get_distribution_of_states(data):
     return distribution
 
 
-def onlinelearning(attributesHistory, algorithm='Momentum'):
+def onlinelearning(attributesHistory, algorithms=['Momentum','Random','Greedy'], dataset='birdstrikes'):
+    """
+    Online learning algorithm to predict the next state of the environment.
+    Args:
+        attributesHistory:
+        algorithm:
+
+    Returns:
+
+    """
+
+
+    generator = StateGenerator(dataset)
+
     #make all the attributes inside the list to be 3 in size fill with None if not enough
-    for i in range(len(attributesHistory)):
-        if len(attributesHistory[i])<3:
-            attributesHistory[i].extend(['none']*(3-len(attributesHistory[i])))
+    # for i in range(len(attributesHistory)):
+    #     if len(attributesHistory[i])<3:
+    #         attributesHistory[i].extend(['none']*(3-len(attributesHistory[i])))
 
     #make the array as a pandas dataframe with index and whole attribute as a State column
     df = pd.DataFrame({'State': attributesHistory})
@@ -280,23 +305,50 @@ def onlinelearning(attributesHistory, algorithm='Momentum'):
 
     df_with_actions = process_actions(df)
 
-    if algorithm == 'Momentum':
-        algo=Momentum()
-        action=algo.MomentumDriver(df_with_actions)
+    if 'Momentum' in algorithms:
+        # algo=Momentum()
+        # action=algo.MomentumDriver(df_with_actions)
+        if len(attributesHistory)>1:
+            next_state_momentum= attributesHistory[-2]
+        else:
+            next_state_momentum= []
+        next_state_momentum = list(filter(lambda x: x.lower() != 'none', next_state_momentum))
 
-    generator = StateGenerator('birdstrikes')
-    next_state = generator.generate_next_states(df_with_actions['State'][len(df_with_actions)-1], action)
+    if 'Greedy' in algorithms:
+        next_state_greedy= attributesHistory[-1]
+        next_state_greedy = list(filter(lambda x: x.lower() != 'none', next_state_greedy))
+
+    if 'Random' in algorithms:
+        next_state_random= random.choice(generator.generate_independent_next_states())
+        next_state_random = list(filter(lambda x: x.lower() != 'none', next_state_random))
 
 
-
+    # next_state = generator.generate_next_states(df_with_actions['State'][len(df_with_actions)-1], action)
     #there are too many combinations of next states, so we will just take the first one
-    next_state_filtered = list(filter(lambda x: x.lower() != 'none', next_state[0]))
+    #next_state_filtered = list(filter(lambda x: x.lower() != 'none', next_state[0]))
 
-    momentum_attributes_history = attributesHistory + [next_state_filtered]
+
+    momentum_attributes_history.append(next_state_momentum)
+    greedy_attributes_history.append(next_state_greedy)
+    random_attributes_history.append(next_state_random)
+
     df_momentum = pd.DataFrame({'State': momentum_attributes_history})
     distribution_map_momentum = get_distribution_of_states(df_momentum)
 
-    return next_state_filtered, distribution_map, distribution_map_momentum
+    df_greedy = pd.DataFrame({'State': greedy_attributes_history})
+    distribution_map_greedy = get_distribution_of_states(df_greedy)
+
+    df_random = pd.DataFrame({'State': random_attributes_history})
+    distribution_map_random = get_distribution_of_states(df_random)
+
+    all_algorithms_distribution_map = {
+        'Momentum': distribution_map_momentum,
+        'Greedy': distribution_map_greedy,
+        'Random': distribution_map_random
+    }
+
+
+    return next_state_greedy, distribution_map, all_algorithms_distribution_map
 
 
 
@@ -324,7 +376,7 @@ def process_actions(data):
             action = 'same'
         else:
             action = f'modify-{num_different_elements}'
-            print('Reset')
+
 
         actions.append(action)
 

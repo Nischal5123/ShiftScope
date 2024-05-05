@@ -1,4 +1,5 @@
 const express = require('express')
+const path = require('path'); // Import the 'path' module
 
 const bodyParser = require('body-parser'),
 	compress = require('compression'),
@@ -20,6 +21,11 @@ app.use(methodOverride())
 app.use(express.static('public'))
 app.use('/data', express.static('staticdata'))
 // start listening
+// Route for serving the static post-task-survey.html file
+app.get('/post-task-survey.html', (req, res) => {
+    // Send the static post-task-survey.html file
+    res.sendFile('/Users/aryal/Desktop/Personal/RLVisRec/interface/client/post-task-survey.html');
+});
 app.listen(8000, function() {
 	console.log('Server: listening 8000')
 });;

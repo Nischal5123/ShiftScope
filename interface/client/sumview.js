@@ -301,8 +301,14 @@ export default class SumView extends EventEmitter {
     }
 
    _recommendCharts(attributesHistory, callback) {
+
+        // Question: When phase of flight has the highest number of birdstrike records in
+       //           June (Flight_Date)? :['when_phase_of_flight', 'flight_date']
+
+       // Question :What speed (IAS) in knots could cause the substantial (Effect Amount
+       //           of damage) damage of AVRO RJ 85 (Aircraft Make Model)? :['speed_ias', 'aircraft_make_model']
     if (attributesHistory == null) {
-        attributesHistory = [['airport_name', 'flight_date', 'origin_state']];
+        attributesHistory = [['when_phase_of_flight', 'flight_date'],['speed_ias_in_knots', 'aircraft_make_model']];
     }
 
     $.ajax({

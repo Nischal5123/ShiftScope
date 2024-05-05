@@ -1,13 +1,13 @@
 
 import itertools
-
+import numpy as np
+import random
 class StateGenerator:
     def __init__(self, dataset='birdstrikes'):
         if dataset== 'birdstrikes':
-            self.fieldnames = ['Airport_Name', 'Aircraft_Make_Model', 'Effect_Amount_of_damage', 'Flight_Date',
-              'Aircraft_Airline_Operator', 'Origin_State', 'When_Phase_of_flight', 'Wildlife_Size',
-              'Wildlife_Species', 'When_Time_of_day', 'Cost_Other', 'Cost_Repair', 'Cost_Total',
-              'Speed_IAS_in_knots', 'None']
+            self.dataset = 'birdstrikes'
+            self.fieldnames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots', 'none']
+
 
 
     def generate_next_states(self, current_state, action):
@@ -34,3 +34,27 @@ class StateGenerator:
                     #To be implemented
 
         return [current_state]
+
+    def generate_independent_next_states(self):
+        # Check if already exists
+        try:
+            filename= self.dataset + '_all_states.npy'
+            all_states = np.load(filename, allow_pickle=True)
+            return all_states
+        except FileNotFoundError:
+            all_states = []
+            for num_fields in range(1, 4):
+                for fields_combination in itertools.combinations(self.fieldnames, num_fields):
+                    all_states.append(list(fields_combination))
+            # Convert to numpy array of dtype=object
+            all_states = np.array(all_states, dtype=object)
+            # Save this as numpy array so that it can handle variable-length lists
+            save_path = self.dataset + '_all_states.npy'
+            np.save(save_path, all_states)
+        return all_states
+
+
+if __name__ == '__main__':
+    sg = StateGenerator()
+    list=sg.generate_independent_next_states()
+    print(list)
