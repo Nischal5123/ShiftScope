@@ -714,3 +714,5 @@ wildlife_species
 ['airport_name', 'speed_ias_in_knots'] 2024-05-05 18:43:43.418979
 ['flight_date', 'effect_amount_of_damage'] 2024-05-05 19:37:36.263620
 ['effect_amount_of_damage', 'when_phase_of_flight'] 2024-05-05 19:38:23.477377
+['airport_name', 'cost_total_a'] 2024-05-06 18:47:12.010129
+['cost_repair'] 2024-05-06 19:06:07.990442

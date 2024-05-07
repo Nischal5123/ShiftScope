@@ -2,7 +2,6 @@ import environment_vizrec
 import numpy as np
 from collections import defaultdict
 import random
-import matplotlib.pyplot as plt
 from collections import Counter
 import pandas as pd
 

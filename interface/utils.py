@@ -5,6 +5,7 @@ import numpy as np
 from Q_Learning import Rl_Driver
 from Momentum import Momentum
 import os
+from a3c import a3c_Driver
 
 def run_algorithm(algorithm, attributes_history, generator, dataset):
     if algorithm == 'Qlearning':
@@ -39,7 +40,8 @@ def run_algorithm(algorithm, attributes_history, generator, dataset):
     elif algorithm == 'Random':
         return list(filter(lambda x: x.lower() != 'none', random.choice(generator.generate_independent_next_states())))
 
-
+    elif algorithm == 'a3c':
+        return a3c_Driver(dataset, attributes_history[-1])
 
 # def check_fields(dictionary, fields):
 #     for key, value in dictionary.items():

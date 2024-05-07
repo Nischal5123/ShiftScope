@@ -143,29 +143,7 @@ export default class SumView extends EventEmitter {
     update(callback, attributesHistory = null) {
         this._prevcharts = this._charts
 
-
-        //this.selectedChartID = -1
-        // this._charts = this.data.chartspecs.map((d, i) => {
-        //     var osp = _.extend({}, d)
-        //     delete osp._meta
-
-        //     var sp = JSON.stringify(osp)
-        //     var vars = []
-        //     this.data.chartdata.attributes.forEach((attr) => {
-        //         sp = sp.replace(new RegExp(attr[0], 'g'), (m) => {
-        //             vars.push(m)
-        //             return attr[1]
-        //         })
-        //     })
-        //     //var varnum = (sp.match(/num|str/g) || []).length
-        //     return {originalspec: osp, normspec: sp, 
-        //         vars: _.union(vars), created: false, chid: d._meta.chid, uid: d._meta.uid}
-        // })
-
         this._recommendCharts(attributesHistory)
-        // this.render()
-        // if (callback) callback()
-
     }
 
     render() {

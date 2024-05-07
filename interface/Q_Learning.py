@@ -1,5 +1,5 @@
 import random
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from tqdm import tqdm
 from complete_environment import RLEnvironment
 
@@ -69,14 +69,13 @@ class QLearningAgent:
         best_action = max(q_values, key=q_values.get)
         # Perform the best action to predict the next state
         next_state, _ = self.env.step(best_action)
-        print(f"Next State One-Hot: {next_state}")
+        # print(f"Next State One-Hot: {next_state}")
         next_state=self.env.convert_back_to_state(next_state)
         return next_state
 
 def convert_to_one_hot(input_attributes, fieldnames):
     one_hot_state = [1 if field in input_attributes else 0 for field in fieldnames]
     return one_hot_state
-
 
 
 
@@ -107,17 +106,17 @@ def Rl_Driver(dataset='birdstrikes', attributes_history_path="attributes_history
     total_rewards = agent.train(num_episodes)
 
     # Plot training progress
-    plt.interactive(False)
-    plt.plot(range(1, num_episodes + 1), total_rewards)
-    plt.xlabel('Episode')
-    plt.ylabel('Total Reward')
-    plt.title('Training Progress')
-    plt.show()
+    # plt.interactive(False)
+    # plt.plot(range(1, num_episodes + 1), total_rewards)
+    # plt.xlabel('Episode')
+    # plt.ylabel('Total Reward')
+    # plt.title('Training Progress')
+    # plt.show()
 
     # Inference: Predict the next state
     current_state_encoded = convert_to_one_hot(current_state, fieldnames)
     predicted_next_state = agent.inference_predict_next_state(current_state_encoded)
-    print(f"Inference: Predicted next state: {predicted_next_state}")
+    # print(f"Inference: Predicted next state: {predicted_next_state}")
     return predicted_next_state
 
 

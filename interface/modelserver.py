@@ -16,16 +16,10 @@ from StateGenerator import StateGenerator
 from utils import run_algorithm
 
 port = 5500
-rulesfile = './gvaemodel/rules-cfg.txt'
-modelsave = './gvaemodel/vae_H256_D256_C444_333_L20_B200.hdf5'
-m = re.search(r'_L(\d+)_', modelsave)
+# m = re.search(r'_L(\d+)_', modelsave)
 
 MAX_LEN = 20
-LATENT = int(m.group(1))
-
-
-visvae = None
-pca = None
+# LATENT = int(m.group(1))
 
 app = Flask(__name__)
 CORS(app)
@@ -37,6 +31,7 @@ momentum_attributes_history = []
 greedy_attributes_history = []
 random_attributes_history = []
 rl_attributes_history = []
+a3c_attributes_history = []
 
 class InvalidUsage(Exception):
     status_code = 400
@@ -53,19 +48,11 @@ class InvalidUsage(Exception):
         rv['message'] = self.message
         return rv
 
-
-
-
-
 @app.errorhandler(InvalidUsage)
 def handle_invalid_usage(error):
     response = jsonify(error.to_dict())
     response.status_code = error.status_code
     return response
-
-
-
-
 
 @app.route('/encode', methods=['POST'])
 def encode():
@@ -148,8 +135,6 @@ def encode2():
 
 
 
-
-
 @app.route('/top_k', methods=['POST'])
 def top_k(save_csv=False):
     print('Starting Recommendation Engine...')
@@ -162,8 +147,8 @@ def top_k(save_csv=False):
     else:
         attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
                          ['flight_data', 'wildlife_size', 'airport_name']]
-    print(attributesHistory)
-    attributes,distribution_map,baselines_distribution_maps=onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'])
+    # print(attributesHistory)
+    attributes,distribution_map,baselines_distribution_maps=onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning', 'a3c'])
 
 
     recommendations = draco_test.get_draco_recommendations(attributes)
@@ -252,7 +237,7 @@ def get_distribution_of_states(data, dataset='birdstrikes'):
 
 
 
-def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], dataset='birdstrikes'):
+def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning', 'a3c'], dataset='birdstrikes'):
     """
     Online learning algorithm to predict the next state of the environment.
     Args:
@@ -285,12 +270,14 @@ def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Gr
     next_state_momentum = results['Momentum']
     next_state_greedy = results['Greedy']
     next_state_random = results['Random']
+    next_state_a3c = results['a3c']
 
     # Append the results to their respective attribute histories
     momentum_attributes_history.append(next_state_momentum)
     greedy_attributes_history.append(next_state_greedy)
     random_attributes_history.append(next_state_random)
     rl_attributes_history.append(next_state_rl)
+    a3c_attributes_history.append(next_state_a3c)
 
     # Construct DataFrames and distribution maps for each algorithm
     df_momentum = pd.DataFrame({'State': momentum_attributes_history})
@@ -305,11 +292,15 @@ def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Gr
     df_rl = pd.DataFrame({'State': rl_attributes_history})
     distribution_map_rl = get_distribution_of_states(df_rl)
 
+    df_a3c = pd.DataFrame({'State': a3c_attributes_history})
+    distribution_map_a3c = get_distribution_of_states(df_a3c)
+    
     # Construct a dictionary containing distribution maps for all algorithms
     all_algorithms_distribution_map = {
         'Momentum': distribution_map_momentum,
         'Greedy': distribution_map_rl,  # Let's send this as Greedy for now
-        'Random': distribution_map_random
+        'Random': distribution_map_random,
+        'a3c': distribution_map_a3c
     }
 
     return next_state_rl, distribution_map, all_algorithms_distribution_map
