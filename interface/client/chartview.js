@@ -162,18 +162,19 @@
              }
         }
 
-        var vegachart = _.extend({}, this.data, 
+        var vegachart = _.extend({}, this.data,
              { width: 835, height: 550, autosize: 'fit' },
             //  { data: {values: this.conf.datavalues} },
              { config: this.conf.vegaconfig})
         //  console.log(vegachart)
         //  console.log(vegachart[0])
-         
+
          vegaEmbed('#chartview .chartcontainer', vegachart, {actions: false})
- 
+
+
          if(eventsource != 'texteditor')
              this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '))
-         
+
          if(eventsource != 'uicontrols')
              this._updateChartComposer(this.data)
 

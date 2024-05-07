@@ -22,7 +22,7 @@ def run_algorithm(algorithm, attributes_history, generator, dataset):
         # Save the new attribute history to a numpy file
         np.save("attributes_history.npy", Rl_attributesHistory)
 
-        next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="attributes_history.npy", current_state=Rl_attributesHistory[-1])
+        next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="attributes_history.npy", current_state=Rl_attributesHistory[-1], epsilon=0.9)
         return list(filter(lambda x: x.lower() != 'none', next_state_rl))
 
     elif algorithm == 'Momentum':

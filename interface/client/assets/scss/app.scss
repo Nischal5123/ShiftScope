@@ -186,7 +186,7 @@ html, body {
   width: 100%;
   top: 350px;
   bottom: 20px;
-  left: 0;
+  left: 10px;
   position: absolute;
   border-top: 1px solid gray;
   display: inline-block;
@@ -247,6 +247,22 @@ html, body {
 //}
 
 #suggestionview {
+  position: absolute;
+  width: 500px;
+  top: 20px;
+  bottom: 0;
+  left: 10px;
+  right: 20px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+}
+
+#bookmarkview {
   position: absolute;
   width: 500px;
   top: 20px;
@@ -425,7 +441,7 @@ html, body {
   width: 0;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 0;
+  left: 20px;
   top: 0;
   background-color: #aaaaaa; /* Black fallback color */
   background-color: rgba(255,255,255, 0.9); /* Black w/opacity */
@@ -437,7 +453,7 @@ html, body {
 .overlay-content {
   position: relative;
   top: 25%; /* 25% from the top */
-  width: 100%; /* 100% width */
+  width: 80%; /* 100% width */
   text-align: center; /* Centered text/links */
   margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
 }

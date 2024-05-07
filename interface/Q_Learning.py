@@ -80,7 +80,7 @@ def convert_to_one_hot(input_attributes, fieldnames):
 
 
 
-def Rl_Driver(dataset='birdstrikes', attributes_history_path="attributes_history.npy", current_state=['speed_ias_in_knots', 'aircraft_make_model']):
+def Rl_Driver(dataset='birdstrikes', attributes_history_path="attributes_history.npy", current_state=['speed_ias_in_knots', 'aircraft_make_model'], epsilon=0.9):
     if dataset == 'birdstrikes':
         # Define fieldnames, attributes history, and maximum fields per state
         fieldnames = sorted(['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
@@ -100,7 +100,7 @@ def Rl_Driver(dataset='birdstrikes', attributes_history_path="attributes_history
     rl_env = RLEnvironment(fieldnames, max_fields_per_state, attributes_history_path)
 
     # Create Q-learning agent
-    agent = QLearningAgent(rl_env)
+    agent = QLearningAgent(rl_env, initial_epsilon=epsilon)
 
     # Train the agent
     num_episodes = 100

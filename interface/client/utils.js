@@ -17,6 +17,7 @@
  var interactionLogs = [];
  var fieldsArray = [];
  var attributesHistory = [];
+ var bookmarkedCharts = [];
  export var vegaConfig = {
      axis: {labelFontSize:9, titleFontSize:9, labelAngle:-45, labelLimit:50},
      legend: {gradientLength:20, labelFontSize:6, titleFontSize:6, clipHeight:20}
@@ -66,42 +67,120 @@
  //   }
  // }
  //
- 
- export function displayAllCharts(container, created=true) {
-     $(container).empty()
-     // shuffleArray(app.sumview.charts;
-     app.sumview.charts.forEach((ch) => {
-         // if(ch.created == created) {
-         //    //  console.log(ch.originalspec)
-            var vegachart = _.extend({}, ch.originalspec,
-                { width: 470, height: 225, autosize: 'fit' },
-            //  { data: {values: app.data.chartdata.values} },
-                { config: vegaConfig})
-            // console.log(vegachart)
-            $(container).append($('<div />', {class: 'chartdiv', id: 'chart' + ch.chid}))
-            $('#chart' + ch.chid).append('<div class="chartcontainer"></div><span class="chartlabel"></span>')
-        
-            vegaEmbed('#chart' + ch.chid + ' .chartcontainer', vegachart, {actions: false})
-            $('#chart' + ch.chid + ' .chartlabel').css('background-color', ch.created ? '#f1a340' : '#998ec3')
-            $('#chart' + ch.chid + ' .chartlabel').html('#' + ch.chid)
-            
-            $('#chart' + ch.chid).hover((e) => {
-                $('#chart' + ch.chid).css('border-color', 'crimson')
-                app.sumview.highlight(ch.chid, true)
-            }, (e) => {
-                $('#chart' + ch.chid).css('border-color', 'lightgray')
-                app.sumview.highlight(ch.chid, false)
-            }).click((e) => {
-                app.sumview.selectedChartID = ch.chid
-                })
-         // }
-     })
- }
+
+export function displayBookmarkCharts(container, created = true) {
+    $(container).empty();
+     app.sumview.bookmarkedCharts.forEach((ch) => {
+        var vegachart = _.extend({}, ch.originalspec, {
+            width: 470,
+            height: 225,
+            autosize: 'fit'
+        }, {
+            config: vegaConfig
+        });
+        var $chartContainer = $('<div />', {
+            class: 'chartdiv',
+            id: 'bookchart' + ch.chid
+        });
+        var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.chid);
+
+        $(container).append($chartContainer);
+        $chartContainer.append('<div class="chartcontainer"></div>', $chartLabel);
+
+        vegaEmbed('#bookchart' + ch.chid + ' .chartcontainer', vegachart, {
+            actions: false
+        });
+
+        $chartContainer.hover((e) => {
+            $chartContainer.css('border-color', 'crimson');
+            app.sumview.highlight(ch.chid, true);
+        }, (e) => {
+            $chartContainer.css('border-color', 'lightgray');
+            app.sumview.highlight(ch.chid, false);
+        }).click((e) => {
+            app.sumview.bookmarkedselectedChartID = ch.chid;
+        });
+    });
+}
+
+ export function displayAllCharts(container, created = true) {
+    $(container).empty();
+    app.sumview.charts.forEach((ch) => {
+        var vegachart = _.extend({}, ch.originalspec, {
+            width: 470,
+            height: 225,
+            autosize: 'fit'
+        }, {
+            config: vegaConfig
+        });
+        var $chartContainer = $('<div />', {
+            class: 'chartdiv',
+            id: 'chart' + ch.chid
+        });
+        var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.chid);
+
+        $(container).append($chartContainer);
+        $chartContainer.append('<div class="chartcontainer"></div>', $chartLabel);
+
+        vegaEmbed('#chart' + ch.chid + ' .chartcontainer', vegachart, {
+            actions: false
+        });
+
+        $chartContainer.hover((e) => {
+            $chartContainer.css('border-color', 'crimson');
+            app.sumview.highlight(ch.chid, true);
+        }, (e) => {
+            $chartContainer.css('border-color', 'lightgray');
+            app.sumview.highlight(ch.chid, false);
+        }).click((e) => {
+            app.sumview.selectedChartID = ch.chid;
+        });
+
+        // Create and append bookmark button
+        var $bookmarkButton = $('<button>', {
+            class: 'bookmark-button',
+            text: 'Bookmark'
+        }).click(() => {
+            // Handle bookmarking action here
+            // For example:
+            app.sumview._bookmarkedCharts.push(ch);
+            console.log('Bookmarking chart ID:', ch.chid);
+        });
+        $chartContainer.append($bookmarkButton);
+    });
+    // openNav()
+}
+
  
  export function handleEvents() {
      app.sumview.on('clickchart', (ch) => {
         //  console.log(ch.originalspec)
          app.chartview.update(ch.originalspec, 'outside')
+
+
+         //logger
+
+
+         // Parse JSON string into a JavaScript object
+         var visualizationConfigClick = ch.originalspec.encoding;
+
+        // Array to store extracted fields
+
+         const shapeField = visualizationConfigClick.shape?.field !== undefined ? visualizationConfigClick.shape.field : null;
+         const sizeField = visualizationConfigClick.size?.field !== undefined ? visualizationConfigClick.size.field : null;
+         const xField = visualizationConfigClick.x?.field !== undefined ? visualizationConfigClick.x.field : null;
+         const yField = visualizationConfigClick.y?.field !== undefined ? visualizationConfigClick.y.field : null;
+         const colorField = visualizationConfigClick.color?.field !== undefined ? visualizationConfigClick.color.field : null;
+        // Check if colorField, xField, and yField exist
+        fieldsArray = [colorField, xField, yField, shapeField,sizeField].filter(field => field !== null && field !== undefined);
+        attributesHistory.push(fieldsArray);
+
+
+
+
+
+         //
+
  
          $('#chartview .chartlabel').css('background-color', ch.created ? '#f1a340' : '#998ec3')
          $('#chartview .chartlabel').html('#' + ch.chid)
@@ -152,29 +231,12 @@
       // Parse JSON string into a JavaScript object
          const visualizationConfig = spec.encoding;
 
-        // Array to store extracted fields
-
-
-        //  const colorField = visualizationConfig.color.field !== undefined ? visualizationConfig.color.field : null;
-        //  const xField = visualizationConfig.x.field !== undefined ? visualizationConfig.x.field : null;
-        //  const yField = visualizationConfig.y.field !== undefined ? visualizationConfig.y.field : null;
-        //
-        // // Remove null or undefined values from fieldsArray
-        //  fieldsArray = [colorField, xField, yField].filter(field => field !== null && field !== undefined);
-
          const shapeField = visualizationConfig.shape?.field !== undefined ? visualizationConfig.shape.field : null;
          const sizeField = visualizationConfig.size?.field !== undefined ? visualizationConfig.size.field : null;
          const xField = visualizationConfig.x?.field !== undefined ? visualizationConfig.x.field : null;
          const yField = visualizationConfig.y?.field !== undefined ? visualizationConfig.y.field : null;
          const colorField = visualizationConfig.color?.field !== undefined ? visualizationConfig.color.field : null;
         // Check if colorField, xField, and yField exist
-         if (shapeField!=null && colorField !== null && xField !== null && yField !== null && sizeField !== null) {
-            // Remove null or undefined values from fieldsArray
-            fieldsArray=[colorField, xField, yField, shapeField,sizeField].filter(field => field !== null && field !== undefined);
-         } else {
-            // Handle case where colorField, xField, or yField is null
-            console.error('Error: colorField, xField, or yField is null or undefined.');
-         }
         // Remove null or undefined values from fieldsArray
         fieldsArray = [colorField, xField, yField, shapeField,sizeField].filter(field => field !== null && field !== undefined);
         attributesHistory.push(fieldsArray);
@@ -183,6 +245,8 @@
 
         // Log extracted fields array
          console.log("Fields array:", fieldsArray);
+         //remove last element from the attributesHistory array
+         attributesHistory.pop()
          app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid }, attributesHistory)
          //app.sumview.update(()=> {app.sumview.selectedChartID = spec._meta.chid }, fieldsArray)
          
@@ -291,6 +355,7 @@
 
      $('#performaceViewOpen').click(() => {
             console.log("User requested Performance View")
+            document.getElementById("myNav").style.width = "100%";
             openNav()
 
      })
@@ -299,6 +364,18 @@
             console.log("User requested Performance View to be closed")
             closeNav()
      })
+
+     $('#bookmarkViewOpen').click(() => {
+            console.log("User requested Bookmark View")
+            openBookmark()
+
+     })
+
+     $('#bookmarkViewClose').click(() => {
+            console.log("User requested Bookmark View to be closed")
+            closeBookmark()
+     })
+
 
 
 
@@ -375,15 +452,12 @@ let myChart;
 let baselineChart;// Declare a variable to store the chart instance
 
 function openNav() {
-    document.getElementById("myNav").style.width = "100%";
-
     $.ajax({
         type: 'GET',
         crossDomain: true,
         url: 'http://localhost:5500' + '/get-performance-data',
         contentType: 'application/json'
     }).done((data) => {
-
 
         // 1. Rl Data
         // Extract field names and probabilities from the data object
@@ -516,8 +590,18 @@ function CSVToArray(text) {
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
+    $('#chart-container-perf').empty()
   document.getElementById("myNav").style.width = "0%";
 }
 
+
+
+function openBookmark() {
+    document.getElementById("myBookmark").style.width = "100%";
+    displayBookmarkCharts('#bookmarkview', true)
+    }
+function closeBookmark() {
+  document.getElementById("myBookmark").style.width = "0%";
+}
 
 

@@ -32,6 +32,9 @@ CORS(app)
 
 env = environment()
 
+#encode history
+encode_history = []
+
 # memory for all algorithms history
 momentum_attributes_history = []
 greedy_attributes_history = []
@@ -70,33 +73,72 @@ def handle_invalid_usage(error):
 @app.route('/encode', methods=['POST'])
 def encode():
     specs = request.get_json()
-    # print(specs)
     parsed_data = [json.loads(item) for item in specs]
 
-    # Extract field names from the parsed JSON
+    # Extract field names and types from the parsed JSON
     field_names = []
+    encoding_channels = []
+    field_types = {}
     for item in parsed_data:
-        # Assuming 'encoding' contains the fields and is structured consistently as shown in your sample
+        marks = [item.get('mark', 'bar')]
         encodings = item.get('encoding', {})
         for key in encodings:
+            encoding_channels.append(key)
             field_info = encodings[key]
             field_name = field_info.get('field')
             if field_name:
                 field_names.append(field_name)
-
-    #get_draco recommendations
-    recommendations = draco_test.get_draco_recommendations(field_names)
+                field_types[field_name] = key
+    encode_history.append(field_names)
+    # Get Draco recommendations
+    recommendations = draco_test.get_draco_recommendations(field_names, 'birdstrikes', parsed_data)
+    # matched_recommendations = []
+    #
+    # # Initialize variables to track the maximum number of matched fields and the corresponding recommendation
+    # max_match = 0
+    # max_match_recommendation = None
+    #
+    # # Iterate over the recommendations and check for matches
+    # for chart_key, chart in recommendations.items():
+    #     encodings = json.loads(chart).get('encoding', {})
+    #     matched_fields = 0
+    #
+    #     # Compare each field in the recommendation with the parsed data
+    #     for field, field_info in encodings.items():
+    #         if field in field_names and field_info.get('field') == field and field_types[field] == field_info.get(
+    #                 'type'):
+    #             matched_fields += 1
+    #
+    #     # Update the maximum match and corresponding recommendation if a new maximum is found
+    #     if matched_fields > max_match:
+    #         max_match = matched_fields
+    #         max_match_recommendation = chart
+    #
+    # # If there is a recommendation with a match, add it to the list of matched recommendations
+    # if max_match_recommendation:
+    #     matched_recommendations.append(max_match_recommendation)
+    #
+    # if len(matched_recommendations) == 0:
+    #     matched_recommendations.append(recommendations[0])
     chart_recom = []
+    chart_all=[]
     for chart_key, _ in recommendations.items():
         chart = recommendations[chart_key]
+        chart_all.append(chart)
         encodings = json.loads(chart).get('encoding', {})
-        match=0
+        match = 0
         for f in field_names:
             if f in str(encodings):
-                match+=1
-        if match==len(field_names):
-                chart_recom.append(chart)
-    return jsonify(chart_recom[0])
+                match += 1
+        if match == len(field_names):
+            chart_recom.append(chart)
+    if len(chart_recom) == 0:
+        return jsonify(chart_all[0])
+    else:
+        return jsonify(chart_recom[0])
+
+
+
 
 @app.route('/get-fields', methods=['POST'])
 def encode_test():
@@ -137,6 +179,8 @@ def encode2():
         if field_name:
             field_names.append(field_name)
 
+    encode_history.append(field_names)
+
     #write to a log file the selected recommendation for current session. can i get current session id?
 
     with open('selected_recommendation.txt', 'a') as f:
@@ -156,13 +200,16 @@ def top_k(save_csv=False):
     #get running time in console
     start_time = time.time()
 
-    data = request.get_json()
+    total_data = request.get_json()
+    data = eval(total_data.get('history'))
+    bookmarked_charts = total_data.get('bookmarked', [])
     if data and isinstance(data, list):
         attributesHistory = data
     else:
         attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
                          ['flight_data', 'wildlife_size', 'airport_name']]
-    print(attributesHistory)
+
+    print('Attribute History', attributesHistory)
     attributes,distribution_map,baselines_distribution_maps=onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'])
 
 
@@ -271,7 +318,7 @@ def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Gr
     distribution_map=get_distribution_of_states(df)
 
 
-    df_with_actions = process_actions(df)
+    #df_with_actions = process_actions(df)
 
     # Create a ThreadPoolExecutor with a maximum of 4 workers (adjust as needed)
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:

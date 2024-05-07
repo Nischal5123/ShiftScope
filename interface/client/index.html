@@ -25,7 +25,7 @@
                 <label id="datafile"></label>
                 <button id="export">End Session </button>
                  <label>Attribute Color Encodings: </label><span id="legend"></span>
-                <button type="button" id="bookmark">
+                <button type="button" id="bookmarkViewOpen">
                 <i class="fas fa-bookmark"></i> &nbsp; Bookmarked Charts</button>
                 <button id="performaceViewOpen">Performance View</button>
             </div>
@@ -83,7 +83,7 @@
                 <span class="panel-header"><label>-----------------------------------------------------Suggested Charts---------------------------------------</label></span>
 <!--                <div id="sumview"></div>-->
                 <div id="suggestionview"></div>
-                <div class="chartcontainer"></div>
+<!--                <div class="chartcontainer"></div>-->
                 <!-- Use any element to open/show the overlay navigation menu -->
 
 
@@ -119,6 +119,7 @@
       <!-- Button to close the overlay navigation -->
       <a class="closebtn" id="performaceViewClose">&times;</a>
         <div class="chart-container-perf">
+             <!-- Create a canvas element with the ID 'attributeChart' -->
             <div class="chart">
         <h2>RL Focus</h2>
         <canvas id="RLChart" style="max-width:700px"></canvas>
@@ -134,6 +135,14 @@
              <div class="chart">
         <h2>Baseline-M Focus</h2>
         <canvas id="MomentumbaselineChart" style="max-width:700px"></canvas>
+    </div>
+
+            <!-- The overlay -->
+    <div id="myBookmark" class="overlay">
+      <!-- Button to close the overlay navigation -->
+      <a class="closebtn" id="bookmarkViewClose">&times;</a>
+        <div id="bookmarkview"></div>
+        <div class="chartcontainer"></div>
     </div>
 </div>
 

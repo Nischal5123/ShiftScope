@@ -68,30 +68,31 @@ def rec_from_generated_spec(
     draco: drc.Draco,
     input_spec_base: list[str],
     data: pd.DataFrame,
-    num: int = 1,
+    num: int = 1, config=None
 ) -> dict[str, dict]:
-    input_specs = [
-        (
-            (mark, field, enc_ch),
-            input_spec_base
-            + [
-                f"attribute((mark,type),m0,{mark}).",
-                "entity(encoding,m0,e0).",
-                f"attribute((encoding,field),e0,{field}).",
-                f"attribute((encoding,channel),e0,{enc_ch}).",
-                # filter out designs with less than 3 encodings
-                ":- {entity(encoding,_,_)} < 2.",
-                # exclude multi-layer designs
-                ":- {entity(mark,_,_)} != 1.",
-            ],
-        )
-        for mark in marks
-        for field in fields
-        for enc_ch in encoding_channels
-    ]
-    # print(len(input_spec_base))
-    # print(len(input_specs))
-    # pdb.set_trace()
+    if config is None:
+        input_specs = [
+            (
+                (mark, field, enc_ch),
+                input_spec_base
+                + [
+                    f"attribute((mark,type),m0,{mark}).",
+                    "entity(encoding,m0,e0).",
+                    f"attribute((encoding,field),e0,{field}).",
+                    f"attribute((encoding,channel),e0,{enc_ch}).",
+                    # filter out designs with less than 3 encodings
+                    ":- {entity(encoding,_,_)} < 2.",
+                    # exclude multi-layer designs
+                    ":- {entity(mark,_,_)} != 1.",
+                ],
+            )
+            for mark in marks
+            for field in fields
+            for enc_ch in encoding_channels
+        ]
+    else:
+        input_specs=validate_chart(config,input_spec_base)
+
     recs = {}
     for cfg, spec in input_specs:
         labeler = lambda i: f"CHART {i + 1} ({' | '.join(cfg)})"
@@ -99,7 +100,68 @@ def rec_from_generated_spec(
 
     return recs
 
-def start_draco(fields,datasetname='movies'):
+
+
+
+def validate_chart(config, input_spec_base):
+    if not config:  # If config is empty, return an empty list
+        return []
+
+    con = config[0]  # Use the first configuration in the list
+    mark = con['mark']
+    encoding = con['encoding']
+    i=0
+    input_spec = []
+    # Extract fields, aggregates, and channels from the encoding dictionary
+    for channel, attr_info in encoding.items():
+        field = attr_info.get('field')
+        aggregate = attr_info.get('aggregate')
+
+        # Ensure channel is not None
+
+        if  i==0:
+            # Generate the base input specification
+            input_spec = [
+                (mark, field, channel) if field is not None else (mark, channel),
+                input_spec_base + [
+                    f"attribute((mark,type),m{i},{mark}).",
+                    f"entity(encoding,m{i},e{i}).",
+                    f"attribute((encoding,channel),e{i},{channel}).",
+                ]
+            ]
+
+            # Append additional attribute for field if it's not None
+            if field is not None:
+                input_spec[1].append(f"attribute((encoding,field),e{i},{field}).")
+
+            # Append additional attribute for aggregate if it's not None
+            if aggregate is not None:
+                input_spec[1].append(f"attribute((encoding,aggregate),e{i},{aggregate}).")
+            i=i+1
+
+        elif  i>0:
+
+            input_spec[1].append(f"entity(encoding,m{i},e{i}).")
+            input_spec[1].append(f"attribute((encoding,channel),e{i},{channel}).")
+            if field is not None:
+                input_spec[1].append(f"attribute((encoding,field),e{i},{field}).")
+            if aggregate is not None:
+                input_spec[1].append(f"attribute((encoding,aggregate),e{i},{aggregate}).")
+            i=i+1
+
+
+    # Append filtering rules
+    input_spec[1].extend([
+        # exclude multi-layer designs
+        ":- {entity(mark,_,_)} != 1."
+    ])
+
+    return [input_spec]
+
+
+
+
+def start_draco(fields,datasetname='birdstrikes',config=None):
     # Loading data to be explored
     d = drc.Draco()
     if datasetname == 'movies':
@@ -128,23 +190,22 @@ def start_draco(fields,datasetname='movies'):
     # initial_recommendations = recommend_charts(spec=input_spec_base, draco=d, df=df)
 
     recommendations = rec_from_generated_spec(
-    #marks=["point", "bar", "line", "rect"],
-    marks = ['bar', 'point', 'circle', 'line', 'tick'],
+    marks=['bar', 'point', 'circle', 'line', 'tick'],
     fields=fields,
     # encoding_channels=["x", "y", "color"],
     # encoding_channels=["color", "shape", "size"],
     encoding_channels=["x", "y", "color", "shape", "size"],
     draco=d,
     input_spec_base=input_spec_base,
-    data=df
+    data=df,
+    config=config
     )
     return recommendations
 
-def get_draco_recommendations(attributes):
+def get_draco_recommendations(attributes,datasetname='birdstrikes',config=None):
     ret = [f.replace('__', '_').lower() for f in attributes]
     field_names_renamed = [f.replace('$', 'a') for f in ret]
-    # print(field_names_renamed)
-    recommendations=start_draco(fields=field_names_renamed, datasetname='birdstrikes')
+    recommendations=start_draco(fields=field_names_renamed,datasetname=datasetname,config=config)
     return recommendations
 
 # Joining the data `schema` dict with the view specification dict

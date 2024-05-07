@@ -33,6 +33,7 @@ export default class SumView extends EventEmitter {
         this._variableSets = []
         this._showBubbles = true
         this._selectedChartID = -1
+        this._selectedbookmarkedChartID = -1
         this._performanceData = {}
         this._rscale = d3.scaleLinear().domain([0, 4]).range([0, this._params.dotr])
         this._xscale = d3.scaleLinear().domain([0, 1])
@@ -44,6 +45,7 @@ export default class SumView extends EventEmitter {
         this._varclr = d3.scaleOrdinal(['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075'])
         this._varclr = d3.scaleOrdinal(['#F3C300', '#875692', '#F38400', '#A1CAF1', '#BE0032', '#C2B280', '#848482', '#008856', '#E68FAC', '#0067A5', '#F99379', '#604E97', '#F6A600', '#B3446C', '#DCD300', '#882D17', '#8DB600', '#654522', '#E25822', '#2B3D26'])
         this._usrclr = d3.scaleOrdinal(d3.schemeGreys[5]).domain([0, 1, 2, 3, 4])
+        this._bookmarkedCharts = []
 
         this._init()
     }
@@ -52,8 +54,31 @@ export default class SumView extends EventEmitter {
         return this._charts
     }
 
+    get bookmarkedCharts() {
+        return this._bookmarkedCharts
+    }
+
     get selectedChartID() {
         return this._selectedChartID
+    }
+
+     set bookmarkedselectedChartID(ch) {
+        this._svgDrawing.selectAll('.chartdot.selected')
+            .classed('selected', false)
+        if (ch < 0) {
+            this._selectedChartID = -1
+        } else {
+            this._selectedChartID = ch
+            this._svgDrawing.selectAll('.chartdot')
+                .filter((c) => {
+                    return c.chid == ch
+                })
+                .classed('selected', true)
+            var selectedChart = _.find(this._bookmarkedCharts, (d) => {
+                return this._selectedChartID == d.chid
+            })
+            this.emit('clickchart', selectedChart)
+        }
     }
 
     set selectedChartID(ch) {
@@ -311,12 +336,17 @@ export default class SumView extends EventEmitter {
         attributesHistory = [['when_phase_of_flight', 'flight_date'],['speed_ias_in_knots', 'aircraft_make_model']];
     }
 
+    // also send bookmarked charts
+     var JsonRequest = {
+    history: JSON.stringify(attributesHistory),
+    bookmarked: this._bookmarkedCharts
+};
     $.ajax({
         context: this,
         type: 'POST',
         crossDomain: true,
         url: this.conf.backend + '/top_k',
-        data: JSON.stringify(attributesHistory),
+        data: JSON.stringify(JsonRequest),
         contentType: 'application/json'
     }).done((data) => {
         this._charts = [];
