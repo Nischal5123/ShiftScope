@@ -325,22 +325,26 @@ export default class SumView extends EventEmitter {
         }
     }
 
-   _recommendCharts(attributesHistory, callback) {
-
-        // Question: When phase of flight has the highest number of birdstrike records in
-       //           June (Flight_Date)? :['when_phase_of_flight', 'flight_date']
-
-       // Question :What speed (IAS) in knots could cause the substantial (Effect Amount
-       //           of damage) damage of AVRO RJ 85 (Aircraft Make Model)? :['speed_ias', 'aircraft_make_model']
+_recommendCharts(attributesHistory, callback) {
+    // Question: When phase of flight has the highest number of birdstrike records in
+    // June (Flight_Date)? :['when_phase_of_flight', 'flight_date']
+    // Question: What speed (IAS) in knots could cause the substantial (Effect Amount
+    // of damage) damage of AVRO RJ 85 (Aircraft Make Model)? :['speed_ias', 'aircraft_make_model']
     if (attributesHistory == null) {
         attributesHistory = [['when_phase_of_flight', 'flight_date'],['speed_ias_in_knots', 'aircraft_make_model']];
     }
 
+    // Get the selected algorithm directly here
+    var algorithmDropdown = document.getElementById("algorithm");
+    var algorithm = algorithmDropdown.value;
+
     // also send bookmarked charts
-     var JsonRequest = {
-    history: JSON.stringify(attributesHistory),
-    bookmarked: this._bookmarkedCharts
-};
+    var JsonRequest = {
+        history: JSON.stringify(attributesHistory),
+        bookmarked: this._bookmarkedCharts,
+        algorithm: algorithm
+    };
+
     $.ajax({
         context: this,
         type: 'POST',
@@ -365,7 +369,7 @@ export default class SumView extends EventEmitter {
         if (logging) {
             app.logger.push({ time: Date.now(), action: 'system-recommendations', data: this._charts });
         }
-         if (logging) {
+        if (logging) {
             app.logger.push({ time: Date.now(), action: 'current_distribution', data: data['distribution_map'] });
         }
         // Trigger the render method only on success
@@ -381,4 +385,4 @@ export default class SumView extends EventEmitter {
     });
 }
 
-}
+    }

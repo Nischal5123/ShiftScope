@@ -604,4 +604,3 @@ function closeBookmark() {
   document.getElementById("myBookmark").style.width = "0%";
 }
 
-

@@ -120,22 +120,8 @@ def encode():
     #
     # if len(matched_recommendations) == 0:
     #     matched_recommendations.append(recommendations[0])
-    chart_recom = []
-    chart_all=[]
-    for chart_key, _ in recommendations.items():
-        chart = recommendations[chart_key]
-        chart_all.append(chart)
-        encodings = json.loads(chart).get('encoding', {})
-        match = 0
-        for f in field_names:
-            if f in str(encodings):
-                match += 1
-        if match == len(field_names):
-            chart_recom.append(chart)
-    if len(chart_recom) == 0:
-        return jsonify(chart_all[0])
-    else:
-        return jsonify(chart_recom[0])
+    chart_recom=remove_irrelevant_reccomendations(field_names, recommendations)
+    return jsonify(chart_recom[0])
 
 
 
@@ -203,6 +189,7 @@ def top_k(save_csv=False):
     total_data = request.get_json()
     data = eval(total_data.get('history'))
     bookmarked_charts = total_data.get('bookmarked', [])
+    specified_algorithm = total_data.get('algorithm', 'Qlearning')
     if data and isinstance(data, list):
         attributesHistory = data
     else:
@@ -210,17 +197,14 @@ def top_k(save_csv=False):
                          ['flight_data', 'wildlife_size', 'airport_name']]
 
     print('Attribute History', attributesHistory)
-    attributes,distribution_map,baselines_distribution_maps=onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'])
+    attributes,distribution_map,baselines_distribution_maps=onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], specified_algorithm=specified_algorithm)
 
-
+    print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
     recommendations = draco_test.get_draco_recommendations(attributes)
-    chart_recom = []
-    for chart_key, _ in recommendations.items():
-        # (_,chart)=(recommendations[chart_key])
-        chart = recommendations[chart_key]
-        if len(chart_recom) < 10:
-          chart_recom.append(chart)
-    print("--- %s seconds ---" % (time.time() - start_time))
+    chart_recom=remove_irrelevant_reccomendations(attributes, recommendations)
+    print(' Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
+    print('Recommendation Size:', len(chart_recom))
+
     response_data = {
         "chart_recommendations": chart_recom,
         "distribution_map": distribution_map
@@ -264,6 +248,38 @@ def read_json_file(file_path='distribution_map.json', algorithms=['Momentum','Ra
 
 
 
+def remove_irrelevant_reccomendations(interested_attributes, recommendations, max_constrained=True):
+    fieldnames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
+                  'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
+                  'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
+                  'speed_ias_in_knots']
+    chart_recom = []
+    chart_all = []
+    for chart_key, _ in recommendations.items():
+        chart = recommendations[chart_key]
+        chart_all.append(chart)
+        encodings = json.loads(chart).get('encoding', {})
+        match = 0
+
+        if  max_constrained:
+            for field in fieldnames:
+                if field in str(encodings):
+                    match += 1
+            if match == len(interested_attributes):
+                chart_recom.append(chart)
+        else:
+            for f in interested_attributes:
+                if f in str(encodings):
+                    match += 1
+                else:
+                    match -= 1
+            if match > 0:
+                chart_recom.append(chart)
+
+    if len(chart_recom) == 0:
+        return chart_all[:1] # Need to return something to avoid empty response
+    else:
+        return chart_recom
 
 
 def get_distribution_of_states(data, dataset='birdstrikes'):
@@ -299,7 +315,7 @@ def get_distribution_of_states(data, dataset='birdstrikes'):
 
 
 
-def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], dataset='birdstrikes'):
+def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], dataset='birdstrikes', specified_algorithm='Qlearning'):
     """
     Online learning algorithm to predict the next state of the environment.
     Args:
@@ -333,11 +349,45 @@ def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Gr
     next_state_greedy = results['Greedy']
     next_state_random = results['Random']
 
+    #get result based on the specified algorithm
+    if specified_algorithm :
+        next_state_return = results[specified_algorithm]
+
+
     # Append the results to their respective attribute histories
     momentum_attributes_history.append(next_state_momentum)
     greedy_attributes_history.append(next_state_greedy)
     random_attributes_history.append(next_state_random)
     rl_attributes_history.append(next_state_rl)
+
+    #save these to a numpy file in /data folder
+    path='performance-data/'
+    for i in range(len(attributesHistory)):
+        if len(attributesHistory[i]) < 3:
+            attributesHistory[i].extend(['none'] * (3 - len(attributesHistory[i])))
+    np.save(path+'user_attributes_history.npy', attributesHistory)
+
+
+    for i in range(len(momentum_attributes_history)):
+        if len(momentum_attributes_history[i]) < 3:
+            momentum_attributes_history[i].extend(['none'] * (3 - len(momentum_attributes_history[i])))
+    np.save(path+'momentum_attributes_history.npy', momentum_attributes_history)
+
+    for i in range(len(greedy_attributes_history)):
+        if len(greedy_attributes_history[i]) < 3:
+            greedy_attributes_history[i].extend(['none'] * (3 - len(greedy_attributes_history[i])))
+    np.save(path+'greedy_attributes_history.npy', greedy_attributes_history)
+
+    for i in range(len(random_attributes_history)):
+        if len(random_attributes_history[i]) < 3:
+            random_attributes_history[i].extend(['none'] * (3 - len(random_attributes_history[i])))
+    np.save(path+'random_attributes_history.npy', random_attributes_history)
+
+    for i in range(len(rl_attributes_history)):
+        if len(rl_attributes_history[i]) < 3:
+            rl_attributes_history[i].extend(['none'] * (3 - len(rl_attributes_history[i])))
+    np.save(path+'rl_attributes_history.npy', rl_attributes_history)
+
 
     # Construct DataFrames and distribution maps for each algorithm
     df_momentum = pd.DataFrame({'State': momentum_attributes_history})
@@ -359,7 +409,7 @@ def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Gr
         'Random': distribution_map_random
     }
 
-    return next_state_rl, distribution_map, all_algorithms_distribution_map
+    return next_state_return, distribution_map, all_algorithms_distribution_map
 
 
 
