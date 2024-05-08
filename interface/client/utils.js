@@ -447,9 +447,8 @@ function storeInteractionLogs(interaction, value, time) {
   });
 }
 
-/* Open when someone clicks on the span element */
-let myChart;
-let baselineChart;// Declare a variable to store the chart instance
+let accuracyChart;
+let baselineCharts = {};
 
 function openNav() {
     $.ajax({
@@ -458,127 +457,96 @@ function openNav() {
         url: 'http://localhost:5500' + '/get-performance-data',
         contentType: 'application/json'
     }).done((data) => {
+        // Create accuracy chart
+        createAccuracyChart(data);
 
-        // 1. Rl Data
-        // Extract field names and probabilities from the data object
-        const RLFieldNames = Object.keys(data['baselines_distribution_maps']['Greedy']);
-        let RLProbabilities = Object.values(data['baselines_distribution_maps']['Greedy']);
-        // Create a new Chart.js chart
-        baselineChart = new Chart("RLChart", {
-            type: "bar",
-            data: {
-                labels: RLFieldNames,
-                datasets: [{
-                    label: "Probability",
-                    data: RLProbabilities,
-                    backgroundColor: "rgba(54, 160, 235, 0.2)",
-                    borderColor: "rgba(42, 160, 235, 1)",
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-
-        // data[0] contains the user data and data[1] contains the baseline data, we want 2 plots with titles
-        // 1. User Data
-        // Extract field names and probabilities from the data object
-
-        const fieldNames = Object.keys(data['distribution_map']);
-        let probabilities = Object.values(data['distribution_map']);
-            // Create a new Chart.js chart
-        myChart = new Chart("myChart", {
-            type: "bar",
-            data: {
-                labels: fieldNames,
-                datasets: [{
-                    label: "Probability",
-                    data: probabilities,
-                    backgroundColor: "rgba(54, 162, 235, 0.2)",
-                    borderColor: "rgba(54, 162, 235, 1)",
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-        // 2. Baseline Data
-        // Extract field names and probabilities from the data object
-        const baselineFieldNames = Object.keys(data['baselines_distribution_maps']['Random']);
-        let baselineProbabilities = Object.values(data['baselines_distribution_maps']['Random']);
-        // Create a new Chart.js chart
-        baselineChart = new Chart("RandombaselineChart", {
-            type: "bar",
-            data: {
-                labels: baselineFieldNames,
-                datasets: [{
-                    label: "Probability",
-                    data: baselineProbabilities,
-                    backgroundColor: "rgba(255, 99, 132, 0.2)",
-                    borderColor: "rgba(255, 99, 132, 1)",
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
-
-
-         // 3. Momentum Baseline Data
-        // Extract field names and probabilities from the data object
-        const MomentumbaselineFieldNames = Object.keys(data['baselines_distribution_maps']['Momentum']);
-        let MomentumbaselineProbabilities = Object.values(data['baselines_distribution_maps']['Momentum']);
-        // Create a new Chart.js chart
-        baselineChart = new Chart("MomentumbaselineChart", {
-            type: "bar",
-            data: {
-                labels: MomentumbaselineFieldNames,
-                datasets: [{
-                    label: "Probability",
-                    data: MomentumbaselineProbabilities,
-                    backgroundColor: "rgba(220, 90, 132, 0.2)",
-                    borderColor: "rgba(220, 90, 132, 1)",
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
-            }
-        });
-
+        // Create baseline charts
+        createBaselineChart("UserChart", data['distribution_map'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
+        createBaselineChart("RLChart", data['baselines_distribution_maps']['Greedy'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
+        createBaselineChart("RandombaselineChart", data['baselines_distribution_maps']['Random'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
+        createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
     }).fail((xhr, status, error) => {
         alert('Not Enough Data to Derive Performace View.');
     });
+}
+
+function createAccuracyChart(data) {
+    const accuracyData = {
+        "RL": [0.1, 0, 0.4],
+        "Random": [0.1, 0, 0.3],
+        "Momentum": [0.2, 0.5, 0.7]
+    };
+
+    const time = accuracyData['RL'].length;
+    const timeLabels = Array.from({ length: time }, (_, i) => i.toString());
+
+    const datasets = Object.keys(accuracyData).map(key => {
+        return {
+            label: key,
+            data: accuracyData[key],
+            fill: false,
+            borderColor: key === "RL" ? "blue" : key === "Random" ? "green" : "red"
+        };
+    });
+
+    accuracyChart = new Chart("AccuracyChart", {
+        type: "line",
+        data: {
+            labels: timeLabels,
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            title: {
+                display: true,
+                text: "Accuracy Over Time"
+            },
+            scales: {
+                xAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Time"
+                    }
+                }],
+                yAxes: [{
+                    scaleLabel: {
+                        display: true,
+                        labelString: "Accuracy"
+                    }
+                }]
+            }
+        }
+    });
+}
+
+function createBaselineChart(id, data, label, backgroundColor, borderColor) {
+    const fieldNames = Object.keys(data);
+    const probabilities = Object.values(data);
+
+    const baselineChart = new Chart(id, {
+        type: "bar",
+        data: {
+            labels: fieldNames,
+            datasets: [{
+                label: label,
+                data: probabilities,
+                backgroundColor: backgroundColor,
+                borderColor: borderColor,
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        }
+    });
+
+    baselineCharts[id] = baselineChart;
 }
 
 // Function to parse CSV data into an array of arrays

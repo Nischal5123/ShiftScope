@@ -123,27 +123,34 @@
         <div id="vegatest" style="visibility:hidden;"></div>
 
     <!-- The overlay -->
-    <div id="myNav" class="overlay">
-      <!-- Button to close the overlay navigation -->
-      <a class="closebtn" id="performaceViewClose">&times;</a>
-        <div class="chart-container-perf">
-             <!-- Create a canvas element with the ID 'attributeChart' -->
+<div id="myNav" class="overlay">
+    <!-- Button to close the overlay navigation -->
+    <a class="closebtn" id="performaceViewClose">&times;</a>
+    <div class="chart-container-perf">
+        <!-- Create a canvas element with the ID 'attributeChart' -->
             <div class="chart">
-        <h2>RL Focus</h2>
-        <canvas id="RLChart" style="max-width:700px"></canvas>
+                <h2>Accuracy Chart</h2>
+                <canvas id="AccuracyChart" style="max-width:100%"></canvas>
+            </div>
+            <div class="chart">
+                <h2>Users Focus</h2>
+                <canvas id="UserChart" style="max-width:100%"></canvas>
+            </div>
+            <div class="chart">
+                <h2>RL Focus</h2>
+                <canvas id="RLChart" style="max-width:100%"></canvas>
+            </div>
+            <div class="chart">
+                <h2>Baseline-R Focus</h2>
+                <canvas id="RandombaselineChart" style="max-width:100%"></canvas>
+            </div>
+            <div class="chart">
+                <h2>Baseline-M Focus</h2>
+                <canvas id="MomentumbaselineChart" style="max-width:100%"></canvas>
+            </div>
+        </div>
     </div>
-    <div class="chart">
-        <h2>Users Focus</h2>
-        <canvas id="myChart" style="max-width:700px"></canvas>
-    </div>
-    <div class="chart">
-        <h2>Baseline-R Focus</h2>
-        <canvas id="RandombaselineChart" style="max-width:700px"></canvas>
-    </div>
-             <div class="chart">
-        <h2>Baseline-M Focus</h2>
-        <canvas id="MomentumbaselineChart" style="max-width:700px"></canvas>
-    </div>
+
 
             <!-- The overlay -->
     <div id="myBookmark" class="overlay">

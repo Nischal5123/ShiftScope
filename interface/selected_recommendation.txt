@@ -995,3 +995,16 @@ wildlife_species
 ['aircraft_make_model'] 2024-05-08 11:41:14.047261
 ['aircraft_make_model'] 2024-05-08 11:42:03.341996
 ['cost_total_a', 'cost_other', 'cost_repair'] 2024-05-08 11:42:09.832490
+['cost_total_a', 'cost_other', 'cost_repair'] 2024-05-08 11:53:23.190187
+['flight_date'] 2024-05-08 14:22:50.255175
+['speed_ias_in_knots'] 2024-05-08 14:23:44.848413
+['cost_repair', 'cost_other', 'speed_ias_in_knots'] 2024-05-08 14:24:07.936668
+['aircraft_airline_operator'] 2024-05-08 14:25:06.755784
+['cost_other', 'cost_repair', 'speed_ias_in_knots'] 2024-05-08 14:29:11.184448
+['aircraft_airline_operator'] 2024-05-08 14:30:09.304629
+['origin_state'] 2024-05-08 14:33:17.544384
+['cost_repair', 'cost_other', 'speed_ias_in_knots'] 2024-05-08 14:39:59.571248
+['cost_total_a', 'cost_other', 'cost_repair'] 2024-05-08 14:40:31.628444
+['flight_date'] 2024-05-08 14:45:01.368566
+['flight_date'] 2024-05-08 14:45:31.642828
+['aircraft_make_model'] 2024-05-08 14:47:46.752452
