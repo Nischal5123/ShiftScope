@@ -70,35 +70,33 @@
 
 export function displayBookmarkCharts(container, created = true) {
     $(container).empty();
+
      app.sumview.bookmarkedCharts.forEach((ch) => {
-        var vegachart = _.extend({}, ch.originalspec, {
-            width: 470,
-            height: 225,
-            autosize: 'fit'
-        }, {
-            config: vegaConfig
-        });
+        var vegachart = _.extend({}, ch.originalspec,
+            {width: 470, height: 225, autosize: 'fit'},
+            // { data: {values: app.data.chartdata.values} },
+            {config: vegaConfig});
         var $chartContainer = $('<div />', {
             class: 'chartdiv',
-            id: 'bookchart' + ch.chid
+            id: 'bookchart' + ch.overallchid
         });
-        var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.chid);
+        var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.overallchid);
 
         $(container).append($chartContainer);
         $chartContainer.append('<div class="chartcontainer"></div>', $chartLabel);
 
-        vegaEmbed('#bookchart' + ch.chid + ' .chartcontainer', vegachart, {
+        vegaEmbed('#bookchart' + ch.overallchid + ' .chartcontainer', vegachart, {
             actions: false
         });
 
         $chartContainer.hover((e) => {
             $chartContainer.css('border-color', 'crimson');
-            app.sumview.highlight(ch.chid, true);
+            app.sumview.highlight(ch.overallchid, true, true);
         }, (e) => {
             $chartContainer.css('border-color', 'lightgray');
-            app.sumview.highlight(ch.chid, false);
+            app.sumview.highlight(ch.overallchid, false, true);
         }).click((e) => {
-            app.sumview.bookmarkedselectedChartID = ch.chid;
+            app.sumview.bookmarkedselectedChartID = ch.overallchid;
         });
     });
 }
@@ -128,10 +126,10 @@ export function displayBookmarkCharts(container, created = true) {
 
         $chartContainer.hover((e) => {
             $chartContainer.css('border-color', 'crimson');
-            app.sumview.highlight(ch.chid, true);
+            app.sumview.highlight(ch.chid, true, false);
         }, (e) => {
             $chartContainer.css('border-color', 'lightgray');
-            app.sumview.highlight(ch.chid, false);
+            app.sumview.highlight(ch.chid, false, false);
         }).click((e) => {
             app.sumview.selectedChartID = ch.chid;
         });
@@ -141,14 +139,28 @@ export function displayBookmarkCharts(container, created = true) {
             class: 'bookmark-button',
             text: 'Bookmark'
         }).click(() => {
-            // Handle bookmarking action here
-            // For example:
+
+            console.log('Bookmarking chart ID:', ch.overallchid);
             app.sumview._bookmarkedCharts.push(ch);
-            console.log('Bookmarking chart ID:', ch.chid);
+            // // Handle bookmarking action here
+            // if (app.sumview._bookmarkedCharts.length === 0) {
+            //     console.log('Bookmarking chart ID:', ch.overallchid);
+            //     app.sumview._bookmarkedCharts.push(ch);
+            // }
+            //
+            // for (let i = 0; i < app.sumview._bookmarkedCharts.length; i++) {
+            //     if (app.sumview._bookmarkedCharts[i].overallchid === ch.overallchid) {
+            //         console.log('Chart already bookmarked');
+            //     }
+            //     else {
+            //         console.log('Bookmarking chart ID:', ch.overallchid);
+            //         app.sumview._bookmarkedCharts.push(ch);
+            //     }
+            // }
         });
         $chartContainer.append($bookmarkButton);
     });
-    // openNav()
+
 }
 
  
@@ -175,13 +187,9 @@ export function displayBookmarkCharts(container, created = true) {
         fieldsArray = [colorField, xField, yField, shapeField,sizeField].filter(field => field !== null && field !== undefined);
         attributesHistory.push(fieldsArray);
 
+        // Log extracted fields array
 
 
-
-
-         //
-
- 
          $('#chartview .chartlabel').css('background-color', ch.created ? '#f1a340' : '#998ec3')
          $('#chartview .chartlabel').html('#' + ch.chid)
          if(ch.created) {
@@ -245,8 +253,8 @@ export function displayBookmarkCharts(container, created = true) {
 
         // Log extracted fields array
          console.log("Fields array:", fieldsArray);
-         //remove last element from the attributesHistory array
-         attributesHistory.pop()
+         // //remove last element from the attributesHistory array
+         // attributesHistory.pop()
          app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid }, attributesHistory)
          //app.sumview.update(()=> {app.sumview.selectedChartID = spec._meta.chid }, fieldsArray)
          
@@ -284,7 +292,7 @@ export function displayBookmarkCharts(container, created = true) {
          $('#dialog').css('display', 'none')
      })
  
-     // #Sanad
+
      // If the user has clicked on the previous charts from the past users then 
      // we are getting the state of the clicked chart
      $('#allchartsview').click(() => {
@@ -302,7 +310,7 @@ export function displayBookmarkCharts(container, created = true) {
              console.log(data)
          })
      })
-     //Sanad
+
      // If the user has clicked on a recommended chart
      $('#suggestionview').click(() => {
          console.log("A chart has been clicked in Suggestion")
@@ -355,8 +363,8 @@ export function displayBookmarkCharts(container, created = true) {
 
      $('#performaceViewOpen').click(() => {
             console.log("User requested Performance View")
-            document.getElementById("myNav").style.width = "100%";
             openNav()
+
 
      })
 
@@ -447,8 +455,10 @@ function storeInteractionLogs(interaction, value, time) {
   });
 }
 
-let accuracyChart;
-let baselineCharts = {};
+
+// Declare global variables for charts
+var baselineCharts = {};
+var accuracyCharts = {};
 
 function openNav() {
     $.ajax({
@@ -456,31 +466,38 @@ function openNav() {
         crossDomain: true,
         url: 'http://localhost:5500' + '/get-performance-data',
         contentType: 'application/json'
-    }).done((data) => {
-        // Create accuracy chart
-        createAccuracyChart(data);
+    }).done((full_data) => {
+
+        createAccuracyChart("AccuracyChart", full_data['accuracy_response']);
+
+        var data = full_data['distribution_response'];
 
         // Create baseline charts
         createBaselineChart("UserChart", data['distribution_map'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
         createBaselineChart("RLChart", data['baselines_distribution_maps']['Greedy'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
         createBaselineChart("RandombaselineChart", data['baselines_distribution_maps']['Random'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
         createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
+        document.getElementById("myNav").style.width = "100%";
     }).fail((xhr, status, error) => {
-        alert('Not Enough Data to Derive Performace View.');
+        alert('Not Enough Data to Derive Performance View.');
     });
 }
 
-function createAccuracyChart(data) {
-    const accuracyData = {
-        "RL": [0.1, 0, 0.4],
-        "Random": [0.1, 0, 0.3],
-        "Momentum": [0.2, 0.5, 0.7]
-    };
+function createAccuracyChart(id,data) {
+    var accuracyData = data;
 
-    const time = accuracyData['RL'].length;
-    const timeLabels = Array.from({ length: time }, (_, i) => i.toString());
+    var time = accuracyData['RL'].length;
 
-    const datasets = Object.keys(accuracyData).map(key => {
+
+
+
+if (time < 2) {
+    alert('Not Enough Data to Derive Performance View.');
+    return;
+}
+    var timeLabels = Array.from({ length: time }, (_, i) => i.toString());
+
+    var datasets = Object.keys(accuracyData).map(key => {
         return {
             label: key,
             data: accuracyData[key],
@@ -489,7 +506,7 @@ function createAccuracyChart(data) {
         };
     });
 
-    accuracyChart = new Chart("AccuracyChart", {
+    var accuracyChart = new Chart(id, {
         type: "line",
         data: {
             labels: timeLabels,
@@ -499,7 +516,7 @@ function createAccuracyChart(data) {
             responsive: true,
             title: {
                 display: true,
-                text: "Accuracy Over Time"
+                text: "Hit Rate Over Time"
             },
             scales: {
                 xAxes: [{
@@ -511,19 +528,21 @@ function createAccuracyChart(data) {
                 yAxes: [{
                     scaleLabel: {
                         display: true,
-                        labelString: "Accuracy"
+                        labelString: "Hit Rate"
                     }
                 }]
             }
         }
     });
+     accuracyCharts[id] = accuracyChart;
 }
 
 function createBaselineChart(id, data, label, backgroundColor, borderColor) {
-    const fieldNames = Object.keys(data);
-    const probabilities = Object.values(data);
+    var fieldNames = Object.keys(data);
+    var probabilities = Object.values(data);
 
-    const baselineChart = new Chart(id, {
+
+    var baselineChart = new Chart(id, {
         type: "bar",
         data: {
             labels: fieldNames,
@@ -549,16 +568,21 @@ function createBaselineChart(id, data, label, backgroundColor, borderColor) {
     baselineCharts[id] = baselineChart;
 }
 
-// Function to parse CSV data into an array of arrays
-function CSVToArray(text) {
-  const rows = text.split('\n');
-  return rows.map(row => row.split(','));
-}
 
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 function closeNav() {
-    $('#chart-container-perf').empty()
+      // Loop through baselineCharts and destroy each chart
+    Object.keys(baselineCharts).forEach(function(key) {
+        baselineCharts[key].destroy();
+    });
+    // Loop through accuracyCharts and destroy each chart
+    Object.keys(accuracyCharts).forEach(function(key) {
+        accuracyCharts[key].destroy();
+    });
+    // Clear the chart objects
+    baselineCharts = {};
+    accuracyCharts = {};
   document.getElementById("myNav").style.width = "0%";
 }
 
@@ -572,3 +596,113 @@ function closeBookmark() {
   document.getElementById("myBookmark").style.width = "0%";
 }
 
+// Function to parse CSV data into an array of arrays
+function CSVToArray(text) {
+  const rows = text.split('\n');
+  return rows.map(row => row.split(','));
+}
+
+
+
+
+
+/// ################# Shift Focus Chart ####################
+function createShiftFocusChart() {
+      const localattributeHistory = attributesHistory
+
+        const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
+
+        var timeSeriesData = localattributeHistory.map((attributes, index) => {
+            const dataPoint = { time: index };
+            fieldNames.forEach((field, fieldIndex) => {
+                dataPoint[field] = attributes.includes(field) ? fieldIndex : null;
+            });
+            return dataPoint;
+        });
+
+        const margin = { top: 20, right: 50, bottom: 50, left: 130 }; // Adjusted left margin
+        const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300); // Minimum width
+        const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
+
+        const svg = d3.select("#timeSeriesChart")
+            .append("g");
+
+        const x = d3.scaleLinear()
+            .domain([0, timeSeriesData.length - 1])
+            .range([0, 100]);
+
+        const y = d3.scaleBand()
+            .domain(fieldNames)
+            .range([height, 0]);
+
+        const colors = d3.scaleOrdinal(d3.schemeCategory10);
+
+        svg.selectAll(".line")
+            .data(timeSeriesData)
+            .enter().append("g")
+            .each(function (d) {
+                const group = d3.select(this);
+                fieldNames.forEach(field => {
+                    if (d[field] !== null) {
+                        group.append("rect")
+                            .attr("x", x(d.time))
+                            .attr("y", y(field))
+                            .attr("width", x(1) - x(0))
+                            .attr("height", y.bandwidth())
+                            .attr("fill", colors(field))
+                            .attr("class", "bar")
+                            .attr("data-index", d[field]); // Set data-index attribute
+                    }
+                });
+            })
+            .on("mouseover", function() {
+                d3.select(this).attr("fill", "grey"); // Change color on hover
+            })
+            .on("mouseout", function() {
+                const fieldIndex = this.getAttribute("data-index"); // Access data-index attribute
+                const field = fieldNames[fieldIndex];
+                d3.select(this).attr("fill", colors(field)); // Restore original color
+            });
+
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x));
+
+        svg.append("g")
+            .call(d3.axisLeft(y));
+
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x", 0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("Attribute");
+
+        svg.append("text")
+            .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)
+            .style("text-anchor", "middle")
+            .text("Interactions Observed");
+
+        const legendContainer = svg.append("g")
+            .attr("class", "legend-container") // Added a class for styling and scrolling
+            .attr("transform", `translate(${margin.left},${height + 50})`);
+
+        const legend = legendContainer.selectAll("g")
+            .data(fieldNames)
+            .enter().append("g")
+            .attr("transform", (d, i) => `translate(0,${i * 20})`);
+
+        legend.append("rect")
+            .attr("x", 0)
+            .attr("width", 10)
+            .attr("height", 10)
+            .attr("fill", colors);
+
+        legend.append("text")
+            .attr("x", 15)
+            .attr("y", 5)
+            .attr("dy", "0.75em")
+            .text(d => d);
+
+}

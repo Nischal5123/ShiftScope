@@ -56,7 +56,7 @@ class QLearningAgent:
                 state = next_state
                 total_reward += reward
                 # Linearly decay epsilon
-                self.epsilon = max(self.min_epsilon, self.initial_epsilon - ((episode / num_episodes) * (self.initial_epsilon - self.min_epsilon)))
+                #self.epsilon = max(self.min_epsilon, self.initial_epsilon - ((episode / num_episodes) * (self.initial_epsilon - self.min_epsilon)))
                 # Print episode number and total reward
                 #print(f"Episode {episode + 1}/{num_episodes}, Step {step}, Total Reward: {total_reward}")
                 if step > 20:

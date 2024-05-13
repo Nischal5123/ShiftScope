@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Attribute History Time Series</title>-->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        #chartContainer {
+            width: 100%;
+            overflow-x: auto; /* Enable horizontal scrolling */
+            overflow-y: auto; /* Disable vertical scrolling */
+        }
+        #timeSeriesChart {
+            width: auto; /* Allow the SVG to expand beyond the viewport width */
+            height: 80vh; /* 80% of viewport height */
+        }
+        .legend-container {
+            height: 10px; /* Set the height to make it scrollable */
+            overflow-y: auto; /* Enable vertical scrolling */
+            overflow-x: auto; /* Disable horizontal scrolling */
+        }
+        .bar:hover {
+            fill: grey; /* Change color on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="chartContainer">
+        <svg id="timeSeriesChart"></svg>
+    </div>
+
+    <script>
+        const attributeHistory = [
+            ['aircraft_airline_operator', 'cost_repair'],
+            ['aircraft_airline_operator', 'cost_repair'],
+            ['aircraft_airline_operator', 'cost_repair'],
+            ['cost_repair', 'aircraft_airline_operator'],
+            ['cost_repair', 'aircraft_airline_operator'],
+            ['cost_repair'],
+            ['cost_repair'],
+            ['cost_repair'],
+            ['wildlife_species', 'speed_ias_in_knots'], // Adjusted attribute names here
+            ['aircraft_airline_operator', 'speed_ias_in_knots'], // Adjusted attribute names here
+            ['aircraft_airline_operator', 'speed_ias_in_knots'] // Adjusted attribute names here
+        ];
+
+        const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
+
+        const timeSeriesData = attributeHistory.map((attributes, index) => {
+            const dataPoint = { time: index };
+            fieldNames.forEach((field, fieldIndex) => {
+                dataPoint[field] = attributes.includes(field) ? fieldIndex : null;
+            });
+            return dataPoint;
+        });
+
+        const margin = { top: 20, right: 50, bottom: 50, left: 130 }; // Adjusted left margin
+        const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300); // Minimum width
+        const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
+
+        const svg = d3.select("#timeSeriesChart")
+            .attr("width", width + margin.left + margin.right)
+            .attr("height", height + margin.top + margin.bottom)
+            .append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+
+        const x = d3.scaleLinear()
+            .domain([0, timeSeriesData.length - 1])
+            .range([0, width]);
+
+        const y = d3.scaleBand()
+            .domain(fieldNames)
+            .range([height, 0]);
+
+        const colors = d3.scaleOrdinal(d3.schemeCategory10);
+
+        svg.selectAll(".line")
+            .data(timeSeriesData)
+            .enter().append("g")
+            .each(function (d) {
+                const group = d3.select(this);
+                fieldNames.forEach(field => {
+                    if (d[field] !== null) {
+                        group.append("rect")
+                            .attr("x", x(d.time))
+                            .attr("y", y(field))
+                            .attr("width", x(1) - x(0))
+                            .attr("height", y.bandwidth())
+                            .attr("fill", colors(field))
+                            .attr("class", "bar")
+                            .attr("data-index", d[field]); // Set data-index attribute
+                    }
+                });
+            })
+            .on("mouseover", function() {
+                d3.select(this).attr("fill", "grey"); // Change color on hover
+            })
+            .on("mouseout", function() {
+                const fieldIndex = this.getAttribute("data-index"); // Access data-index attribute
+                const field = fieldNames[fieldIndex];
+                d3.select(this).attr("fill", colors(field)); // Restore original color
+            });
+
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x));
+
+        svg.append("g")
+            .call(d3.axisLeft(y));
+
+        svg.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", 0 - margin.left)
+            .attr("x", 0 - (height / 2))
+            .attr("dy", "1em")
+            .style("text-anchor", "middle")
+            .text("Attribute");
+
+        svg.append("text")
+            .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)
+            .style("text-anchor", "middle")
+            .text("Interactions Observed");
+
+        const legendContainer = svg.append("g")
+            .attr("class", "legend-container") // Added a class for styling and scrolling
+            .attr("transform", `translate(${margin.left},${height + 50})`);
+
+        const legend = legendContainer.selectAll("g")
+            .data(fieldNames)
+            .enter().append("g")
+            .attr("transform", (d, i) => `translate(0,${i * 20})`);
+
+        legend.append("rect")
+            .attr("x", 0)
+            .attr("width", 10)
+            .attr("height", 10)
+            .attr("fill", colors);
+
+        legend.append("text")
+            .attr("x", 15)
+            .attr("y", 5)
+            .attr("dy", "0.75em")
+            .text(d => d);
+    </script>
+</body>
+</html>

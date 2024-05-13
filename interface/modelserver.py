@@ -14,6 +14,7 @@ from environment import environment
 import datetime
 from StateGenerator import StateGenerator
 from utils import run_algorithm
+from zeng_app import perform_snd_flds
 
 port = 5500
 rulesfile = './gvaemodel/rules-cfg.txt'
@@ -40,6 +41,34 @@ momentum_attributes_history = []
 greedy_attributes_history = []
 random_attributes_history = []
 rl_attributes_history = []
+last_users_attributes_history=[]
+
+# Accuracy lists for each algorithm
+rl_accuracies = []
+random_accuracies = []
+momentum_accuracies = []
+greedy_accuracies = []
+global master_current_user_attributes
+master_current_user_attributes=None
+
+
+bs_fields_uppercase={
+    'airport_name': 'Airport_Name',
+    'aircraft_make_model': 'Aircraft_Make_Model',
+    'effect_amount_of_damage': 'Effect_Amount_of_damage',
+    'flight_date': 'Flight_Date',
+    'aircraft_airline_operator': 'Aircraft_Airline_Operator',
+    'origin_state': 'Origin_State',
+    'when_phase_of_flight': 'When_Phase_of_flight',
+    'wildlife_size': 'Wildlife_Size',
+    'wildlife_species': 'Wildlife_Species',
+    'when_time_of_day': 'When_Time_of_day',
+    'cost_other': 'Cost_Other',
+    'cost_repair': 'Cost_Repair',
+    'cost_total_a': 'Cost_Total',
+    'speed_ias_in_knots': 'Speed_IAS_in_knots',
+    'none': 'none'
+}
 
 class InvalidUsage(Exception):
     status_code = 400
@@ -126,23 +155,67 @@ def encode():
 
 
 
-@app.route('/get-fields', methods=['POST'])
-def encode_test():
+@app.route('/encodetest', methods=['POST'])
+def encodetest():
     specs = request.get_json()
-    # print(specs)
     parsed_data = [json.loads(item) for item in specs]
 
-    # Extract field names from the parsed JSON
+    # Extract field names and types from the parsed JSON
     field_names = []
+    encoding_channels = []
+    field_types = {}
     for item in parsed_data:
-        # Assuming 'encoding' contains the fields and is structured consistently as shown in your sample
+        marks = [item.get('mark', 'bar')]
         encodings = item.get('encoding', {})
         for key in encodings:
+            encoding_channels.append(key)
             field_info = encodings[key]
             field_name = field_info.get('field')
             if field_name:
                 field_names.append(field_name)
-    return jsonify(field_names)
+                field_types[field_name] = key
+    encode_history.append(field_names)
+    # Get Draco recommendations
+    #recommendations = draco_test.get_draco_recommendations(field_names, 'birdstrikes', parsed_data)
+    uppercase_fields = [bs_fields_uppercase[field] for field in field_names]
+    request_data = {
+        "data": json.dumps({
+            "fields": uppercase_fields,
+            "version": "bdf"
+        })
+    }
+    recommendations = perform_snd_flds(request_data)
+
+    # matched_recommendations = []
+    #
+    # # Initialize variables to track the maximum number of matched fields and the corresponding recommendation
+    # max_match = 0
+    # max_match_recommendation = None
+    #
+    # # Iterate over the recommendations and check for matches
+    # for chart_key, chart in recommendations.items():
+    #     encodings = json.loads(chart).get('encoding', {})
+    #     matched_fields = 0
+    #
+    #     # Compare each field in the recommendation with the parsed data
+    #     for field, field_info in encodings.items():
+    #         if field in field_names and field_info.get('field') == field and field_types[field] == field_info.get(
+    #                 'type'):
+    #             matched_fields += 1
+    #
+    #     # Update the maximum match and corresponding recommendation if a new maximum is found
+    #     if matched_fields > max_match:
+    #         max_match = matched_fields
+    #         max_match_recommendation = chart
+    #
+    # # If there is a recommendation with a match, add it to the list of matched recommendations
+    # if max_match_recommendation:
+    #     matched_recommendations.append(max_match_recommendation)
+    #
+    # if len(matched_recommendations) == 0:
+    #     matched_recommendations.append(recommendations[0])
+    #chart_recom=remove_irrelevant_reccomendations(field_names, recommendations)
+    return jsonify(recommendations[0])
 
 #This is to get the recommendation that the user has selected
 @app.route('/encode2', methods=['POST'])
@@ -180,18 +253,20 @@ def encode2():
 
 
 
-@app.route('/top_k', methods=['POST'])
-def top_k(save_csv=False):
+@app.route('/top_k_test', methods=['POST'])
+def top_k_test(save_csv=False):
     print('Starting Recommendation Engine...')
     #get running time in console
     start_time = time.time()
 
     total_data = request.get_json()
     data = eval(total_data.get('history'))
+
     bookmarked_charts = total_data.get('bookmarked', [])
     specified_algorithm = total_data.get('algorithm', 'Qlearning')
+
     if data and isinstance(data, list):
-        attributesHistory = data
+        attributesHistory = [[bs_fields_uppercase.get(a, a) for a in sublist] for sublist in data]
     else:
         attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
                          ['flight_data', 'wildlife_size', 'airport_name']]
@@ -200,8 +275,29 @@ def top_k(save_csv=False):
     attributes,distribution_map,baselines_distribution_maps=onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], specified_algorithm=specified_algorithm)
 
     print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
-    recommendations = draco_test.get_draco_recommendations(attributes)
-    chart_recom=remove_irrelevant_reccomendations(attributes, recommendations)
+
+    # recommendations = draco_test.get_draco_recommendations(attributes)
+    # chart_recom=remove_irrelevant_reccomendations(attributes, recommendations, max_constrained=False)
+    #dotn consider none in attributes
+    attrs = [attr for attr in attributes if attr != 'none']
+    uppercase_fields = [bs_fields_uppercase[f] for f in attrs]
+    request_data = {
+        "data": json.dumps({
+            "fields": uppercase_fields,
+            "version": "bdf"
+        })
+    }
+    # draco_recommendations = draco_test.get_draco_recommendations(attributes)
+    # chart_recom_draco = remove_irrelevant_reccomendations(attributes, draco_recommendations, max_constrained=False)
+    recommendations = perform_snd_flds(request_data)
+    # Assuming recommendations is your list of dictionaries
+    inner_dict = recommendations[0][list(recommendations[0].keys())[0]]
+    # Convert the inner dictionary to a JSON-like string with newline characters
+    json_str = json.dumps(inner_dict, indent=4)
+    chart_recom= [json_str]
+
+
+
     print(' Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
     print('Recommendation Size:', len(chart_recom))
 
@@ -224,13 +320,134 @@ def top_k(save_csv=False):
     return jsonify(response_data)
 
 
+@app.route('/top_k', methods=['POST'])
+def top_k(save_csv=False):
+    print('Starting Recommendation Engine...')
+    #get running time in console
+    start_time = time.time()
 
+    total_data = request.get_json()
+    data = eval(total_data.get('history'))
+
+    bookmarked_charts = total_data.get('bookmarked', [])
+    specified_algorithm = total_data.get('algorithm', 'Qlearning')
+
+    if data and isinstance(data, list):
+        attributesHistory = data
+    else:
+        attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
+                         ['flight_data', 'wildlife_size', 'airport_name']]
+
+    print('Attribute History', attributesHistory)
+    attributes,distribution_map,baselines_distribution_maps=onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], specified_algorithm=specified_algorithm)
+
+    print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
+
+    recommendations = draco_test.get_draco_recommendations(attributes)
+    chart_recom=remove_irrelevant_reccomendations(attributes, recommendations, max_constrained=False)
+    print(' Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
+    print('Recommendation Size:', len(chart_recom))
+
+    response_data = {
+        "chart_recommendations": chart_recom,
+        "distribution_map": distribution_map
+    }
+
+    for algo, base_distribution_map in baselines_distribution_maps.items():
+        with open(f'{algo}_distribution_map.json', 'w') as f:
+            json.dump(base_distribution_map, f)
+
+    with open('distribution_map.json', 'w') as file:
+        json.dump(distribution_map, file)
+
+    if save_csv:
+        distribution_map_dataframe = pd.DataFrame.from_dict(distribution_map, orient='index', columns=['Probability'])
+        distribution_map_dataframe.index.name = 'Fields'
+        pd.DataFrame.to_csv(distribution_map_dataframe, 'distribution_map.csv')
+    get_performance_data()
+    return jsonify(response_data)
+
+
+
+def get_performance_data(file_path='distribution_map.json', algorithms=['Momentum','Random','Greedy']):
+    # distribution_response=read_json_file(file_path='distribution_map.json', algorithms=['Momentum','Random','Greedy'])
+    #accuracy charts
+
+
+    # Load attribute history numpy arrays
+    path = 'performance-data/'
+    rl_history = np.load(path + 'rl_attributes_history.npy', allow_pickle=True)
+    random_history = np.load(path + 'random_attributes_history.npy', allow_pickle=True)
+    momentum_history = np.load(path + 'momentum_attributes_history.npy', allow_pickle=True)
+
+    #check if prediction is in one of the current interactions
+    current_user_attributes = np.load(path + 'user_attributes_history.npy', allow_pickle=True)
+    if len(current_user_attributes) != 0: #need to recalculate the accuracy since there are new interactions
+        # Sort each array inside the arrays so that order doesn't matter
+        rl_history = np.array([sorted(arr) for arr in rl_history])
+        random_history = np.array([sorted(arr) for arr in random_history])
+        momentum_history = np.array([sorted(arr) for arr in momentum_history])
+        current_user_attributes = np.array([sorted(arr) for arr in current_user_attributes])
+
+
+        # Compute accuracy for RL algorithm: -2 because last element is current prediction
+        # we want to check if user interated with what the algorithm predicted
+        rl_accuracies.append(compute_accuracy(rl_history[-2],current_user_attributes))
+
+        # Compute accuracy for Random algorithm
+        random_accuracies.append(compute_accuracy(random_history[-2], current_user_attributes))
+
+        # Compute accuracy for Momentum algorithm
+        momentum_accuracies.append(compute_accuracy(momentum_history[-2], current_user_attributes))
+
+    # Format the accuracies into a dictionary
+    response_accuracy = {
+        "RL": rl_accuracies,
+        "Random": random_accuracies,
+        "Momentum": momentum_accuracies
+    }
+
+    #save response accuracy json
+    with open('response_accuracy.json', 'w') as f:
+        json.dump(response_accuracy, f)
+
+    # final_response = {'distribution_response': distribution_response, 'accuracy_response': response_accuracy}
+
+    return None
+
+def compute_accuracy(rl_prediction, current_history):
+    """
+    Compute the average number of times the elements in rl_prediction match with the elements in current_history.
+
+    Args:
+    - current_history (np.array): the history of attributes.
+    - rl_prediction (np.array): the predictions made by the RL algorithm.
+
+    Returns:
+    - accuracy (float): the average number of matches.
+    """
+    # Initialize the total number of matches
+    total_matches = 0
+    checks=0
+    # Iterate over each prediction and compare it with all elements in current_history
+    for prediction in rl_prediction:
+        for attributes in current_history:
+            checks+=1
+            if prediction in attributes:
+                total_matches += 1
+
+    average_matches = total_matches / checks if checks > 0 else 0
+
+    return average_matches
 
 
 @app.route('/get-performance-data', methods=['GET'])
 def read_json_file(file_path='distribution_map.json', algorithms=['Momentum','Random','Greedy']):
     with open(file_path, 'r') as file:
         data = json.load(file)
+
+    with open('response_accuracy.json', 'r') as file:
+        accuracy_data = json.load(file)
 
     #for each algo get it from the file
     baselines_distribution_maps = {}
@@ -244,7 +461,10 @@ def read_json_file(file_path='distribution_map.json', algorithms=['Momentum','Ra
         "baselines_distribution_maps": baselines_distribution_maps
     }
 
-    return jsonify(response_data)
+
+    final_response = {'distribution_response': response_data, 'accuracy_response': accuracy_data}
+
+    return jsonify(final_response)
 
 
 
@@ -325,6 +545,31 @@ def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Gr
     Returns:
 
     """
+    current_interactions = []
+    path = 'performance-data/'
+
+    current_interactions = []
+    path = 'performance-data/'
+
+    # Load last history
+
+    last_history = np.load('attributes_history.npy', allow_pickle=True)
+
+    # Extend the elements of attributesHistory
+    for i in range(len(attributesHistory)):
+        attributesHistory[i].extend(['none'] * (3 - len(attributesHistory[i])))
+
+    # Check if there are new elements at the end of the list
+    if len(last_history) > 2:
+        new_interactions = [attr for attr in attributesHistory[len(last_history):]]
+    else:
+        new_interactions = []
+
+    # Save the new interactions
+    current_interactions.extend(new_interactions)
+    np.save(path + 'user_attributes_history.npy', current_interactions)
+
+
 
     generator = StateGenerator(dataset)
 
@@ -360,12 +605,6 @@ def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Gr
     random_attributes_history.append(next_state_random)
     rl_attributes_history.append(next_state_rl)
 
-    #save these to a numpy file in /data folder
-    path='performance-data/'
-    for i in range(len(attributesHistory)):
-        if len(attributesHistory[i]) < 3:
-            attributesHistory[i].extend(['none'] * (3 - len(attributesHistory[i])))
-    np.save(path+'user_attributes_history.npy', attributesHistory)
 
 
     for i in range(len(momentum_attributes_history)):
@@ -447,8 +686,16 @@ def process_actions(data):
 
     return df
 
+
+
+
+
+
+
+
 if __name__ == '__main__':
     # attributesHistory= [['flight_data','wildlife_size'],['flight_data','wildlife_size','airport_name'],['flight_data','wildlife_size','airport_name']]
     # onlinelearning(attributesHistory)
     # top_k()
     app.run(port=port, debug=False)
+

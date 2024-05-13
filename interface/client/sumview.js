@@ -27,6 +27,7 @@ export default class SumView extends EventEmitter {
             ngbrN: 6
         }
         this._charts = []
+        this._allRecommendedcharts = []
         this._prevcharts = []
         this._clusterNum = 1
         this._bubbleSets = []
@@ -71,11 +72,11 @@ export default class SumView extends EventEmitter {
             this._selectedChartID = ch
             this._svgDrawing.selectAll('.chartdot')
                 .filter((c) => {
-                    return c.chid == ch
+                    return c.overallchid == ch
                 })
                 .classed('selected', true)
             var selectedChart = _.find(this._bookmarkedCharts, (d) => {
-                return this._selectedChartID == d.chid
+                return this._selectedChartID == d.overallchid
             })
             this.emit('clickchart', selectedChart)
         }
@@ -188,6 +189,7 @@ export default class SumView extends EventEmitter {
         // })
 
         this._recommendCharts(attributesHistory)
+        this._collectAllRecommendedCharts()
         // this.render()
         // if (callback) callback()
 
@@ -215,7 +217,7 @@ export default class SumView extends EventEmitter {
                 if (logging) app.logger.push({time: Date.now(), action: 'clickchart', data: d})
             })
             .on('mouseover', (d) => {
-                this.highlight(d.chid, true)
+                this.highlight(d.chid, true, false)
                 this.emit('mouseoverchart', d)
                 d3.select('#tooltip')
                     .style('display', 'inline-block')
@@ -314,16 +316,36 @@ export default class SumView extends EventEmitter {
             .remove()
     }
 
-    highlight(chid, hoverin) {
+    highlight(chid, hoverin, bookmarked = false) {
         this._svgDrawing.selectAll('.chartdot.hovered').classed('hovered', false)
         if (hoverin) {
-            this._svgDrawing.selectAll('.chartdot')
-                .filter((c) => {
-                    return c.chid == chid
-                })
-                .classed('hovered', true)
+            if (bookmarked) {
+                this._svgDrawing.selectAll('.chartdot')
+                    .filter((c) => {
+                        return c.overallchid == chid
+                    })
+                    .classed('hovered', true)
+            } else {
+                this._svgDrawing.selectAll('.chartdot')
+                    .filter((c) => {
+                        return c.chid == chid
+                    })
+                    .classed('hovered', true)
+            }
         }
     }
+
+// collect all recommended charts
+_collectAllRecommendedCharts() {
+    for (var i = 0; i < this._charts.length; i++) {
+        if (this._charts[i]) {
+            //change the chart id to the next available id without changing original id
+            this._charts[i].overallchid = this._allRecommendedcharts.length;
+            this._allRecommendedcharts.push(this._charts[i]);
+        }
+    }
+
+}
 
 _recommendCharts(attributesHistory, callback) {
     // Question: When phase of flight has the highest number of birdstrike records in
@@ -364,6 +386,7 @@ _recommendCharts(attributesHistory, callback) {
                     chid: i,
                 };
                 this._charts.push(chart);
+
             }
         }
         if (logging) {
