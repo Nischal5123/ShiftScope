@@ -127,17 +127,17 @@
 <div id="myNav" class="overlay">
     <!-- Button to close the overlay navigation -->
     <a class="closebtn" id="performaceViewClose">&times;</a>
+      <div id="chartContainerShiftFocus">
+          <h2>User's Shifts in Data Focus</h2>
+        <div id="timeSeriesChart"></div>
+    </div>
+      <div id="accuracyChartContainer">
+            <h2>Algorithms Performance Over Recommendation Cycles</h2>
+          <canvas id="AccuracyChart" style="max-width:80%"></canvas>
+      </div>
     <div class="chart-container-perf">
         <!-- Create a canvas element with the ID 'attributeChart' -->
-<!--            <div class="chart">-->
-<!--                <h2>Accuracy Chart</h2>-->
-<!--                <canvas id="AccuracyChart" style="max-width:100%"></canvas>-->
-<!--            </div>-->
-            <div class="chart">
-                <h2>Focus Shift Chart</h2>
-                <canvas id="FocusChart" style="max-width:100%></canvas>
 
-            </div>
             <div class="chart">
                 <h2>Users Focus</h2>
                 <canvas id="UserChart" style="max-width:100%"></canvas>

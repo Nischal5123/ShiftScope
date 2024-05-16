@@ -118,6 +118,7 @@ html, body {
   border-radius: 5px;
   vertical-align: top;
   margin: 2px;
+  oberflow-y: auto;
 
   .chartcontainer {
     height: 90%;
@@ -519,12 +520,18 @@ html, body {
     margin-bottom: 10px;
 }
 
+#accuracyChartContainer {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
 
 /// ##############################  Shift in Data Focus Chart  ########################################
 #chartContainerShiftFocus {
     width: 100%;
     overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: auto; /* Disable vertical scrolling */
+
 }
 #timeSeriesChart {
     width: auto; /* Allow the SVG to expand beyond the viewport width */

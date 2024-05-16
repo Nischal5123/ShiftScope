@@ -460,6 +460,7 @@ function storeInteractionLogs(interaction, value, time) {
 var baselineCharts = {};
 var accuracyCharts = {};
 
+
 function openNav() {
     $.ajax({
         type: 'GET',
@@ -467,6 +468,8 @@ function openNav() {
         url: 'http://localhost:5500' + '/get-performance-data',
         contentType: 'application/json'
     }).done((full_data) => {
+
+        createShiftFocusChart();
 
         createAccuracyChart("AccuracyChart", full_data['accuracy_response']);
 
@@ -479,7 +482,7 @@ function openNav() {
         createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
         document.getElementById("myNav").style.width = "100%";
     }).fail((xhr, status, error) => {
-        alert('Not Enough Data to Derive Performance View.');
+        alert('Cannot Derive Performance View. Please Try Again Later');
     });
 }
 
@@ -491,8 +494,8 @@ function createAccuracyChart(id,data) {
 
 
 
-if (time < 2) {
-    alert('Not Enough Data to Derive Performance View.');
+if (time < 1) {
+    alert('Not Enough Data to Derive Hit Rate View. Rendering Other Views');
     return;
 }
     var timeLabels = Array.from({ length: time }, (_, i) => i.toString());
@@ -583,6 +586,7 @@ function closeNav() {
     // Clear the chart objects
     baselineCharts = {};
     accuracyCharts = {};
+
   document.getElementById("myNav").style.width = "0%";
 }
 
@@ -605,14 +609,16 @@ function CSVToArray(text) {
 
 
 
-
 /// ################# Shift Focus Chart ####################
 function createShiftFocusChart() {
-      const localattributeHistory = attributesHistory
+    // Remove existing SVG element
+    d3.select('#timeSeriesChart').selectAll('svg').remove();
 
-        const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
+    const localattributeHistory = attributesHistory;
 
-        var timeSeriesData = localattributeHistory.map((attributes, index) => {
+    const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
+
+    const timeSeriesData = localattributeHistory.map((attributes, index) => {
             const dataPoint = { time: index };
             fieldNames.forEach((field, fieldIndex) => {
                 dataPoint[field] = attributes.includes(field) ? fieldIndex : null;
@@ -620,89 +626,74 @@ function createShiftFocusChart() {
             return dataPoint;
         });
 
-        const margin = { top: 20, right: 50, bottom: 50, left: 130 }; // Adjusted left margin
-        const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300); // Minimum width
-        const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
+    const margin = { top: 20, right: 50, bottom: 50, left: 190 }; // Adjusted left margin
+    const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300); // Minimum width
+    const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
 
-        const svg = d3.select("#timeSeriesChart")
-            .append("g");
+    const svg = d3.select("#timeSeriesChart").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
 
-        const x = d3.scaleLinear()
-            .domain([0, timeSeriesData.length - 1])
-            .range([0, 100]);
+    const x = d3.scaleBand() // Changed to scaleBand
+        .domain(timeSeriesData.map(d => d.time))
+        .range([0, width])
+        .padding(0.1); // Adjusted padding between bars
 
-        const y = d3.scaleBand()
-            .domain(fieldNames)
-            .range([height, 0]);
+    const y = d3.scaleBand()
+        .domain(fieldNames)
+        .range([height, 0])
+        .padding(0.1); // Adjusted padding between bars
 
-        const colors = d3.scaleOrdinal(d3.schemeCategory10);
-
-        svg.selectAll(".line")
-            .data(timeSeriesData)
-            .enter().append("g")
-            .each(function (d) {
-                const group = d3.select(this);
-                fieldNames.forEach(field => {
-                    if (d[field] !== null) {
-                        group.append("rect")
-                            .attr("x", x(d.time))
-                            .attr("y", y(field))
-                            .attr("width", x(1) - x(0))
-                            .attr("height", y.bandwidth())
-                            .attr("fill", colors(field))
-                            .attr("class", "bar")
-                            .attr("data-index", d[field]); // Set data-index attribute
-                    }
-                });
-            })
-            .on("mouseover", function() {
-                d3.select(this).attr("fill", "grey"); // Change color on hover
-            })
-            .on("mouseout", function() {
-                const fieldIndex = this.getAttribute("data-index"); // Access data-index attribute
-                const field = fieldNames[fieldIndex];
-                d3.select(this).attr("fill", colors(field)); // Restore original color
+    svg.selectAll(".line")
+        .data(timeSeriesData)
+        .enter().append("g")
+        .each(function (d) {
+            const group = d3.select(this);
+            fieldNames.forEach(field => {
+                if (d[field] !== null) {
+                    group.append("rect")
+                        .attr("x", x(d.time))
+                        .attr("y", y(field))
+                        .attr("width", x.bandwidth()) // Adjusted width of bars
+                        .attr("height", y.bandwidth())
+                        .attr("class", "bar")
+                        .attr("data-index", d[field]); // Set data-index attribute
+                }
             });
+        })
+        .on("mouseover", function() {
+            d3.select(this).attr("fill", "grey"); // Change color on hover
+        })
+        .on("mouseout", function() {
+            const fieldIndex = this.getAttribute("data-index"); // Access data-index attribute
+            const field = fieldNames[fieldIndex];
+            d3.select(this).attr("fill", colors(field)); // Restore original color
+        });
 
-        svg.append("g")
-            .attr("transform", `translate(0,${height})`)
-            .call(d3.axisBottom(x));
+    svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(x).ticks(timeSeriesData.length - 1).tickFormat(d3.format("d"))); // Adjusted tick format
 
-        svg.append("g")
-            .call(d3.axisLeft(y));
+    svg.append("g")
+        .call(d3.axisLeft(y))
+        .selectAll("text")
+        .style("font-size", "14px") // Increase font size
+        .style("font-weight", "bold"); // Make text bold
 
-        svg.append("text")
-            .attr("transform", "rotate(-90)")
-            .attr("y", 0 - margin.left)
-            .attr("x", 0 - (height / 2))
-            .attr("dy", "1em")
-            .style("text-anchor", "middle")
-            .text("Attribute");
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Attribute");
 
-        svg.append("text")
-            .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)
-            .style("text-anchor", "middle")
-            .text("Interactions Observed");
-
-        const legendContainer = svg.append("g")
-            .attr("class", "legend-container") // Added a class for styling and scrolling
-            .attr("transform", `translate(${margin.left},${height + 50})`);
-
-        const legend = legendContainer.selectAll("g")
-            .data(fieldNames)
-            .enter().append("g")
-            .attr("transform", (d, i) => `translate(0,${i * 20})`);
-
-        legend.append("rect")
-            .attr("x", 0)
-            .attr("width", 10)
-            .attr("height", 10)
-            .attr("fill", colors);
-
-        legend.append("text")
-            .attr("x", 15)
-            .attr("y", 5)
-            .attr("dy", "0.75em")
-            .text(d => d);
-
+    svg.append("text")
+        .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)
+        .style("text-anchor", "middle")
+        .text("Interactions Observed");
 }
+
+// ################# Shift Focus Chart ####################

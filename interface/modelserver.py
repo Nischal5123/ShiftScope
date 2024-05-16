@@ -121,34 +121,6 @@ def encode():
     encode_history.append(field_names)
     # Get Draco recommendations
     recommendations = draco_test.get_draco_recommendations(field_names, 'birdstrikes', parsed_data)
-    # matched_recommendations = []
-    #
-    # # Initialize variables to track the maximum number of matched fields and the corresponding recommendation
-    # max_match = 0
-    # max_match_recommendation = None
-    #
-    # # Iterate over the recommendations and check for matches
-    # for chart_key, chart in recommendations.items():
-    #     encodings = json.loads(chart).get('encoding', {})
-    #     matched_fields = 0
-    #
-    #     # Compare each field in the recommendation with the parsed data
-    #     for field, field_info in encodings.items():
-    #         if field in field_names and field_info.get('field') == field and field_types[field] == field_info.get(
-    #                 'type'):
-    #             matched_fields += 1
-    #
-    #     # Update the maximum match and corresponding recommendation if a new maximum is found
-    #     if matched_fields > max_match:
-    #         max_match = matched_fields
-    #         max_match_recommendation = chart
-    #
-    # # If there is a recommendation with a match, add it to the list of matched recommendations
-    # if max_match_recommendation:
-    #     matched_recommendations.append(max_match_recommendation)
-    #
-    # if len(matched_recommendations) == 0:
-    #     matched_recommendations.append(recommendations[0])
     chart_recom=remove_irrelevant_reccomendations(field_names, recommendations)
     return jsonify(chart_recom[0])
 
@@ -185,36 +157,6 @@ def encodetest():
         })
     }
     recommendations = perform_snd_flds(request_data)
-
-    # matched_recommendations = []
-    #
-    # # Initialize variables to track the maximum number of matched fields and the corresponding recommendation
-    # max_match = 0
-    # max_match_recommendation = None
-    #
-    # # Iterate over the recommendations and check for matches
-    # for chart_key, chart in recommendations.items():
-    #     encodings = json.loads(chart).get('encoding', {})
-    #     matched_fields = 0
-    #
-    #     # Compare each field in the recommendation with the parsed data
-    #     for field, field_info in encodings.items():
-    #         if field in field_names and field_info.get('field') == field and field_types[field] == field_info.get(
-    #                 'type'):
-    #             matched_fields += 1
-    #
-    #     # Update the maximum match and corresponding recommendation if a new maximum is found
-    #     if matched_fields > max_match:
-    #         max_match = matched_fields
-    #         max_match_recommendation = chart
-    #
-    # # If there is a recommendation with a match, add it to the list of matched recommendations
-    # if max_match_recommendation:
-    #     matched_recommendations.append(max_match_recommendation)
-    #
-    # if len(matched_recommendations) == 0:
-    #     matched_recommendations.append(recommendations[0])
-    #chart_recom=remove_irrelevant_reccomendations(field_names, recommendations)
     return jsonify(recommendations[0])
 
 #This is to get the recommendation that the user has selected
@@ -364,7 +306,7 @@ def top_k(save_csv=False):
         distribution_map_dataframe = pd.DataFrame.from_dict(distribution_map, orient='index', columns=['Probability'])
         distribution_map_dataframe.index.name = 'Fields'
         pd.DataFrame.to_csv(distribution_map_dataframe, 'distribution_map.csv')
-    get_performance_data()
+
     return jsonify(response_data)
 
 
@@ -481,25 +423,26 @@ def remove_irrelevant_reccomendations(interested_attributes, recommendations, ma
         encodings = json.loads(chart).get('encoding', {})
         match = 0
 
-        if  max_constrained:
-            for field in fieldnames:
-                if field in str(encodings):
-                    match += 1
-            if match == len(interested_attributes):
-                chart_recom.append(chart)
-        else:
-            for f in interested_attributes:
-                if f in str(encodings):
-                    match += 1
-                else:
-                    match -= 1
-            if match > 0:
-                chart_recom.append(chart)
-
-    if len(chart_recom) == 0:
-        return chart_all[:1] # Need to return something to avoid empty response
-    else:
-        return chart_recom
+    return chart_all
+    #     if  max_constrained:
+    #         for field in fieldnames:
+    #             if field in str(encodings):
+    #                 match += 1
+    #         if match == len(interested_attributes):
+    #             chart_recom.append(chart)
+    #     else:
+    #         for f in interested_attributes:
+    #             if f in str(encodings):
+    #                 match += 1
+    #             else:
+    #                 match -= 1
+    #         if match > 0:
+    #             chart_recom.append(chart)
+    #
+    # if len(chart_recom) == 0:
+    #     return chart_all[:1] # Need to return something to avoid empty response
+    # else:
+    #     return chart_recom
 
 
 def get_distribution_of_states(data, dataset='birdstrikes'):
@@ -647,6 +590,8 @@ def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Gr
         'Greedy': distribution_map_rl,  # Let's send this as Greedy for now
         'Random': distribution_map_random
     }
+    if len(rl_attributes_history) > 2:
+        get_performance_data()
 
     return next_state_return, distribution_map, all_algorithms_distribution_map
 

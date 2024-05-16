@@ -68,30 +68,39 @@ def rec_from_generated_spec(
     draco: drc.Draco,
     input_spec_base: list[str],
     data: pd.DataFrame,
-    num: int = 1, config=None
+    num: int = 10, config=None
 ) -> dict[str, dict]:
     if config is None:
-        input_specs = [
-            (
-                (mark, field, enc_ch),
-                input_spec_base
-                + [
-                    f"attribute((mark,type),m0,{mark}).",
-                    "entity(encoding,m0,e0).",
-                    f"attribute((encoding,field),e0,{field}).",
-                    f"attribute((encoding,channel),e0,{enc_ch}).",
-                    # filter out designs with less than 3 encodings
-                    ":- {entity(encoding,_,_)} < 2.",
-                    # exclude multi-layer designs
-                    ":- {entity(mark,_,_)} != 1.",
-                ],
-            )
-            for mark in marks
-            for field in fields
-            for enc_ch in encoding_channels
-        ]
+        num_encodings = len(fields)
+        input_specs = []
+        for mark in marks:
+            force_attributes = []
+            for index, item in enumerate(fields):
+                connect_root = f'entity(encoding,m0,e{index}).'
+                force_attributes.append(connect_root)
+                specify_field = f'attribute((encoding,field),e{index},{item}).'
+                force_attributes.append(specify_field)
+
+            spec =(
+                    (mark,'only-mark'),
+                    input_spec_base +
+                    [
+                        f"attribute((mark,type),m0,{mark})."
+                    ] +
+
+                    force_attributes +
+
+                    [
+                        # ":- {attribute((encoding,field),_,_)} <" + str(num_encodings) + "."]
+                        ":- {attribute((encoding,field),_,_)} < 1.",
+                        # exclude multi-layer designs
+                        ":- {entity(mark,_,_)} != 1."
+                    ]
+                )
+            input_specs.append(spec)
     else:
-        input_specs=validate_chart(config,input_spec_base)
+        input_specs = validate_chart(config, input_spec_base)
+
 
     recs = {}
     for cfg, spec in input_specs:
@@ -124,8 +133,8 @@ def validate_chart(config, input_spec_base):
             input_spec = [
                 (mark, field, channel) if field is not None else (mark, channel),
                 input_spec_base + [
-                    f"attribute((mark,type),m{i},{mark}).",
-                    f"entity(encoding,m{i},e{i}).",
+                    f"attribute((mark,type),m0,{mark}).",
+                    f"entity(encoding,m0,e{i}).",
                     f"attribute((encoding,channel),e{i},{channel}).",
                 ]
             ]
@@ -141,7 +150,7 @@ def validate_chart(config, input_spec_base):
 
         elif  i>0:
 
-            input_spec[1].append(f"entity(encoding,m{i},e{i}).")
+            input_spec[1].append(f"entity(encoding,m0,e{i}).")
             input_spec[1].append(f"attribute((encoding,channel),e{i},{channel}).")
             if field is not None:
                 input_spec[1].append(f"attribute((encoding,field),e{i},{field}).")
@@ -152,9 +161,12 @@ def validate_chart(config, input_spec_base):
 
     # Append filtering rules
     input_spec[1].extend([
-        # exclude multi-layer designs
-        ":- {entity(mark,_,_)} != 1."
-    ])
+                    ":- {entity(mark,_,_)} != 1.",
+                    # ":- {attribute((encoding,field),_,_)} <" + str(num_encodings) + "."]
+                    ":- {attribute((encoding,field),_,_)} < 1.",
+                    # exclude multi-layer designs
+                    ":- {entity(mark,_,_)} != 1."
+                ])
 
     return [input_spec]
 
@@ -203,9 +215,28 @@ def start_draco(fields,datasetname='birdstrikes',config=None):
     return recommendations
 
 def get_draco_recommendations(attributes,datasetname='birdstrikes',config=None):
+
     ret = [f.replace('__', '_').lower() for f in attributes]
     field_names_renamed = [f.replace('$', 'a') for f in ret]
-    recommendations=start_draco(fields=field_names_renamed,datasetname=datasetname,config=config)
+    #remove none fields
+    field_names_renamed = [f for f in field_names_renamed if f != 'none']
+    np.random.shuffle(field_names_renamed)
+
+    try:
+        recommendations=start_draco(fields=field_names_renamed,datasetname=datasetname,config=config)
+        if len(recommendations) == 0:
+            # depending on size of fields , we tak 1 less than length of fields
+               if len(field_names_renamed) > 1:
+                     print('Draco recommendations are empty, retrying with one field')
+                     recommendations = start_draco(fields=np.random.shuffle(field_names_renamed)[:1], datasetname=datasetname, config=config)
+
+    except:
+        print('Draco recommendations failed, retrying with 2 field')
+        recommendations=start_draco(fields=field_names_renamed[:1],datasetname=datasetname,config=config)
+    #recommendations in a dictionary if more that 6 items return first 6
+    if len(recommendations) > 6:
+        return dict(list(recommendations.items())[:6])
+    print(' Dracorecommendations:', len(recommendations))
     return recommendations
 
 # Joining the data `schema` dict with the view specification dict
@@ -221,13 +252,14 @@ if __name__ == '__main__':
     # recommendations=start_draco(fields=fields_seattle, datasetname='seattle')
     # print(len(recommendations))
     # Loop through the dictionary and print recommendations
-    for chart_key, _ in recommendations.items():
-        # (_,chart)=(recommendations[chart_key])
-        chart = recommendations[chart_key]
-        print(f"Recommendation for {chart_key}:")
-        print(f"**Draco Specification of {chart_key}**")
-        # localpprint(chart)
-        # print(chart)
-        # print("\n")
-        break
+    # for chart_key, _ in recommendations.items():
+    #     # (_,chart)=(recommendations[chart_key])
+    #     chart = recommendations[chart_key]
+    #     print(f"Recommendation for {chart_key}:")
+    #     print(f"**Draco Specification of {chart_key}**")
+    #     # localpprint(chart)
+    #     print(chart)
+    #     print("\n")
+    print('Total recommendations:', len(recommendations))
+
 
