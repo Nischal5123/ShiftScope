@@ -48,13 +48,10 @@ def recommend_charts(
         # print(chart_name)
         # print(f"COST: {model.cost}")
         chart = renderer.render(spec=spec, data=df)
-        chart_vega_specs[chart_name] = chart.to_json()
+        if not ( isinstance(chart, alt.FacetChart) or isinstance(chart, alt.LayerChart)):
+            chart_vega_specs[chart_name] = chart.to_json()
         # # Adjust column-faceted chart size
-        if (
-            isinstance(chart, alt.FacetChart)
-            and chart.facet.column is not alt.Undefined
-        ):
-            chart = chart.configure_view(continuousWidth=130, continuousHeight=130)
+
         # print(chart.to_json())
         # display(chart)
 

@@ -43,12 +43,12 @@
                         <label>Shape</label><select id="ch-shape"></select><br/>
                     </div>
                     <span class="editorbuttons">
-                        <button id="preview1" style="color:#007bff">Preview1</button>
+                        <button id="preview1" style="color:#007bff">Preview</button>
 <!--                        <button id="cancel1" style="color:#dc3545;">Cancel</button>-->
                     </span>
                     <div id="editorcontainer"></div>
                     <span class="editorbuttons" id="editorbutton2">
-                        <button id="preview2" style="color:#007bff">Preview2</button>
+<!--                        <button id="preview2" style="color:#007bff">Preview2</button>-->
 <!--                        <button id="cancel2" style="color:#dc3545;">Cancel</button>-->
                     </span>
                 </div>
@@ -127,14 +127,15 @@
 <div id="myNav" class="overlay">
     <!-- Button to close the overlay navigation -->
     <a class="closebtn" id="performaceViewClose">&times;</a>
+       <div id="accuracyChartContainer">
+            <h2>Algorithms Performance Over Recommendation Cycles</h2>
+          <canvas id="AccuracyChart" style="max-height:80%"></canvas>
+      </div>
       <div id="chartContainerShiftFocus">
           <h2>User's Shifts in Data Focus</h2>
         <div id="timeSeriesChart"></div>
     </div>
-      <div id="accuracyChartContainer">
-            <h2>Algorithms Performance Over Recommendation Cycles</h2>
-          <canvas id="AccuracyChart" style="max-width:80%"></canvas>
-      </div>
+
     <div class="chart-container-perf">
         <!-- Create a canvas element with the ID 'attributeChart' -->
 

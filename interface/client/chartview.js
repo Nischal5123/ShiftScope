@@ -122,6 +122,8 @@
              })
             //  console.log(data)
              this._validateChart(data, (recommended_chart_specs) => {this.update(recommended_chart_specs, 'uicontrols')})
+             this.emit('similar', this.data)
+
          })
  
          $('#preview2').click((e) => {

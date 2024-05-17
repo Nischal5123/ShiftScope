@@ -227,8 +227,6 @@ export function displayBookmarkCharts(container, created = true) {
             spec._meta = {chid:0, uid:0}
         app.sumview.data.chartspecs.push(spec) //this holds all the charts that make it to the CenterView
 
-         // search through history and get spec?
-
 
 
         //displayAllCharts('#allchartsview', false)
