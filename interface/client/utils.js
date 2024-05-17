@@ -469,77 +469,75 @@ function openNav() {
         url: 'http://localhost:5500' + '/get-performance-data',
         contentType: 'application/json'
     }).done((full_data) => {
-
-        createShiftFocusChart();
-
-        createAccuracyChart("AccuracyChart", full_data['accuracy_response']);
-
         var data = full_data['distribution_response'];
+
 
         // Create baseline charts
         createBaselineChart("UserChart", data['distribution_map'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
         createBaselineChart("RLChart", data['baselines_distribution_maps']['Greedy'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
         createBaselineChart("RandombaselineChart", data['baselines_distribution_maps']['Random'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
         createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
+        createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart);
+        createShiftFocusChart(full_data);
         document.getElementById("myNav").style.width = "100%";
     }).fail((xhr, status, error) => {
         alert('Cannot Derive Performance View. Please Try Again Later');
     });
 }
 
-function createAccuracyChart(id,data) {
-    var accuracyData = data;
-
-    var time = accuracyData['RL'].length;
-
-
-
-
-if (time < 1) {
-    alert('Not Enough Data to Derive Hit Rate View. Rendering Other Views');
-    return;
-}
-    var timeLabels = Array.from({ length: time }, (_, i) => i.toString());
-
-    var datasets = Object.keys(accuracyData).map(key => {
-        return {
-            label: key,
-            data: accuracyData[key],
-            fill: false,
-            borderColor: key === "RL" ? "blue" : key === "Random" ? "green" : "red"
-        };
-    });
-
-    var accuracyChart = new Chart(id, {
-        type: "line",
-        data: {
-            labels: timeLabels,
-            datasets: datasets
-        },
-        options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: "Hit Rate Over Time"
-            },
-            scales: {
-                xAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: "Time"
-                    }
-                }],
-                yAxes: [{
-                    scaleLabel: {
-                        display: true,
-                        labelString: "Hit Rate"
-                    }
-                }]
-            }
-        }
-    });
-     accuracyCharts[id] = accuracyChart;
-}
+// function createAccuracyChart(id,data) {
+//     var accuracyData = data;
+//
+//     var time = accuracyData['RL'].length;
+//
+//
+//
+//
+// if (time < 1) {
+//     alert('Not Enough Data to Derive Hit Rate View. Rendering Other Views');
+//     return;
+// }
+//     var timeLabels = Array.from({ length: time }, (_, i) => i.toString());
+//
+//     var datasets = Object.keys(accuracyData).map(key => {
+//         return {
+//             label: key,
+//             data: accuracyData[key],
+//             fill: false,
+//             borderColor: key === "RL" ? "blue" : key === "Random" ? "green" : "red"
+//         };
+//     });
+//
+//     var accuracyChart = new Chart(id, {
+//         type: "line",
+//         data: {
+//             labels: timeLabels,
+//             datasets: datasets
+//         },
+//         options: {
+//             responsive: true,
+//             title: {
+//                 display: true,
+//                 text: "Hit Rate Over Time"
+//             },
+//             scales: {
+//                 xAxes: [{
+//                     scaleLabel: {
+//                         display: true,
+//                         labelString: "Time"
+//                     }
+//                 }],
+//                 yAxes: [{
+//                     scaleLabel: {
+//                         display: true,
+//                         labelString: "Hit Rate"
+//                     }
+//                 }]
+//             }
+//         }
+//     });
+//      accuracyCharts[id] = accuracyChart;
+// }
 
 function createBaselineChart(id, data, label, backgroundColor, borderColor) {
     var fieldNames = Object.keys(data);
@@ -608,44 +606,239 @@ function CSVToArray(text) {
 }
 
 
+var hitRateHistory = {'RL': [], 'Random': [], 'Momentum': []  };
 
 
-/// ################# Shift Focus Chart ####################
-function createShiftFocusChart() {
-    // Remove existing SVG element
-    d3.select('#timeSeriesChart').selectAll('svg').remove();
+// Function to create or update accuracy chart
+function createAccuracyChart(id, data, updateTimeSeriesChart) {
+    // var all_algorithms_predictions = data['algorithm_predictions'];
+    // var users_predictions = data['user_selections'];
+    //
+    // d3.select(`#${id}`).selectAll('svg').remove()
+    //
+    // // Initialize hit rates and history object to store accuracies over time
+    // var hitRates = {};
+    //
+    // // Initialize hit rates for each algorithm and create an empty history array
+    // Object.keys(all_algorithms_predictions).forEach(algorithm => {
+    //     hitRates[algorithm] = { correct: 0, total: 0 };
+    // });
+    //
+    // // Calculate hit rates using current data
+    // users_predictions.forEach(user_prediction => {
+    //     Object.keys(all_algorithms_predictions).forEach(algorithm => {
+    //         var predicted_attribute = all_algorithms_predictions[algorithm];
+    //
+    //         // Count total predictions for the algorithm
+    //         hitRates[algorithm].total++;
+    //
+    //         // Check if the prediction is correct (exists in user predictions)
+    //         if (user_prediction.includes(predicted_attribute)) {
+    //             hitRates[algorithm].correct++;
+    //         }
+    //     });
+    // });
+    //
+    // // Convert counts to hit rates (accuracy) and update history
+    // Object.keys(hitRates).forEach(algorithm => {
+    //     var correct = hitRates[algorithm].correct;
+    //     var total = hitRates[algorithm].total;
+    //     var accuracy = total > 0 ? correct / total : 0;
+    //
+    //     // Store the current accuracy in history
+    //     hitRateHistory[algorithm].push(accuracy);
+    // });
+    hitRateHistory = data['accuracy_response'];
+
+    // Determine the number of time points
+    var time = hitRateHistory[Object.keys(hitRateHistory)[0]].length;
+    var timeLabels = Array.from({ length: time }, (_, i) => i.toString());
+
+    var svgWidth = 1000; // Set your desired width
+    var svgHeight = 400; // Set your desired height
+    var margin = { top: 20, right: 100, bottom: 50, left: 50 };
+    var width = svgWidth - margin.left - margin.right;
+    var height = svgHeight - margin.top - margin.bottom;
+
+    // Clear the existing SVG content
+    d3.select(`#${id}`).selectAll("*").remove();
+
+    var svg = d3.select(`#${id}`).append("svg")
+        .attr("width", svgWidth)
+        .attr("height", svgHeight)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    var xScale = d3.scaleBand()
+        .domain(timeLabels)
+        .range([0, width])
+        .padding(0.1);
+
+    var yScale = d3.scaleLinear()
+        .domain([0, 1.1]) // Adjusted yScale domain
+        .range([height, 0]);
+
+    var colors = d3.scaleOrdinal()
+        .domain(Object.keys(hitRateHistory))
+        .range(d3.schemeCategory10);
+
+    // Draw lines for each dataset
+    Object.keys(hitRateHistory).forEach((algorithm, i) => {
+        var line = d3.line()
+            .x((_, i) => xScale(i.toString()) + xScale.bandwidth() / 2)
+            .y(d => yScale(d))
+            .curve(d3.curveLinear);
+
+        svg.append("path")
+            .datum(hitRateHistory[algorithm])
+            .attr("fill", "none")
+            .attr("stroke", colors(algorithm))
+            .attr("stroke-width", 2)
+            .attr("d", line)
+            .on("click", function(_, i) {
+                updateTimeSeriesChart(i);
+            });
+
+        // Add labels for different algorithms colors
+        svg.append("text")
+            .attr("x", width + 10)
+            .attr("y", margin.top + 20 * i)
+            .attr("fill", colors(algorithm))
+            .text(algorithm);
+    });
+
+    // Add circles to represent data points
+    Object.keys(hitRateHistory).forEach(algorithm => {
+        hitRateHistory[algorithm].forEach((hitRate, i) => {
+            svg.append("circle")
+                .attr("cx", xScale(i.toString()) + xScale.bandwidth() / 2)
+                .attr("cy", yScale(hitRate))
+                .attr("r", 5)
+                .attr("fill", colors(algorithm))
+                .on("click", () => {
+                    updateTimeSeriesChart(i);
+                });
+        });
+    });
+
+    // Add x-axis
+    svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(xScale));
+
+    // Add y-axis
+    svg.append("g")
+        .call(d3.axisLeft(yScale).ticks(5));
+
+    // Add x-axis label
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", height + margin.bottom - 10)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .text("Recommendation Cycle");
+
+    // Add y-axis label
+    svg.append("text")
+        .attr("transform", `translate(-35, ${height / 2}) rotate(-90)`)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .text("Hit Rate");
+
+    // Brush functionality
+    svg.append("g").call(d3.brushX()
+        .extent([[0, 0], [width, height]])
+        .on("end", brushChart));
+
+    function brushChart() {
+        var selection = d3.event.selection;
+        if (selection) {
+            var selectedTimes = [];
+            var startIndex = Math.round(selection[0] / (xScale.bandwidth() + xScale.step()));
+            var endIndex = Math.round(selection[1] / (xScale.bandwidth() + xScale.step()));
+            for (var i = startIndex; i <= endIndex; i++) {
+                selectedTimes.push(i);
+            }
+            updateTimeSeriesChart(selectedTimes);
+        }
+    }
+}
+
+
+
+function updateTimeSeriesChart(clickedTime) {
+    var localattributeHistory = attributesHistory;
+    // Remove previous highlighting
+    d3.selectAll(".highlight").attr("fill", null).classed("highlight", false);
+
+    // Calculate the corresponding time step range in the time series chart
+    const timeStepStart = clickedTime * 3;
+    const timeStepEnd = timeStepStart + 3;
+
+    // Loop through each time step in the calculated range
+    for (let i = timeStepStart; i < timeStepEnd; i++) {
+        // Get the corresponding user candidate and RL candidate for the current time step
+        const userCandidate = localattributeHistory[i];
+        const rlCandidate = RlHistory[clickedTime];
+
+        // Check if the user candidate is in the RL history for the current time step
+        userCandidate.forEach(attribute => {
+            if (rlCandidate.includes(attribute)) {
+                const fieldIndex = fieldNames.indexOf(attribute);
+                if (fieldIndex !== -1) {
+                    // Highlight the corresponding element in the time series chart
+                    d3.select(`#timeSeriesChart [data-index="${fieldIndex}"][x="${xScale(i)}"]`)
+                        .attr("fill", "orange")
+                        .classed("highlight", true);
+                }
+            }
+        });
+    }
+}
+
+
+
+function createShiftFocusChart(full_data) {
+
+    d3.select('#timeSeriesChart').selectAll('svg').remove()
 
     const localattributeHistory = attributesHistory;
 
     const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
 
     const timeSeriesData = localattributeHistory.map((attributes, index) => {
-            const dataPoint = { time: index };
-            fieldNames.forEach((field, fieldIndex) => {
-                dataPoint[field] = attributes.includes(field) ? fieldIndex : null;
-            });
-            return dataPoint;
+        const dataPoint = { time: index};
+        fieldNames.forEach((field, fieldIndex) => {
+            dataPoint[field] = attributes.includes(field) ? fieldIndex : null;
         });
+        return dataPoint;
+    });
 
-    const margin = { top: 20, right: 50, bottom: 50, left: 190 }; // Adjusted left margin
-    const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300); // Minimum width
+    // console.log(timeSeriesData)
+
+    const margin = { top: 20, right: 50, bottom: 50, left: 190 };
+    const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
     const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
-
     const svg = d3.select("#timeSeriesChart").append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    const x = d3.scaleBand() // Changed to scaleBand
+
+    //create another grouping axis with the prediction time
+    const xScale = d3.scaleBand()
         .domain(timeSeriesData.map(d => d.time))
         .range([0, width])
-        .padding(0.1); // Adjusted padding between bars
+        .padding(0.1);
 
-    const y = d3.scaleBand()
+
+
+    const yScale = d3.scaleBand()
         .domain(fieldNames)
         .range([height, 0])
-        .padding(0.1); // Adjusted padding between bars
+        .padding(0.1);
+
 
     svg.selectAll(".line")
         .data(timeSeriesData)
@@ -655,33 +848,25 @@ function createShiftFocusChart() {
             fieldNames.forEach(field => {
                 if (d[field] !== null) {
                     group.append("rect")
-                        .attr("x", x(d.time))
-                        .attr("y", y(field))
-                        .attr("width", x.bandwidth()) // Adjusted width of bars
-                        .attr("height", y.bandwidth())
+                        .attr("x", xScale(d.time))
+                        .attr("y", yScale(field))
+                        .attr("width", xScale.bandwidth())
+                        .attr("height", yScale.bandwidth())
                         .attr("class", "bar")
-                        .attr("data-index", d[field]); // Set data-index attribute
+                        .attr("data-index", d[field]);
                 }
             });
-        })
-        .on("mouseover", function() {
-            d3.select(this).attr("fill", "grey"); // Change color on hover
-        })
-        .on("mouseout", function() {
-            const fieldIndex = this.getAttribute("data-index"); // Access data-index attribute
-            const field = fieldNames[fieldIndex];
-            d3.select(this).attr("fill", colors(field)); // Restore original color
         });
 
     svg.append("g")
         .attr("transform", `translate(0,${height})`)
-        .call(d3.axisBottom(x).ticks(timeSeriesData.length - 1).tickFormat(d3.format("d"))); // Adjusted tick format
+        .call(d3.axisBottom(xScale).ticks(timeSeriesData.length - 1).tickFormat(d3.format("d")));
 
     svg.append("g")
-        .call(d3.axisLeft(y))
+        .call(d3.axisLeft(yScale))
         .selectAll("text")
-        .style("font-size", "14px") // Increase font size
-        .style("font-weight", "bold"); // Make text bold
+        .style("font-size", "14px")
+        .style("font-weight", "bold");
 
     svg.append("text")
         .attr("transform", "rotate(-90)")
@@ -695,7 +880,95 @@ function createShiftFocusChart() {
         .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)
         .style("text-anchor", "middle")
         .text("Interactions Observed");
+
 }
+
+// /// ################# Shift Focus Chart ####################
+// function createShiftFocusChart() {
+//     // Remove existing SVG element
+//     d3.select('#timeSeriesChart').selectAll('svg').remove();
+//
+//     const localattributeHistory = attributesHistory;
+//
+//     const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
+//
+//     const timeSeriesData = localattributeHistory.map((attributes, index) => {
+//             const dataPoint = { time: index };
+//             fieldNames.forEach((field, fieldIndex) => {
+//                 dataPoint[field] = attributes.includes(field) ? fieldIndex : null;
+//             });
+//             return dataPoint;
+//         });
+//
+//     const margin = { top: 20, right: 50, bottom: 50, left: 190 }; // Adjusted left margin
+//     const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300); // Minimum width
+//     const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
+//
+//     const svg = d3.select("#timeSeriesChart").append("svg")
+//         .attr("width", width + margin.left + margin.right)
+//         .attr("height", height + margin.top + margin.bottom)
+//         .append("g")
+//         .attr("transform", `translate(${margin.left},${margin.top})`);
+//
+//     const x = d3.scaleBand() // Changed to scaleBand
+//         .domain(timeSeriesData.map(d => d.time))
+//         .range([0, width])
+//         .padding(0.1); // Adjusted padding between bars
+//
+//     const y = d3.scaleBand()
+//         .domain(fieldNames)
+//         .range([height, 0])
+//         .padding(0.1); // Adjusted padding between bars
+//
+//     svg.selectAll(".line")
+//         .data(timeSeriesData)
+//         .enter().append("g")
+//         .each(function (d) {
+//             const group = d3.select(this);
+//             fieldNames.forEach(field => {
+//                 if (d[field] !== null) {
+//                     group.append("rect")
+//                         .attr("x", x(d.time))
+//                         .attr("y", y(field))
+//                         .attr("width", x.bandwidth()) // Adjusted width of bars
+//                         .attr("height", y.bandwidth())
+//                         .attr("class", "bar")
+//                         .attr("data-index", d[field]); // Set data-index attribute
+//                 }
+//             });
+//         })
+//         .on("mouseover", function() {
+//             d3.select(this).attr("fill", "grey"); // Change color on hover
+//         })
+//         .on("mouseout", function() {
+//             const fieldIndex = this.getAttribute("data-index"); // Access data-index attribute
+//             const field = fieldNames[fieldIndex];
+//             d3.select(this).attr("fill", colors(field)); // Restore original color
+//         });
+//
+//     svg.append("g")
+//         .attr("transform", `translate(0,${height})`)
+//         .call(d3.axisBottom(x).ticks(timeSeriesData.length - 1).tickFormat(d3.format("d"))); // Adjusted tick format
+//
+//     svg.append("g")
+//         .call(d3.axisLeft(y))
+//         .selectAll("text")
+//         .style("font-size", "14px") // Increase font size
+//         .style("font-weight", "bold"); // Make text bold
+//
+//     svg.append("text")
+//         .attr("transform", "rotate(-90)")
+//         .attr("y", 0 - margin.left)
+//         .attr("x", 0 - (height / 2))
+//         .attr("dy", "1em")
+//         .style("text-anchor", "middle")
+//         .text("Attribute");
+//
+//     svg.append("text")
+//         .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)
+//         .style("text-anchor", "middle")
+//         .text("Interactions Observed");
+// }
 
 // ################# Shift Focus Chart ####################
 
