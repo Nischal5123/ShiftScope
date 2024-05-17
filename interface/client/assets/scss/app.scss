@@ -46,24 +46,21 @@ html, body {
   left: 0;
   margin: 0px;
 }
-
 #panel2 {
   position: absolute;
   height: 100%;
   left: 350px;
-  right: 500px;
+  right: 500px; /* Adjusted to allow adaptive layout */
   display: inline-block;
-  bottom: 40px;
   top: 40px;
   margin: 0px;
-
+  width: calc(100% - 850px); /* Dynamically calculates width */
 }
 
 #panel3 {
   position: absolute;
-  left:1210px;
-  width: 600px;
-  right:0px;
+  left: calc(100% - 500px); /* Adjusted to allow adaptive layout */
+  width: 500px;
   height: 100%;
   display: inline-block;
   top: 40px;
@@ -79,6 +76,8 @@ html, body {
   height: 20px;
   display: inline-block;
   border-color: white;
+  top: 0; /* Added top position to fix the header at the top */
+  left: 0; /* Ensure it stretches the full width */
 }
 
 #weight_slider {
@@ -89,23 +88,6 @@ html, body {
   outline: none;
 }
 
-//#chartview {
-//  width: 100%;
-//  height: 250px;
-//  top: 20px;
-//  left: 0;
-//  display: inline-block;
-//  background: white;
-//  border: gray 1px solid;
-//  border-radius: 5px;
-//  position: absolute;
-//  margin: 2px;
-//
-//  .chartcontainer {
-//    height: 80%;
-//    width: 90%;
-//  }
-//}
 
 #chartview {
   position: absolute;
@@ -118,7 +100,7 @@ html, body {
   border-radius: 5px;
   vertical-align: top;
   margin: 2px;
-  oberflow-y: hidden;
+  oberflow-y: auto;
   overflow-x: hidden;
 
   .chartcontainer {
@@ -127,6 +109,20 @@ html, body {
   }
 }
 
+
+
+#dataview {
+  position: absolute;
+  top:630px;
+  left: 0;
+  width: 100%;
+  bottom: 20px;
+  font-size: 12px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  margin: 1px;
+}
 
 
 
@@ -250,11 +246,8 @@ html, body {
 
 #suggestionview {
   position: absolute;
-  width: 500px;
   top: 20px;
   bottom: 0;
-  left: 10px;
-  right: 20px;
   display: inline-block;
   border: gray 1px solid;
   border-radius: 5px;
@@ -278,19 +271,6 @@ html, body {
   overflow-x: hidden;
   vertical-align: top;
   margin: 2px;
-}
-
-#dataview {
-  position: absolute;
-  top:630px;
-  left: 0;
-  width: 100%;
-  bottom: 20px;
-  font-size: 12px;
-  display: inline-block;
-  border: gray 1px solid;
-  border-radius: 5px;
-  margin: 1px;
 }
 
 //thi is old sumview now history

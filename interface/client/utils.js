@@ -453,6 +453,9 @@ function storeInteractionLogs(interaction, value, time) {
   });
 }
 
+//###################################################### Performance View ########################################################
+
+
 
 // Declare global variables for charts
 var baselineCharts = {};
@@ -695,3 +698,5 @@ function createShiftFocusChart() {
 }
 
 // ################# Shift Focus Chart ####################
+
+//###################################################### Performance View ########################################################
