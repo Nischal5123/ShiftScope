@@ -5,7 +5,6 @@ import numpy as np
 from Q_Learning import Rl_Driver
 from Momentum import Momentum
 import os
-from a3c import a3c_Driver
 
 def run_algorithm(algorithm, attributes_history, generator, dataset):
     if algorithm == 'Qlearning':
@@ -23,7 +22,7 @@ def run_algorithm(algorithm, attributes_history, generator, dataset):
         # Save the new attribute history to a numpy file
         np.save("attributes_history.npy", Rl_attributesHistory)
 
-        next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="attributes_history.npy", current_state=Rl_attributesHistory[-1])
+        next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="attributes_history.npy", current_state=Rl_attributesHistory[-1], epsilon=0.9)
         return list(filter(lambda x: x.lower() != 'none', next_state_rl))
 
     elif algorithm == 'Momentum':
@@ -39,6 +38,3 @@ def run_algorithm(algorithm, attributes_history, generator, dataset):
 
     elif algorithm == 'Random':
         return list(filter(lambda x: x.lower() != 'none', random.choice(generator.generate_independent_next_states())))
-
-    elif algorithm == 'a3c':
-        return a3c_Driver(dataset, attributes_history[-1])

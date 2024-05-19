@@ -1,0 +1,841 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+
+<!--<script charset="utf-8" type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>-->
+
+<!--<title>Example linking two plots with D3</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<h2>Example linking two plots with D3</h2>-->
+
+<!--<div>-->
+<!--    <svg id="accuracyChart"></svg>-->
+<!--</div>-->
+
+<!--<svg id="timeSeriesChart"></svg> &lt;!&ndash; Add an SVG element with an ID &ndash;&gt;-->
+
+<!--<script >-->
+<!--    // Accuracy Chart-->
+<!--    function createAccuracyChart(id, data) {-->
+<!--        var accuracyData = data;-->
+
+<!--        var time = accuracyData['RL'].length;-->
+
+<!--        if (time < 1) {-->
+<!--            alert('Not Enough Data to Derive Hit Rate View. Rendering Other Views');-->
+<!--            return;-->
+<!--        }-->
+
+<!--        var timeLabels = Array.from({ length: time }, (_, i) => i.toString());-->
+
+<!--        var svgWidth = 600; // Set your desired width-->
+<!--        var svgHeight = 400; // Set your desired height-->
+<!--        var margin = { top: 20, right: 50, bottom: 50, left: 50 };-->
+<!--        var width = svgWidth - margin.left - margin.right;-->
+<!--        var height = svgHeight - margin.top - margin.bottom;-->
+
+<!--        var svg = d3.select(`#${id}`)-->
+<!--            .attr("width", svgWidth)-->
+<!--            .attr("height", svgHeight);-->
+
+<!--        var xScale = d3.scaleBand()-->
+<!--            .domain(timeLabels)-->
+<!--            .range([margin.left, width + margin.left])-->
+<!--            .padding(0.1);-->
+
+<!--        var yScale = d3.scaleLinear()-->
+<!--            .domain([0, 1]) // Assuming hit rate is between 0 and 1-->
+<!--            .range([height + margin.top, margin.top]);-->
+
+<!--        var colors = d3.scaleOrdinal()-->
+<!--            .domain(Object.keys(accuracyData))-->
+<!--            .range(["blue", "green", "red"]); // Assign colors to different lines-->
+
+<!--        // Draw lines for each dataset-->
+<!--        Object.keys(accuracyData).forEach(key => {-->
+<!--            var line = d3.line()-->
+<!--                .x((d, i) => xScale(i.toString()) + xScale.bandwidth() / 2)-->
+<!--                .y(d => yScale(d))-->
+<!--                .curve(d3.curveLinear);-->
+
+<!--            svg.append("path")-->
+<!--                .datum(accuracyData[key])-->
+<!--                .attr("fill", "none")-->
+<!--                .attr("stroke", colors(key))-->
+<!--                .attr("stroke-width", 2)-->
+<!--                .attr("d", line)-->
+<!--                .on("click", function(_, i) {-->
+<!--                    var clickedTime = i;-->
+<!--                    var clickedAlgorithms = [];-->
+<!--                    Object.keys(accuracyData).forEach(algorithm => {-->
+<!--                        var hitRate = accuracyData[algorithm][clickedTime];-->
+<!--                        if (hitRate) {-->
+<!--                            clickedAlgorithms.push({ algorithm: algorithm, hitRate: hitRate });-->
+<!--                        }-->
+<!--                    });-->
+<!--                    console.log("Clicked Time:", clickedTime);-->
+<!--                    console.log("Clicked Algorithms:", clickedAlgorithms);-->
+<!--                });-->
+<!--        });-->
+
+<!--        // Add circles to represent data points-->
+<!--        Object.keys(accuracyData).forEach(key => {-->
+<!--            accuracyData[key].forEach((hitRate, i) => {-->
+<!--                svg.append("circle")-->
+<!--                    .attr("cx", xScale(i.toString()) + xScale.bandwidth() / 2)-->
+<!--                    .attr("cy", yScale(hitRate))-->
+<!--                    .attr("r", 5)-->
+<!--                    .attr("fill", colors(key))-->
+<!--                    .on("click", function() {-->
+<!--                        var clickedTime = i;-->
+<!--                        var clickedAlgorithms = [];-->
+<!--                        Object.keys(accuracyData).forEach(algorithm => {-->
+<!--                            var hitRate = accuracyData[algorithm][clickedTime];-->
+<!--                            if (hitRate) {-->
+<!--                                clickedAlgorithms.push({ algorithm: algorithm, hitRate: hitRate });-->
+<!--                            }-->
+<!--                        });-->
+<!--                        console.log("Clicked Time:", clickedTime);-->
+<!--                        console.log("Clicked Algorithms:", clickedAlgorithms);-->
+<!--                    });-->
+<!--            });-->
+<!--        });-->
+
+<!--        // Add x-axis-->
+<!--        svg.append("g")-->
+<!--            .attr("transform", `translate(0,${height + margin.top})`)-->
+<!--            .call(d3.axisBottom(xScale));-->
+
+<!--        // Add y-axis-->
+<!--        svg.append("g")-->
+<!--            .attr("transform", `translate(${margin.left},0)`)-->
+<!--            .call(d3.axisLeft(yScale));-->
+
+<!--        // Add chart title-->
+<!--        svg.append("text")-->
+<!--            .attr("x", (width + margin.left + margin.right) / 2)-->
+<!--            .attr("y", margin.top / 2)-->
+<!--            .attr("text-anchor", "middle")-->
+<!--            .style("font-size", "16px")-->
+<!--            .text("Hit Rate Over Time");-->
+
+<!--        // Add x-axis label-->
+<!--        svg.append("text")-->
+<!--            .attr("x", (width + margin.left + margin.right) / 2)-->
+<!--            .attr("y", height + margin.top + margin.bottom / 2)-->
+<!--            .attr("text-anchor", "middle")-->
+<!--            .style("font-size", "14px")-->
+<!--            .text("Time");-->
+
+<!--        // Add y-axis label-->
+<!--        svg.append("text")-->
+<!--            .attr("transform", `translate(${margin.left / 2}, ${(height + margin.top + margin.bottom) / 2}) rotate(-90)`)-->
+<!--            .attr("text-anchor", "middle")-->
+<!--            .style("font-size", "14px")-->
+<!--            .text("Hit Rate");-->
+<!--    }-->
+
+<!--    // Call the function to create accuracy chart-->
+<!--    const accuracyData = {-->
+<!--        'RL': [0.5, 0.4, 0.9],-->
+<!--        'Momentum': [0.2, 0.2, 0.9],-->
+<!--        'Random': [0.2, 0.9, 0.05]-->
+<!--    };-->
+<!--    createAccuracyChart('accuracyChart', accuracyData);-->
+
+<!--    // Shift Focus Chart-->
+<!--    const RlHistory = [-->
+<!--        ['aircraft_airline_operator', 'cost_repair'],-->
+<!--   // Adjusted attribute names here-->
+<!--        ['wildlife_species', 'cost_repair'],-->
+<!--        ['wildlife_species', 'cost_repair']// Adjusted attribute names here-->
+<!--    ];-->
+<!--    const attributeHistory = [-->
+<!--        ['aircraft_airline_operator', 'cost_repair'],-->
+<!--        ['wildlife_species', 'wildlife_size'], // Adjusted attribute names here-->
+<!--        ['wildlife_species', 'cost_repair'],-->
+<!--        ['wildlife_species', 'cost_repair']// Adjusted attribute names here-->
+<!--    ];-->
+
+<!--    const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];-->
+
+<!--    const timeSeriesData = attributeHistory.map((attributes, index) => {-->
+<!--        const dataPoint = { time: index };-->
+<!--        fieldNames.forEach((field, fieldIndex) => {-->
+<!--            dataPoint[field] = attributes.includes(field) ? fieldIndex : null;-->
+<!--        });-->
+<!--        return dataPoint;-->
+<!--    });-->
+
+<!--    const margin = { top: 20, right: 50, bottom: 50, left: 190 }; // Adjusted left margin-->
+<!--    const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300); // Minimum width-->
+<!--    const height = window.innerHeight * 0.6 - margin.top - margin.bottom;-->
+
+<!--    const svg = d3.select("#timeSeriesChart")-->
+<!--        .attr("width", width + margin.left + margin.right)-->
+<!--        .attr("height", height + margin.top + margin.bottom)-->
+<!--        .append("g")-->
+<!--        .attr("transform", `translate(${margin.left},${margin.top})`);-->
+
+<!--    const x = d3.scaleBand() // Changed to scaleBand-->
+<!--        .domain(timeSeriesData.map(d => d.time))-->
+<!--        .range([0, width])-->
+<!--        .padding(0.1); // Adjusted padding between bars-->
+
+<!--    const y = d3.scaleBand()-->
+<!--        .domain(fieldNames)-->
+<!--        .range([height, 0])-->
+<!--        .padding(0.1); // Adjusted padding between bars-->
+
+<!--    const colors = d3.scaleOrdinal(d3.schemeCategory10);-->
+
+<!--    svg.selectAll(".line")-->
+<!--        .data(timeSeriesData)-->
+<!--        .enter().append("g")-->
+<!--        .each(function (d) {-->
+<!--            const group = d3.select(this);-->
+<!--            fieldNames.forEach(field => {-->
+<!--                if (d[field] !== null) {-->
+<!--                    group.append("rect")-->
+<!--                        .attr("x", x(d.time))-->
+<!--                        .attr("y", y(field))-->
+<!--                        .attr("width", x.bandwidth()) // Adjusted width of bars-->
+<!--                        .attr("height", y.bandwidth())-->
+<!--                        .attr("fill", colors(field))-->
+<!--                        .attr("class", "bar")-->
+<!--                        .attr("data-index", d[field]); // Set data-index attribute-->
+<!--                }-->
+<!--            });-->
+<!--        })-->
+<!--        .on("mouseover", function() {-->
+<!--            d3.select(this).attr("fill", "grey"); // Change color on hover-->
+<!--        })-->
+<!--        .on("mouseout", function() {-->
+<!--            const fieldIndex = this.getAttribute("data-index"); // Access data-index attribute-->
+<!--            const field = fieldNames[fieldIndex];-->
+<!--            d3.select(this).attr("fill", colors(field)); // Restore original color-->
+<!--        });-->
+
+<!--    svg.append("g")-->
+<!--        .attr("transform", `translate(0,${height})`)-->
+<!--        .call(d3.axisBottom(x).ticks(timeSeriesData.length - 1).tickFormat(d3.format("d"))); // Adjusted tick format-->
+
+<!--    svg.append("g")-->
+<!--        .call(d3.axisLeft(y))-->
+<!--        .selectAll("text")-->
+<!--        .style("font-size", "14px") // Increase font size-->
+<!--        .style("font-weight", "bold"); // Make text bold-->
+
+<!--    svg.append("text")-->
+<!--        .attr("transform", "rotate(-90)")-->
+<!--        .attr("y", 0 - margin.left)-->
+<!--        .attr("x", 0 - (height / 2))-->
+<!--        .attr("dy", "1em")-->
+<!--        .style("text-anchor", "middle")-->
+<!--        .text("Attribute");-->
+
+<!--    svg.append("text")-->
+<!--        .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)-->
+<!--        .style("text-anchor", "middle")-->
+<!--        .text("Interactions Observed");-->
+
+<!--    const legendContainer = svg.append("g")-->
+<!--        .attr("class", "legend-container") // Added a class for styling and scrolling-->
+<!--        .attr("transform", `translate(${margin.left},${height + 50})`);-->
+
+<!--    const legend = legendContainer.selectAll("g")-->
+<!--        .data(fieldNames)-->
+<!--        .enter().append("g")-->
+<!--        .attr("transform", (d, i) => `translate(0,${i * 20})`);-->
+
+<!--    legend.append("rect")-->
+<!--        .attr("x", 0)-->
+<!--        .attr("width", 10)-->
+<!--        .attr("height", 10)-->
+<!--        .attr("fill", colors);-->
+
+<!--    legend.append("text")-->
+<!--        .attr("x", 15)-->
+<!--        .attr("y", 5)-->
+<!--        .attr("dy", "0.75em")-->
+<!--        .text(d => d);-->
+
+<!--    // Highlight matching elements based on RLHistory-->
+<!--    RlHistory.forEach((interaction, index) => {-->
+<!--        const time = index;-->
+<!--        interaction.forEach(attribute => {-->
+<!--            const fieldIndex = fieldNames.indexOf(attribute);-->
+<!--            if (fieldIndex !== -1) {-->
+<!--                svg.select(`[data-index="${fieldIndex}"][x="${x(time)}"]`)-->
+<!--                    .attr("fill", "orange");-->
+<!--            }-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<script charset="utf-8" type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+<title>Example linking two plots with D3</title>
+</head>
+
+<body>
+<h2>Example linking two plots with D3</h2>
+
+<div>
+    <svg id="accuracyChart"></svg>
+</div>
+
+<svg id="timeSeriesChart"></svg> <!-- Add an SVG element with an ID -->
+
+<script >
+    // Accuracy Chart
+   function createAccuracyChart(id, data, updateTimeSeriesChart) {
+    var accuracyData = data;
+
+    var time = accuracyData['RL'].length;
+
+    var timeLabels = Array.from({ length: time }, (_, i) => i.toString());
+
+    var svgWidth = 1000; // Set your desired width
+    var svgHeight = 400; // Set your desired height
+    var margin = { top: 0, right: 100, bottom: 50, left: 190 };
+    var width = svgWidth - margin.left - margin.right;
+    var height = svgHeight - margin.top - margin.bottom;
+
+    var svg = d3.select(`#${id}`)
+        .attr("width", svgWidth)
+        .attr("height", svgHeight);
+
+    var xScale = d3.scaleBand()
+        .domain(timeLabels)
+        .range([margin.left, width + margin.left])
+        .padding(0.1);
+
+    var yScale = d3.scaleLinear()
+    .domain([0, 1.1]) // Adjusted yScale domain
+    .range([height + margin.top, margin.top]);
+
+    var colors = d3.scaleOrdinal()
+        .domain(Object.keys(accuracyData))
+        .range(["blue", "green", "red"]);
+
+    // Draw lines for each dataset
+    Object.keys(accuracyData).forEach((key, i) => {
+        var line = d3.line()
+            .x((d, i) => xScale(i.toString()) + xScale.bandwidth() / 2)
+            .y(d => yScale(d))
+            .curve(d3.curveLinear);
+
+        svg.append("path")
+            .datum(accuracyData[key])
+            .attr("fill", "none")
+            .attr("stroke", colors(key))
+            .attr("stroke-width", 2)
+            .attr("d", line)
+            .on("click", function(_, i) {
+                updateTimeSeriesChart(i);
+            });
+
+        // Add labels for different algorithms colors
+        svg.append("text")
+            .attr("x", margin.left + 10)
+            .attr("y", margin.bottom + 20 * i)
+            .attr("fill", colors(key))
+            .text(key);
+    });
+
+    // Add circles to represent data points
+    Object.keys(accuracyData).forEach(key => {
+        accuracyData[key].forEach((hitRate, i) => {
+            svg.append("circle")
+                .attr("cx", xScale(i.toString()) + xScale.bandwidth() / 2)
+                .attr("cy", yScale(hitRate))
+                .attr("r", 5)
+                .attr("fill", colors(key))
+                .on("click", function() {
+                    updateTimeSeriesChart(i);
+                });
+        });
+    });
+
+    // Add x-axis
+    svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(xScale));
+
+    // Add y-axis
+    svg.append("g")
+        .attr("transform", `translate(${margin.left},0)`)
+        .call(d3.axisLeft(yScale).ticks(5));
+
+
+
+    //
+    // svg.append("g").call( d3.brushX()
+    //     .extent([[0, 0], [width, height]])
+    //     .on("start end", brushChart) )// Attach brushed function to brush event);
+
+
+    function brushChart() {
+        console.log("Brushing");
+        var selection = d3.event.selection;
+        console.log("Selection:", selection)
+        if (selection) {
+            var selectedTimes = [];
+            var startIndex = Math.round(xScale.invert(selection[0]));
+            var endIndex = Math.round(xScale.invert(selection[1]));
+            for (var i = startIndex; i <= endIndex; i++) {
+                selectedTimes.push(i);
+            }
+            console.log("Selected Times:", selectedTimes);
+            updateTimeSeriesChart(selectedTimes);
+        }
+    }
+
+    // Add x-axis label
+    svg.append("text")
+        .attr("x", (width + margin.left + margin.right) / 2)
+        .attr("y", height + margin.top + margin.bottom / 2)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .text("Recommendation Cycle");
+
+    // Add y-axis label
+    svg.append("text")
+        .attr("transform", `translate(${margin.left / 2}, ${(height + margin.top + margin.bottom) / 2}) rotate(-90)`)
+        .attr("text-anchor", "middle")
+        .style("font-size", "14px")
+        .text("Hit Rate");
+}
+
+
+
+function updateTimeSeriesChart(clickedTime) {
+    // Remove previous highlighting
+    d3.selectAll(".highlight").attr("fill", null).classed("highlight", false);
+
+    // Calculate the corresponding time step range in the time series chart
+    const timeStepStart = clickedTime * 3;
+    const timeStepEnd = timeStepStart + 3;
+
+    // Loop through each time step in the calculated range
+    for (let i = timeStepStart; i < timeStepEnd; i++) {
+        // Get the corresponding user candidate and RL candidate for the current time step
+        const userCandidate = attributeHistory[i];
+        const rlCandidate = RlHistory[clickedTime];
+
+        // Check if the user candidate is in the RL history for the current time step
+        userCandidate.forEach(attribute => {
+            if (rlCandidate.includes(attribute)) {
+                const fieldIndex = fieldNames.indexOf(attribute);
+                if (fieldIndex !== -1) {
+                    // Highlight the corresponding element in the time series chart
+                    d3.select(`#timeSeriesChart [data-index="${fieldIndex}"][x="${xScale(i)}"]`)
+                        .attr("fill", "orange")
+                        .classed("highlight", true);
+                }
+            }
+        });
+    }
+}
+
+
+
+
+    // Call the function to create accuracy chart
+    const accuracyData = {
+        'RL': [0.5, 0.4],
+        'Momentum': [0.2, 0.2],
+        'Random': [0.2, 0.9]
+    };
+    createAccuracyChart('accuracyChart', accuracyData, updateTimeSeriesChart);
+
+    // Shift Focus Chart
+    const RlHistory = [
+        ['aircraft_airline_operator', 'cost_repair'],
+        ['flight_date', 'cost_repair']
+    ];
+
+    const attributeHistory = [['aircraft_airline_operator', 'cost_repair'],
+        ['aircraft_airline_operator', 'cost_repair'],
+            ['aircraft_airline_operator', 'cost_repair'],
+        ['wildlife_species', 'cost_repair'],
+    ['aircraft_airline_operator', 'cost_repair'],
+    ['aircraft_airline_operator', 'cost_repair']];
+
+
+    const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
+
+    const timeSeriesData = attributeHistory.map((attributes, index) => {
+        const dataPoint = { time: index};
+        fieldNames.forEach((field, fieldIndex) => {
+            dataPoint[field] = attributes.includes(field) ? fieldIndex : null;
+        });
+        return dataPoint;
+    });
+
+    console.log(timeSeriesData)
+
+    const margin = { top: 20, right: 50, bottom: 50, left: 190 };
+    const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
+    const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
+
+    const svg = d3.select("#timeSeriesChart")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+
+    //create another grouping axis with the prediction time
+    const xScale = d3.scaleBand()
+        .domain(timeSeriesData.map(d => d.time))
+        .range([0, width])
+        .padding(0.1);
+
+
+
+    const yScale = d3.scaleBand()
+        .domain(fieldNames)
+        .range([height, 0])
+        .padding(0.1);
+
+
+    svg.selectAll(".line")
+        .data(timeSeriesData)
+        .enter().append("g")
+        .each(function (d) {
+            const group = d3.select(this);
+            fieldNames.forEach(field => {
+                if (d[field] !== null) {
+                    group.append("rect")
+                        .attr("x", xScale(d.time))
+                        .attr("y", yScale(field))
+                        .attr("width", xScale.bandwidth())
+                        .attr("height", yScale.bandwidth())
+                        .attr("class", "bar")
+                        .attr("data-index", d[field]);
+                }
+            });
+        });
+
+    svg.append("g")
+        .attr("transform", `translate(0,${height})`)
+        .call(d3.axisBottom(xScale).ticks(timeSeriesData.length - 1).tickFormat(d3.format("d")));
+
+    svg.append("g")
+        .call(d3.axisLeft(yScale))
+        .selectAll("text")
+        .style("font-size", "14px")
+        .style("font-weight", "bold");
+
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Attribute");
+
+    svg.append("text")
+        .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)
+        .style("text-anchor", "middle")
+        .text("Interactions Observed");
+
+</script>
+</body>
+</html>
+
+<!-- ####################################    This if for when the RL length is not same sa interaction length ################################## -->
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--<meta charset="utf-8">-->
+
+<!--<script charset="utf-8" type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>-->
+
+<!--<title>Example linking two plots with D3</title>-->
+<!--</head>-->
+
+<!--<body>-->
+<!--<h2>Example linking two plots with D3</h2>-->
+
+<!--<div>-->
+<!--    <svg id="accuracyChart"></svg>-->
+<!--</div>-->
+
+<!--<svg id="timeSeriesChart"></svg> &lt;!&ndash; Add an SVG element with an ID &ndash;&gt;-->
+
+<!--<script >-->
+<!--function createAccuracyChart(id, data, updateTimeSeriesChart) {-->
+<!--    var accuracyData = data;-->
+
+<!--    var time = accuracyData['RL'].length;-->
+
+<!--    var timeLabels = Array.from({ length: time }, (_, i) => i.toString());-->
+
+<!--    var svgWidth = 1000; // Set your desired width-->
+<!--    var svgHeight = 400; // Set your desired height-->
+<!--    var margin = { top: 20, right: 50, bottom: 50, left: 50 };-->
+<!--    var width = svgWidth - margin.left - margin.right;-->
+<!--    var height = svgHeight - margin.top - margin.bottom;-->
+
+<!--    var svg = d3.select(`#${id}`)-->
+<!--        .attr("width", svgWidth)-->
+<!--        .attr("height", svgHeight);-->
+
+<!--    var xScale = d3.scaleBand()-->
+<!--        .domain(timeLabels)-->
+<!--        .range([margin.left, width + margin.left])-->
+<!--        .padding(0.1);-->
+
+<!--    var yScale = d3.scaleLinear()-->
+<!--        .domain([0, 1])-->
+<!--        .range([height + margin.top, margin.top]);-->
+
+<!--    var colors = d3.scaleOrdinal()-->
+<!--        .domain(Object.keys(accuracyData))-->
+<!--        .range(["blue", "green", "red"]);-->
+
+<!--    // Draw lines for each dataset-->
+<!--    Object.keys(accuracyData).forEach((key, i) => {-->
+<!--        var line = d3.line()-->
+<!--            .x((d, i) => xScale(i.toString()) + xScale.bandwidth() / 2)-->
+<!--            .y(d => yScale(d))-->
+<!--            .curve(d3.curveLinear);-->
+
+<!--        svg.append("path")-->
+<!--            .datum(accuracyData[key])-->
+<!--            .attr("fill", "none")-->
+<!--            .attr("stroke", colors(key))-->
+<!--            .attr("stroke-width", 2)-->
+<!--            .attr("d", line)-->
+<!--            .on("click", function(_, i) {-->
+<!--                updateTimeSeriesChart(i);-->
+<!--            });-->
+
+<!--        // Add labels for different algorithms colors-->
+<!--        svg.append("text")-->
+<!--            .attr("x", width + margin.left -25)-->
+<!--            .attr("y", margin.top + 20 * i)-->
+<!--            .attr("fill", colors(key))-->
+<!--            .text(key);-->
+<!--    });-->
+
+<!--    // Add circles to represent data points-->
+<!--    Object.keys(accuracyData).forEach(key => {-->
+<!--        accuracyData[key].forEach((hitRate, i) => {-->
+<!--            svg.append("circle")-->
+<!--                .attr("cx", xScale(i.toString()) + xScale.bandwidth() / 2)-->
+<!--                .attr("cy", yScale(hitRate))-->
+<!--                .attr("r", 5)-->
+<!--                .attr("fill", colors(key))-->
+<!--                .on("click", function() {-->
+<!--                    updateTimeSeriesChart(i);-->
+<!--                });-->
+<!--        });-->
+<!--    });-->
+
+<!--    // Add x-axis-->
+<!--    svg.append("g")-->
+<!--        .attr("transform", `translate(0,${height})`)-->
+<!--        .call(d3.axisBottom(xScale));-->
+
+<!--    // Add y-axis-->
+<!--    svg.append("g")-->
+<!--        .attr("transform", `translate(${margin.left},0)`)-->
+<!--        .call(d3.axisLeft(yScale).ticks(5));-->
+
+<!--    // Add chart title-->
+<!--    svg.append("text")-->
+<!--        .attr("x", (width + margin.left + margin.right) / 2)-->
+<!--        .attr("y", margin.top / 2)-->
+<!--        .attr("text-anchor", "middle")-->
+<!--        .style("font-size", "16px")-->
+<!--        .text("Hit Rate Over Time");-->
+
+<!--    // Add x-axis label-->
+<!--    svg.append("text")-->
+<!--        .attr("x", (width + margin.left + margin.right) / 2)-->
+<!--        .attr("y", height + margin.top + margin.bottom / 2)-->
+<!--        .attr("text-anchor", "middle")-->
+<!--        .style("font-size", "14px")-->
+<!--        .text("Time");-->
+
+<!--    // Add y-axis label-->
+<!--    svg.append("text")-->
+<!--        .attr("transform", `translate(${margin.left / 2}, ${(height + margin.top + margin.bottom) / 2}) rotate(-90)`)-->
+<!--        .attr("text-anchor", "middle")-->
+<!--        .style("font-size", "14px")-->
+<!--        .text("Hit Rate");-->
+<!--}-->
+
+<!--function updateTimeSeriesChart(clickedTime) {-->
+<!--    // Your code to update timeSeriesChart based on clickedTime-->
+<!--    console.log("Clicked Time:", clickedTime);-->
+
+<!--    // Remove previous highlighting-->
+<!--    d3.selectAll(".highlight").attr("fill", null).classed("highlight", false);-->
+
+<!--    // Highlight matching elements based on RLHistory-->
+<!--    RlHistory.forEach((interaction, rlIndex) => {-->
+<!--        console.log("RL Interaction:", interaction);-->
+<!--        console.log("RL Index:", rlIndex);-->
+<!--        const matchingAttributes = [];-->
+
+<!--        attributeHistory.forEach(([attributes, timeIndex]) => {-->
+<!--            if (timeIndex === clickedTime && attributes.every(attr => interaction.includes(attr))) {-->
+<!--                matchingAttributes.push(attributes);-->
+<!--            }-->
+<!--        });-->
+
+<!--        matchingAttributes.forEach(matchingAttribute => {-->
+<!--            matchingAttribute.forEach(attribute => {-->
+<!--                const fieldIndex = fieldNames.indexOf(attribute); // Assuming attribute is unique-->
+<!--                if (fieldIndex !== -1) {-->
+<!--                    d3.select(`#timeSeriesChart [data-index="${fieldIndex}"][x="${xScale(rlIndex)}"]`)-->
+<!--                        .attr("fill", "orange")-->
+<!--                        .classed("highlight", true);-->
+<!--                }-->
+<!--            });-->
+<!--        });-->
+<!--    });-->
+<!--}-->
+
+
+
+
+<!--    // Call the function to create accuracy chart-->
+<!--    const accuracyData = {-->
+<!--        'RL': [0.5, 0.4, 0.9,0.0],-->
+<!--        'Momentum': [0.2, 0.2, 0.9,0.4],-->
+<!--        'Random': [0.2, 0.9, 0.05,0.8]-->
+<!--    };-->
+<!--    createAccuracyChart('accuracyChart', accuracyData, updateTimeSeriesChart);-->
+
+<!--    // Shift Focus Chart-->
+<!--    const RlHistory = [-->
+<!--        ['aircraft_airline_operator', 'cost_repair'],-->
+<!--        ['wildlife_species', 'cost_repair'],-->
+<!--        ['wildlife_species', 'cost_total'],-->
+<!--        ['wildlife_species', 'cost_total']-->
+<!--    ];-->
+
+<!--    const attributeHistory = [-->
+<!--        [['aircraft_airline_operator', 'cost_repair'],0],-->
+<!--         [['aircraft_airline_operator', 'cost_repair'],0],-->
+<!--        [['aircraft_airline_operator', 'cost_repair'],0],-->
+<!--        [['wildlife_species', 'cost_repair'],1],-->
+<!--        [['aircraft_airline_operator', 'cost_repair'],1],-->
+<!--        [['wildlife_species', 'cost_repair'],1],-->
+<!--        [['wildlife_species', 'cost_repair'],1],-->
+<!--              [['wildlife_species', 'cost_repair'],2],-->
+<!--        [['aircraft_airline_operator', 'cost_repair'],2],-->
+<!--        [['wildlife_species', 'cost_repair'],3],-->
+<!--        [['wildlife_species', 'cost_repair'],3],-->
+<!--        [['aircraft_airline_operator', 'cost_repair'],4],-->
+<!--        [['wildlife_species', 'cost_repair'],4],-->
+<!--        [['wildlife_species', 'aircraft_airline_operator'],4],-->
+<!--        [['wildlife_species', 'cost_repair'],4]-->
+<!--    ];-->
+
+<!--    const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];-->
+
+<!--  const timeSeriesData = attributeHistory.map((attributes, index) => {-->
+<!--        const dataPoint = { time: index };-->
+<!--        fieldNames.forEach((field, fieldIndex) => {-->
+<!--            dataPoint[field] = attributes[0].includes(field) ? fieldIndex : null;-->
+<!--        });-->
+<!--        return dataPoint;-->
+<!--    });-->
+<!--    console.log(timeSeriesData);-->
+<!--   const margin = { top: 20, right: 50, bottom: 50, left: 190 }; // Adjusted left margin-->
+<!--        const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300); // Minimum width-->
+<!--        const height = window.innerHeight * 0.6 - margin.top - margin.bottom;-->
+
+<!--        svg = d3.select("#timeSeriesChart")-->
+<!--            .attr("width", width + margin.left + margin.right)-->
+<!--            .attr("height", height + margin.top + margin.bottom)-->
+<!--            .append("g")-->
+<!--            .attr("transform", `translate(${margin.left},${margin.top})`);-->
+
+<!--        const x = d3.scaleBand() // Changed to scaleBand-->
+<!--            .domain(timeSeriesData.map(d => d.time))-->
+<!--            .range([0, width])-->
+<!--            .padding(0.1); // Adjusted padding between bars-->
+
+<!--        const y = d3.scaleBand()-->
+<!--            .domain(fieldNames)-->
+<!--            .range([height, 0])-->
+<!--            .padding(0.1); // Adjusted padding between bars-->
+
+<!--        const colors = d3.scaleOrdinal(d3.schemeCategory10);-->
+
+<!--        svg.selectAll(".line")-->
+<!--            .data(timeSeriesData)-->
+<!--            .enter().append("g")-->
+<!--            .each(function (d) {-->
+<!--                const group = d3.select(this);-->
+<!--                fieldNames.forEach(field => {-->
+<!--                    if (d[field] !== null) {-->
+<!--                        group.append("rect")-->
+<!--                            .attr("x", x(d.time))-->
+<!--                            .attr("y", y(field))-->
+<!--                            .attr("width", x.bandwidth()) // Adjusted width of bars-->
+<!--                            .attr("height", y.bandwidth())-->
+<!--                            .attr("fill", colors(field))-->
+<!--                            .attr("class", "bar")-->
+<!--                            .attr("data-index", d[field]); // Set data-index attribute-->
+<!--                    }-->
+<!--                });-->
+<!--            })-->
+<!--            .on("mouseover", function() {-->
+<!--                d3.select(this).attr("fill", "grey"); // Change color on hover-->
+<!--            })-->
+<!--            .on("mouseout", function() {-->
+<!--                const fieldIndex = this.getAttribute("data-index"); // Access data-index attribute-->
+<!--                const field = fieldNames[fieldIndex];-->
+<!--                d3.select(this).attr("fill", colors(field)); // Restore original color-->
+<!--            });-->
+
+<!--        svg.append("g")-->
+<!--            .attr("transform", `translate(0,${height})`)-->
+<!--            .call(d3.axisBottom(x).ticks(timeSeriesData.length - 1).tickFormat(d3.format("d"))); // Adjusted tick format-->
+
+<!--        svg.append("g")-->
+<!--            .call(d3.axisLeft(y))-->
+<!--            .selectAll("text")-->
+<!--            .style("font-size", "14px") // Increase font size-->
+<!--            .style("font-weight", "bold"); // Make text bold-->
+
+<!--        svg.append("text")-->
+<!--            .attr("transform", "rotate(-90)")-->
+<!--            .attr("y", 0 - margin.left)-->
+<!--            .attr("x", 0 - (height / 2))-->
+<!--            .attr("dy", "1em")-->
+<!--            .style("text-anchor", "middle")-->
+<!--            .text("Attribute");-->
+
+<!--        svg.append("text")-->
+<!--            .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)-->
+<!--            .style("text-anchor", "middle")-->
+<!--            .text("Interactions Observed");-->
+
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->

@@ -1,12 +1,11 @@
-Keras
 numpy
 nltk
 simplejson
 scipy
-tensorflow
 Flask
 setuptools
-h5py
 Flask_Cors
 six
 scikit_learn
+torch
+draco==2.0.1

@@ -8,3 +8,6 @@
 /interface/gvaemodel/node_modules/
 /interface/gvaemodel/public/
 /__pycache__/
+/node_modules/
+/deep-tamer
+/tamer

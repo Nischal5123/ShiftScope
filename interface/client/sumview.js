@@ -27,12 +27,14 @@ export default class SumView extends EventEmitter {
             ngbrN: 6
         }
         this._charts = []
+        this._allRecommendedcharts = []
         this._prevcharts = []
         this._clusterNum = 1
         this._bubbleSets = []
         this._variableSets = []
         this._showBubbles = true
         this._selectedChartID = -1
+        this._selectedbookmarkedChartID = -1
         this._performanceData = {}
         this._rscale = d3.scaleLinear().domain([0, 4]).range([0, this._params.dotr])
         this._xscale = d3.scaleLinear().domain([0, 1])
@@ -44,6 +46,7 @@ export default class SumView extends EventEmitter {
         this._varclr = d3.scaleOrdinal(['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075'])
         this._varclr = d3.scaleOrdinal(['#F3C300', '#875692', '#F38400', '#A1CAF1', '#BE0032', '#C2B280', '#848482', '#008856', '#E68FAC', '#0067A5', '#F99379', '#604E97', '#F6A600', '#B3446C', '#DCD300', '#882D17', '#8DB600', '#654522', '#E25822', '#2B3D26'])
         this._usrclr = d3.scaleOrdinal(d3.schemeGreys[5]).domain([0, 1, 2, 3, 4])
+        this._bookmarkedCharts = []
 
         this._init()
     }
@@ -52,8 +55,31 @@ export default class SumView extends EventEmitter {
         return this._charts
     }
 
+    get bookmarkedCharts() {
+        return this._bookmarkedCharts
+    }
+
     get selectedChartID() {
         return this._selectedChartID
+    }
+
+     set bookmarkedselectedChartID(ch) {
+        this._svgDrawing.selectAll('.chartdot.selected')
+            .classed('selected', false)
+        if (ch < 0) {
+            this._selectedChartID = -1
+        } else {
+            this._selectedChartID = ch
+            this._svgDrawing.selectAll('.chartdot')
+                .filter((c) => {
+                    return c.overallchid == ch
+                })
+                .classed('selected', true)
+            var selectedChart = _.find(this._bookmarkedCharts, (d) => {
+                return this._selectedChartID == d.overallchid
+            })
+            this.emit('clickchart', selectedChart)
+        }
     }
 
     set selectedChartID(ch) {
@@ -144,6 +170,10 @@ export default class SumView extends EventEmitter {
         this._prevcharts = this._charts
 
         this._recommendCharts(attributesHistory)
+        this._collectAllRecommendedCharts()
+        // this.render()
+        // if (callback) callback()
+
     }
 
     render() {
@@ -168,7 +198,7 @@ export default class SumView extends EventEmitter {
                 if (logging) app.logger.push({time: Date.now(), action: 'clickchart', data: d})
             })
             .on('mouseover', (d) => {
-                this.highlight(d.chid, true)
+                this.highlight(d.chid, true, false)
                 this.emit('mouseoverchart', d)
                 d3.select('#tooltip')
                     .style('display', 'inline-block')
@@ -267,34 +297,63 @@ export default class SumView extends EventEmitter {
             .remove()
     }
 
-    highlight(chid, hoverin) {
+    highlight(chid, hoverin, bookmarked = false) {
         this._svgDrawing.selectAll('.chartdot.hovered').classed('hovered', false)
         if (hoverin) {
-            this._svgDrawing.selectAll('.chartdot')
-                .filter((c) => {
-                    return c.chid == chid
-                })
-                .classed('hovered', true)
+            if (bookmarked) {
+                this._svgDrawing.selectAll('.chartdot')
+                    .filter((c) => {
+                        return c.overallchid == chid
+                    })
+                    .classed('hovered', true)
+            } else {
+                this._svgDrawing.selectAll('.chartdot')
+                    .filter((c) => {
+                        return c.chid == chid
+                    })
+                    .classed('hovered', true)
+            }
         }
     }
 
-   _recommendCharts(attributesHistory, callback) {
+// collect all recommended charts
+_collectAllRecommendedCharts() {
+    for (var i = 0; i < this._charts.length; i++) {
+        if (this._charts[i]) {
+            //change the chart id to the next available id without changing original id
+            this._charts[i].overallchid = this._allRecommendedcharts.length;
+            this._allRecommendedcharts.push(this._charts[i]);
+        }
+    }
 
-        // Question: When phase of flight has the highest number of birdstrike records in
-       //           June (Flight_Date)? :['when_phase_of_flight', 'flight_date']
+}
 
-       // Question :What speed (IAS) in knots could cause the substantial (Effect Amount
-       //           of damage) damage of AVRO RJ 85 (Aircraft Make Model)? :['speed_ias', 'aircraft_make_model']
+_recommendCharts(attributesHistory, callback) {
+    // Question: When phase of flight has the highest number of birdstrike records in
+    // June (Flight_Date)? :['when_phase_of_flight', 'flight_date']
+    // Question: What speed (IAS) in knots could cause the substantial (Effect Amount
+    // of damage) damage of AVRO RJ 85 (Aircraft Make Model)? :['speed_ias', 'aircraft_make_model']
     if (attributesHistory == null) {
         attributesHistory = [['when_phase_of_flight', 'flight_date'],['speed_ias_in_knots', 'aircraft_make_model']];
     }
+
+    // Get the selected algorithm directly here
+    var algorithmDropdown = document.getElementById("algorithm");
+    var algorithm = algorithmDropdown.value;
+
+    // also send bookmarked charts
+    var JsonRequest = {
+        history: JSON.stringify(attributesHistory),
+        bookmarked: this._bookmarkedCharts,
+        algorithm: algorithm
+    };
 
     $.ajax({
         context: this,
         type: 'POST',
         crossDomain: true,
         url: this.conf.backend + '/top_k',
-        data: JSON.stringify(attributesHistory),
+        data: JSON.stringify(JsonRequest),
         contentType: 'application/json'
     }).done((data) => {
         this._charts = [];
@@ -308,12 +367,13 @@ export default class SumView extends EventEmitter {
                     chid: i,
                 };
                 this._charts.push(chart);
+
             }
         }
         if (logging) {
             app.logger.push({ time: Date.now(), action: 'system-recommendations', data: this._charts });
         }
-         if (logging) {
+        if (logging) {
             app.logger.push({ time: Date.now(), action: 'current_distribution', data: data['distribution_map'] });
         }
         // Trigger the render method only on success
@@ -329,4 +389,4 @@ export default class SumView extends EventEmitter {
     });
 }
 
-}
+    }

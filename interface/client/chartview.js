@@ -108,6 +108,8 @@
              })
             //  console.log(data)
              this._validateChart(data, (recommended_chart_specs) => {this.update(recommended_chart_specs, 'uicontrols')})
+             this.emit('similar', this.data)
+
          })
  
          $('#preview2').click((e) => {
@@ -124,14 +126,18 @@
      }
      
      update(data_all, eventsource) {
-         // handle data parsing, string or object
-       if (['outside'].includes(eventsource)){
-            this.data = data_all
+             // Handle data parsing, string or object
+    if (['outside'].includes(eventsource)) {
+        this.data = data_all;
+    } else {
+        if (typeof data_all === 'object') {
+            // Extract the first key from the object and update data_all
+            data_all = [data_all[Object.keys(data_all)[0]]];
+        } else if (typeof data_all === 'string') {
+            // Convert string to an array containing the string itself
+            data_all = [data_all];
         }
-        else{
-            if (typeof data_all == 'string') {
-                data_all = [data_all]
-            }
+
             var data = data_all[0]
             //  console.log(data)
              if(typeof data == 'string') {
@@ -148,18 +154,19 @@
              }
         }
 
-        var vegachart = _.extend({}, this.data, 
+        var vegachart = _.extend({}, this.data,
              { width: 835, height: 550, autosize: 'fit' },
-            //  { data: {values: this.conf.datavalues} },
+             // { data: {values: this.conf.datavalues} },
              { config: this.conf.vegaconfig})
         //  console.log(vegachart)
         //  console.log(vegachart[0])
-         
+
          vegaEmbed('#chartview .chartcontainer', vegachart, {actions: false})
- 
+
+
          if(eventsource != 'texteditor')
              this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '))
-         
+
          if(eventsource != 'uicontrols')
              this._updateChartComposer(this.data)
 

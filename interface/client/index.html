@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
            <script type="text/javascript" src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <script src="https://d3js.org/d3.v7.min.js"></script>
          <!-- Font Awesome -->
     <script
       src="https://kit.fontawesome.com/d494f7bb71.js"
@@ -25,7 +26,7 @@
                 <label id="datafile"></label>
                 <button id="export">End Session </button>
                  <label>Attribute Color Encodings: </label><span id="legend"></span>
-                <button type="button" id="bookmark">
+                <button type="button" id="bookmarkViewOpen">
                 <i class="fas fa-bookmark"></i> &nbsp; Bookmarked Charts</button>
                 <button id="performaceViewOpen">Performance View</button>
             </div>
@@ -42,12 +43,12 @@
                         <label>Shape</label><select id="ch-shape"></select><br/>
                     </div>
                     <span class="editorbuttons">
-                        <button id="preview1" style="color:#007bff">Preview1</button>
+                        <button id="preview1" style="color:#007bff">Preview</button>
 <!--                        <button id="cancel1" style="color:#dc3545;">Cancel</button>-->
                     </span>
                     <div id="editorcontainer"></div>
                     <span class="editorbuttons" id="editorbutton2">
-                        <button id="preview2" style="color:#007bff">Preview2</button>
+<!--                        <button id="preview2" style="color:#007bff">Preview2</button>-->
 <!--                        <button id="cancel2" style="color:#dc3545;">Cancel</button>-->
                     </span>
                 </div>
@@ -55,6 +56,14 @@
             <div id="panel2">
                 <span class="panel-header">
                     <label></label>
+                    <label for="algorithm">Select Algorithm:</label>
+                    <select id="algorithm" name="algorithm">
+                        <option value="Qlearning">Qlearning</option>
+                      <option value="Momentum">Momentum</option>
+                      <option value="Random">Random</option>
+                      <option value="Greedy">Greedy</option>
+
+                    </select>
                     <span id="slider_wrapper">
 <!--                        <i>Data/Encoding Ratio</i><label id="weight">0.50</label>-->
 <!--                        <input type="range" min="0" max="100" value="50" id="weight_slider">-->
@@ -83,7 +92,7 @@
                 <span class="panel-header"><label>-----------------------------------------------------Suggested Charts---------------------------------------</label></span>
 <!--                <div id="sumview"></div>-->
                 <div id="suggestionview"></div>
-                <div class="chartcontainer"></div>
+<!--                <div class="chartcontainer"></div>-->
                 <!-- Use any element to open/show the overlay navigation menu -->
 
 
@@ -115,25 +124,53 @@
         <div id="vegatest" style="visibility:hidden;"></div>
 
     <!-- The overlay -->
-    <div id="myNav" class="overlay">
-      <!-- Button to close the overlay navigation -->
-      <a class="closebtn" id="performaceViewClose">&times;</a>
-        <div class="chart-container-perf">
+<div id="myNav" class="overlay">
+    <!-- Button to close the overlay navigation -->
+    <a class="closebtn" id="performaceViewClose">&times;</a>
+<!--       <div id="accuracyChartContainer">-->
+<!--            <h2>Algorithms Performance Over Recommendation Cycles</h2>-->
+<!--          <canvas id="AccuracyChart" style="max-height:80%"></canvas>-->
+<!--      </div>-->
+<!--      <div id="chartContainerShiftFocus">-->
+<!--          <h2>User's Shifts in Data Focus</h2>-->
+<!--        <div id="timeSeriesChart"></div>-->
+<!--    </div>-->
+    <div>
+          <h2>Algorithms Performance Over Recommendation Cycles</h2>
+    <div id="accuracyChart"></div>
+</div>
+    <h2>User's Shifts in Data Focus</h2>
+<div id="timeSeriesChart"></div> <!-- Add an SVG element with an ID -->
+
+    <div class="chart-container-perf">
+        <!-- Create a canvas element with the ID 'attributeChart' -->
+
             <div class="chart">
-        <h2>RL Focus</h2>
-        <canvas id="RLChart" style="max-width:700px"></canvas>
+                <h2>Users Focus</h2>
+                <canvas id="UserChart" style="max-width:100%"></canvas>
+            </div>
+            <div class="chart">
+                <h2>RL Focus</h2>
+                <canvas id="RLChart" style="max-width:100%"></canvas>
+            </div>
+            <div class="chart">
+                <h2>Baseline-R Focus</h2>
+                <canvas id="RandombaselineChart" style="max-width:100%"></canvas>
+            </div>
+            <div class="chart">
+                <h2>Baseline-M Focus</h2>
+                <canvas id="MomentumbaselineChart" style="max-width:100%"></canvas>
+            </div>
+        </div>
     </div>
-    <div class="chart">
-        <h2>Users Focus</h2>
-        <canvas id="myChart" style="max-width:700px"></canvas>
-    </div>
-    <div class="chart">
-        <h2>Baseline-R Focus</h2>
-        <canvas id="RandombaselineChart" style="max-width:700px"></canvas>
-    </div>
-             <div class="chart">
-        <h2>Baseline-M Focus</h2>
-        <canvas id="MomentumbaselineChart" style="max-width:700px"></canvas>
+
+
+            <!-- The overlay -->
+    <div id="myBookmark" class="overlay">
+      <!-- Button to close the overlay navigation -->
+      <a class="closebtn" id="bookmarkViewClose">&times;</a>
+        <div id="bookmarkview"></div>
+        <div class="chartcontainer"></div>
     </div>
 </div>
 

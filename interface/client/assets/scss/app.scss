@@ -46,24 +46,21 @@ html, body {
   left: 0;
   margin: 0px;
 }
-
 #panel2 {
   position: absolute;
   height: 100%;
   left: 350px;
-  right: 500px;
+  right: 500px; /* Adjusted to allow adaptive layout */
   display: inline-block;
-  bottom: 40px;
   top: 40px;
   margin: 0px;
-
+  width: calc(100% - 850px); /* Dynamically calculates width */
 }
 
 #panel3 {
   position: absolute;
-  left:1210px;
-  width: 600px;
-  right:0px;
+  left: calc(100% - 500px); /* Adjusted to allow adaptive layout */
+  width: 500px;
   height: 100%;
   display: inline-block;
   top: 40px;
@@ -79,6 +76,8 @@ html, body {
   height: 20px;
   display: inline-block;
   border-color: white;
+  top: 0; /* Added top position to fix the header at the top */
+  left: 0; /* Ensure it stretches the full width */
 }
 
 #weight_slider {
@@ -89,23 +88,6 @@ html, body {
   outline: none;
 }
 
-//#chartview {
-//  width: 100%;
-//  height: 250px;
-//  top: 20px;
-//  left: 0;
-//  display: inline-block;
-//  background: white;
-//  border: gray 1px solid;
-//  border-radius: 5px;
-//  position: absolute;
-//  margin: 2px;
-//
-//  .chartcontainer {
-//    height: 80%;
-//    width: 90%;
-//  }
-//}
 
 #chartview {
   position: absolute;
@@ -118,6 +100,8 @@ html, body {
   border-radius: 5px;
   vertical-align: top;
   margin: 2px;
+  oberflow-y: auto;
+  overflow-x: hidden;
 
   .chartcontainer {
     height: 90%;
@@ -125,6 +109,20 @@ html, body {
   }
 }
 
+
+
+#dataview {
+  position: absolute;
+  top:630px;
+  left: 0;
+  width: 100%;
+  bottom: 20px;
+  font-size: 12px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  margin: 1px;
+}
 
 
 
@@ -186,7 +184,7 @@ html, body {
   width: 100%;
   top: 350px;
   bottom: 20px;
-  left: 0;
+  left: 10px;
   position: absolute;
   border-top: 1px solid gray;
   display: inline-block;
@@ -248,6 +246,19 @@ html, body {
 
 #suggestionview {
   position: absolute;
+  top: 20px;
+  bottom: 0;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+}
+
+#bookmarkview {
+  position: absolute;
   width: 500px;
   top: 20px;
   bottom: 0;
@@ -260,19 +271,6 @@ html, body {
   overflow-x: hidden;
   vertical-align: top;
   margin: 2px;
-}
-
-#dataview {
-  position: absolute;
-  top:630px;
-  left: 0;
-  width: 100%;
-  bottom: 20px;
-  font-size: 12px;
-  display: inline-block;
-  border: gray 1px solid;
-  border-radius: 5px;
-  margin: 1px;
 }
 
 //thi is old sumview now history
@@ -425,10 +423,10 @@ html, body {
   width: 0;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 0;
+  left: 20px;
   top: 0;
   background-color: #aaaaaa; /* Black fallback color */
-  background-color: rgba(255,255,255, 0.9); /* Black w/opacity */
+  background-color: rgba(255,255,255); /* Black w/opacity */
   overflow-x: hidden; /* Disable horizontal scroll */
   transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
@@ -502,3 +500,32 @@ html, body {
     text-align: center;
     margin-bottom: 10px;
 }
+
+#accuracyChartContainer {
+    width: 80%; /* Allow the SVG to expand beyond the viewport width */
+    height: 80vh; /* 80% of viewport height */
+}
+
+
+/// ##############################  Shift in Data Focus Chart  ########################################
+#chartContainerShiftFocus {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+
+}
+#timeSeriesChart {
+    width: auto; /* Allow the SVG to expand beyond the viewport width */
+    height: 60vh; /* 80% of viewport height */
+}
+.legend-container {
+    height: 10px; /* Set the height to make it scrollable */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: auto; /* Disable horizontal scrolling */
+}
+.bar:hover {
+    fill: grey; /* Change color on hover */
+}
+
+/// ##############################  VIS  ########################################
+
+
