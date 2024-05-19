@@ -42,12 +42,3 @@ def run_algorithm(algorithm, attributes_history, generator, dataset):
 
     elif algorithm == 'a3c':
         return a3c_Driver(dataset, attributes_history[-1])
-
-# def check_fields(dictionary, fields):
-#     for key, value in dictionary.items():
-#         if isinstance(value, dict):
-#             if not check_fields(value, fields):  # Modify this line
-#                 return False  # Modify this line
-#         elif key not in fields and value not in fields:  # Modify this line
-#             return False
-#     return True  # Modify this line

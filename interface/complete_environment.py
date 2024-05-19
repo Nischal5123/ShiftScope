@@ -14,7 +14,6 @@ class RLEnvironment:
     tuple([1 if field in attrs else 0 for field in fieldnames])
     for attrs in self.attributes_original
 ]
-
         self.states = self.generate_states()
         self.current_state = None
         self.previous_state = None

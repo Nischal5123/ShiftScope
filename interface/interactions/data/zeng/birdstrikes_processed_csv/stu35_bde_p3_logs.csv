@@ -1,0 +1,219 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540476141
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540476204
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540476204
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540476453
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540476485
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540476516
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540476516
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540476548
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540476548
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540476894
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540549347
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540549380
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540549380
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540549552
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540549894
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540550271
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540551460
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540551491
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540551492
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540551523
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540551523
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540551554
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540551555
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540551834
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540551865
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540551897
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540551930
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540551960
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540551990
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552022
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552053
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552084
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552115
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552147
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552178
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552209
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552241
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552273
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552303
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552304
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540552334
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540552396
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540552679
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540552679
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540552709
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604540553489
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604540553551
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604540553645
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604540553677
+mouseover a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604540561223
+mouseout a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604540561254
+mouseover a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604540561255
+mouseout a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604540561286
+mouseover a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540561317
+mouseout a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540563575
+mouseover a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604540563576
+mouseout a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604540563643
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540563643
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540563677
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540563677
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540563775
+mouseover a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604540563810
+mouseout a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604540563844
+mouseover a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540563844
+mouseout a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540564227
+mouseover a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540564227
+mouseout a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540564415
+added chart to bookmark,mark:tick;encoding:Cost_Repair-quantitative-x,1604540564872
+mouseover a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540565211
+mouseout a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540565243
+mouseover a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540565243
+mouseout a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604540565275
+mouseover a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604540565275
+mouseout a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604540565306
+mouseover a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604540565306
+mouseout a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604540565337
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540565338
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540565369
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540565369
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540565400
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540565401
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540565431
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604540589914
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604540590714
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1604540590714
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1604540593278
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1604540593286
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1604540594258
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540594587
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540595009
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1604540595229
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1604540595260
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1604540595260
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1604540595355
+clicked on a field,add Wildlife_Species,1604540597731
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540597765
+clicked on a field,add Cost_Repair,1604540599982
+main chart changed because of clicking a field,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540599995
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540601710
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540601771
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540602226
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540602288
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540602288
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540617887
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540620899
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540620930
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540620931
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540651547
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540651547
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604540651577
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Effect_Amount_of_damage-nominal-color,Wildlife_Species-nominal-y",1604540802453
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Effect_Amount_of_damage-nominal-color,Wildlife_Species-nominal-y",1604540802483
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541112989
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541116588
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541116588
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541116619
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541204937
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541205031
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541205094
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541205126
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541205127
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541205613
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541205613
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541205893
+added chart to bookmark,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541206711
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541207045
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541207077
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541207077
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1604541207203
+clicked on a field,remove Cost_Repair,1604541209333
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541209380
+clicked on a field,remove Wildlife_Species,1604541209983
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604541210776
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604541210893
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541210925
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541210955
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541211111
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541211174
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604541215826
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604541215857
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217219
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217365
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217376
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217407
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217439
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217469
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217501
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217531
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217563
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217753
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217785
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217818
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217848
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217879
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541217942
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541218240
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604541218302
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541218302
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541218703
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541218703
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541218818
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541218818
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541218849
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541219519
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541220269
+mouseover a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541221830
+mouseout a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541222311
+mouseover a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604541222311
+mouseout a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604541222342
+mouseover a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604541222342
+mouseout a related chart,mark:tick;encoding:Cost_Repair-quantitative-x,1604541222373
+mouseover a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604541224702
+mouseout a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1604541224734
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541224922
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541224954
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541224954
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541225204
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541225234
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541225393
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541225393
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541225424
+added chart to bookmark,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541233891
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541234947
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541235041
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604541235135
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604541235198
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604541235198
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604541235384
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604541235384
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604541236039
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541236132
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541236397
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541236863
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541236926
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541240889
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541240951
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541240951
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541240983
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541240983
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541241263
+added chart to bookmark,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541241620
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541241738
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604541241869
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541241869
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541242121
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541242121
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604541242152
+mouseover a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541243152
+mouseout a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541243183
+mouseover a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541243183
+mouseout a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541243338
+added chart to bookmark,mark:tick;encoding:Cost_Total-quantitative-x,1604541244803
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541252553
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604541252804
+mouseover a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541252804
+mouseout a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541252835
+mouseover a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541252835
+mouseout a related chart,mark:tick;encoding:Cost_Total-quantitative-x,1604541252867

@@ -59,13 +59,6 @@
          $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
      })
  }
- // function shuffleArray(array) {
- //   for (let i = array.length - 1; i > 0; i--) {
- //     const j = Math.floor(Math.random() * (i + 1));
- //     [array[i], array[j]] = [array[j], array[i]];
- //   }
- // }
- //
  
  export function displayAllCharts(container, created=true) {
      $(container).empty()

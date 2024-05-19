@@ -716,3 +716,5 @@ wildlife_species
 ['effect_amount_of_damage', 'when_phase_of_flight'] 2024-05-05 19:38:23.477377
 ['airport_name', 'cost_total_a'] 2024-05-06 18:47:12.010129
 ['cost_repair'] 2024-05-06 19:06:07.990442
+['wildlife_species'] 2024-05-07 00:22:15.127274
+['flight_date'] 2024-05-07 00:23:29.879744

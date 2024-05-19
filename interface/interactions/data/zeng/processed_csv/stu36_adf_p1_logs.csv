@@ -1,0 +1,63 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604961332110
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604961332140
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604961332140
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604961332157
+clicked on a field,add Creative_Type,1604961333891
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1604961333957
+clicked on a field,add Source,1604961338222
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961338277
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961358030
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961358046
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961358047
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961358615
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961358615
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961361381
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961361381
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961363180
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961363214
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961363235
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961363249
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961363266
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961363283
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961363299
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961363897
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961363897
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961365116
+mouseover a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365116
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365116
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365147
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365165
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365182
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365199
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365216
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365782
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365815
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365833
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365849
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365866
+scroll on a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961365883
+mouseout a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Release_Date-nominal-row,Source-nominal-y",1604961366656
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961367017
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961367348
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961367348
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961367798
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961367798
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961367832
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961368553
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961371585
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961371650
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961371650
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961388520
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961397856
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961398172
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961398172
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961398373
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961398612
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961398639
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961449086
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961455237
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961455420
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961456220
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961456221
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1604961456237

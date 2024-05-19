@@ -9,6 +9,7 @@ import ast
 import random
 from collections import deque
 import ast 
+import itertools
 
 class environment:
     def __init__(self):
@@ -44,9 +45,8 @@ class environment:
         self.done = False  # Done exploring the current subtask
 
         # # List of valid actions and states
-        # self.valid_actions = ['same', 'modify-1', 'modify-2','modify-3']
-        self.attributes_birdstrikes = {'Airport_Name': 1, 'Aircraft_Make_Model': 2, 'Effect_Amount_of_damage': 3, 'Flight_Date': 4, 'Aircraft_Airline_Operator': 5, 'Origin_State': 6, 'When_Phase_of_flight': 7, 'Wildlife_Size': 8, 'Wildlife_Species': 9, 'When_Time_of_day': 10, 'Cost_Other': 11, 'Cost_Repair': 12, 'Cost_Total': 13, 'Speed_IAS_in_knots': 14}
-
+        self.attributes_birdstrikes = {'Airport_Name': 1, 'Aircraft_Make_Model': 2, 'Effect_Amount_of_damage': 3, 'Flight_Date': 4, 'Aircraft_Airline_Operator': 5, 'Origin_State': 6, 'When_Phase_of_flight': 7, 'Wildlife_Size': 8, 'Wildlife_Species': 9, 'When_Time_of_day': 10, 'Cost_Other': 11, 'Cost_Repair': 12, 'Cost_Total': 13, 'Speed_IAS_in_knots': 14, 'None': 15}
+        self.valid_actions = self.generate_actions()
 
         # Storing the data into main memory. Focus is now only on action and states for a fixed user's particular subtask
         self.mem_states = []
@@ -55,21 +55,32 @@ class environment:
         self.mem_roi = []
         self.prev_state = None
 
+    def generate_actions(self):
+        actions = defaultdict()
+        for idx, combination in enumerate(itertools.combinations(self.attributes_birdstrikes.keys(), 3)):
+            # print(tuple([1 if field in combination else 0 for field in attributes_birdstrikes.keys()]), idx)
+            actions[tuple([1 if field in combination else 0 for field in self.attributes_birdstrikes.keys()])] = idx 
+
+        last_idx = idx + 1
+        for idx, attr in enumerate(self.attributes_birdstrikes.keys()):
+            z = ['None']
+            z.append(attr)
+            # print(tuple([1 if field in z else 0 for field in attributes_birdstrikes.keys()]), last_idx)
+            actions[tuple([1 if field in z else 0 for field in self.attributes_birdstrikes.keys()])] = last_idx
+            last_idx += 1
+
+        return actions
+
     def get_state(self, cur_attrs):
         state = np.zeros(len(self.attributes_birdstrikes), dtype = np.int32)
         cur_attrs = ast.literal_eval(cur_attrs)
         # pdb.set_trace()
         for attrs in cur_attrs:
-            if attrs != 'None':
-                state[self.attributes_birdstrikes[attrs]-1] = 1
+            state[self.attributes_birdstrikes[attrs]-1] = 1
         
         return state
 
-    def get_action(self, cur_state, prev_state):
-        action = np.abs(prev_state - cur_state)
-        return action
-
-    def reset(self):
+    def reset(self, all = False):
         """
         Reset the variables used for tracking position of the agents.
 
@@ -77,8 +88,13 @@ class environment:
         :param test: If true, set the current step to threshold value.
         :return: Current state.
         """
-        # self.mem_states = []
-        # self.mem_action = []
+        if all == True:            
+            self.mem_states = []
+            self.mem_action = []
+            self.done = False
+            self.steps = 0
+            return None
+        
         self.steps = 0
         self.done = False  # Done exploring the current subtask
 
@@ -98,8 +114,13 @@ class environment:
         for index, row in df.iterrows():
             cur_state = self.get_state(row['Attribute'])
             if len(self.mem_states) >= 1: 
-                action = self.get_action(cur_state, self.mem_states[-1])
-                self.mem_action.append(action)
+                # action = self.get_action(cur_state, self.mem_states[-1])
+                # self.mem_action.append(action)
+                try:    
+                    self.mem_action.append(self.valid_actions[tuple(cur_state)])
+                except KeyError:
+                    print("Cur State", cur_state, row['Attribute'])
+                
                 # print("State S ", self.mem_states[-1])
                 # print("Action A ", self.mem_action[-1])
                 # print("State S' ", cur_state)               
@@ -163,13 +184,23 @@ class environment:
         _, temp_step = self.peek_next_step()
         # print(temp_step, len(self.mem_action))
         next_state, next_action = self.cur_inter(temp_step)
-
-        reward = np.sum((act_arg == 1) & (next_state == 1))
+        taken_action = list(self.valid_actions.keys())[act_arg]
+        # reward = np.sum((act_arg == 1) & (next_state == 1))
+        reward = 0
+        # print(next_state)
+        # print(taken_action)
+        for i in range(len(next_state)):
+            if next_state[i] == 1 and taken_action[i] == 1:
+                reward += 1
+            elif next_state[i] == 0 and taken_action[i] == 0:
+                reward += 1
+            else:
+                reward -= 2  # Penalty for mismatch
         # Take the step action
         self.take_step_action()
-
+        ground_action = self.valid_actions[tuple(next_state)]
         # Return the predicted next state, current reward, done status, prediction, and top reward
-        return next_state, reward, self.done
+        return next_state, reward, self.done, ground_action
 
     def get_user_list(self,dataset,task):
         if dataset == 'movies':
@@ -194,16 +225,20 @@ class environment:
 
 if __name__ == "__main__":
     datasets = ['birdstrikes']
-    tasks = ['p1','p2', 'p3', 'p4']
+    # tasks = ['p1','p2', 'p3', 'p4']
+    tasks = ['p4']
+    
     for dataset in datasets:
         for task in tasks:
             env = environment()
+            print(len(env.valid_actions))
             user_list_name = env.get_user_list(dataset, task)
             # print(user_list_name)
             for u in user_list_name:
                 env.process_data(u)
                 print(len(env.mem_states), len(env.mem_action))
-                env.reset()
-                pdb.set_trace() 
+                env.reset(True)
+                break
+                # pdb.set_trace() 
 
                 

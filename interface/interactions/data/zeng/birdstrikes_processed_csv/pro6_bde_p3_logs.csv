@@ -1,0 +1,177 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1602112465607
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1602112466265
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1602112466265
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1602112470014
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1602112488244
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1602112488261
+clicked on a field,add Cost_Repair,1602112490368
+main chart changed because of clicking a field,mark:tick;encoding:Cost_Repair-quantitative-x,1602112490451
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112491394
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112491741
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112491741
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112492059
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112520675
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112520692
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112520692
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112521309
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112521340
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112521373
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112521422
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112521706
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112521758
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112521789
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112521888
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112521939
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112522273
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112522554
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112522554
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112522621
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112522705
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112522721
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112522722
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112522810
+mouseover on the specified chart,mark:tick;encoding:Cost_Repair-quantitative-x,1602112563359
+mouseout on the specified chart,mark:tick;encoding:Cost_Repair-quantitative-x,1602112563375
+mouseover on the specified chart,mark:tick;encoding:Cost_Repair-quantitative-x,1602112563376
+mouseout on the specified chart,mark:tick;encoding:Cost_Repair-quantitative-x,1602112563425
+mouseover on the specified chart,mark:tick;encoding:Cost_Repair-quantitative-x,1602112563426
+mouseout on the specified chart,mark:tick;encoding:Cost_Repair-quantitative-x,1602112563458
+clicked on a field,add When_Phase_of_flight,1602112568521
+main chart changed because of clicking a field,"mark:tick;encoding:Cost_Repair-quantitative-x,When_Phase_of_flight-nominal-y",1602112568626
+mouseover on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,When_Phase_of_flight-nominal-y",1602112592492
+mouseout on the specified chart,"mark:tick;encoding:Cost_Repair-quantitative-x,When_Phase_of_flight-nominal-y",1602112592508
+main chart changed because of clicking a field,"mark:tick;encoding:Cost_Repair-quantitative-x,When_Phase_of_flight-nominal-y",1602112593813
+clicked on a field,remove When_Phase_of_flight,1602112595626
+main chart changed because of clicking a field,mark:tick;encoding:Cost_Repair-quantitative-x,1602112595657
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112641884
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112642643
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112642669
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112642688
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112642701
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112642986
+mouseover a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Cost_Repair-quantitative-x",1602112643050
+mouseout a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Cost_Repair-quantitative-x",1602112643433
+mouseover a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Cost_Repair-quantitative-x",1602112643433
+mouseout a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Cost_Repair-quantitative-x",1602112643449
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112643499
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112643842
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112644015
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112644398
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112644416
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112644831
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112644881
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112644897
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112644898
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112645196
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112645197
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112645213
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112646495
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112646512
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112646513
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112646663
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112646663
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112646678
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112646679
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112651931
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112651957
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112651973
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112652273
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112652290
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112653055
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112653089
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112653122
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112653238
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112653304
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112669269
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112669535
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112670075
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112670135
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112670729
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112682287
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112682305
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112682339
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112682371
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112682422
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112685650
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112685650
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112685667
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112685766
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112685800
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112685800
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112690910
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112698594
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112698935
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112698935
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112698985
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112700001
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112700217
+added chart to bookmark,"mark:tick;encoding:Cost_Repair-quantitative-x,Flight_Date-nominal-y",1602112700561
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112701007
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112701010
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112701033
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112701131
+added chart to bookmark,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112701954
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112702260
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112702400
+added chart to bookmark,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112703377
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112703520
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112703743
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112703904
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112705910
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112705910
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112705943
+mouseover a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112706009
+mouseout a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112706026
+mouseover a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112706026
+scroll on a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112706333
+scroll on a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112706364
+scroll on a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112706393
+mouseout a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112708590
+mouseover a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112708590
+mouseout a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112709410
+added chart to bookmark,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Cost_Repair-quantitative-x",1602112710289
+mouseover a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Cost_Repair-quantitative-x",1602112710489
+mouseout a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Cost_Repair-quantitative-x",1602112711235
+added chart to bookmark,"mark:tick;encoding:Airport_Name-nominal-y,Cost_Repair-quantitative-x",1602112711721
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112712191
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112712501
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112712501
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112712985
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112712985
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112713002
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112714650
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112714683
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112714683
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112714700
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112714700
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112715019
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112715050
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112715467
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112715484
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112720027
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112720043
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112720259
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112720260
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112720293
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112736125
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112736142
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112736143
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112736291
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112736291
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112736307
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112736341
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112736357
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112736357
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112736815
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112736832
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112736881
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112736977
+scroll on a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112737110
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112737441
+mouseover a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112737441
+mouseout a related chart,"mark:tick;encoding:Cost_Repair-quantitative-x,Wildlife_Species-nominal-y",1602112737590
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112737640
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112737723
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112737724
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Cost_Repair-quantitative-x",1602112737740

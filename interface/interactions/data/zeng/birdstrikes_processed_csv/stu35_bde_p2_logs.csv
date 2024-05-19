@@ -1,0 +1,187 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540086637
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540086763
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540087418
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540087534
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1604540087534
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1604540087545
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604540088269
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1604540092782
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540095274
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1604540095306
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540095758
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540095789
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540095789
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540096005
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540096037
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540096859
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540096879
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540096911
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540096942
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540096972
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540097003
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540097034
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540097394
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540097395
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540097426
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097456
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097456
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097484
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097517
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097550
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097583
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097584
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097584
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097617
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097652
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097686
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097920
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540097920
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540098050
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540107791
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540107941
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540107941
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540108001
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540108893
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540108954
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540112004
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1604540112099
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1604540114477
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1604540114722
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1604540117268
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1604540117300
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604540117331
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1604540117362
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540117362
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540117424
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540117549
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1604540117644
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540126222
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1604540126252
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540126252
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1604540126283
+clicked on a field,add Speed_IAS_in_knots,1604540128762
+main chart changed because of clicking a field,mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,1604540128805
+mouseover on the specified chart,mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,1604540133394
+mouseout on the specified chart,mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,1604540133425
+added chart to bookmark,mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,1604540134251
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540138766
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540139125
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540139125
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540140080
+mouseover a related chart,"mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,Wildlife_Species-nominal-y",1604540140110
+mouseout a related chart,"mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,Wildlife_Species-nominal-y",1604540140625
+mouseover a related chart,"mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,Wildlife_Species-nominal-y",1604540140625
+mouseout a related chart,"mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,Wildlife_Species-nominal-y",1604540140657
+mouseover a related chart,"mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,Wildlife_Species-nominal-y",1604540142657
+mouseout a related chart,"mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,Wildlife_Species-nominal-y",1604540142719
+mouseover a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540142750
+scroll on a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143119
+scroll on a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143144
+scroll on a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143178
+scroll on a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143213
+scroll on a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143246
+scroll on a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143279
+scroll on a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143313
+scroll on a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143346
+scroll on a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143380
+mouseout a related chart,"mark:tick;encoding:Aircraft_Airline_Operator-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540143547
+mouseover a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540145407
+mouseout a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540145438
+mouseover a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540145438
+mouseout a related chart,"mark:tick;encoding:Airport_Name-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540145470
+mouseover a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540146315
+mouseout a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540146346
+mouseover a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540146346
+mouseout a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540146471
+clicked on a field,add Effect_Amount_of_damage,1604540153611
+main chart changed because of clicking a field,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540153644
+mouseover on the specified chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540155218
+mouseout on the specified chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540155281
+mouseover a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Time_of_day-nominal-color",1604540167134
+mouseout a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Time_of_day-nominal-color",1604540167601
+mouseover a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Time_of_day-nominal-color",1604540167601
+mouseout a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Time_of_day-nominal-color",1604540167632
+mouseover a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Time_of_day-nominal-color",1604540168008
+mouseout a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Time_of_day-nominal-color",1604540168040
+mouseover a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Phase_of_flight-nominal-color",1604540168040
+mouseout a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Phase_of_flight-nominal-color",1604540168760
+mouseover a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Phase_of_flight-nominal-color",1604540168760
+mouseout a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Phase_of_flight-nominal-color",1604540168902
+mouseover a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Phase_of_flight-nominal-color",1604540168902
+mouseout a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x,When_Phase_of_flight-nominal-color",1604540168933
+clicked on a field,add Aircraft_Make_Model,1604540170250
+main chart changed because of clicking a field,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540170275
+mouseover on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540177469
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178419
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178451
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178482
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178513
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178545
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178575
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178606
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178637
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178669
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178700
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540178731
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179095
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179106
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179138
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179168
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179199
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179231
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179261
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179293
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179324
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179355
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179450
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179481
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179511
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179542
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179573
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179605
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179636
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179961
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540179980
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180011
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180042
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180074
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180105
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180136
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180355
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180386
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180417
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180446
+scroll on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540180477
+mouseout on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540192939
+mouseover on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540192939
+mouseout on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540192970
+mouseover on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540195855
+mouseout on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540196135
+added chart to bookmark,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540196576
+mouseover on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540196949
+mouseout on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540196979
+mouseover a related chart,"mark:tick;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color",1604540321613
+mouseout a related chart,"mark:tick;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color",1604540321792
+mouseover a related chart,"mark:tick;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color",1604540321792
+mouseout a related chart,"mark:tick;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color",1604540321877
+mouseover a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540323069
+mouseout a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540323265
+mouseover a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540323265
+mouseout a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540323298
+mouseover a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540324157
+mouseout a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540324187
+mouseover a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540324188
+mouseout a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540324281
+mouseover a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540325247
+mouseout a related chart,"mark:tick;encoding:Effect_Amount_of_damage-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540325279
+mouseover a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540325279
+mouseout a related chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Speed_IAS_in_knots-quantitative-x",1604540325798
+mouseover on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540438987
+mouseout on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540439269
+mouseover on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540439269
+mouseout on the specified chart,"mark:tick;encoding:Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color,Speed_IAS_in_knots-quantitative-x",1604540439300
+mouseover a related chart,"mark:tick;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color",1604540458863
+mouseout a related chart,"mark:tick;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color",1604540458894
+mouseover a related chart,"mark:tick;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color",1604540458894
+mouseout a related chart,"mark:tick;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y,Effect_Amount_of_damage-nominal-color",1604540458957

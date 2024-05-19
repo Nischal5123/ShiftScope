@@ -71,8 +71,10 @@ def encode():
             if field_name:
                 field_names.append(field_name)
 
+    print(field_names)
     #get_draco recommendations
     recommendations = draco_test.get_draco_recommendations(field_names)
+    print(len(recommendations))
     chart_recom = []
     for chart_key, _ in recommendations.items():
         chart = recommendations[chart_key]
@@ -81,8 +83,9 @@ def encode():
         for f in field_names:
             if f in str(encodings):
                 match+=1
-        if match==len(field_names):
-                chart_recom.append(chart)
+        if match==len(field_names) or match >= 1:
+            chart_recom.append(chart)
+    print(len(chart_recom))        
     return jsonify(chart_recom[0])
 
 @app.route('/get-fields', methods=['POST'])
@@ -250,7 +253,7 @@ def onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Gr
 
     generator = StateGenerator(dataset)
 
-    #make the array as a pandas dataframe with index and whole attribute as a State column
+    #make the array as a pandas dataframe with index and whole attribute as a State ƒcolumn
     df = pd.DataFrame({'State': attributesHistory})
 
     distribution_map=get_distribution_of_states(df)

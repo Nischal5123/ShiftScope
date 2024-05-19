@@ -1,0 +1,15 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1606850106494
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Effect_Amount_of_damage-nominal-y",1606850128431
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850128432
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850128467
+added chart to bookmark,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1606850128923
+added chart to bookmark,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850129087
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850129333
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850138641
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850210700
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850210734
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850210734
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850218869
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850218869
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1606850219487

@@ -47,6 +47,7 @@ class QLearningAgent:
             while not done:
                 step += 1
                 action = self.choose_action(state)
+                print("action", action)
                 next_state, reward = self.env.step(action)
                 current_q_value = self.env.get_q_value(state, action)
                 max_next_q_value = max([self.env.get_q_value(next_state, a) for a in self.env.states])

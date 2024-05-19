@@ -1,0 +1,369 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552754148
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552754163
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552754164
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552754247
+mouseover a related chart,mark:tick;encoding:US_Gross-quantitative-x,1607552790318
+mouseout a related chart,mark:tick;encoding:US_Gross-quantitative-x,1607552790334
+mouseover a related chart,mark:tick;encoding:US_Gross-quantitative-x,1607552790334
+mouseout a related chart,mark:tick;encoding:US_Gross-quantitative-x,1607552790350
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552790351
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552790611
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552790611
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552790619
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552796712
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1607552797945
+clicked on a field,add Rotten_Tomatoes_Rating,1607552800232
+main chart changed because of clicking a field,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1607552800361
+clicked on a field,add Major_Genre,1607552804807
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552804902
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552808067
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552814519
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552815232
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552815232
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552815247
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552836070
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552859227
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552859244
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552859244
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Rotten_Tomatoes_Rating-quantitative-x<bin>",1607552859626
+clicked on a field,remove Major_Genre,1607552861166
+main chart changed because of clicking a field,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1607552861444
+clicked on a field,remove Rotten_Tomatoes_Rating,1607552863803
+clicked on a field,add Rotten_Tomatoes_Rating,1607552865287
+main chart changed because of clicking a field,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1607552865375
+main chart changed because of clicking a field,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1607552870334
+main chart changed because of clicking a field,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1607552875194
+clicked on a field,add Release_Date,1607552876063
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552876142
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552898902
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552901326
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552922259
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Running_Time_min-quantitative-y<bin>",1607552971305
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Running_Time_min-quantitative-y<bin>",1607552976032
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552982875
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552983558
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552983558
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552983574
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552983808
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1607552983825
+clicked on a field,remove Release_Date,1607552988226
+main chart changed because of clicking a field,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1607552988486
+clicked on a field,remove Rotten_Tomatoes_Rating,1607552989648
+clicked on a field,add US_Gross,1607552991851
+main chart changed because of clicking a field,mark:tick;encoding:US_Gross-quantitative-x,1607552991934
+clicked on a field,add Worldwide_Gross,1607552993176
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-x<aggregate>count,US_Gross-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1607552993258
+clicked on a field,add Major_Genre,1607553007700
+main chart changed because of clicking a field,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553007918
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553019763
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553019779
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553019779
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553031885
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553031886
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553031902
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553034184
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553034850
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553034850
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,US_Gross-quantitative-size,Worldwide_Gross-quantitative-x<bin>",1607553034866
+clicked on a field,remove Major_Genre,1607553041426
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-x<aggregate>count,US_Gross-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1607553041720
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,US_Gross-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1607553048197
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,US_Gross-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1607553049314
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1607553050966
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1607553051075
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,US_Gross-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1607553051224
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,US_Gross-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1607553054749
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,US_Gross-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1607553054750
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,US_Gross-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1607553054767
+clicked on a field,remove US_Gross,1607553056829
+main chart changed because of clicking a field,mark:tick;encoding:Worldwide_Gross-quantitative-x,1607553057066
+clicked on a field,remove Worldwide_Gross,1607553058084
+clicked on a field,add Source,1607553068762
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1607553068974
+clicked on a field,add Worldwide_Gross,1607553074178
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1607553074268
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1607553077849
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1607553079116
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1607553081211
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1607553083274
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1607553084346
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1607553084991
+clicked on a field,remove Worldwide_Gross,1607553087290
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1607553087501
+clicked on a field,add Production_Budget,1607553092955
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553093040
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553098183
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553099440
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553100872
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553100872
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553101366
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553102324
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553102416
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553103562
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107358
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107390
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107412
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107425
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107443
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107459
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107476
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107493
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107509
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107526
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107541
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107558
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107574
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107590
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107607
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107624
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107641
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107658
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107674
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107691
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107707
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107724
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107741
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553107757
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553108439
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553108439
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Production_Budget-quantitative-x<bin>,Source-nominal-y",1607553108472
+clicked on a field,add Creative_Type,1607553112560
+main chart changed because of clicking a field,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553112769
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553115016
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116038
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116065
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116084
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116102
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116117
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116134
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116151
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116167
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116186
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116201
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116217
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116234
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116283
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116667
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116698
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116717
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116733
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116751
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116767
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116783
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116801
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116817
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116848
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553116981
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553117031
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553117048
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553117081
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553117099
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553117685
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553117714
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119330
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119346
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119363
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119379
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119397
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119417
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119430
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119446
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119463
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119480
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119496
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119513
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119529
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119546
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119596
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119646
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119662
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119679
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119696
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119881
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119912
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119930
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553119946
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121229
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121262
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121278
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121295
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121311
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121328
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121344
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121361
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121378
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121395
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121428
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553121528
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553123612
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553123643
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553123659
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553123676
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553123693
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553123709
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553123726
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553123743
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124009
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124043
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124059
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124076
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124092
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124109
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124125
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124143
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124159
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124176
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124192
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124209
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124226
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124243
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124259
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124275
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124325
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124592
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124609
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124675
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124726
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553124792
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553125075
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553125374
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553125741
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126008
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126307
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126574
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126607
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126624
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126640
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126657
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126674
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126690
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126708
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126724
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126741
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126757
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126773
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126790
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126807
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126824
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126840
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126857
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126874
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553126907
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127207
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127223
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127240
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127256
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127273
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127290
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127307
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127323
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127340
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127356
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127373
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127389
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127411
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127424
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127440
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127456
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127473
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127490
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127507
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127523
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127540
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127556
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127573
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127590
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127623
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127640
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127673
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127706
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127722
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127739
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127756
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127773
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127789
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127806
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127823
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127840
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127856
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127872
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127889
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127906
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127922
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553127939
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553128189
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553128222
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553128239
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553128255
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553131070
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553131636
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553132618
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553132768
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133118
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133384
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133404
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133418
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133434
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133452
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133468
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133485
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133501
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133518
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133534
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133551
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133568
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133584
+scroll on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553133604
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553141362
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553141363
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553141378
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553141961
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553142311
+added chart to bookmark,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553143315
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553143443
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553151984
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553151985
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553152436
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553152436
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Production_Budget-quantitative-size,Source-nominal-y",1607553152485
+clicked on a field,remove Source,1607553154183
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Production_Budget-quantitative-x<bin>",1607553154431
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Production_Budget-quantitative-x<bin>",1607553155679
+clicked on a field,remove Production_Budget,1607553157705
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1607553157786
+clicked on a field,add Release_Date,1607553170383
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553170599
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553198327
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553198864
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553198947
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553199122
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-color,Director-nominal-y,Release_Date-nominal-x",1607553205093
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-color,Director-nominal-y,Release_Date-nominal-x",1607553205525
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-color,Director-nominal-y,Release_Date-nominal-x",1607553205525
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-color,Director-nominal-y,Release_Date-nominal-x",1607553205542
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553210338
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553210920
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553210921
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553210971
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553227857
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553227890
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553227890
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553228606
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553228606
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553228640
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553228856
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553229474
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553229805
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553229855
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553229855
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553230655
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553230655
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-x",1607553230704
+clicked on a field,remove Creative_Type,1607553231882
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1607553232128
+clicked on a field,add Worldwide_Gross,1607553233511
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Worldwide_Gross-quantitative-y<bin>",1607553233592
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Worldwide_Gross-quantitative-y<bin>",1607553249680
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Worldwide_Gross-quantitative-y<bin>",1607553250273
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-x,Worldwide_Gross-quantitative-y<bin>",1607553250435

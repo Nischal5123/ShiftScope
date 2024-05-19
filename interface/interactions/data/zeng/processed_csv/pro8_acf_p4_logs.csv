@@ -1,0 +1,242 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604691472461
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604691472602
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604691488760
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604691488861
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604691488861
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1604691488877
+specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691502985
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691511900
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691511917
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691511917
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691516248
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691516248
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691516264
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691526427
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691526443
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691526617
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691526643
+clicked on a field,add Major_Genre,1604691528003
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691528169
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691538888
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691539087
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691539087
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691539187
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691545685
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691581985
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691582001
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691582001
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691582151
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691582151
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691582168
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691587117
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691587182
+clicked on a field,add US_Gross,1604691591235
+main chart changed because of clicking a field,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691591453
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691596002
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691596491
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691596491
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691596993
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691596993
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691620217
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691620217
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691623949
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691623949
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691625532
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691625532
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691625615
+added chart to bookmark,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691626106
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691667929
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691667946
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691667946
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691668596
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691668596
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691668614
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691671978
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691671994
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691671994
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691684222
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691684222
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,US_Gross-quantitative-size",1604691684255
+clicked on a field,remove US_Gross,1604691685735
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691685896
+clicked on a field,add Worldwide_Gross,1604691687952
+main chart changed because of clicking a field,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691688037
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691690023
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691690304
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691694312
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691700120
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691748859
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691748992
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691748992
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691749025
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691749026
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691751058
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691751058
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691751258
+clicked on a field,remove Worldwide_Gross,1604691761728
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691761918
+clicked on a field,add Worldwide_Gross,1604691767680
+main chart changed because of clicking a field,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691767769
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691772454
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691773208
+added chart to bookmark,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Worldwide_Gross-quantitative-size",1604691774142
+clicked on a field,remove Worldwide_Gross,1604691776240
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691776325
+clicked on a field,add Rotten_Tomatoes_Rating,1604691780438
+main chart changed because of clicking a field,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691780526
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691791159
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691802785
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691803734
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691803867
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691803867
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691806167
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691806167
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691812830
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691813018
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691814795
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691814828
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691815395
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691815395
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691815466
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691816155
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691816179
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691816180
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691816461
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691816511
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691816544
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691824924
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691826025
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691826025
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691826040
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691826092
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691826106
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691826107
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827050
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827057
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827073
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827089
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827106
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827123
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827140
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827156
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827173
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827190
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827704
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827706
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827723
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827739
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827756
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827773
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827790
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827806
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827823
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827840
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827956
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827973
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691827989
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828006
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828022
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828039
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828056
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828073
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828089
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828106
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828272
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828272
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1604691828289
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691828489
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691828523
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691828523
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691828540
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691828939
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691829072
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691829072
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691829172
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691829172
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691829189
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691830290
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691830305
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691830305
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691830671
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691830671
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691830938
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691830938
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691850335
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691850899
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691851179
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691851179
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691851195
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691878533
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691878550
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691878550
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691888462
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691888463
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691888479
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691900374
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691918665
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691967710
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691967726
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691967727
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691968875
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691968876
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691969042
+added chart to bookmark,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691969465
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691971974
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691971992
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691971992
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691975539
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691975539
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691975556
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691976336
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1604691976656
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691976805
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691976822
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691976822
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691977088
+mouseover on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691977088
+mouseout on the specified chart,"mark:point;encoding:Major_Genre-nominal-y,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size",1604691977105
+clicked on a field,remove Rotten_Tomatoes_Rating,1604691980894
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691981227
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604691996929
+clicked on a field,remove Major_Genre,1604691999593
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604691999798
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692008583
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692008910
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692013305
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692013322
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692013323
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692013689
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692013689
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692013724
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692014472
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692014488
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692014488
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692014772
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692014772
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692014805
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692017571
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692017604
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692020403
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692020421
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692020421
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692022552
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692022552
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692022668
+added chart to bookmark,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692024081
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692024479
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692024624
+clicked on a field,add Major_Genre,1604692028162
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Major_Genre-nominal-y,Release_Date-nominal-x",1604692028366
+clicked on a field,remove Major_Genre,1604692031236
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1604692031323
+clicked on a field,add MPAA_Rating,1604692037473
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-y,Release_Date-nominal-x",1604692037563
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-y,Release_Date-nominal-x",1604692044414
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-y,Release_Date-nominal-x",1604692054338
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-y,Release_Date-nominal-x",1604692054338
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-y,Release_Date-nominal-x",1604692054387
+clicked on a field,add IMDB_Rating,1604692065365
+main chart changed because of clicking a field,"mark:point;encoding:IMDB_Rating-quantitative-size,MPAA_Rating-nominal-y,Release_Date-nominal-x",1604692065540
+clicked on a field,remove IMDB_Rating,1604692070435
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-y,Release_Date-nominal-x",1604692070525

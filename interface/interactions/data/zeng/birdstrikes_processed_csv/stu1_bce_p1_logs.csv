@@ -1,0 +1,623 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605110794876
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605110794964
+clicked on a field,add When_Phase_of_flight,1605110812965
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605110812995
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605110816921
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605110819379
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605110819379
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605110819395
+clicked on a field,add Flight_Date,1605110824942
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110824971
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110830888
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110832277
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110832659
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110833210
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110834049
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110834065
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110834066
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110836713
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110837712
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110837728
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110837728
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838244
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838261
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838278
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838294
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838311
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838328
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838344
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838361
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838378
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838394
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838411
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838427
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838444
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838461
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838478
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838494
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838511
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838528
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838544
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838561
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838577
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838594
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110838627
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839078
+mouseover a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839094
+mouseout a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839111
+mouseover a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839111
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839710
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839727
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839744
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839760
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839777
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839795
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839811
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839828
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839844
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839860
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839877
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839894
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839911
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839928
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839944
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839960
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839977
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110839993
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840010
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840027
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840043
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840060
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840077
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840692
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840709
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840725
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840742
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840759
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840775
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840792
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840809
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840825
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840842
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840859
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840875
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840892
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840909
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840925
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840942
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840959
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840976
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110840993
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110841009
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110841026
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110841059
+mouseout a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110841193
+mouseover a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110841193
+mouseout a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110841210
+mouseover a related chart,"mark:point;encoding:Effect_Amount_of_damage-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110844595
+mouseout a related chart,"mark:point;encoding:Effect_Amount_of_damage-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110844733
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110844742
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110844772
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110844773
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110847819
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110847819
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110848019
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110855595
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110855611
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110855612
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110856827
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110856827
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110856877
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110859025
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110859142
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110859142
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110860854
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110860854
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862572
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862588
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862605
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862621
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862638
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862655
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862671
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862688
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862705
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862721
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862738
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862755
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862771
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862788
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862804
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862821
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862838
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862855
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862872
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862888
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110862921
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110863388
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110863389
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110863405
+mouseover a related chart,"mark:point;encoding:Effect_Amount_of_damage-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110865416
+mouseout a related chart,"mark:point;encoding:Effect_Amount_of_damage-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110865520
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110865537
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110865569
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110865569
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110865953
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110865954
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110865969
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110866701
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110866718
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110866718
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110869017
+mouseover a related chart,"mark:point;encoding:Flight_Date-nominal-x,Origin_State-nominal-y,When_Phase_of_flight-nominal-color",1605110877092
+mouseout a related chart,"mark:point;encoding:Flight_Date-nominal-x,Origin_State-nominal-y,When_Phase_of_flight-nominal-color",1605110877126
+mouseover a related chart,"mark:point;encoding:Cost_Other-quantitative-size,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110878628
+mouseout a related chart,"mark:point;encoding:Cost_Other-quantitative-size,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110878642
+mouseover a related chart,"mark:point;encoding:Cost_Other-quantitative-size,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110878642
+mouseout a related chart,"mark:point;encoding:Cost_Other-quantitative-size,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110879307
+mouseover a related chart,"mark:point;encoding:Cost_Other-quantitative-size,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110879307
+mouseout a related chart,"mark:point;encoding:Cost_Other-quantitative-size,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110879940
+mouseover a related chart,"mark:point;encoding:Cost_Repair-quantitative-size,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110883436
+mouseout a related chart,"mark:point;encoding:Cost_Repair-quantitative-size,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110887934
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110890101
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x,When_Phase_of_flight-nominal-color",1605110890146
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110890197
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110890213
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110890213
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605110890647
+clicked on a field,remove When_Phase_of_flight,1605110892765
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1605110892797
+clicked on a field,add Aircraft_Airline_Operator,1605110895464
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Aircraft_Airline_Operator-nominal-y,Flight_Date-nominal-x",1605110895480
+clicked on a field,remove Flight_Date,1605110900847
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110900863
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110911362
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110912693
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110912693
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110915873
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110915889
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110915889
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110916273
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110916273
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110916289
+clicked on a field,remove Aircraft_Airline_Operator,1605110918129
+clicked on a field,add Aircraft_Make_Model,1605110919394
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605110919411
+clicked on a field,add Aircraft_Airline_Operator,1605110920681
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y",1605110920696
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110929421
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932440
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932456
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932473
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932490
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932506
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932523
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932539
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932556
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932573
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932590
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932606
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932623
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932639
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932656
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932673
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932689
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932706
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932723
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932857
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110932990
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933156
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933172
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933189
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933206
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933222
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933239
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933255
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933272
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933289
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933306
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933322
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933339
+scroll on a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110933356
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1605110936286
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y",1605110936353
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y",1605110936836
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y",1605110936837
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y",1605110936853
+clicked on a field,remove Aircraft_Make_Model,1605110939976
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605110940035
+clicked on a field,add Wildlife_Size,1605110947282
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Aircraft_Airline_Operator-nominal-x,Wildlife_Size-nominal-y",1605110947304
+clicked on a field,remove Aircraft_Airline_Operator,1605110954982
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1605110955004
+clicked on a field,add Wildlife_Species,1605110957548
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110957564
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110962452
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110965342
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110966164
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110966873
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110967920
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110971854
+clicked on a field,add Speed_IAS_in_knots,1605110976161
+main chart changed because of clicking a field,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110976186
+mouseover on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110979513
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981012
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981061
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981095
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981111
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981144
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981161
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981178
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981195
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981211
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981227
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981260
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981277
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981293
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981310
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981344
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981361
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981394
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981411
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981444
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981494
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981561
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981677
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981760
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110981827
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984141
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984191
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984224
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984258
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984291
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984408
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984425
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984442
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984458
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984475
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984491
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984508
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984525
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984541
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984558
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984574
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984591
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984608
+scroll on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110984624
+mouseout on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110985308
+mouseover on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110985308
+mouseout on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,Wildlife_Size-nominal-x,Wildlife_Species-nominal-y",1605110985324
+clicked on a field,remove Wildlife_Species,1605110986863
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Speed_IAS_in_knots-quantitative-x<bin>,Wildlife_Size-nominal-y",1605110986892
+clicked on a field,remove Speed_IAS_in_knots,1605110992293
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Size-nominal-y",1605110992309
+clicked on a field,remove Wildlife_Size,1605110994287
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605110999205
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605110999335
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605110999335
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111000343
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111000344
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111001342
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111001342
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111002025
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111002026
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111002042
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111002058
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111002075
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111002075
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111011017
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111011017
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111011033
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111011083
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111011582
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111011633
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111011649
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111011650
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012532
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012548
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012565
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012581
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012598
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012615
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012631
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012648
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012665
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012681
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012698
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012715
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012731
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012748
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012765
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012781
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012798
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012815
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111012832
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1605111013267
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111013281
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111013315
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111013315
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1605111013331
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111014482
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111017711
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111017711
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019276
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019309
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019342
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019359
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019376
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019393
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019409
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019426
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019443
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019459
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019477
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019495
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019509
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019525
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019542
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019558
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019575
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019592
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019609
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019625
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019642
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019658
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019675
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019691
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019708
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019725
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019742
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019758
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111019775
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021340
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021358
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021375
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021390
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021408
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021424
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021441
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021457
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021474
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021491
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021507
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021524
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021540
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021557
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111021574
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025470
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025487
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025503
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025520
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025537
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025553
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025570
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025586
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025603
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025620
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025636
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025653
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025669
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025686
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025703
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025719
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025736
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025752
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025769
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025786
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025803
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111025819
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Airline_Operator-nominal-y",1605111027651
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1605111027651
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1605111027701
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1605111027701
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1605111028051
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1605111033129
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1605111033213
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111033246
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111033679
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111033679
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111033712
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111034628
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111034711
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111034712
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111036120
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111036120
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111036177
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111036177
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111036193
+mouseover a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1605111040639
+mouseout a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1605111040673
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1605111040689
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1605111040739
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1605111040739
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1605111041122
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111041122
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042654
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042670
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042687
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042703
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042720
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042737
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042754
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042770
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042787
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042804
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042820
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042837
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042853
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042870
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042887
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042903
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042920
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042937
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042954
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042970
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111042987
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111043969
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111043986
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044003
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044019
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044036
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044052
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044069
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044086
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044102
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044119
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044135
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044152
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044169
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044185
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044202
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044219
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044736
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044736
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111044753
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1605111044769
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1605111044786
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1605111044786
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Time_of_day-nominal-y",1605111044802
+mouseover a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1605111046151
+mouseout a related chart,mark:tick;encoding:Cost_Other-quantitative-x,1605111046234
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111048617
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111048915
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111048915
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050614
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050630
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050647
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050664
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050681
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050697
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050713
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050730
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050746
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050763
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050780
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050797
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050813
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050830
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050847
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050863
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050880
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050896
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050913
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050930
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050946
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050963
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111050979
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111053444
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111053445
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111053798
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111055742
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111056891
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111056908
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111056925
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111056941
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111056958
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111056974
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111056991
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057007
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057024
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057041
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057057
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057075
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057091
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057107
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057124
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057141
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057157
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057174
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057190
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057207
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057224
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057241
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057257
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057274
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057291
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057307
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057324
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057340
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057357
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111057374
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062502
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062519
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062536
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062552
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062569
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062586
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062602
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062619
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062636
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062653
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062669
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062686
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062702
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062719
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062735
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062752
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062769
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062785
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062802
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062819
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062835
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062852
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062869
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062885
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062902
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111062919
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067115
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067131
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067148
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067165
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067182
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067198
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067215
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067231
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067248
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067265
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067281
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067298
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067314
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067332
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067348
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067365
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067381
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067398
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067414
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067432
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067448
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067465
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067481
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067498
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067514
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067531
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067548
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067565
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067582
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067598
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067614
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067632
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067648
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067665
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067681
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067697
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067714
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067731
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067748
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111067764
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111070395
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111070396
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Wildlife_Species-nominal-y",1605111070445
+clicked on a field,add When_Phase_of_flight,1605111075018
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111075046
+mouseover a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,When_Phase_of_flight-nominal-y",1605111076497
+mouseout a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,When_Phase_of_flight-nominal-y",1605111077012
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111087897
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111087929
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111087929
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,When_Phase_of_flight-nominal-y",1605111087945
+clicked on a field,add Flight_Date,1605111094106
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605111094145
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605111104363
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605111123012
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Phase_of_flight-nominal-y",1605111129717

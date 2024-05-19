@@ -37,8 +37,6 @@
              minLines: 20
          })
 
-
- 
          // ui controls
          var html = ''
  
@@ -75,19 +73,7 @@
              this.update(this._cheditor.session.getValue(), 'texteditor')
              this.emit('similar', this.data)
          })
- 
-        //  $('#update').click((e) => {
-        //      if(app.sumview.selectedChartID < 0) return
-        //      this.update(this._cheditor.session.getValue(), 'texteditor')
-        //      this.emit('update-chart', this.data)
-        //  })
- 
-        //  $('#remove').click((e) => {
-        //      if(app.sumview.selectedChartID < 0) return
- 
-        //      this.emit('remove-chart', this.data)
-        //  })
- 
+  
          $('#preview1').click((e) => {
              var data = _.cloneDeep(this.data)
              data['mark'] = $('#ch-mark').val()
@@ -211,16 +197,6 @@
          var sp = chart
          if(typeof chart == 'object') 
              sp = JSON.stringify(chart)
-            
-        //  app.data.chartdata.attributes.forEach((attr) => {
-        //      sp = sp.replace(new RegExp(attr[0], 'g'), (m) => {
-        //          return attr[1]
-        //      })
-        //  }) 
-        //  sp = sp.replace(/[\s|\n]+/g, '')
-        //  console.log(sp)
-        //  console.log(app.sumview.conf.backend)
-
          $.ajax({
              type: 'POST',
              crossDomain: true,
@@ -228,7 +204,7 @@
              data: JSON.stringify([sp]),
              contentType: 'application/json'
          }).done((data) => {
-             console.log(data)
+            //  console.log(data)
              callback(data)
          }).fail((xhr, status, error) => {
              alert('This chart is currently not supported.')

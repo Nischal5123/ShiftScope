@@ -1,0 +1,101 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1605242144683
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1605242145556
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145556
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145733
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145744
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145761
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145778
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145795
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145812
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145827
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145845
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145861
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145879
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145895
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145912
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145927
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145945
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242145961
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242146529
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242149557
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242149779
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242149779
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242150114
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242150114
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242150130
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1605242189179
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1605242189730
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242189730
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190167
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190187
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190204
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190221
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190237
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190253
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190270
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190287
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190303
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190320
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190338
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190354
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190371
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190388
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190404
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190420
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190437
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190455
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190987
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242190988
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242191003
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242191421
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242191470
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242191470
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1605242191604
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1605242192389
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1605242192705
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1605242192705
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1605242192721
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242232582
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242233009
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242233009
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242233060
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242234074
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242234256
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242234257
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1605242234310
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1605242237638
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1605242237838
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1605242254414
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1605242255245
+added chart to bookmark,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1605242285097
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1605242289218
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1605242289285
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242309497
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310080
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310097
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310115
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310132
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310148
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310164
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310181
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310197
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310214
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310231
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310248
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310265
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310281
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310298
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310315
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310331
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310348
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310365
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310381
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310398
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310415
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310432
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310448
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310465
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242310515
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242334775
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1605242334901
