@@ -60,7 +60,13 @@
          $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
      })
  }
-
+ // function shuffleArray(array) {
+ //   for (let i = array.length - 1; i > 0; i--) {
+ //     const j = Math.floor(Math.random() * (i + 1));
+ //     [array[i], array[j]] = [array[j], array[i]];
+ //   }
+ // }
+ //
 
 export function displayBookmarkCharts(container, created = true) {
     $(container).empty();
@@ -136,6 +142,21 @@ export function displayBookmarkCharts(container, created = true) {
 
             console.log('Bookmarking chart ID:', ch.overallchid);
             app.sumview._bookmarkedCharts.push(ch);
+            // // Handle bookmarking action here
+            // if (app.sumview._bookmarkedCharts.length === 0) {
+            //     console.log('Bookmarking chart ID:', ch.overallchid);
+            //     app.sumview._bookmarkedCharts.push(ch);
+            // }
+            //
+            // for (let i = 0; i < app.sumview._bookmarkedCharts.length; i++) {
+            //     if (app.sumview._bookmarkedCharts[i].overallchid === ch.overallchid) {
+            //         console.log('Chart already bookmarked');
+            //     }
+            //     else {
+            //         console.log('Bookmarking chart ID:', ch.overallchid);
+            //         app.sumview._bookmarkedCharts.push(ch);
+            //     }
+            // }
         });
         $chartContainer.append($bookmarkButton);
     });
@@ -462,7 +483,59 @@ function openNav() {
     });
 }
 
-
+// function createAccuracyChart(id,data) {
+//     var accuracyData = data;
+//
+//     var time = accuracyData['RL'].length;
+//
+//
+//
+//
+// if (time < 1) {
+//     alert('Not Enough Data to Derive Hit Rate View. Rendering Other Views');
+//     return;
+// }
+//     var timeLabels = Array.from({ length: time }, (_, i) => i.toString());
+//
+//     var datasets = Object.keys(accuracyData).map(key => {
+//         return {
+//             label: key,
+//             data: accuracyData[key],
+//             fill: false,
+//             borderColor: key === "RL" ? "blue" : key === "Random" ? "green" : "red"
+//         };
+//     });
+//
+//     var accuracyChart = new Chart(id, {
+//         type: "line",
+//         data: {
+//             labels: timeLabels,
+//             datasets: datasets
+//         },
+//         options: {
+//             responsive: true,
+//             title: {
+//                 display: true,
+//                 text: "Hit Rate Over Time"
+//             },
+//             scales: {
+//                 xAxes: [{
+//                     scaleLabel: {
+//                         display: true,
+//                         labelString: "Time"
+//                     }
+//                 }],
+//                 yAxes: [{
+//                     scaleLabel: {
+//                         display: true,
+//                         labelString: "Hit Rate"
+//                     }
+//                 }]
+//             }
+//         }
+//     });
+//      accuracyCharts[id] = accuracyChart;
+// }
 
 function createBaselineChart(id, data, label, backgroundColor, borderColor) {
     var fieldNames = Object.keys(data);
@@ -534,80 +607,45 @@ function CSVToArray(text) {
 var hitRateHistory = {'RL': [], 'Random': [], 'Momentum': []  };
 
 
+// Function to create or update accuracy chart
+function createAccuracyChart(id, data, updateTimeSeriesChart, xsc) {
 
-function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
-    const fieldNames = [
-        'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
-        'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
-        'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
-        'speed_ias_in_knots'
-    ];
+    hitRateHistory = data['accuracy_response'];
 
-    const algorithmPredictions = data['algorithm_predictions'];
-    const fullHistory = data['full_history'];
-    const recTimetoInteractionTime = data['recTimetoInteractionTime'];
+    // Determine the number of time points
+    var time = hitRateHistory[Object.keys(hitRateHistory)[0]].length;
+    var timeLabels = Array.from({ length: time }, (_, i) => i.toString());
+
+    const margin = { top: 20, right: 50, bottom: 50, left: 190 };
+    const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
+    const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
 
     // Clear the existing SVG content
     d3.select(`#${id}`).selectAll("*").remove();
 
-    const margin = { top: 20, right: 50, bottom: 50, left: 190 };
-    const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
-    const height = window.innerHeight * 0.4 - margin.top - margin.bottom;
-
-    const svg = d3.select(`#${id}`).append("svg")
+    var svg = d3.select(`#${id}`).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    const xScale = d3.scaleBand()
-        .domain(Object.keys(recTimetoInteractionTime))
+    var xScale = d3.scaleBand()
+        .domain(timeLabels)
         .range([0, width])
         .padding(0.1);
 
-    const yScale = d3.scaleLinear()
-        .domain([0, 1.1])
+    var yScale = d3.scaleLinear()
+        .domain([0, 1.1]) // Adjusted yScale domain
         .range([height, 0]);
 
-    const colors = d3.scaleOrdinal()
-        .domain(Object.keys(algorithmPredictions))
+    var colors = d3.scaleOrdinal()
+        .domain(Object.keys(hitRateHistory))
         .range(d3.schemeCategory10);
-
-// Compute hit rates for each algorithm
-const hitRateHistory = {};
-Object.keys(algorithmPredictions).forEach(algorithm => {
-    const predictions = algorithmPredictions[algorithm];
-    const hitRates = [];
-
-    Object.keys(recTimetoInteractionTime).forEach(time => {
-        const timeSteps = recTimetoInteractionTime[time];
-
-        // Concatenate the fullHistory arrays corresponding to the timeSteps
-        let concatenatedHistory = [];
-        timeSteps.forEach(step => {
-            if (fullHistory[step] !== undefined) {
-                concatenatedHistory = concatenatedHistory.concat(fullHistory[step]);
-            }
-        });
-
-        // Check if predictions[time] and concatenatedHistory are valid
-        if (predictions[time] && predictions[time].length > 0 && concatenatedHistory.length > 0) {
-            const accuracy = computeAccuracy(predictions[time], concatenatedHistory);
-            const averageAccuracy = accuracy.checks > 0 ? accuracy.matches / accuracy.checks : 0;
-            hitRates.push(averageAccuracy);
-        } else {
-            // If either is empty, push 0 accuracy
-            hitRates.push(0);
-        }
-    });
-
-    hitRateHistory[algorithm] = hitRates;
-});
 
     // Draw lines for each dataset
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
-        const line = d3.line()
-            .x((_, j) => xScale(j.toString()) + xScale.bandwidth() / 2)
+        var line = d3.line()
+            .x((_, i) => xScale(i.toString()) + xScale.bandwidth() / 2)
             .y(d => yScale(d))
             .curve(d3.curveCardinal.tension(0.5));
 
@@ -617,8 +655,8 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
             .attr("stroke", colors(algorithm))
             .attr("stroke-width", 2)
             .attr("d", line)
-            .on("click", (_, j) => {
-                updateTimeSeriesChart(j, data, xsc,algorithm);
+            .on("click", function(_, i) {
+                updateTimeSeriesChart(i,data,xsc);
             });
 
         // Add labels for different algorithms colors
@@ -627,10 +665,11 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
             .attr("y", margin.top + 20 * i)
             .attr("fill", colors(algorithm))
             .text(algorithm);
+
     });
 
     // Add circles to represent data points
-    Object.keys(hitRateHistory).forEach((algorithm, j) => {
+    Object.keys(hitRateHistory).forEach(algorithm => {
         hitRateHistory[algorithm].forEach((hitRate, i) => {
             svg.append("circle")
                 .attr("cx", xScale(i.toString()) + xScale.bandwidth() / 2)
@@ -638,7 +677,7 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
                 .attr("r", 5)
                 .attr("fill", colors(algorithm))
                 .on("click", () => {
-                    updateTimeSeriesChart(i, data, xsc, algorithm);
+                    updateTimeSeriesChart(i,data,xsc);
                 });
         });
     });
@@ -666,12 +705,29 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
         .attr("text-anchor", "middle")
         .style("font-size", "14px")
         .text("Hit Rate");
+
+    // // Brush functionality
+    // svg.append("g").call(d3.brushX()
+    //     .extent([[0, 0], [width, height]])
+    //     .on("end", brushChart));
+
+    // function brushChart() {
+    //     var selection = d3.event.selection;
+    //     if (selection) {
+    //         var selectedTimes = [];
+    //         var startIndex = Math.round(selection[0] / (xScale.bandwidth() + xScale.step()));
+    //         var endIndex = Math.round(selection[1] / (xScale.bandwidth() + xScale.step()));
+    //         for (var i = startIndex; i <= endIndex; i++) {
+    //             selectedTimes.push(i);
+    //         }
+    //         updateTimeSeriesChart(selectedTimes,data);
+    //     }
+    // }
 }
 
 
 
-
-function updateTimeSeriesChart(clickedTime, data, xScale, algorithm) {
+function updateTimeSeriesChart(clickedTime, data, xScale) {
     const fieldNames = [
         'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
         'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
@@ -679,15 +735,15 @@ function updateTimeSeriesChart(clickedTime, data, xScale, algorithm) {
         'speed_ias_in_knots'
     ];
 
-    var localattributeHistory = data['full_history'];
+    var localattributeHistory = attributesHistory;
     var mapping = data['recTimetoInteractionTime'];
-    var rlPredictions = data['algorithm_predictions'][algorithm][clickedTime];
+    var rlPredictions = data['algorithm_predictions']['RL'][clickedTime + 2];
 
     // Remove previous highlighting
     d3.selectAll(".highlight").attr("fill", null).classed("highlight", false);
 
     // Get the corresponding time steps from the mapping
-    var allTimeSteps = mapping[clickedTime];
+    var allTimeSteps = mapping[clickedTime + 2];
 
     if (allTimeSteps && allTimeSteps.length > 0) {
         // Iterate over the time steps to highlight the corresponding elements
@@ -723,7 +779,7 @@ function createShiftFocusChart(full_data) {
 
     d3.select('#timeSeriesChart').selectAll('svg').remove()
 
-    const localattributeHistory = full_data['full_history'];
+    const localattributeHistory = attributesHistory;
 
     const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
 
@@ -807,25 +863,131 @@ function createShiftFocusChart(full_data) {
 
 }
 
-// ###################################################### Helper Functions ########################################################
+// /// ################# Shift Focus Chart ####################
+// function createShiftFocusChart() {
+//     // Remove existing SVG element
+//     d3.select('#timeSeriesChart').selectAll('svg').remove();
+//
+//     const localattributeHistory = attributesHistory;
+//
+//     const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
+//
+//     const timeSeriesData = localattributeHistory.map((attributes, index) => {
+//             const dataPoint = { time: index };
+//             fieldNames.forEach((field, fieldIndex) => {
+//                 dataPoint[field] = attributes.includes(field) ? fieldIndex : null;
+//             });
+//             return dataPoint;
+//         });
+//
+//     const margin = { top: 20, right: 50, bottom: 50, left: 190 }; // Adjusted left margin
+//     const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300); // Minimum width
+//     const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
+//
+//     const svg = d3.select("#timeSeriesChart").append("svg")
+//         .attr("width", width + margin.left + margin.right)
+//         .attr("height", height + margin.top + margin.bottom)
+//         .append("g")
+//         .attr("transform", `translate(${margin.left},${margin.top})`);
+//
+//     const x = d3.scaleBand() // Changed to scaleBand
+//         .domain(timeSeriesData.map(d => d.time))
+//         .range([0, width])
+//         .padding(0.1); // Adjusted padding between bars
+//
+//     const y = d3.scaleBand()
+//         .domain(fieldNames)
+//         .range([height, 0])
+//         .padding(0.1); // Adjusted padding between bars
+//
+//     svg.selectAll(".line")
+//         .data(timeSeriesData)
+//         .enter().append("g")
+//         .each(function (d) {
+//             const group = d3.select(this);
+//             fieldNames.forEach(field => {
+//                 if (d[field] !== null) {
+//                     group.append("rect")
+//                         .attr("x", x(d.time))
+//                         .attr("y", y(field))
+//                         .attr("width", x.bandwidth()) // Adjusted width of bars
+//                         .attr("height", y.bandwidth())
+//                         .attr("class", "bar")
+//                         .attr("data-index", d[field]); // Set data-index attribute
+//                 }
+//             });
+//         })
+//         .on("mouseover", function() {
+//             d3.select(this).attr("fill", "grey"); // Change color on hover
+//         })
+//         .on("mouseout", function() {
+//             const fieldIndex = this.getAttribute("data-index"); // Access data-index attribute
+//             const field = fieldNames[fieldIndex];
+//             d3.select(this).attr("fill", colors(field)); // Restore original color
+//         });
+//
+//     svg.append("g")
+//         .attr("transform", `translate(0,${height})`)
+//         .call(d3.axisBottom(x).ticks(timeSeriesData.length - 1).tickFormat(d3.format("d"))); // Adjusted tick format
+//
+//     svg.append("g")
+//         .call(d3.axisLeft(y))
+//         .selectAll("text")
+//         .style("font-size", "14px") // Increase font size
+//         .style("font-weight", "bold"); // Make text bold
+//
+//     svg.append("text")
+//         .attr("transform", "rotate(-90)")
+//         .attr("y", 0 - margin.left)
+//         .attr("x", 0 - (height / 2))
+//         .attr("dy", "1em")
+//         .style("text-anchor", "middle")
+//         .text("Attribute");
+//
+//     svg.append("text")
+//         .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)
+//         .style("text-anchor", "middle")
+//         .text("Interactions Observed");
+// }
 
-function computeAccuracy(predictions, groundTruth) {
-    // Filter out placeholders like 'none' from ground truth
-    groundTruth = groundTruth.filter(attribute => attribute !== 'none');
-    predictions = predictions.filter(attribute => attribute !== 'none');
+// ################# Shift Focus Chart ####################
 
-    const predictionSet = new Set(predictions);
-    const groundTruthSet = new Set(groundTruth);
+//###################################################### Performance View ########################################################
 
-    let matches = 0;
-    predictionSet.forEach(prediction => {
-        if (groundTruthSet.has(prediction)) {
-            matches++;
-        }
-    });
-
-    const unionSet = new Set([...predictionSet, ...groundTruthSet]);
-    const checks = unionSet.size;
-
-    return { matches, checks };
-}
+    // var all_algorithms_predictions = data['algorithm_predictions'];
+    // var users_predictions = data['user_selections'];
+    //
+    // d3.select(`#${id}`).selectAll('svg').remove()
+    //
+    // // Initialize hit rates and history object to store accuracies over time
+    // var hitRates = {};
+    //
+    // // Initialize hit rates for each algorithm and create an empty history array
+    // Object.keys(all_algorithms_predictions).forEach(algorithm => {
+    //     hitRates[algorithm] = { correct: 0, total: 0 };
+    // });
+    //
+    // // Calculate hit rates using current data
+    // users_predictions.forEach(user_prediction => {
+    //     Object.keys(all_algorithms_predictions).forEach(algorithm => {
+    //         var predicted_attribute = all_algorithms_predictions[algorithm];
+    //
+    //         // Count total predictions for the algorithm
+    //         hitRates[algorithm].total++;
+    //
+    //         // Check if the prediction is correct (exists in user predictions)
+    //         if (user_prediction.includes(predicted_attribute)) {
+    //             hitRates[algorithm].correct++;
+    //         }
+    //     });
+    // });
+    //
+    // // Convert counts to hit rates (accuracy) and update history
+    // Object.keys(hitRates).forEach(algorithm => {
+    //     var correct = hitRates[algorithm].correct;
+    //     var total = hitRates[algorithm].total;
+    //     var accuracy = total > 0 ? correct / total : 0;
+    //
+    //     // Store the current accuracy in history
+    //     hitRateHistory[algorithm].push(accuracy);
+    // });
