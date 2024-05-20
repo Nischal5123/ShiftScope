@@ -101,29 +101,33 @@ def rec_from_generated_spec(
                     ]
                 )
             input_specs.append(spec)
+
+
+        recs = {}
+        for cfg, spec in input_specs:
+            labeler = lambda i: f"CHART {i + 1} ({' | '.join(cfg)})"
+            try:
+                new_recs = recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler)
+                recs.update(new_recs)
+            except:
+                print('Altair went wrong')
+                pass
+
     else:
         input_specs = validate_chart(config, input_spec_base)
 
-    recs = {}
-    for cfg, spec in input_specs:
-        labeler = lambda i: f"CHART {i + 1} ({' | '.join(cfg)})"
-        if len(recs) > 6:
-            break
-        try:
-            new_recs = recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler)
-            recs.update(new_recs)
-        except:
-            print('Altair went wrong')
-            pass
+        recs = {}
+        for cfg, spec in input_specs:
+            labeler = lambda i: f"CHART {i + 1} ({' | '.join(cfg)})"
+            recs= recs | recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler)
 
     # sort recs by cost
     recs = dict(sorted(recs.items(), key=lambda item: item[1]['cost']))
-    #remove the cost from the dictionary
+    # remove the cost from the dictionary
     for key in recs:
         recs[key] = recs[key]['chart']
+
     return recs
-
-
 
 
 def validate_chart(config, input_spec_base):
@@ -232,7 +236,6 @@ def get_draco_recommendations(attributes,datasetname='birdstrikes',config=None):
     field_names_renamed = [f.replace('$', 'a') for f in ret]
     #remove none fields
     field_names_final = [f for f in field_names_renamed if f != 'none']
-    np.random.shuffle(field_names_renamed)
     #
     # try:
     #     recommendations=start_draco(fields=field_names_renamed,datasetname=datasetname,config=config)
