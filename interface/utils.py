@@ -16,13 +16,15 @@ def run_algorithm(algorithm, attributes_history, generator, dataset):
         for i in range(len(Rl_attributesHistory)):
             if len(Rl_attributesHistory[i]) < 3:
                 Rl_attributesHistory[i].extend(['none'] * (3 - len(Rl_attributesHistory[i])))
+            elif len(Rl_attributesHistory[i]) > 3:
+                Rl_attributesHistory[i] = Rl_attributesHistory[i][:3]
 
         # Remove the existing file if it exists
         if os.path.exists("attributes_history.npy"):
             os.remove("attributes_history.npy")
 
         # Save the new attribute history to a numpy file
-        np.save("attributes_history.npy", Rl_attributesHistory)
+        np.save("attributes_history.npy", np.array(Rl_attributesHistory))
 
         next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="attributes_history.npy", current_state=Rl_attributesHistory[-1], epsilon=0.9)
         return list(filter(lambda x: x.lower() != 'none', next_state_rl))

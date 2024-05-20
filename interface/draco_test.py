@@ -7,6 +7,7 @@ import json
 import numpy as np
 from draco.renderer import AltairRenderer
 # alt.renderers.enable("png")
+from itertools import permutations
 import pdb
 
 # Handles serialization of common numpy datatypes
@@ -69,42 +70,51 @@ def rec_from_generated_spec(
 ) -> dict[str, dict]:
     if config is None:
         num_encodings = len(fields)
+        # make different arrangement of fields elements
+        perms_fields = list(permutations(fields))
         input_specs = []
-        for mark in marks:
+        id=0
+        for fields in perms_fields:
+
             force_attributes = []
+
             for index, item in enumerate(fields):
                 connect_root = f'entity(encoding,m0,e{index}).'
                 force_attributes.append(connect_root)
                 specify_field = f'attribute((encoding,field),e{index},{item}).'
                 force_attributes.append(specify_field)
-
+            id=id+1
             spec =(
-                    (mark,'only-mark'),
+                    (str(id) ,'only-mark'),
                     input_spec_base
-                    +
-                    [
-                        f"attribute((mark,type),m0,{mark})."
-                    ]
+                    # +
+                    # [
+                    #     f"attribute((mark,type),m0,{mark})."
+                    # ]
                     +
 
                     force_attributes +
 
                     [
-                        # ":- {attribute((encoding,field),_,_)} <" + str(num_encodings) + "."]
-                        ":- {attribute((encoding,field),_,_)} < 1.",
-                        # exclude multi-layer designs
-                        ":- {entity(mark,_,_)} != 1."
+                        # ":- {attribute((encoding,field),_,_)} =" + str(num_encodings) + ".",
+                        ":- {attribute((encoding,field),_,_)} < 1."
                     ]
                 )
             input_specs.append(spec)
     else:
         input_specs = validate_chart(config, input_spec_base)
 
-
     recs = {}
     for cfg, spec in input_specs:
         labeler = lambda i: f"CHART {i + 1} ({' | '.join(cfg)})"
-        recs = recs | recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler)
+        if len(recs) > 6:
+            break
+        try:
+            new_recs = recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler)
+            recs.update(new_recs)
+        except:
+            print('Altair went wrong')
+            pass
 
     # sort recs by cost
     recs = dict(sorted(recs.items(), key=lambda item: item[1]['cost']))
@@ -167,9 +177,7 @@ def validate_chart(config, input_spec_base):
     input_spec[1].extend([
                     ":- {entity(mark,_,_)} != 1.",
                     # ":- {attribute((encoding,field),_,_)} <" + str(num_encodings) + "."]
-                    ":- {attribute((encoding,field),_,_)} < 1.",
-                    # exclude multi-layer designs
-                    ":- {entity(mark,_,_)} != 1."
+                    ":- {attribute((encoding,field),_,_)} < 1."
                 ])
 
     return [input_spec]
@@ -223,21 +231,28 @@ def get_draco_recommendations(attributes,datasetname='birdstrikes',config=None):
     ret = [f.replace('__', '_').lower() for f in attributes]
     field_names_renamed = [f.replace('$', 'a') for f in ret]
     #remove none fields
-    field_names_renamed = [f for f in field_names_renamed if f != 'none']
+    field_names_final = [f for f in field_names_renamed if f != 'none']
     np.random.shuffle(field_names_renamed)
+    #
+    # try:
+    #     recommendations=start_draco(fields=field_names_renamed,datasetname=datasetname,config=config)
+    #     if len(recommendations) == 0:
+    #         # depending on size of fields , we tak 1 less than length of fields
+    #            if len(field_names_renamed) > 1:
+    #                  print('Draco recommendations are empty, retrying with one field')
+    #                  recommendations = start_draco(fields=np.random.shuffle(field_names_renamed)[:1], datasetname=datasetname, config=config)
+    #
+    # except :
+    #
+    #     print('Draco recommendations failed, retrying with 2 field')
+    #     recommendations=start_draco(fields=field_names_renamed[:1],datasetname=datasetname,config=config)
+    # #recommendations in a dictionary if more that 6 items return first 6
 
-    try:
-        recommendations=start_draco(fields=field_names_renamed,datasetname=datasetname,config=config)
-        if len(recommendations) == 0:
-            # depending on size of fields , we tak 1 less than length of fields
-               if len(field_names_renamed) > 1:
-                     print('Draco recommendations are empty, retrying with one field')
-                     recommendations = start_draco(fields=np.random.shuffle(field_names_renamed)[:1], datasetname=datasetname, config=config)
+    recommendations=start_draco(fields=field_names_final,datasetname=datasetname,config=config)
+    if len(recommendations) == 0:
+            print('Draco recommendations are empty, retrying with one less field')
+            recommendations = start_draco(fields= [f for f in field_names_renamed[:2] if f != 'none'], datasetname=datasetname, config=config)
 
-    except:
-        print('Draco recommendations failed, retrying with 2 field')
-        recommendations=start_draco(fields=field_names_renamed[:1],datasetname=datasetname,config=config)
-    #recommendations in a dictionary if more that 6 items return first 6
     if len(recommendations) > 6:
         return dict(list(recommendations.items())[:6])
     print(' Dracorecommendations:', len(recommendations))

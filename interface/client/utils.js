@@ -550,9 +550,9 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
     // Clear the existing SVG content
     d3.select(`#${id}`).selectAll("*").remove();
 
-    const margin = { top: 20, right: 50, bottom: 50, left: 190 };
+    const margin = { top: 0, right: 50, bottom: 40, left: 190 };
     const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
-    const height = window.innerHeight * 0.4 - margin.top - margin.bottom;
+    const height = window.innerHeight * 0.3 - margin.top - margin.bottom;
 
     const svg = d3.select(`#${id}`).append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -618,13 +618,13 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
             .attr("stroke-width", 2)
             .attr("d", line)
             .on("click", (_, j) => {
-                updateTimeSeriesChart(j, data, xsc,algorithm);
+                updateTimeSeriesChart(j, data, xsc,algorithm,colors(algorithm));
             });
 
         // Add labels for different algorithms colors
         svg.append("text")
-            .attr("x", width - 35)
-            .attr("y", margin.top + 20 * i)
+            .attr("x", margin.left - 80)
+            .attr("y", margin.top + 140 * i)
             .attr("fill", colors(algorithm))
             .text(algorithm);
     });
@@ -638,7 +638,7 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
                 .attr("r", 5)
                 .attr("fill", colors(algorithm))
                 .on("click", () => {
-                    updateTimeSeriesChart(i, data, xsc, algorithm);
+                    updateTimeSeriesChart(i, data, xsc, algorithm, colors(algorithm));
                 });
         });
     });
@@ -671,7 +671,7 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
 
 
 
-function updateTimeSeriesChart(clickedTime, data, xScale, algorithm) {
+function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) {
     const fieldNames = [
         'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
         'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
@@ -684,7 +684,7 @@ function updateTimeSeriesChart(clickedTime, data, xScale, algorithm) {
     var rlPredictions = data['algorithm_predictions'][algorithm][clickedTime];
 
     // Remove previous highlighting
-    d3.selectAll(".highlight").attr("fill", null).classed("highlight", false);
+    d3.selectAll(".highlight").attr("fill", "rgba(54, 160, 235, 0.4)").classed("highlight", false);
 
     // Get the corresponding time steps from the mapping
     var allTimeSteps = mapping[clickedTime];
@@ -705,7 +705,7 @@ function updateTimeSeriesChart(clickedTime, data, xScale, algorithm) {
                             .filter(function() {
                                 return +d3.select(this).attr("x") === xScale(timeStep);
                             })
-                            .attr("fill", "orange")
+                            .attr("fill", fillColor)
                             .classed("highlight", true);
                     }
                 }
@@ -737,7 +737,7 @@ function createShiftFocusChart(full_data) {
 
     // console.log(timeSeriesData)
 
-    const margin = { top: 20, right: 50, bottom: 50, left: 190 };
+    const margin = { top: 0, right: 50, bottom: 50, left: 190 };
     const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
     const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
     const svg = d3.select("#timeSeriesChart").append("svg")
@@ -775,7 +775,7 @@ function createShiftFocusChart(full_data) {
                         .attr("height", yScale.bandwidth())
                         .attr("class", "bar")
                         .attr("data-index", d[field])
-                        // .style("fill", "rgba(54, 160, 235, 0.4)"); // Adjust alpha value for a slightly darker shade
+                        .attr("fill", "rgba(54, 160, 235, 0.4)"); // Adjust alpha value for a slightly darker shade
 
                 }
             });
@@ -800,7 +800,7 @@ function createShiftFocusChart(full_data) {
         .text("Attribute");
 
     svg.append("text")
-        .attr("transform", `translate(${width / 2},${height + margin.top + 10})`)
+        .attr("transform", `translate(${width / 2},${height + margin.top + 20})`)
         .style("text-anchor", "middle")
         .text("Interactions Observed");
     createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart, xScale);

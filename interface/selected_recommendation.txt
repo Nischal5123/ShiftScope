@@ -2906,3 +2906,162 @@ wildlife_species
 ['cost_total_a', 'effect_amount_of_damage', 'airport_name'] 2024-05-20 11:47:34.971575
 ['speed_ias_in_knots', 'when_phase_of_flight', 'wildlife_species'] 2024-05-20 11:58:40.026605
 ['speed_ias_in_knots', 'wildlife_species', 'when_phase_of_flight'] 2024-05-20 11:58:41.004086
+['cost_repair', 'wildlife_size'] 2024-05-20 12:14:38.123680
+['cost_repair', 'wildlife_size'] 2024-05-20 12:14:39.124810
+['wildlife_size', 'cost_repair'] 2024-05-20 12:14:39.933063
+['cost_repair', 'wildlife_size'] 2024-05-20 12:14:48.635277
+['cost_repair', 'wildlife_size'] 2024-05-20 12:14:49.281825
+['origin_state', 'aircraft_airline_operator'] 2024-05-20 12:14:50.021517
+['aircraft_airline_operator', 'origin_state'] 2024-05-20 12:14:51.829958
+['aircraft_airline_operator'] 2024-05-20 12:15:15.019454
+['speed_ias_in_knots', 'effect_amount_of_damage', 'aircraft_airline_operator'] 2024-05-20 12:15:50.490977
+['cost_repair', 'wildlife_size'] 2024-05-20 12:20:19.988503
+['cost_repair', 'wildlife_size'] 2024-05-20 12:20:20.616377
+['wildlife_size', 'cost_repair'] 2024-05-20 12:20:21.224859
+['cost_repair', 'speed_ias_in_knots'] 2024-05-20 12:20:58.289875
+['cost_repair', 'speed_ias_in_knots'] 2024-05-20 12:21:00.200281
+['speed_ias_in_knots', 'cost_repair'] 2024-05-20 12:21:00.991769
+['cost_repair', 'speed_ias_in_knots'] 2024-05-20 12:21:01.766882
+['wildlife_size'] 2024-05-20 12:21:11.801675
+['cost_repair', 'wildlife_size'] 2024-05-20 12:26:38.503983
+['cost_repair', 'wildlife_size'] 2024-05-20 12:26:38.619280
+['cost_repair', 'wildlife_size'] 2024-05-20 12:26:39.243493
+['wildlife_size', 'cost_repair'] 2024-05-20 12:26:39.813227
+['cost_repair', 'wildlife_size'] 2024-05-20 12:26:40.246950
+['cost_repair', 'wildlife_size'] 2024-05-20 12:26:40.684552
+['cost_repair', 'wildlife_size'] 2024-05-20 12:46:43.531660
+['cost_repair', 'wildlife_size'] 2024-05-20 12:46:44.233426
+['wildlife_size', 'cost_repair'] 2024-05-20 12:46:44.935790
+['effect_amount_of_damage'] 2024-05-20 12:47:04.662566
+['effect_amount_of_damage'] 2024-05-20 12:47:05.305013
+['effect_amount_of_damage'] 2024-05-20 12:47:06.082614
+['flight_date'] 2024-05-20 12:47:30.119070
+['flight_date'] 2024-05-20 12:47:30.727797
+['speed_ias_in_knots', 'flight_date'] 2024-05-20 12:47:31.378434
+['aircraft_make_model', 'flight_date'] 2024-05-20 12:47:40.949022
+['cost_repair', 'wildlife_size'] 2024-05-20 12:49:00.407591
+['cost_repair', 'wildlife_size'] 2024-05-20 12:49:01.225649
+['wildlife_size', 'cost_repair'] 2024-05-20 12:49:02.056272
+['wildlife_species', 'wildlife_size'] 2024-05-20 12:49:27.830770
+['wildlife_size', 'wildlife_species'] 2024-05-20 12:49:28.399914
+['cost_repair', 'wildlife_size'] 2024-05-20 12:51:31.545498
+['cost_repair', 'wildlife_size'] 2024-05-20 12:51:31.654176
+['cost_repair', 'wildlife_size'] 2024-05-20 12:51:32.270744
+['wildlife_size', 'cost_repair'] 2024-05-20 12:51:32.921958
+['cost_repair', 'wildlife_size'] 2024-05-20 12:51:33.459234
+['cost_repair', 'wildlife_size'] 2024-05-20 12:51:33.986437
+['cost_repair', 'wildlife_size'] 2024-05-20 12:51:34.479690
+['wildlife_size', 'cost_repair'] 2024-05-20 12:51:35.034857
+['wildlife_size', 'when_phase_of_flight'] 2024-05-20 12:51:51.465950
+['when_phase_of_flight', 'wildlife_size'] 2024-05-20 12:51:51.944416
+['when_phase_of_flight', 'wildlife_size'] 2024-05-20 12:51:52.351498
+['aircraft_airline_operator'] 2024-05-20 12:52:03.142366
+['cost_other', 'cost_repair', 'origin_state'] 2024-05-20 12:52:52.583799
+['cost_other', 'cost_repair', 'origin_state'] 2024-05-20 12:52:53.021329
+['cost_repair', 'cost_other', 'origin_state'] 2024-05-20 12:52:53.607291
+['when_time_of_day'] 2024-05-20 12:54:42.996473
+['when_time_of_day'] 2024-05-20 12:54:43.458090
+['when_time_of_day'] 2024-05-20 12:54:44.007333
+['cost_repair', 'wildlife_size'] 2024-05-20 12:58:04.282869
+['cost_repair', 'wildlife_size'] 2024-05-20 12:58:04.874467
+['wildlife_size', 'cost_repair'] 2024-05-20 12:58:05.743009
+['cost_repair', 'wildlife_size'] 2024-05-20 13:01:26.751697
+['cost_repair', 'wildlife_size'] 2024-05-20 13:01:27.854023
+['wildlife_species', 'wildlife_size'] 2024-05-20 13:01:54.107306
+['wildlife_size', 'wildlife_species'] 2024-05-20 13:01:54.633873
+['cost_repair', 'wildlife_size'] 2024-05-20 13:04:59.363475
+['cost_repair', 'wildlife_size'] 2024-05-20 13:05:00.065490
+['wildlife_size', 'cost_repair'] 2024-05-20 13:05:00.748652
+['cost_repair', 'wildlife_species', 'airport_name'] 2024-05-20 13:05:45.331349
+['cost_repair', 'wildlife_species', 'airport_name'] 2024-05-20 13:05:45.955746
+['cost_repair', 'airport_name', 'wildlife_species'] 2024-05-20 13:05:46.703197
+['origin_state'] 2024-05-20 13:05:57.084288
+['origin_state'] 2024-05-20 13:05:57.966646
+['origin_state'] 2024-05-20 13:05:59.010067
+['cost_repair', 'wildlife_size'] 2024-05-20 13:09:06.315574
+['cost_repair', 'wildlife_size'] 2024-05-20 13:09:06.419885
+['cost_repair', 'wildlife_size'] 2024-05-20 13:09:06.968693
+['wildlife_size', 'cost_repair'] 2024-05-20 13:09:07.753604
+['cost_repair', 'wildlife_size'] 2024-05-20 13:12:08.356562
+['cost_repair', 'wildlife_size'] 2024-05-20 13:12:09.176739
+['cost_repair', 'wildlife_size'] 2024-05-20 13:15:37.341281
+['cost_repair', 'wildlife_size'] 2024-05-20 13:15:38.079187
+['wildlife_size', 'cost_repair'] 2024-05-20 13:15:38.822244
+['cost_total_a', 'when_phase_of_flight', 'wildlife_species'] 2024-05-20 13:15:43.763500
+['cost_total_a', 'wildlife_species', 'when_phase_of_flight'] 2024-05-20 13:15:44.446711
+['when_phase_of_flight', 'cost_total_a', 'wildlife_species'] 2024-05-20 13:15:44.995763
+['wildlife_species'] 2024-05-20 13:15:49.450821
+['wildlife_species', 'flight_date'] 2024-05-20 13:15:57.357384
+['flight_date', 'wildlife_species'] 2024-05-20 13:16:08.794541
+['wildlife_species', 'flight_date'] 2024-05-20 13:16:09.397983
+['flight_date', 'wildlife_species'] 2024-05-20 13:16:11.340015
+['cost_other', 'airport_name', 'aircraft_make_model'] 2024-05-20 13:16:20.851452
+['cost_other', 'airport_name', 'aircraft_make_model'] 2024-05-20 13:17:28.194321
+['cost_other', 'airport_name', 'aircraft_make_model'] 2024-05-20 13:17:28.604608
+['cost_other', 'airport_name', 'aircraft_make_model'] 2024-05-20 13:17:29.326625
+['wildlife_species'] 2024-05-20 14:55:08.291735
+['cost_repair', 'cost_total_a', 'aircraft_airline_operator'] 2024-05-20 15:05:55.917408
+['cost_total_a', 'aircraft_airline_operator', 'cost_repair'] 2024-05-20 15:09:19.044343
+['cost_repair', 'cost_total_a', 'aircraft_airline_operator'] 2024-05-20 15:09:19.538796
+['cost_repair', 'aircraft_airline_operator', 'wildlife_size'] 2024-05-20 15:12:04.192237
+['cost_repair', 'wildlife_size', 'aircraft_airline_operator'] 2024-05-20 15:12:04.901245
+['wildlife_size', 'origin_state', 'airport_name'] 2024-05-20 15:12:41.693793
+['cost_repair', 'wildlife_species', 'effect_amount_of_damage'] 2024-05-20 15:12:55.548392
+['cost_repair', 'wildlife_species', 'effect_amount_of_damage'] 2024-05-20 15:12:56.648282
+['cost_repair', 'origin_state', 'airport_name'] 2024-05-20 15:15:40.655867
+['cost_repair', 'airport_name', 'origin_state'] 2024-05-20 15:16:10.921396
+['cost_repair', 'origin_state', 'airport_name'] 2024-05-20 15:16:11.433600
+['cost_total_a', 'effect_amount_of_damage'] 2024-05-20 15:20:02.351109
+['cost_other', 'airport_name', 'cost_total_a'] 2024-05-20 15:20:27.722306
+['wildlife_size', 'wildlife_species', 'aircraft_make_model'] 2024-05-20 15:20:39.769230
+['airport_name', 'wildlife_species', 'aircraft_airline_operator'] 2024-05-20 15:22:49.814459
+['aircraft_airline_operator', 'wildlife_species', 'airport_name'] 2024-05-20 15:22:50.659450
+['speed_ias_in_knots', 'airport_name', 'flight_date'] 2024-05-20 15:24:15.409659
+['speed_ias_in_knots', 'airport_name', 'flight_date'] 2024-05-20 15:24:16.071475
+['cost_other', 'wildlife_species'] 2024-05-20 15:24:40.437995
+['cost_total_a', 'wildlife_species', 'effect_amount_of_damage'] 2024-05-20 15:24:53.070568
+['cost_repair', 'wildlife_size', 'aircraft_make_model'] 2024-05-20 15:25:42.036395
+['when_phase_of_flight', 'effect_amount_of_damage', 'flight_date'] 2024-05-20 15:25:57.566277
+['cost_repair', 'flight_date'] 2024-05-20 15:26:34.503144
+['cost_repair', 'flight_date'] 2024-05-20 15:26:35.276988
+['cost_repair', 'wildlife_size'] 2024-05-20 15:30:53.780625
+['cost_repair', 'wildlife_size'] 2024-05-20 15:30:54.643460
+['aircraft_make_model', 'effect_amount_of_damage', 'flight_date'] 2024-05-20 15:31:09.206020
+['aircraft_airline_operator', 'effect_amount_of_damage', 'flight_date'] 2024-05-20 15:31:22.638392
+['when_phase_of_flight', 'when_time_of_day', 'flight_date'] 2024-05-20 15:34:27.741812
+['when_time_of_day', 'when_phase_of_flight', 'flight_date'] 2024-05-20 15:34:28.285325
+['cost_total_a', 'wildlife_size', 'flight_date'] 2024-05-20 15:34:40.950909
+['cost_total_a', 'wildlife_size', 'flight_date'] 2024-05-20 15:34:41.430619
+['wildlife_size', 'effect_amount_of_damage'] 2024-05-20 15:35:34.078438
+['wildlife_size', 'effect_amount_of_damage'] 2024-05-20 15:36:57.021971
+['wildlife_size', 'effect_amount_of_damage'] 2024-05-20 15:36:58.230941
+['wildlife_size', 'effect_amount_of_damage'] 2024-05-20 15:37:48.507192
+['effect_amount_of_damage', 'wildlife_size'] 2024-05-20 15:37:53.262098
+['wildlife_size', 'effect_amount_of_damage'] 2024-05-20 15:38:11.109141
+['effect_amount_of_damage', 'wildlife_size'] 2024-05-20 15:38:11.902371
+['effect_amount_of_damage', 'wildlife_size'] 2024-05-20 15:38:46.428367
+['effect_amount_of_damage', 'wildlife_size'] 2024-05-20 15:39:05.771096
+['cost_repair', 'wildlife_size'] 2024-05-20 15:44:02.362184
+['cost_repair', 'wildlife_size'] 2024-05-20 15:44:03.207148
+['cost_repair', 'speed_ias_in_knots', 'wildlife_size'] 2024-05-20 15:44:28.041475
+['speed_ias_in_knots', 'cost_repair', 'wildlife_size'] 2024-05-20 15:44:29.922578
+['speed_ias_in_knots', 'effect_amount_of_damage', 'origin_state'] 2024-05-20 15:44:57.412297
+['cost_repair', 'when_time_of_day', 'airport_name'] 2024-05-20 15:45:10.643322
+['cost_repair', 'speed_ias_in_knots', 'origin_state'] 2024-05-20 15:48:43.576462
+['speed_ias_in_knots', 'effect_amount_of_damage', 'when_phase_of_flight'] 2024-05-20 15:51:43.426624
+['speed_ias_in_knots', 'when_phase_of_flight', 'effect_amount_of_damage'] 2024-05-20 15:51:44.160827
+['when_phase_of_flight', 'aircraft_make_model'] 2024-05-20 15:51:52.999667
+['when_phase_of_flight', 'aircraft_make_model'] 2024-05-20 15:51:53.567400
+['cost_total_a', 'airport_name', 'effect_amount_of_damage'] 2024-05-20 15:52:14.619908
+['origin_state', 'wildlife_size'] 2024-05-20 15:52:22.591946
+['wildlife_size', 'origin_state'] 2024-05-20 15:52:23.351893
+['cost_other', 'wildlife_species', 'when_phase_of_flight'] 2024-05-20 15:54:29.955017
+['cost_other', 'when_phase_of_flight', 'wildlife_species'] 2024-05-20 15:54:30.593634
+['when_time_of_day', 'aircraft_airline_operator', 'aircraft_make_model'] 2024-05-20 15:57:58.782834
+['when_time_of_day', 'aircraft_airline_operator', 'aircraft_make_model'] 2024-05-20 15:57:58.841818
+['cost_repair', 'wildlife_size'] 2024-05-20 16:03:05.388699
+['cost_repair', 'wildlife_size'] 2024-05-20 16:03:06.153554
+['speed_ias_in_knots', 'airport_name', 'wildlife_size'] 2024-05-20 16:03:16.691336
+['speed_ias_in_knots', 'wildlife_size', 'airport_name'] 2024-05-20 16:03:17.497007
+['speed_ias_in_knots', 'airport_name', 'wildlife_size'] 2024-05-20 16:03:18.452806
+['cost_total_a', 'airport_name', 'when_phase_of_flight'] 2024-05-20 16:03:36.947159
