@@ -353,7 +353,7 @@ _recommendCharts(attributesHistory, callback) {
     // Question: What speed (IAS) in knots could cause the substantial (Effect Amount
     // of damage) damage of AVRO RJ 85 (Aircraft Make Model)? :['speed_ias', 'aircraft_make_model']
     if (attributesHistory == null) {
-        attributesHistory = [['when_phase_of_flight', 'flight_date'],['speed_ias_in_knots', 'aircraft_make_model']];
+        attributesHistory = [];
     }
 
     // Get the selected algorithm directly here

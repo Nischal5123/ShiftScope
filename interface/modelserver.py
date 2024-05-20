@@ -149,16 +149,19 @@ def top_k(save_csv=False):
     bookmarked_charts = total_data.get('bookmarked', [])
     specified_algorithm = total_data.get('algorithm', 'Qlearning')
 
-    if data and isinstance(data, list):
+    #in the beginning of the session, the user has not selected any recommendation so start with some default recommendations
+    if len(data)>1 and isinstance(data, list):
         attributesHistory = data
+
+        print('Attribute History', attributesHistory)
+        attributes,distribution_map,baselines_distribution_maps=system.onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], specified_algorithm=specified_algorithm)
+
+        print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
     else:
-        attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
-                         ['flight_data', 'wildlife_size', 'airport_name']]
-
-    print('Attribute History', attributesHistory)
-    attributes,distribution_map,baselines_distribution_maps=system.onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], specified_algorithm=specified_algorithm)
-
-    print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
+        # warm start with
+        attributes = ['cost_repair', 'wildlife_size']
+        distribution_map = {}
+        baselines_distribution_maps = {}
 
     recommendations = draco_test.get_draco_recommendations(attributes)
     chart_recom=system.remove_irrelevant_recommendations(attributes, recommendations, max_constrained=False)

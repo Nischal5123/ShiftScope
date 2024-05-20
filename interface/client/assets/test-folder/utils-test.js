@@ -12,7 +12,7 @@
  import vegaEmbed from 'vega-embed'
  import SumView from './sumview.js'
  import ChartView from './chartview.js'
- 
+
  var logging = true
  var interactionLogs = [];
  var fieldsArray = [];
@@ -22,7 +22,7 @@
      axis: {labelFontSize:9, titleFontSize:9, labelAngle:-45, labelLimit:50},
      legend: {gradientLength:20, labelFontSize:6, titleFontSize:6, clipHeight:20}
  }
- 
+
  export function createDataTable(scrollH) {
      var columns = _.keys(app.data.chartdata.values[0]).map((d) => {return {title: d} })
      var tabledata = app.data.chartdata.values.map((d) => {
@@ -31,7 +31,7 @@
              record.push(d[columns[i].title])
          return record
      })
- 
+
      if(app.datatable) {
          app.datatable.destroy()
          $('#dataview table').empty()
@@ -39,9 +39,9 @@
      app.datatable = $('#dataview table').DataTable({
          columnDefs: [
              {
-                 targets: '_all', 
+                 targets: '_all',
                  render: function(data, type, row, meta) {
-                     return '<span style="color:' 
+                     return '<span style="color:'
                          + app.sumview._varclr(columns[meta.col].title) + '">' + data + '</span>'
                  }
              }
@@ -54,8 +54,8 @@
          scrollCollapse: true,
          searching: false,
          info: false
-     })  
- 
+     })
+
      columns.forEach((c) => {
          $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
      })
@@ -163,7 +163,7 @@ export function displayBookmarkCharts(container, created = true) {
 
 }
 
- 
+
  export function handleEvents() {
      app.sumview.on('clickchart', (ch) => {
         //  console.log(ch.originalspec)
@@ -198,26 +198,26 @@ export function displayBookmarkCharts(container, created = true) {
          else {
              $('#update, #remove').attr('disabled', false)
          }
-         
+
          if(logging) app.logger.push({time:Date.now(), action:'clickchart', data:ch.originalspec})
      })
      .on('mouseoverchart', (ch) => {
          if(logging) app.logger.push({time:Date.now(), action:'mouseoverchart', data:ch})
-         var vegachart = _.extend({}, ch.originalspec, 
-             { width: 390, height: 190, autosize: 'fit' }, 
+         var vegachart = _.extend({}, ch.originalspec,
+             { width: 390, height: 190, autosize: 'fit' },
              { data: {values: app.data.chartdata.values} },
              { config: vegaConfig})
          vegaEmbed('#tooltip .chartcontainer', vegachart, {actions: false})
-         
+
          $('#tooltip .chartlabel').css('background-color', ch.created ? '#f1a340' : '#998ec3')
          $('#tooltip .chartlabel').html('#' + ch.chid)
      })
      .on('recommendchart', () => {
          displayAllCharts('#suggestionview', true)
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart'})
- 
+
      })
- 
+
      app.chartview.on('similar', (spec) => {
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart', data:spec})
 
@@ -253,43 +253,43 @@ export function displayBookmarkCharts(container, created = true) {
          console.log("Fields array:", fieldsArray);
          app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid }, attributesHistory)
          //app.sumview.update(()=> {app.sumview.selectedChartID = spec._meta.chid }, fieldsArray)
-         
+
          //$('#suggestionview').empty()
          displayAllCharts('#suggestionview', true)
-         
+
          if(logging) app.logger.push({time:Date.now(), action:'addchart', data:spec})
      })
- 
+
      app.chartview.on('update-chart', (spec) => {
          spec._meta = app.sumview.data.chartspecs[app.sumview.selectedChartID]._meta
          app.sumview.data.chartspecs[app.sumview.selectedChartID] = spec
- 
+
          app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
          displayAllCharts('#allchartsview', false)
          $('#suggestionview').empty()
- 
+
          if(logging) app.logger.push({time:Date.now(), action:'updatechart', data:spec})
      })
- 
+
     //  app.chartview.on('remove-chart', (spec) => {
     //      app.sumview.data.chartspecs = app.sumview.data.chartspecs.filter((d) => { return d._meta.chid != app.sumview.selectedChartID })
     //      app.sumview.update()
     //      displayAllCharts('#allchartsview', false)
     //      $('#suggestionview').empty()
- 
+
     //      if(logging) app.logger.push({time:Date.now(), action:'removechart', data:spec})
     //  })
- 
+
      $('#import').click(() => {
          $('#dialog').css('display', 'block')
      })
- 
+
      $('.close').click(() => {
          $('#dialog').css('display', 'none')
      })
- 
 
-     // If the user has clicked on the previous charts from the past users then 
+
+     // If the user has clicked on the previous charts from the past users then
      // we are getting the state of the clicked chart
      $('#allchartsview').click(() => {
          console.log("A chart has been clicked in Chart View")
@@ -323,7 +323,7 @@ export function displayBookmarkCharts(container, created = true) {
      })
 
 
-     
+
      $('#submit').click(() => {
          if($('#inputfile').val()) {
              var reader = new FileReader();
@@ -331,7 +331,7 @@ export function displayBookmarkCharts(container, created = true) {
                  var d = JSON.parse(reader.result);
                  updateData(d, $('#inputfile').val())
              };
- 
+
              reader.readAsText(document.getElementById('inputfile').files[0]);
          }
          else if($('#inputurl').val()) {
@@ -339,11 +339,11 @@ export function displayBookmarkCharts(container, created = true) {
                  updateData(d, $('#inputurl').val())
              })
          }
- 
+
          $('.close').click()
          if(logging) app.logger.push({time:Date.now(), action:'submitdata'})
      })
- 
+
     $('#export').click(() => {
          download(JSON.stringify({
                  charts: app.sumview.data.chartspecs,
@@ -399,17 +399,17 @@ export function displayBookmarkCharts(container, created = true) {
                  parameters[item[0]] = parameters[item[0]].split(",")
          })
      }
- 
+
      return parameters
  }
- 
+
  export function updateData(data, name) {
      $("#datafile").html(name)
- 
+
      app.data = {}
      app.data.chartdata = {attributes: data.attributes, values: data.data}
      app.data.chartspecs = data.charts
- 
+
      app.sumview = new SumView(d3.select('#sumview'), app.data, {
          backend: 'http://127.0.0.1:5500',
          size: [$('#sumview').width(), $('#sumview').height()],
@@ -417,21 +417,21 @@ export function displayBookmarkCharts(container, created = true) {
          chartclr: ['#f1a340', '#998ec3']
      })
      app.sumview.update()
- 
+
      app.chartview = new ChartView({}, {
          attributes: app.data.chartdata.attributes,
          datavalues: app.data.chartdata.values,
          vegaconfig: vegaConfig
      })
- 
+
      createDataTable(280)
      displayAllCharts('#allchartsview', true)
      displayAllCharts('#suggestionview', true)
- 
+
      // events handling
      handleEvents()
  }
- 
+
  function download(content, fileName, contentType) {
      var a = document.createElement("a");
      var file = new Blob([content], {type: contentType});
@@ -439,7 +439,7 @@ export function displayBookmarkCharts(container, created = true) {
      a.download = fileName;
      a.click();
  }
- 
+
  export default {vegaConfig, handleEvents, parseurl, createDataTable, displayAllCharts, updateData}
 
 function storeInteractionLogs(interaction, value, time) {
@@ -606,46 +606,84 @@ function CSVToArray(text) {
 
 var hitRateHistory = {'RL': [], 'Random': [], 'Momentum': []  };
 
+function computeAccuracy(rlPrediction, currentHistory) {
+    let totalMatches = 0;
+    let checks = 0;
+    for (let i = 0; i < rlPrediction.length; i++) {
+        for (let j = 0; j < currentHistory.length; j++) {
+            checks++;
+            if (currentHistory[i]==(rlPrediction[i])) {
+                totalMatches++;
+            }
+        }
+    }
+    const averageMatches = checks > 0 ? totalMatches / checks : 0;
+    return averageMatches;
+}
 
-// Function to create or update accuracy chart
 function createAccuracyChart(id, data, updateTimeSeriesChart, xsc) {
+    const fieldNames = [
+        'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
+        'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
+        'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
+        'speed_ias_in_knots'
+    ];
 
-    hitRateHistory = data['accuracy_response'];
-
-    // Determine the number of time points
-    var time = hitRateHistory[Object.keys(hitRateHistory)[0]].length;
-    var timeLabels = Array.from({ length: time }, (_, i) => i.toString());
-
-    const margin = { top: 20, right: 50, bottom: 50, left: 190 };
-    const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
-    const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
+    const algorithmPredictions = data['algorithm_predictions'];
+    const fullHistory = data['full_history'];
+    const recTimetoInteractionTime = data['recTimetoInteractionTime'];
 
     // Clear the existing SVG content
     d3.select(`#${id}`).selectAll("*").remove();
 
-    var svg = d3.select(`#${id}`).append("svg")
+    const margin = { top: 20, right: 50, bottom: 50, left: 190 };
+    const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
+    const height = window.innerHeight * 0.4 - margin.top - margin.bottom;
+
+    const svg = d3.select(`#${id}`).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    var xScale = d3.scaleBand()
-        .domain(timeLabels)
+    const xScale = d3.scaleBand()
+        .domain(Object.keys(recTimetoInteractionTime))
         .range([0, width])
         .padding(0.1);
 
-    var yScale = d3.scaleLinear()
-        .domain([0, 1.1]) // Adjusted yScale domain
+    const yScale = d3.scaleLinear()
+        .domain([0, 1.1])
         .range([height, 0]);
 
-    var colors = d3.scaleOrdinal()
-        .domain(Object.keys(hitRateHistory))
+    const colors = d3.scaleOrdinal()
+        .domain(Object.keys(algorithmPredictions))
         .range(d3.schemeCategory10);
+
+      // Compute hit rates for each algorithm
+    const hitRateHistory = {};
+    Object.keys(algorithmPredictions).forEach(algorithm => {
+        const predictions = algorithmPredictions[algorithm];
+        const hitRates = [];
+        Object.keys(recTimetoInteractionTime).forEach(time => {
+            const timeSteps = recTimetoInteractionTime[time];
+            let totalMatches = 0;
+            let totalChecks = 0;
+            timeSteps.forEach(step => {
+                const accuracy = computeAccuracy(predictions[time], fullHistory[step]);
+                totalMatches += accuracy.matches;
+                totalChecks += accuracy.checks;
+            });
+            const averageAccuracy = totalChecks > 0 ? totalMatches / totalChecks : 0;
+            hitRates.push(averageAccuracy);
+        });
+        hitRateHistory[algorithm] = hitRates;
+    });
+
 
     // Draw lines for each dataset
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
-        var line = d3.line()
-            .x((_, i) => xScale(i.toString()) + xScale.bandwidth() / 2)
+        const line = d3.line()
+            .x((_, j) => xScale(j.toString()) + xScale.bandwidth() / 2)
             .y(d => yScale(d))
             .curve(d3.curveCardinal.tension(0.5));
 
@@ -655,8 +693,8 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc) {
             .attr("stroke", colors(algorithm))
             .attr("stroke-width", 2)
             .attr("d", line)
-            .on("click", function(_, i) {
-                updateTimeSeriesChart(i,data,xsc);
+            .on("click", (_, j) => {
+                updateTimeSeriesChart(j, data, xsc);
             });
 
         // Add labels for different algorithms colors
@@ -665,11 +703,10 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc) {
             .attr("y", margin.top + 20 * i)
             .attr("fill", colors(algorithm))
             .text(algorithm);
-
     });
 
     // Add circles to represent data points
-    Object.keys(hitRateHistory).forEach(algorithm => {
+    Object.keys(hitRateHistory).forEach((algorithm, j) => {
         hitRateHistory[algorithm].forEach((hitRate, i) => {
             svg.append("circle")
                 .attr("cx", xScale(i.toString()) + xScale.bandwidth() / 2)
@@ -677,7 +714,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc) {
                 .attr("r", 5)
                 .attr("fill", colors(algorithm))
                 .on("click", () => {
-                    updateTimeSeriesChart(i,data,xsc);
+                    updateTimeSeriesChart(i, data, xsc);
                 });
         });
     });
@@ -705,6 +742,8 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc) {
         .attr("text-anchor", "middle")
         .style("font-size", "14px")
         .text("Hit Rate");
+}
+
 
     // // Brush functionality
     // svg.append("g").call(d3.brushX()
@@ -723,7 +762,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc) {
     //         updateTimeSeriesChart(selectedTimes,data);
     //     }
     // }
-}
+//}
 
 
 
@@ -735,7 +774,7 @@ function updateTimeSeriesChart(clickedTime, data, xScale) {
         'speed_ias_in_knots'
     ];
 
-    var localattributeHistory = attributesHistory;
+    var localattributeHistory = data['full_history'];
     var mapping = data['recTimetoInteractionTime'];
     var rlPredictions = data['algorithm_predictions']['RL'][clickedTime + 2];
 

@@ -34,7 +34,13 @@
          // text editor
          this._cheditor = ace.edit('editorcontainer', {
              mode: 'ace/mode/json',
-             minLines: 20
+             minLines: 20,
+                maxLines: 35,
+                wrap: true,
+                autoScrollEditorIntoView: true,
+                highlightActiveLine: true,
+                showPrintMargin: true,
+                showGutter: false,
          })
 
 
@@ -121,8 +127,11 @@
                      delete data['encoding'][channel]
              })
             //  console.log(data)
-             this._validateChart(data, (recommended_chart_specs) => {this.update(recommended_chart_specs, 'uicontrols')})
-             this.emit('similar', this.data)
+              this._validateChart(data, (recommended_chart_specs) => {
+        this.update(recommended_chart_specs, 'uicontrols');
+        this.emit('similar', this.data); // Automatically generate similar charts
+    });
+
 
          })
  

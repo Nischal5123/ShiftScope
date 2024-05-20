@@ -21,6 +21,9 @@ class OnlineLearningSystem:
         self.greedy_accuracies = []
         self.master_current_user_attributes = None
         self.current_user_attributes = []
+
+        ######
+        self.interaction_map = {}
         if dataset == 'birdstrikes':
             self.dataset = dataset
             self.fieldnames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
@@ -57,11 +60,10 @@ class OnlineLearningSystem:
             self.response_algorithm_predictions['RL'] = rl_history.tolist()
             self.response_algorithm_predictions['Random'] = random_history.tolist()
             self.response_algorithm_predictions['Momentum'] = momentum_history.tolist()
+
+
             print("Performance data calculated", self.response_accuracy)
 
-
-
-            # return self.response_accuracy , self.all_algorithms_distribution_map, self.user_distribution_map
 
     def compute_accuracy(self, rl_prediction, current_history):
         total_matches = 0
@@ -82,9 +84,6 @@ class OnlineLearningSystem:
             "algorithm_predictions": self.response_algorithm_predictions
         }
 
-        # Check the type of self.current_user_attributes
-        print("Type of self.current_user_attributes:", type(self.current_user_attributes))
-
         # Convert self.current_user_attributes to a list if it's a NumPy array
         if isinstance(self.current_user_attributes, np.ndarray):
             response_user = self.current_user_attributes.tolist()
@@ -96,7 +95,9 @@ class OnlineLearningSystem:
             'distribution_response': response_data,
             'accuracy_response': self.response_accuracy,
             'algorithm_predictions': self.response_algorithm_predictions,
-            'user_selections': response_user
+            'user_selections': response_user,
+             'recTimetoInteractionTime': self.interaction_map,
+            'full_history': self.last_users_attributes_history,
         }
 
         # Return final response as JSON
@@ -137,22 +138,30 @@ class OnlineLearningSystem:
 
 
     def onlinelearning(self, attributesHistory, algorithms_to_run=['Momentum', 'Random', 'Greedy', 'Qlearning'], dataset='birdstrikes', specified_algorithm='Qlearning'):
-        current_interactions = []
+        self.current_user_attributes = []
         last_history = self.last_users_attributes_history
 
         for i in range(len(attributesHistory)):
             attributesHistory[i].extend(['none'] * (3 - len(attributesHistory[i])))
 
-        if len(last_history) > 2:
+        if len(last_history) > 0:
             new_interactions = [attr for attr in attributesHistory[len(last_history):]]
         else:
             new_interactions = []
+
+
 
         self.current_user_attributes.extend(new_interactions)
         self.last_users_attributes_history = attributesHistory
 
         #get the hit rate and other performance data ################################################################
-        if len(self.rl_attributes_history) > 1:
+        if len(self.rl_attributes_history) > 0:
+            # Map the user's position of interaction in the new attributesHistory to the corresponding predictions
+            # Determine the indices of the current_user_attributes in attributesHistory
+            interaction_indices = list(range(len(last_history), len(attributesHistory)))
+            interaction_time_id = len(self.rl_attributes_history)-1
+            self.interaction_map[interaction_time_id] = interaction_indices
+
             self.set_performance_data()
         ############################################################################################################
 
@@ -176,6 +185,8 @@ class OnlineLearningSystem:
         self.random_attributes_history.append(next_state_random)
         self.rl_attributes_history.append(next_state_rl)
         ############################################################################################################
+
+
 
         df_momentum = pd.DataFrame({'State': self.momentum_attributes_history})
         distribution_map_momentum = self.get_distribution_of_states(df_momentum)

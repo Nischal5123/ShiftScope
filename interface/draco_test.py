@@ -49,13 +49,13 @@ def recommend_charts(
         # print(f"COST: {model.cost}")
         chart = renderer.render(spec=spec, data=df)
         if not ( isinstance(chart, alt.FacetChart) or isinstance(chart, alt.LayerChart)):
-            chart_vega_specs[chart_name] = chart.to_json()
+            chart_vega_specs[chart_name] = {'chart': chart.to_json(), 'cost': model.cost[0]}
+
         # # Adjust column-faceted chart size
 
         # print(chart.to_json())
         # display(chart)
 
-    # return chart_specs
     return chart_vega_specs
 
 def rec_from_generated_spec(
@@ -80,10 +80,12 @@ def rec_from_generated_spec(
 
             spec =(
                     (mark,'only-mark'),
-                    input_spec_base +
+                    input_spec_base
+                    +
                     [
                         f"attribute((mark,type),m0,{mark})."
-                    ] +
+                    ]
+                    +
 
                     force_attributes +
 
@@ -104,6 +106,11 @@ def rec_from_generated_spec(
         labeler = lambda i: f"CHART {i + 1} ({' | '.join(cfg)})"
         recs = recs | recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler)
 
+    # sort recs by cost
+    recs = dict(sorted(recs.items(), key=lambda item: item[1]['cost']))
+    #remove the cost from the dictionary
+    for key in recs:
+        recs[key] = recs[key]['chart']
     return recs
 
 
