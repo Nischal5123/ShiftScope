@@ -8,11 +8,11 @@ from environment3 import environment
 import numpy as np
 import torch.optim.lr_scheduler as lr_scheduler
 import ast
+import pdb
 
 #Hyperparameters
 learning_rate = 0.0002
 # learning_rate = 1e-5
-gamma         = 0.98
 n_rollout     = 5
 warmup_epochs = 10
 num_epochs = 201
@@ -72,7 +72,7 @@ class ActorCritic(nn.Module):
         self.data = []
         return s_batch, a_batch, r_batch, s_prime_batch, done_batch
   
-    def train_net(self):
+    def train_net(self, gamma):
         s, a, r, s_prime, done = self.make_batch()
         # r = (r - r.mean()) / (r.std() + 1e-9)
         # Check for NaNs in inputs
@@ -122,6 +122,10 @@ class ActorCriticModel:
 
         # self.attribute_history
         self.rl_env = environment()
+        #hyper-parameters
+        #hyperparameters:
+        self.gamma         = 0.9
+        self.gamma_decay   = 0.9 
     
     def get_state(self, cur_attrs):
         state = np.zeros(len(self.attributes_birdstrikes), dtype = np.int32)
@@ -157,10 +161,20 @@ class ActorCriticModel:
         
         return taken_action
 
-    def update_reward(self, new_training_data):
-        for tuples in new_training_data:
-            self.model.put_data(tuples)
-        self.model.train_net()
+    def update_reward(self, data):
+        
+        for d in data:
+            S, A, R, S_prime, done = d
+            s = self.get_state(S)
+            # pdb.set_trace()
+            a = self.rl_env.valid_actions[tuple(self.get_state(A))]
+            r = R
+            s_prime = self.get_state(S_prime)
+            print(s, a, r, s_prime, done)
+            self.model.put_data((s,a,r,s_prime,done))
+        
+        self.model.train_net(self.gamma)
+        self.gamma *= self.gamma_decay
 
 def lr_lambda(epoch, warmup_epochs=warmup_epochs, num_epochs=num_epochs):
     if epoch < warmup_epochs:
@@ -168,6 +182,10 @@ def lr_lambda(epoch, warmup_epochs=warmup_epochs, num_epochs=num_epochs):
     return max(0.0, float(num_epochs - epoch) / float(max(1, num_epochs - warmup_epochs)))
 
 def main():  
+    #hyperparameters:
+    gamma         = 0.98
+    gamma_decay   = 0.9
+    
     model = ActorCritic()
     scheduler = lr_scheduler.LambdaLR(model.optimizer, lr_lambda)
     
@@ -207,7 +225,7 @@ def main():
                             if done:
                                 break                     
                         
-                        model.train_net()
+                        model.train_net(gamma)
                         scheduler.step()  # Step the scheduler
 
                     if n_epi%print_interval==0 and n_epi!=0:

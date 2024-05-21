@@ -5,16 +5,21 @@ import concurrent.futures
 from collections import Counter
 from flask import Flask, jsonify
 from StateGenerator import StateGenerator
-from utils import run_algorithm
+# from utils import run_algorithm
+import utils
+import pdb
 
 class OnlineLearningSystem:
     def __init__(self, dataset='birdstrikes'):
-        self.encode_history = []
+        self.utils_obj = utils.utils()
+        self.response_history = []
+        self.state_history = []
         self.momentum_attributes_history = []
         self.greedy_attributes_history = []
         self.random_attributes_history = []
         self.rl_attributes_history = []
         self.last_users_attributes_history = []
+        self.actor_critic_action_history = []
         self.rl_accuracies = []
         self.random_accuracies = []
         self.momentum_accuracies = []
@@ -58,8 +63,6 @@ class OnlineLearningSystem:
             self.response_algorithm_predictions['Random'] = random_history.tolist()
             self.response_algorithm_predictions['Momentum'] = momentum_history.tolist()
             print("Performance data calculated", self.response_accuracy)
-
-
 
             # return self.response_accuracy , self.all_algorithms_distribution_map, self.user_distribution_map
 
@@ -136,10 +139,10 @@ class OnlineLearningSystem:
         return history
 
 
-    def onlinelearning(self, attributesHistory, algorithms_to_run=['Momentum', 'Random', 'Greedy', 'Qlearning'], dataset='birdstrikes', specified_algorithm='Qlearning'):
+    def onlinelearning(self, algorithms_to_run=['Momentum', 'Random', 'Greedy', 'Qlearning', 'ActorCritic'], dataset='birdstrikes'):
         current_interactions = []
         last_history = self.last_users_attributes_history
-
+        attributesHistory = self.state_history
         for i in range(len(attributesHistory)):
             attributesHistory[i].extend(['none'] * (3 - len(attributesHistory[i])))
 
@@ -160,20 +163,22 @@ class OnlineLearningSystem:
         df = pd.DataFrame({'State': attributesHistory})
         distribution_map = self.get_distribution_of_states(df)
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
-            futures = {executor.submit(run_algorithm, algorithm, attributesHistory, generator, dataset): algorithm for algorithm in algorithms_to_run}
+        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+            futures = {executor.submit(self.utils_obj.run_algorithm, algorithm, attributesHistory, generator, dataset): algorithm for algorithm in algorithms_to_run}
             results = {futures[future]: future.result() for future in concurrent.futures.as_completed(futures)}
 
         next_state_rl = self.extend_state(results['Qlearning'])
         next_state_momentum = self.extend_state(results['Momentum'])
         next_state_greedy = self.extend_state(results['Greedy'])
         next_state_random = self.extend_state(results['Random'])
-        next_state_return = self.extend_state(results[specified_algorithm])
+        next_state_ac = self.extend_state(results['ActorCritic'])
+        # next_state_return = results[specified_algorithm]
 
         ####### add new predictions to the history ################################################################
         self.momentum_attributes_history.append(next_state_momentum)
         self.greedy_attributes_history.append(next_state_greedy)
         self.random_attributes_history.append(next_state_random)
+        self.actor_critic_action_history.append(next_state_ac)
         self.rl_attributes_history.append(next_state_rl)
         ############################################################################################################
 
@@ -187,12 +192,20 @@ class OnlineLearningSystem:
         distribution_map_random = self.get_distribution_of_states(df_random)
 
         df_rl = pd.DataFrame({'State': self.rl_attributes_history})
+        # print(df_rl)
         distribution_map_rl = self.get_distribution_of_states(df_rl)
 
+        df_ac = pd.DataFrame(({'State': [self.actor_critic_action_history[0][-1]]}))
+        # print(df_ac)
+        # pdb.set_trace()
+        distribution_map_ac = self.get_distribution_of_states(df_ac)
+
+        # pdb.set_trace()
         all_algorithms_distribution_map = {
             'Momentum': distribution_map_momentum,
             'Greedy': distribution_map_rl, # lets send this as greedy for now
-            'Random': distribution_map_random
+            'Random': distribution_map_random,
+            'Actor_Critic': distribution_map_ac
         }
 
          # Store these for everytime the performance view is clicked even if there is no new data need to return this
@@ -200,10 +213,37 @@ class OnlineLearningSystem:
         self.user_distribution_map = distribution_map
         ############################################################################################################
 
+        return next_state_ac, distribution_map, all_algorithms_distribution_map
 
+    def update_models(self):
+        Prev_recommended_attributes = self.actor_critic_action_history[-1]
+        cur_attributes = self.response_history[-1]
 
-        return next_state_return, distribution_map, all_algorithms_distribution_map
+        #Generating reward: Cur_attributes contains the attributes in users clicked recommendations
+        #so giving a positive reward to this particular set of attributes
+        
+        #S = the state for which we generate recommendations
+        # A = set of possible recommendations (3) which will be taken by the agent
+        #S' = next state (here cur_attribute which was clicked by the recommender)
+        # R = reward calculated based on what the user clicked on 
 
+        data = []
+        S = self.extend_state(self.state_history[-1])
+        S_prime = self.extend_state(cur_attributes)
+        for attr_set in Prev_recommended_attributes: #(prev_recommended attributes are each an action)
+            # if sorted(attr_set) == sorted(cur_attributes):
+            total_r = 0
+            for attr in attr_set:
+                if attr in cur_attributes:
+                    total_r += 5
+            A = self.extend_state(attr_set)
+            R = total_r
+            data.append((S, A, R, S_prime, False))
+        self.state_history.append(S_prime)
+        # pdb.set_trace()
+
+        self.utils_obj.ac_model.update_reward(data)
+            
 
     def save_histories(self, path):
         np.save(path + 'momentum_attributes_history.npy', self.momentum_attributes_history)
@@ -211,6 +251,7 @@ class OnlineLearningSystem:
         np.save(path + 'random_attributes_history.npy', self.random_attributes_history)
         np.save(path + 'rl_attributes_history.npy', self.rl_attributes_history)
         np.save(path + 'user_attributes_history.npy', self.current_user_attributes)
+        np.save(path + 'actor_critic_attributes_history.npy', self.actor_critic_action_history)
 
 # Assuming other necessary functions like StateGenerator etc. are implemented elsewhere
 

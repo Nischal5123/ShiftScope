@@ -13,9 +13,10 @@ import concurrent.futures
 from environment import environment
 import datetime
 from StateGenerator import StateGenerator
-from utils import run_algorithm
 from zeng_app import perform_snd_flds
 from performance import OnlineLearningSystem
+import pdb
+import concurrent.futures
 
 port = 5500
 
@@ -27,9 +28,6 @@ CORS(app)
 env = environment()
 
 system = OnlineLearningSystem()
-
-
-
 
 class InvalidUsage(Exception):
     status_code = 400
@@ -52,10 +50,6 @@ def handle_invalid_usage(error):
     response.status_code = error.status_code
     return response
 
-
-
-
-
 @app.route('/encode', methods=['POST'])
 def encode():
     specs = request.get_json()
@@ -75,7 +69,7 @@ def encode():
             if field_name:
                 field_names.append(field_name)
                 field_types[field_name] = key
-    system.encode_history.append(field_names)
+    system.response_history.append(field_names)
     # Get Draco recommendations
     recommendations = draco_test.get_draco_recommendations(field_names, 'birdstrikes', parsed_data)
     chart_recom=system.remove_irrelevant_recommendations(field_names, recommendations)
@@ -87,8 +81,6 @@ def read_json_file(file_path='distribution_map.json', algorithms=['Momentum','Ra
     response=system.read_json_file(algorithms)
 
     return response
-
-
 
 
 #This is to get the recommendation that the user has selected
@@ -112,8 +104,8 @@ def encode2():
         if field_name:
             field_names.append(field_name)
 
-    system.encode_history.append(field_names)
-
+    system.response_history.append(field_names)
+    system.update_models()
     #write to a log file the selected recommendation for current session. can i get current session id?
 
     with open('selected_recommendation.txt', 'a') as f:
@@ -123,11 +115,10 @@ def encode2():
 
     return jsonify(specs)
 
-
-
-
-
-
+def recommendation_generation(attributes):
+    recommendations = draco_test.get_draco_recommendations(attributes)
+    chart_recom= system.remove_irrelevant_recommendations(attributes, recommendations, max_constrained=False)
+    return chart_recom
 
 @app.route('/top_k', methods=['POST'])
 def top_k(save_csv=False):
@@ -139,26 +130,32 @@ def top_k(save_csv=False):
     data = eval(total_data.get('history'))
 
     bookmarked_charts = total_data.get('bookmarked', [])
-    specified_algorithm = total_data.get('algorithm', 'Qlearning')
+    specified_algorithm = total_data.get('algorithm', 'ActorCritic')
 
     if data and isinstance(data, list):
-        attributesHistory = data
+        system.state_history = data
     else:
-        attributesHistory = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
+        system.state_history = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
                          ['flight_data', 'wildlife_size', 'airport_name']]
 
-    print('Attribute History', attributesHistory)
-    attributes,distribution_map,baselines_distribution_maps=system.onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], specified_algorithm=specified_algorithm)
+    # print('Attribute History', attributesHistory)
+    attributes_list,distribution_map,baselines_distribution_maps=system.onlinelearning(algorithms_to_run=['Momentum','Random','Greedy','Qlearning','ActorCritic'])
 
-    print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
+    # print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
+    print(len(attributes_list))
+    chart_recom_list = []
+    with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:
+        future_to_attributes = {executor.submit(recommendation_generation, attributes): attributes for attributes in attributes_list}
+        for future in concurrent.futures.as_completed(future_to_attributes):
+            chart_recom = future.result()
+            chart_recom_list.extend(chart_recom)
 
-    recommendations = draco_test.get_draco_recommendations(attributes)
-    chart_recom=system.remove_irrelevant_recommendations(attributes, recommendations, max_constrained=False)
+        # pdb.set_trace()
     print(' Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
-    print('Recommendation Size:', len(chart_recom))
+    # print('Recommendation Size:', len(chart_recom))
 
     response_data = {
-        "chart_recommendations": chart_recom,
+        "chart_recommendations": chart_recom_list,
         "distribution_map": distribution_map
     }
 
@@ -175,8 +172,6 @@ def top_k(save_csv=False):
         pd.DataFrame.to_csv(distribution_map_dataframe, 'distribution_map.csv')
 
     return jsonify(response_data)
-
-
 
 
 if __name__ == '__main__':

@@ -266,7 +266,7 @@ if __name__ == "__main__":
             sum = 0
             for keys in env.attribute_frequency.items():
                 # for env.attribute_frequency[keys]
-                print(keys)
+                # print(keys)
                 # pass
                 sum += len(keys)
             print(len(env.attribute_frequency))
