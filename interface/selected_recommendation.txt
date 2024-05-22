@@ -3238,3 +3238,7 @@ wildlife_species
 ['speed_ias_in_knots', 'wildlife_species', 'when_time_of_day'] 2024-05-22 02:39:03.160139
 ['speed_ias_in_knots', 'wildlife_species', 'when_time_of_day'] 2024-05-22 02:39:45.671524
 ['cost_total_a', 'airport_name', 'none'] 2024-05-22 02:49:42.835260
+['cost_total_a', 'airport_name', 'none'] 2024-05-22 02:55:24.175391
+['cost_total_a', 'wildlife_size', 'none'] 2024-05-22 02:55:38.765526
+['origin_state', 'wildlife_species', 'none'] 2024-05-22 02:55:40.386100
+['cost_total_a', 'airport_name', 'aircraft_make_model'] 2024-05-22 02:55:41.986986
