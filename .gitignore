@@ -11,3 +11,5 @@
 /node_modules/
 /deep-tamer
 /tamer
+/interface/__pycache__/
+/sourcedata/
