@@ -170,7 +170,7 @@ class ActorCriticModel:
             a = self.rl_env.valid_actions[tuple(self.get_state(A))]
             r = R
             s_prime = self.get_state(S_prime)
-            print(s, a, r, s_prime, done)
+            # print(s, a, r, s_prime, done)
             self.model.put_data((s,a,r,s_prime,done))
         
         self.model.train_net(self.gamma)

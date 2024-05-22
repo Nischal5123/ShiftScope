@@ -28,21 +28,12 @@ export default class SumView extends EventEmitter {
         }
         this._charts = []
         this._allRecommendedcharts = []
+        this._baselinecharts = []
         this._prevcharts = []
-        this._clusterNum = 1
-        this._bubbleSets = []
-        this._variableSets = []
-        this._showBubbles = true
         this._selectedChartID = -1
         this._selectedbookmarkedChartID = -1
         this._performanceData = {}
-        this._rscale = d3.scaleLinear().domain([0, 4]).range([0, this._params.dotr])
-        this._xscale = d3.scaleLinear().domain([0, 1])
-            .range([this.conf.margin, this.conf.size[0] - this.conf.margin])
-        this._yscale = d3.scaleLinear().domain([0, 1])
-            .range([this.conf.margin, this.conf.size[1] - this.conf.margin])
-        this._pie = d3.pie().sort(null).value(d => d.value)
-        this._arc = d3.arc().innerRadius(this._params.dotr - 5).outerRadius(this._params.dotr)
+        
         this._varclr = d3.scaleOrdinal(['#e6194b', '#3cb44b', '#ffe119', '#4363d8', '#f58231', '#911eb4', '#46f0f0', '#f032e6', '#bcf60c', '#fabebe', '#008080', '#e6beff', '#9a6324', '#fffac8', '#800000', '#aaffc3', '#808000', '#ffd8b1', '#000075'])
         this._varclr = d3.scaleOrdinal(['#F3C300', '#875692', '#F38400', '#A1CAF1', '#BE0032', '#C2B280', '#848482', '#008856', '#E68FAC', '#0067A5', '#F99379', '#604E97', '#F6A600', '#B3446C', '#DCD300', '#882D17', '#8DB600', '#654522', '#E25822', '#2B3D26'])
         this._usrclr = d3.scaleOrdinal(d3.schemeGreys[5]).domain([0, 1, 2, 3, 4])
@@ -52,7 +43,11 @@ export default class SumView extends EventEmitter {
     }
 
     get charts() {
-        return this._charts
+      return this._charts
+    }
+
+    get baselineCharts() {
+        return this._baselinecharts
     }
 
     get bookmarkedCharts() {
@@ -100,24 +95,7 @@ export default class SumView extends EventEmitter {
             this.emit('clickchart', selectedChart)
         }
     }
-
-    set weight(w) {
-        this._params.distw = w
-        this.update()
-    }
-
-    set svgsize(size) {
-        this.conf.size = size
-        this._xscale.range([this.conf.margin, this.conf.size[0] - this.conf.margin])
-        this._yscale.range([this.conf.margin, this.conf.size[1] - this.conf.margin])
-        this.svg.attr('width', this.conf.size[0])
-            .attr('height', this.conf.size[1])
-        this.svg.select('.background')
-            .attr('width', this.conf.size[0])
-            .attr('height', this.conf.size[1])
-        // this._createBubbles()
-        this.render()
-    }
+  
 
     _init() {
         this.container.select('svg').remove()
@@ -146,10 +124,10 @@ export default class SumView extends EventEmitter {
                     this._charts = _.filter(this._charts, (c) => {
                         return !c.created
                     })
-                    this.render()
+                    // this.render()
                     this._recommendCharts()
                 } else {
-                    alert('You need to create at least 3 charts.')
+                    // alert('You need to create at least 3 charts.')
                 }
             })
             .on('mouseover', () => {
@@ -170,131 +148,10 @@ export default class SumView extends EventEmitter {
         this._prevcharts = this._charts
 
         this._recommendCharts(attributesHistory)
-        this._collectAllRecommendedCharts()
+        // this._collectAllRecommendedCharts()
         // this.render()
         // if (callback) callback()
 
-    }
-
-    render() {
-        // draw charts
-        var charts = this._svgDrawing.select('.chartlayer')
-            .selectAll('.chartdot')
-            .data(this._charts, (d) => {
-                return d.chid
-            })
-
-        // enter
-        var chartsenter = charts.enter()
-            .append('g')
-            .attr('class', 'chartdot')
-            .attr('transform', (d) => {
-                return 'translate(' + this._xscale(d.coords[0]) + ',' + this._yscale(d.coords[1]) + ')'
-            })
-            .on('click', (d) => {
-                this.selectedChartID = d.chid
-                console.log(this.selectedChartID)
-                console.log("This has been selected")
-                if (logging) app.logger.push({time: Date.now(), action: 'clickchart', data: d})
-            })
-            .on('mouseover', (d) => {
-                this.highlight(d.chid, true, false)
-                this.emit('mouseoverchart', d)
-                d3.select('#tooltip')
-                    .style('display', 'inline-block')
-                    .style('left', (d3.event.pageX + 8) + 'px')
-                    .style('top', (d3.event.pageY + 8) + 'px')
-                if (logging) app.logger.push({time: Date.now(), action: 'mousover', data: d})
-            })
-            .on('mouseout', (d) => {
-                this._svgDrawing.selectAll('.chartdot.hovered').classed('hovered', false)
-                d3.select('#tooltip').style('display', 'none')
-                if (logging) app.logger.push({time: Date.now(), action: 'mouseout', data: d})
-            })
-
-        chartsenter.append('circle')
-            .attr('r', this._params.dotr)
-            .attr('cx', 0)
-            .attr('cy', 0)
-
-        chartsenter.append('text')
-            .attr('class', 'marktext')
-            .attr('x', 0)
-            .attr('y', 0)
-            .text((d) => {
-                return d.originalspec.mark.substring(0, 1).toUpperCase()
-            })
-
-        chartsenter.append('rect')
-            .attr('x', this._params.dotr - 5)
-            .attr('y', this._params.dotr - 5)
-            .attr('width', 10)
-            .attr('height', 10)
-
-        chartsenter.append('text')
-            .attr('class', 'uidtext')
-            .attr('x', this._params.dotr)
-            .attr('y', this._params.dotr)
-            .text((d) => {
-                return d.created ? 'x' : d.uid
-            })
-
-        var arcs = chartsenter.selectAll('path')
-            .data((d) => {
-                return this._pie(d.vars.map((v) => {
-                    return {name: v, value: 1.0}
-                }))
-            })
-        arcs.enter()
-            .append('path')
-            .attr('d', this._arc)
-            .style('fill', (d) => {
-                return this._varclr(d.data.name)
-            })
-
-        chartsenter.style('opacity', 0)
-            .transition()
-            // .duration(500)
-            .style('opacity', 1)
-
-        // update
-        charts.transition()
-            // .duration(1000)
-            .attr('transform', (d) => {
-                return 'translate(' + this._xscale(d.coords[0]) + ',' + this._yscale(d.coords[1]) + ')'
-            })
-
-        chartsenter.select('.marktext')
-            .text((d) => {
-                return d.originalspec.mark.substring(0, 1).toUpperCase()
-            })
-
-        chartsenter.select('.uidtext')
-            .text((d) => {
-                return d.created ? 'x' : d.uid
-            })
-
-        arcs = charts.selectAll('path')
-            .data((d) => {
-                return this._pie(d.vars.map((v) => {
-                    return {name: v, value: 1.0}
-                }))
-            })
-        arcs.enter()
-            .append('path')
-            .attr('d', this._arc)
-            .style('fill', (d) => {
-                return this._varclr(d.data.name)
-            })
-        arcs.attr('d', this._arc)
-            .style('fill', (d) => {
-                return this._varclr(d.data.name)
-            })
-        arcs.exit().remove()
-
-        // exit
-        charts.exit()
-            .remove()
     }
 
     highlight(chid, hoverin, bookmarked = false) {
@@ -334,7 +191,7 @@ _recommendCharts(attributesHistory, callback) {
     // Question: What speed (IAS) in knots could cause the substantial (Effect Amount
     // of damage) damage of AVRO RJ 85 (Aircraft Make Model)? :['speed_ias', 'aircraft_make_model']
     if (attributesHistory == null) {
-        attributesHistory = [['when_phase_of_flight', 'flight_date'],['speed_ias_in_knots', 'aircraft_make_model']];
+        attributesHistory = [];
     }
 
     // Get the selected algorithm directly here
@@ -357,6 +214,7 @@ _recommendCharts(attributesHistory, callback) {
         contentType: 'application/json'
     }).done((data) => {
         this._charts = [];
+        this._baselinecharts = [];
         this._performanceData = data['distribution_map'];
         for (var i = 0; i < data['chart_recommendations'].length; i++) {
             // returns the recommendations and the distribution of fields
@@ -364,9 +222,21 @@ _recommendCharts(attributesHistory, callback) {
                 var chart = {
                     originalspec: JSON.parse(data['chart_recommendations'][i]),
                     created: true,
-                    chid: i,
+                    chid: i+1,
                 };
                 this._charts.push(chart);
+
+            }
+        }
+        for (var j = 0; j < data['baseline_chart_recommendations'].length; j++) {
+            // returns the recommendations and the distribution of fields
+            if (data['chart_recommendations'][j]) {
+                var bchart = {
+                    originalspec: JSON.parse(data['baseline_chart_recommendations'][j]),
+                    created: true,
+                    chid: j,
+                };
+                this._baselinecharts.push(bchart);
 
             }
         }
@@ -377,7 +247,7 @@ _recommendCharts(attributesHistory, callback) {
             app.logger.push({ time: Date.now(), action: 'current_distribution', data: data['distribution_map'] });
         }
         // Trigger the render method only on success
-        this.render();
+        // this.render();
         this.emit('recommendchart', this._charts);
     }).fail((xhr, status, error) => {
         alert('Cannot Generate Recommendations.');

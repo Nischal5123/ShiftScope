@@ -27,8 +27,9 @@
                 <button id="export">End Session </button>
                  <label>Attribute Color Encodings: </label><span id="legend"></span>
                 <button type="button" id="bookmarkViewOpen">
-                <i class="fas fa-bookmark"></i> &nbsp; Bookmarked Charts</button>
+                <i class="fas fa-bookmark"></i></button>
                 <button id="performaceViewOpen">Performance View</button>
+                <button id="baselineViewOpen">&#9776; Baseline Recs</button>
             </div>
             <div id="panel1">
                 <span class="panel-header"><label>--------------------Chart Editor---------------------</label></span>
@@ -58,7 +59,7 @@
                     <label></label>
                     <label for="algorithm">Select Algorithm:</label>
                     <select id="algorithm" name="algorithm">
-                        <option value="Qlearning">Qlearning</option>
+                        <option value="Actor-Critic">ActorCritic</option>
                       <option value="Momentum">Momentum</option>
                       <option value="Random">Random</option>
                       <option value="Greedy">Greedy</option>
@@ -89,11 +90,14 @@
                 </div>
             </div>
             <div id="panel3">
-                <span class="panel-header"><label>-----------------------------------------------------Suggested Charts---------------------------------------</label></span>
+                <span class="panel-header"><label>-----------------------------------------------------Different Suggested Charts---------------------------------------</label></span>
 <!--                <div id="sumview"></div>-->
                 <div id="suggestionview"></div>
-<!--                <div class="chartcontainer"></div>-->
-                <!-- Use any element to open/show the overlay navigation menu -->
+                 <div id="mySidebar" class="sidebar">
+                     <a class="closebtn" id="baselineViewClose">×</a>
+                     <div id="suggestionview2"></div>
+                </div>
+
 
 
             </div>
@@ -123,6 +127,8 @@
           </div>
         <div id="vegatest" style="visibility:hidden;"></div>
 
+
+
     <!-- The overlay -->
 <div id="myNav" class="overlay">
     <!-- Button to close the overlay navigation -->
@@ -135,12 +141,10 @@
 <!--          <h2>User's Shifts in Data Focus</h2>-->
 <!--        <div id="timeSeriesChart"></div>-->
 <!--    </div>-->
-    <div>
-          <h2>Algorithms Performance Over Recommendation Cycles</h2>
-    <div id="accuracyChart"></div>
-</div>
-    <h2>User's Shifts in Data Focus</h2>
-<div id="timeSeriesChart"></div> <!-- Add an SVG element with an ID -->
+    <h2 style="text-align: center; width: 100%;">Algorithms Performance Over Recommendation Cycles</h2>
+    <div id="accuracyChart" style="vertical-align: top"></div>
+ <h2 style="text-align: center; width: 100%;">User's Shifts in Data Focus</h2>
+    <div id="timeSeriesChart" style="vertical-align: top"></div>
 
     <div class="chart-container-perf">
         <!-- Create a canvas element with the ID 'attributeChart' -->
@@ -170,11 +174,11 @@
       <!-- Button to close the overlay navigation -->
       <a class="closebtn" id="bookmarkViewClose">&times;</a>
         <div id="bookmarkview"></div>
-        <div class="chartcontainer"></div>
-    </div>
-</div>
-
 
     </div>
+
+
+
+
     </body>
 </html>

@@ -26,6 +26,9 @@ class OnlineLearningSystem:
         self.greedy_accuracies = []
         self.master_current_user_attributes = None
         self.current_user_attributes = []
+
+        ######
+        self.interaction_map = {}
         if dataset == 'birdstrikes':
             self.dataset = dataset
             self.fieldnames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
@@ -62,9 +65,10 @@ class OnlineLearningSystem:
             self.response_algorithm_predictions['RL'] = rl_history.tolist()
             self.response_algorithm_predictions['Random'] = random_history.tolist()
             self.response_algorithm_predictions['Momentum'] = momentum_history.tolist()
-            print("Performance data calculated", self.response_accuracy)
 
             # return self.response_accuracy , self.all_algorithms_distribution_map, self.user_distribution_map
+            # print("Performance data calculated", self.response_accuracy)
+
 
     def compute_accuracy(self, rl_prediction, current_history):
         total_matches = 0
@@ -85,9 +89,6 @@ class OnlineLearningSystem:
             "algorithm_predictions": self.response_algorithm_predictions
         }
 
-        # Check the type of self.current_user_attributes
-        print("Type of self.current_user_attributes:", type(self.current_user_attributes))
-
         # Convert self.current_user_attributes to a list if it's a NumPy array
         if isinstance(self.current_user_attributes, np.ndarray):
             response_user = self.current_user_attributes.tolist()
@@ -99,7 +100,9 @@ class OnlineLearningSystem:
             'distribution_response': response_data,
             'accuracy_response': self.response_accuracy,
             'algorithm_predictions': self.response_algorithm_predictions,
-            'user_selections': response_user
+            'user_selections': response_user,
+             'recTimetoInteractionTime': self.interaction_map,
+            'full_history': self.last_users_attributes_history,
         }
 
         # Return final response as JSON
@@ -121,14 +124,20 @@ class OnlineLearningSystem:
 
         return chart_all
 
-    def get_distribution_of_states(self, data, dataset='birdstrikes'):
+    def get_distribution_of_states(self, data, algo, dataset='birdstrikes'):
 
         distribution = Counter({key: 0 for key in self.fieldnames})
-
-        for state_list in data['State']:
-            for state in state_list:
-                if state.lower() in distribution:
-                    distribution[state.lower()] += 1
+        if algo == 'ActorCritic':
+            for state_list in data['State']:
+                for state in state_list:
+                    for attribute_set in state:
+                        if attribute_set.lower() in distribution:
+                            distribution[attribute_set.lower()] += 1
+        else:
+            for state_list in data['State']:
+                for state in state_list:
+                    if state.lower() in distribution:
+                        distribution[state.lower()] += 1
 
         total = sum(distribution.values()) + 0.000000000000001
         distribution = {key: count / total for key, count in distribution.items()}
@@ -146,28 +155,36 @@ class OnlineLearningSystem:
         for i in range(len(attributesHistory)):
             attributesHistory[i].extend(['none'] * (3 - len(attributesHistory[i])))
 
-        if len(last_history) > 2:
+        if len(last_history) > 0:
             new_interactions = [attr for attr in attributesHistory[len(last_history):]]
         else:
             new_interactions = []
+
+
 
         self.current_user_attributes.extend(new_interactions)
         self.last_users_attributes_history = attributesHistory
 
         #get the hit rate and other performance data ################################################################
-        if len(self.rl_attributes_history) > 1:
+        if len(self.rl_attributes_history) > 0:
+            # Map the user's position of interaction in the new attributesHistory to the corresponding predictions
+            # Determine the indices of the current_user_attributes in attributesHistory
+            interaction_indices = list(range(len(last_history), len(attributesHistory)))
+            interaction_time_id = len(self.rl_attributes_history)-1
+            self.interaction_map[interaction_time_id] = interaction_indices
+
             self.set_performance_data()
         ############################################################################################################
 
         generator = StateGenerator(dataset)
         df = pd.DataFrame({'State': attributesHistory})
-        distribution_map = self.get_distribution_of_states(df)
+        distribution_map = self.get_distribution_of_states(df, 'algo')
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
             futures = {executor.submit(self.utils_obj.run_algorithm, algorithm, attributesHistory, generator, dataset): algorithm for algorithm in algorithms_to_run}
             results = {futures[future]: future.result() for future in concurrent.futures.as_completed(futures)}
 
-        next_state_rl = self.extend_state(results['Qlearning'])
+        # next_state_rl = self.extend_state(results['Qlearning'])
         next_state_momentum = self.extend_state(results['Momentum'])
         next_state_greedy = self.extend_state(results['Greedy'])
         next_state_random = self.extend_state(results['Random'])
@@ -179,26 +196,26 @@ class OnlineLearningSystem:
         self.greedy_attributes_history.append(next_state_greedy)
         self.random_attributes_history.append(next_state_random)
         self.actor_critic_action_history.append(next_state_ac)
-        self.rl_attributes_history.append(next_state_rl)
+        # self.rl_attributes_history.append(next_state_rl)
+        self.rl_attributes_history.append(next_state_ac)
         ############################################################################################################
 
+
         df_momentum = pd.DataFrame({'State': self.momentum_attributes_history})
-        distribution_map_momentum = self.get_distribution_of_states(df_momentum)
+        distribution_map_momentum = self.get_distribution_of_states(df_momentum, 'Momentum')
 
         df_greedy = pd.DataFrame({'State': self.greedy_attributes_history})
-        distribution_map_greedy = self.get_distribution_of_states(df_greedy)
+        distribution_map_greedy = self.get_distribution_of_states(df_greedy, 'Greedy')
 
         df_random = pd.DataFrame({'State': self.random_attributes_history})
-        distribution_map_random = self.get_distribution_of_states(df_random)
+        distribution_map_random = self.get_distribution_of_states(df_random, 'Random')
+
+        df_ac = pd.DataFrame(({'State': self.actor_critic_action_history}))
+        distribution_map_ac = self.get_distribution_of_states(df_ac, 'ActorCritic')
 
         df_rl = pd.DataFrame({'State': self.rl_attributes_history})
-        # print(df_rl)
-        distribution_map_rl = self.get_distribution_of_states(df_rl)
-
-        df_ac = pd.DataFrame(({'State': [self.actor_critic_action_history[0][-1]]}))
-        # print(df_ac)
-        # pdb.set_trace()
-        distribution_map_ac = self.get_distribution_of_states(df_ac)
+        distribution_map_rl = distribution_map_ac
+        # distribution_map_rl = self.get_distribution_of_states(df_rl, 'ActorCritic')
 
         # pdb.set_trace()
         all_algorithms_distribution_map = {
@@ -211,10 +228,14 @@ class OnlineLearningSystem:
          # Store these for everytime the performance view is clicked even if there is no new data need to return this
         self.all_algorithms_distribution_map= all_algorithms_distribution_map
         self.user_distribution_map = distribution_map
-        ############################################################################################################
+        
+        #baseline next state: something other than specified algorithm
+        # next_state_baseline = self.extend_state(results['Momentum'])
 
-        return next_state_ac, distribution_map, all_algorithms_distribution_map
+        return next_state_ac, distribution_map, all_algorithms_distribution_map, next_state_momentum
+        # return next_state_ac, distribution_map, all_algorithms_distribution_map
 
+    #Updating the Actor-Critic Model based on user's feedback
     def update_models(self):
         Prev_recommended_attributes = self.actor_critic_action_history[-1]
         cur_attributes = self.response_history[-1]
@@ -243,7 +264,7 @@ class OnlineLearningSystem:
         # pdb.set_trace()
 
         self.utils_obj.ac_model.update_reward(data)
-            
+
 
     def save_histories(self, path):
         np.save(path + 'momentum_attributes_history.npy', self.momentum_attributes_history)

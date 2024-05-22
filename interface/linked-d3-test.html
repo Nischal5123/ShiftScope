@@ -441,12 +441,12 @@ function updateTimeSeriesChart(clickedTime) {
         userCandidate.forEach(attribute => {
             if (rlCandidate.includes(attribute)) {
                 const fieldIndex = fieldNames.indexOf(attribute);
-                if (fieldIndex !== -1) {
-                    // Highlight the corresponding element in the time series chart
-                    d3.select(`#timeSeriesChart [data-index="${fieldIndex}"][x="${xScale(i)}"]`)
-                        .attr("fill", "orange")
-                        .classed("highlight", true);
-                }
+                 d3.selectAll(`#timeSeriesChart [data-index="${fieldIndex}"]`)
+                            .filter(function() {
+                                return +d3.select(this).attr("x") === xScale(5);
+                            })
+                            .attr("fill", "orange")
+                            .classed("highlight", true);
             }
         });
     }

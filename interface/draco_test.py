@@ -33,7 +33,7 @@ def localpprint(obj):
         print(json.dumps(obj, indent=2, cls=NpEncoder))
 
 def recommend_charts(
-    spec: list[str], draco: drc.Draco, df: pd.DataFrame, num: int = 20, labeler=lambda i: f"CHART {i+1}"
+    spec: list[str], draco: drc.Draco, df: pd.DataFrame, num: int = 5, labeler=lambda i: f"CHART {i+1}"
 ) -> dict[str, tuple[list[str], dict]]:
     # Dictionary to store the generated recommendations, keyed by chart name
 
@@ -65,7 +65,7 @@ def rec_from_generated_spec(
     draco: drc.Draco,
     input_spec_base: list[str],
     data: pd.DataFrame,
-    num: int = 10, config=None
+    num: int = 5, config=None
 ) -> dict[str, dict]:
     if config is None:
         num_encodings = len(fields)

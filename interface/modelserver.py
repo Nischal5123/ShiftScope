@@ -2,7 +2,7 @@ import json
 
 import re
 import numpy as np
-from flask import Flask, jsonify, request
+from flask import Flask, render_template, request, jsonify, send_from_directory, current_app
 from flask_cors import CORS
 
 import draco_test
@@ -22,7 +22,8 @@ port = 5500
 
 MAX_LEN = 20
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='web/static',
+            template_folder='web/templates')
 CORS(app)
 
 env = environment()
@@ -135,14 +136,14 @@ def top_k(save_csv=False):
     if data and isinstance(data, list):
         system.state_history = data
     else:
-        system.state_history = [['flight_data', 'wildlife_size'], ['flight_data', 'wildlife_size', 'airport_name'],
-                         ['flight_data', 'wildlife_size', 'airport_name']]
+        system.state_history = [['flight_date', 'wildlife_size'], ['flight_date', 'wildlife_size', 'airport_name'],
+                         ['flight_date', 'wildlife_size', 'airport_name']]
 
     # print('Attribute History', attributesHistory)
-    attributes_list,distribution_map,baselines_distribution_maps=system.onlinelearning(algorithms_to_run=['Momentum','Random','Greedy','Qlearning','ActorCritic'])
+    attributes_list,distribution_map,baselines_distribution_maps, attributes_baseline=system.onlinelearning(algorithms_to_run=['Momentum','Random','Greedy','ActorCritic'])
 
     # print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
-    print(len(attributes_list))
+    # print(len(attributes_list))
     chart_recom_list = []
     with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:
         future_to_attributes = {executor.submit(recommendation_generation, attributes): attributes for attributes in attributes_list}
@@ -154,9 +155,16 @@ def top_k(save_csv=False):
     print(' Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
     # print('Recommendation Size:', len(chart_recom))
 
+    print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', 'Momentum')
+    #now for baseline algorithm
+    baseline_recommendations = draco_test.get_draco_recommendations(attributes_baseline)
+    baseline_chart_recom = system.remove_irrelevant_recommendations(attributes_baseline, baseline_recommendations, max_constrained=False)
+    print(' Basline Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
+
     response_data = {
         "chart_recommendations": chart_recom_list,
-        "distribution_map": distribution_map
+        "distribution_map": distribution_map,
+        "baseline_chart_recommendations": baseline_chart_recom,
     }
 
     for algo, base_distribution_map in baselines_distribution_maps.items():
