@@ -39,7 +39,7 @@ html, body {
 
 #panel1 {
   position: absolute;
-  width: 350px;
+  width: 300px;
   height: 96%;
   display: inline-block;
   top: 40px;
@@ -49,7 +49,7 @@ html, body {
 #panel2 {
   position: absolute;
   height: 100%;
-  left: 350px;
+  left: 300px;
   right: 500px; /* Adjusted to allow adaptive layout */
   display: inline-block;
   top: 40px;
@@ -59,8 +59,8 @@ html, body {
 
 #panel3 {
   position: absolute;
-  left: calc(100% - 500px); /* Adjusted to allow adaptive layout */
-  width: 500px;
+  left: calc(100% - 550px); /* Adjusted to allow adaptive layout */
+  width: 550px;
   height: 100%;
   display: inline-block;
   top: 40px;
@@ -255,6 +255,20 @@ html, body {
   overflow-x: hidden;
   vertical-align: top;
   margin: 2px;
+}
+
+#suggestionview2 {
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+  width: 550px;
 }
 
 #bookmarkview {
@@ -528,3 +542,68 @@ html, body {
 /// ##############################  VIS  ########################################
 
 
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 60px;
+  right: 0; /* Change from left to right */
+  background-color: #818181; /* Black fallback color */
+  background-color: rgba(255,255,255); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar-content{
+  padding: 8px 32px 8px 8px; /* Adjust padding for better layout */
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+/* Position and style the close button (top left corner) */
+.sidebar .closebtn {
+  position: absolute;
+  color: black;
+  top: 0;
+  left: 25px; /* Change from right to left */
+  font-size: 36px;
+  margin-right: 50px; /* Adjust margin */
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 10px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the left when you open the side navigation */
+#main {
+  transition: margin-right .5s; /* If you want a transition effect */
+  padding: 20px;
+  margin-right: 0; /* Change from margin-left to margin-right */
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}

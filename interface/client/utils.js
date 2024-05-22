@@ -143,6 +143,40 @@ export function displayBookmarkCharts(container, created = true) {
 }
 
 
+export function displayBaselineCharts(container, created = true) {
+    $(container).empty();
+
+     app.sumview.baselineCharts.forEach((ch) => {
+        var vegachart = _.extend({}, ch.originalspec,
+            {width: 470, height: 225, autosize: 'fit'},
+            // { data: {values: app.data.chartdata.values} },
+            {config: vegaConfig});
+        var $chartContainer = $('<div />', {
+            class: 'chartdiv',
+            id: 'baseline' + ch.chid
+        });
+
+        $(container).append($chartContainer);
+        $chartContainer.append('<div class="chartcontainer"></div>');
+
+        vegaEmbed('#baseline' + ch.chid + ' .chartcontainer', vegachart, {
+            actions: false
+        });
+
+        $chartContainer.hover((e) => {
+            $chartContainer.css('border-color', 'crimson');
+            app.sumview.highlight(ch.chid, true, true);
+        }, (e) => {
+            $chartContainer.css('border-color', 'lightgray');
+            app.sumview.highlight(ch.chid, false, true);
+        }).click((e) => {
+            app.sumview.selectedChartID = ch.chid;
+        });
+    });
+}
+
+
+
  export function handleEvents() {
      app.sumview.on('clickchart', (ch) => {
         //  console.log(ch.originalspec)
@@ -193,6 +227,7 @@ export function displayBookmarkCharts(container, created = true) {
      })
      .on('recommendchart', () => {
          displayAllCharts('#suggestionview', true)
+         displayBaselineCharts('#suggestionview2', true)
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart'})
 
      })
@@ -359,12 +394,27 @@ export function displayBookmarkCharts(container, created = true) {
             closeBookmark()
      })
 
+     $('#baselineViewOpen').click(() => {
+            console.log("User requested Baseline View")
+            openBaseline()
+
+     })
+
+     $('#baselineViewClose').click(() => {
+            console.log("User requested Baseline View to be closed")
+            closeBaseline()
+     })
+
 
 
 
      $(window).resize(() => {
          app.sumview.svgsize = [$('#sumview').width(), $('#sumview').height()]
      })
+
+
+
+
  }
 
  export function parseurl() {
@@ -406,6 +456,7 @@ export function displayBookmarkCharts(container, created = true) {
      createDataTable(280)
      displayAllCharts('#allchartsview', true)
      displayAllCharts('#suggestionview', true)
+       displayBaselineCharts('#suggestionview2', true)
 
      // events handling
      handleEvents()
@@ -514,6 +565,15 @@ function closeNav() {
   document.getElementById("myNav").style.width = "0%";
 }
 
+function openBaseline() {
+      document.getElementById("mySidebar").style.width = "550px";
+      displayBaselineCharts('#suggestionview2',true);
+}
+
+function closeBaseline() {
+        document.getElementById("mySidebar").style.width = "0";
+
+    }
 
 
 function openBookmark() {
@@ -523,6 +583,9 @@ function openBookmark() {
 function closeBookmark() {
   document.getElementById("myBookmark").style.width = "0%";
 }
+
+
+
 
 // Function to parse CSV data into an array of arrays
 function CSVToArray(text) {

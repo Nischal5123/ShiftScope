@@ -20,11 +20,16 @@ app.use(methodOverride())
 // static directories
 app.use(express.static('public'))
 app.use('/data', express.static('staticdata'))
-// start listening
-// Route for serving the static post-task-survey.html file
+
+
 app.get('/post-task-survey.html', (req, res) => {
     // Send the static post-task-survey.html file
-    res.sendFile('/Users/aryal/Desktop/Personal/RLVisRec/interface/client/post-task-survey.html');
+    res.sendFile('post-task-survey.html');
+});
+
+app.get('/index-demo.html', (req, res) => {
+    // Send the static post-task-survey.html file
+    res.sendFile('/Users/aryal/Desktop/Personal/RLVisRec/interface/client/index-demo.html');
 });
 app.listen(8000, function() {
 	console.log('Server: listening 8000')

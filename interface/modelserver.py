@@ -2,7 +2,7 @@ import json
 
 import re
 import numpy as np
-from flask import Flask, jsonify, request
+from flask import Flask, render_template, request, jsonify, send_from_directory, current_app
 from flask_cors import CORS
 
 import draco_test
@@ -29,14 +29,13 @@ LATENT = int(m.group(1))
 visvae = None
 pca = None
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='web/static',
+            template_folder='web/templates')
 CORS(app)
 
 env = environment()
 
 system = OnlineLearningSystem()
-
-
 
 
 class InvalidUsage(Exception):
@@ -154,12 +153,13 @@ def top_k(save_csv=False):
         attributesHistory = data
 
         print('Attribute History', attributesHistory)
-        attributes,distribution_map,baselines_distribution_maps=system.onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], specified_algorithm=specified_algorithm)
+        attributes,distribution_map,baselines_distribution_maps,attributes_baseline=system.onlinelearning(attributesHistory, algorithms_to_run=['Momentum','Random','Greedy','Qlearning'], specified_algorithm=specified_algorithm)
 
         print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
     else:
         # warm start with
         attributes = ['cost_repair', 'wildlife_size']
+        attributes_baseline = ['cost_repair', 'wildlife_size']
         distribution_map = {}
         baselines_distribution_maps = {}
 
@@ -168,9 +168,16 @@ def top_k(save_csv=False):
     print(' Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
     print('Recommendation Size:', len(chart_recom))
 
+    print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', 'Momentum')
+    #now for baseline algorithm
+    baseline_recommendations = draco_test.get_draco_recommendations(attributes_baseline)
+    baseline_chart_recom = system.remove_irrelevant_recommendations(attributes_baseline, baseline_recommendations, max_constrained=False)
+    print(' Basline Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
+
     response_data = {
         "chart_recommendations": chart_recom,
-        "distribution_map": distribution_map
+        "distribution_map": distribution_map,
+        "baseline_chart_recommendations": baseline_chart_recom,
     }
 
     for algo, base_distribution_map in baselines_distribution_maps.items():

@@ -212,8 +212,11 @@ class OnlineLearningSystem:
         ############################################################################################################
 
 
+        #baseline next state: something other than specified algorithm
+        next_state_baseline = self.extend_state(results['Momentum'])
 
-        return next_state_return, distribution_map, all_algorithms_distribution_map
+
+        return next_state_return, distribution_map, all_algorithms_distribution_map, next_state_baseline
 
 
     def save_histories(self, path):
