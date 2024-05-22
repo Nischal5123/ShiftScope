@@ -163,6 +163,39 @@ export function displayBookmarkCharts(container, created = true) {
 
 }
 
+export function displayBaselineCharts(container, created = true) {
+    $(container).empty();
+
+     app.sumview.bookmarkedCharts.forEach((ch) => {
+        var vegachart = _.extend({}, ch.originalspec,
+            {width: 470, height: 225, autosize: 'fit'},
+            // { data: {values: app.data.chartdata.values} },
+            {config: vegaConfig});
+        var $chartContainer = $('<div />', {
+            class: 'chartdiv',
+            id: 'baseline' + ch.chid
+        });
+        var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.overallchid);
+
+        $(container).append($chartContainer);
+        $chartContainer.append('<div class="chartcontainer"></div>', $chartLabel);
+
+        vegaEmbed('#bookchart' + ch.chid + ' .chartcontainer', vegachart, {
+            actions: false
+        });
+
+        $chartContainer.hover((e) => {
+            $chartContainer.css('border-color', 'crimson');
+            app.sumview.highlight(ch.chid, true, true);
+        }, (e) => {
+            $chartContainer.css('border-color', 'lightgray');
+            app.sumview.highlight(ch.chid, false, true);
+        }).click((e) => {
+            app.sumview.selectedChartID = ch.chid;
+        });
+    });
+}
+
 
  export function handleEvents() {
      app.sumview.on('clickchart', (ch) => {

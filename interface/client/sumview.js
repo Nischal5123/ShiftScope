@@ -28,6 +28,7 @@ export default class SumView extends EventEmitter {
         }
         this._charts = []
         this._allRecommendedcharts = []
+        this._baselinecharts = []
         this._prevcharts = []
         this._clusterNum = 1
         this._bubbleSets = []
@@ -52,7 +53,11 @@ export default class SumView extends EventEmitter {
     }
 
     get charts() {
-        return this._charts
+      return this._charts
+    }
+
+    get baselineCharts() {
+        return this._baselinecharts
     }
 
     get bookmarkedCharts() {
@@ -376,6 +381,7 @@ _recommendCharts(attributesHistory, callback) {
         contentType: 'application/json'
     }).done((data) => {
         this._charts = [];
+        this._baselinecharts = [];
         this._performanceData = data['distribution_map'];
         for (var i = 0; i < data['chart_recommendations'].length; i++) {
             // returns the recommendations and the distribution of fields
@@ -386,6 +392,18 @@ _recommendCharts(attributesHistory, callback) {
                     chid: i,
                 };
                 this._charts.push(chart);
+
+            }
+        }
+           for (var j = 0; j < data['baseline_chart_recommendations'].length; j++) {
+            // returns the recommendations and the distribution of fields
+            if (data['chart_recommendations'][j]) {
+                var bchart = {
+                    originalspec: JSON.parse(data['baseline_chart_recommendations'][j]),
+                    created: true,
+                    chid: j,
+                };
+                this._baselinecharts.push(bchart);
 
             }
         }
