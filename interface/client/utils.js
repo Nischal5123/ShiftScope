@@ -91,6 +91,21 @@ export function displayBookmarkCharts(container, created = true) {
         }).click((e) => {
             app.sumview.bookmarkedselectedChartID = ch.overallchid;
         });
+           // Create and append bookmark button
+        var $removebookmarkButton = $('<button>', {
+            class: 'bookmark-button',
+            text: 'Remove'
+        }).click(() => {
+
+            console.log('Removing bookmarked chart ID:', ch.overallchid);
+            const index = app.sumview._bookmarkedCharts.indexOf(ch);
+            if (index > -1) { // only splice array when item is found
+              app.sumview._bookmarkedCharts.splice(index, 1); // 2nd parameter means remove one item only
+            }
+            displayBookmarkCharts('#bookmarkview', true)
+        });
+        $chartContainer.append($removebookmarkButton);
+
     });
 }
 
@@ -161,16 +176,6 @@ export function displayBaselineCharts(container, created = true) {
         vegaEmbed('#baseline' + ch.chid + ' .chartcontainer', vegachart, {
             actions: false
         });
-
-        $chartContainer.hover((e) => {
-            $chartContainer.css('border-color', 'crimson');
-            app.sumview.highlight(ch.chid, true, true);
-        }, (e) => {
-            $chartContainer.css('border-color', 'lightgray');
-            app.sumview.highlight(ch.chid, false, true);
-        }).click((e) => {
-            app.sumview.selectedChartID = ch.chid;
-        });
     });
 }
 
@@ -227,6 +232,7 @@ export function displayBaselineCharts(container, created = true) {
      .on('recommendchart', () => {
          displayAllCharts('#suggestionview', true)
          displayBaselineCharts('#suggestionview2', true)
+         displayBookmarkCharts('#bookmarkview', true)
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart'})
 
      })
@@ -269,6 +275,7 @@ export function displayBaselineCharts(container, created = true) {
 
          //$('#suggestionview').empty()
          displayAllCharts('#suggestionview', true)
+         displayBookmarkCharts('#bookmarkview', true)
 
          if(logging) app.logger.push({time:Date.now(), action:'addchart', data:spec})
      })
@@ -366,7 +373,7 @@ export function displayBaselineCharts(container, created = true) {
          if(logging) download(JSON.stringify(app.logger, null, '  '), 'logs.json', 'text/json')
 
         // Redirect to the post-task-survey.html page with the correct port number
-        window.location.href = `${window.location.href}post-task-survey.html`; // Change 8000 to your actual port number
+        window.location.href = `${window.location.href}post-task-survey`; // Change 8000 to your actual port number
         restartProcess()
      })
 
@@ -456,6 +463,7 @@ export function displayBaselineCharts(container, created = true) {
      displayAllCharts('#allchartsview', true)
      displayAllCharts('#suggestionview', true)
      displayBaselineCharts('#suggestionview2', true)
+         displayBookmarkCharts('#bookmarkview', true)
 
      // events handling
      handleEvents()
@@ -891,3 +899,9 @@ function computeAccuracy(predictions, groundTruth) {
 
     return { matches, checks };
 }
+
+
+
+
+// ######################################### Task Description #########################################################################################
+

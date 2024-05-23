@@ -74,7 +74,7 @@ def rec_from_generated_spec(
         perms_fields = list(permutations(fields))
         input_specs = []
         id=0
-        for fields in perms_fields:
+        for fields in perms_fields: # this should not matter but doesnt hurt to precompute
 
             force_attributes = []
 
