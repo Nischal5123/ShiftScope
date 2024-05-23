@@ -6,7 +6,7 @@ class StateGenerator:
     def __init__(self, dataset='birdstrikes'):
         if dataset== 'birdstrikes':
             self.dataset = 'birdstrikes'
-            self.fieldnames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots', 'none']
+            self.fieldnames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots']
 
 
 
@@ -57,4 +57,4 @@ class StateGenerator:
 if __name__ == '__main__':
     sg = StateGenerator()
     list=sg.generate_independent_next_states()
-    print(list)
+
