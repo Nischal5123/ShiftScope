@@ -173,7 +173,8 @@ class OnlineLearningSystem:
             interaction_time_id = len(self.rl_attributes_history)-1
             self.interaction_map[interaction_time_id] = interaction_indices
 
-            self.set_performance_data()
+            with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+                future_performance_data = executor.submit(self.set_performance_data)
         ############################################################################################################
 
         generator = StateGenerator(dataset)

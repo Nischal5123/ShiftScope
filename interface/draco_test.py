@@ -22,12 +22,12 @@ class NpEncoder(json.JSONEncoder):
             return super(NpEncoder, self).default(obj)
 
 
-def md(markdown: str):
-    display(Markdown(markdown))
+# def md(markdown: str):
+#     display(Markdown(markdown))
 
 
-def pprint(obj):
-    md(f"```json\n{json.dumps(obj, indent=2, cls=NpEncoder)}\n```")
+# def pprint(obj):
+#     md(f"```json\n{json.dumps(obj, indent=2, cls=NpEncoder)}\n```")
 
 def localpprint(obj):
         print(json.dumps(obj, indent=2, cls=NpEncoder))
@@ -57,6 +57,7 @@ def recommend_charts(
         # display(chart)
 
     return chart_vega_specs
+
 
 def rec_from_generated_spec(
     marks: list[str],
@@ -127,7 +128,6 @@ def rec_from_generated_spec(
         recs[key] = recs[key]['chart']
 
     return recs
-
 
 def validate_chart(config, input_spec_base):
     if not config:  # If config is empty, return an empty list
@@ -229,42 +229,101 @@ def start_draco(fields,datasetname='birdstrikes',config=None):
     )
     return recommendations
 
-def get_draco_recommendations(attributes,datasetname='birdstrikes',config=None):
 
+def load_precomputed_recommendations(file_path):
+    try:
+        with open(file_path, 'r') as f:
+            recommendations_dict = json.load(f)
+        return recommendations_dict
+    except FileNotFoundError:
+        return {}
+
+
+def load_dataset(file_path):
+    with open(file_path, 'r') as f:
+        dataset_dict = json.load(f)
+    return dataset_dict
+
+
+def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, data_schema_file_path='birdstrikes_dataset_schema.json'):
     ret = [f.replace('__', '_').lower() for f in attributes]
     field_names_renamed = [f.replace('$', 'a') for f in ret]
-    #remove none fields
     field_names_final = [f for f in field_names_renamed if f != 'none']
-  
-    recommendations=start_draco(fields=field_names_final,datasetname=datasetname,config=config)
-    if len(recommendations) == 0:
+
+    if config is None:
+        # Attempt to load precomputed recommendations
+        recommendations_dict = load_precomputed_recommendations('precomputed_recommendations.json')
+        key = '+'.join(np.sort(field_names_final))
+        reco = recommendations_dict.get(key, {})
+        dataset_schema = load_dataset(data_schema_file_path)
+        #for all reco's add the dataset schema
+        for key in reco:
+            reco[key]['datasets'] = dataset_schema
+            reco[key]=json.dumps(reco[key])
+        return reco
+
+    else:
+        # Always start Draco if config is provided
+        recommendations = start_draco(fields=field_names_final, datasetname=datasetname, config=config)
+        if len(recommendations) == 0:
             print('Draco recommendations are empty, retrying with one less field')
-            recommendations = start_draco(fields= [f for f in field_names_renamed[:2] if f != 'none'], datasetname=datasetname, config=config)
+            recommendations = start_draco(fields=[f for f in field_names_final[:2] if f != 'none'],
+                                          datasetname=datasetname, config=config)
 
-    if len(recommendations) > 2:
-        return dict(list(recommendations.items())[:1])
-    # print('Dracorecommendations:', len(recommendations))
-    return recommendations
+        if len(recommendations) > 2:
+            return dict(list(recommendations.items())[:1])
 
-# Joining the data `schema` dict with the view specification dict
+        return recommendations
+
+
+
+
+def test_get_draco_recommendations(attributes, datasetname='birdstrikes', config=None):
+    ret = [f.replace('__', '_').lower() for f in attributes]
+    field_names_renamed = [f.replace('$', 'a') for f in ret]
+    field_names_final = [f for f in field_names_renamed if f != 'none']
+        # If not found in precomputed, generate recommendations
+    recommendations = start_draco(fields=field_names_final, datasetname=datasetname, config=config)
+    if len(recommendations) == 0:
+        print('Draco recommendations are empty, retrying with one less field')
+        recommendations = start_draco(fields=[f for f in field_names_final[:2] if f != 'none'], datasetname=datasetname,
+                                      config=config)
+
+    if len(recommendations) > 1:
+        recos= dict(list(recommendations.items())[:1])
+        reco = remove_datapart(recos)
+        return dict(list(reco.items())[:1])
+
+
+def remove_datapart(recommendations):
+    dataset_part = None
+    chart_recom = {}
+    for chart_key, chart_json in recommendations.items():
+        chart = json.loads(chart_json)
+        if 'datasets' in chart:
+            dataset_part = chart.pop('datasets')  # Remove and store the 'datasets' part
+        chart_recom[chart_key] = chart  # Add the modified chart back to the result dictionary
+
+    # # Save the dataset part to a file
+    # if dataset_part:
+    #     with open('birdstrikes_dataset_schema.json', 'w') as f:
+    #         json.dump(dataset_part, f)
+
+    return chart_recom
+
+
 if __name__ == '__main__':
-    fields_birdstrikes = ['airport_name', 'flight_date', 'origin_state']
-    fields_seattle=["weather", "temp_min", "date"]
-    fields_movies = ["major_genre", "us_gross", "source"]
-    fields_performance = ['Fields', 'Probability']
-    # recommendations=start_draco(fields=fields_movies, datasetname='movies')
-    recommendations=start_draco(fields=fields_birdstrikes, datasetname='birdstrikes')
-    #recommendations=start_draco(fields=fields_performance, datasetname='performance')
+    all_fields = np.load('birdstrikes_all_states.npy', allow_pickle=True)
 
-    # recommendations=start_draco(fields=fields_seattle, datasetname='seattle')
-    # print(len(recommendations))
-    # Loop through the dictionary and print recommendations
-    # for chart_key, _ in recommendations.items():
-    #     # (_,chart)=(recommendations[chart_key])
-    #     chart = recommendations[chart_key]
-    #     print(f"Recommendation for {chart_key}:")
-    #     print(f"**Draco Specification of {chart_key}**")
-    #     # localpprint(chart)
-    #     print(chart)
-    #     print("\n")
-    print('Total recommendations:', len(recommendations))
+    recommendations_dict = {}
+
+    for fields_birdstrikes in all_fields:
+        attributes = [field for field in fields_birdstrikes if field.lower() != 'none']
+        recommendations = test_get_draco_recommendations(attributes=attributes, datasetname='birdstrikes')
+        print(f"Recommendations for {fields_birdstrikes}: {len(recommendations)}")
+        key = '+'.join(np.sort(fields_birdstrikes))
+        recommendations_dict[key] = recommendations
+
+    with open('precomputed_recommendations.json', 'w') as f:
+        json.dump(recommendations_dict, f, indent=4)
+
