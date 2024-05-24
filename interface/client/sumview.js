@@ -148,7 +148,7 @@ export default class SumView extends EventEmitter {
         this._prevcharts = this._charts
 
         this._recommendCharts(attributesHistory)
-        // this._collectAllRecommendedCharts()
+        this._collectAllRecommendedCharts()
         // this.render()
         // if (callback) callback()
 

@@ -56,7 +56,7 @@
              $('#' + comp).append(html)
          })
      
-         var marks = ['bar', 'point', 'area', 'circle', 'line', 'tick']
+         var marks = ['bar', 'point', 'circle', 'line', 'tick']
          html = ''
          marks.forEach((d) => {
              html += '<option value="' + d + '">' + d + '</option>'
@@ -120,6 +120,8 @@
 
 
          })
+
+
  
          $('#preview2').click((e) => {
              var data = this._cheditor.session.getValue()
@@ -171,7 +173,6 @@
         //  console.log(vegachart[0])
 
          vegaEmbed('#chartview .chartcontainer', vegachart, {actions: false})
-
 
          if(eventsource != 'texteditor')
              this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '))

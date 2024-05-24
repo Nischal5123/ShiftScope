@@ -27,7 +27,7 @@
                 <button id="export">End Session </button>
                  <label>Attribute Color Encodings: </label><span id="legend"></span>
                 <button type="button" id="bookmarkViewOpen">
-                <i class="fas fa-bookmark"></i></button>
+                <i class="fas fa-sticky-note" style="color: #FFD43B;"></i>
                 <button id="performaceViewOpen">Performance View</button>
                 <button id="baselineViewOpen">&#9776; Baseline Recs</button>
             </div>
@@ -170,11 +170,13 @@
 
 
             <!-- The overlay -->
-    <div id="myBookmark" class="overlay">
+    <div id="myBookmark" class="sidebar2">
       <!-- Button to close the overlay navigation -->
       <a class="closebtn" id="bookmarkViewClose">&times;</a>
-        <div id="bookmarkview"></div>
-
+         <div class="bookmark-task-container">
+        <div id="bookmarkview", class="one"></div>
+        <div id="taskview" class="two"></div>
+    </div>
     </div>
 
 

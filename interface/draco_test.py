@@ -66,7 +66,7 @@ def rec_from_generated_spec(
     draco: drc.Draco,
     input_spec_base: list[str],
     data: pd.DataFrame,
-    num: int = 5, config=None
+    num: int = 50, config=None
 ) -> dict[str, dict]:
     if config is None:
         num_encodings = len(fields)
@@ -74,11 +74,14 @@ def rec_from_generated_spec(
         perms_fields = list(permutations(fields))
         input_specs = []
         id=0
-        for fields in perms_fields:
+        for fields in perms_fields: # this should not matter but doesnt hurt to precompute
 
             force_attributes = []
 
             for index, item in enumerate(fields):
+                if num_encodings < 2:
+                    bar_mark = f"attribute((mark,type),m0,{'bar'}).",
+                    force_attributes.append(bar_mark)
                 connect_root = f'entity(encoding,m0,e{index}).'
                 force_attributes.append(connect_root)
                 specify_field = f'attribute((encoding,field),e{index},{item}).'
@@ -219,8 +222,6 @@ def start_draco(fields,datasetname='birdstrikes',config=None):
     recommendations = rec_from_generated_spec(
     marks=['bar', 'point', 'circle', 'line', 'tick'],
     fields=fields,
-    # encoding_channels=["x", "y", "color"],
-    # encoding_channels=["color", "shape", "size"],
     encoding_channels=["x", "y", "color", "shape", "size"],
     draco=d,
     input_spec_base=input_spec_base,
@@ -324,6 +325,6 @@ if __name__ == '__main__':
         key = '+'.join(np.sort(fields_birdstrikes))
         recommendations_dict[key] = recommendations
 
-    with open('precomputed_recommendations.json', 'w') as f:
+    with open('new_precomputed_recommendations.json', 'w') as f:
         json.dump(recommendations_dict, f, indent=4)
 
