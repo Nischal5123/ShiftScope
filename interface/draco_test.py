@@ -181,7 +181,6 @@ def validate_chart(config, input_spec_base):
 
     # Append filtering rules
     input_spec[1].extend([
-                    ":- {entity(mark,_,_)} != 1.",
                     # ":- {attribute((encoding,field),_,_)} <" + str(num_encodings) + "."]
                     ":- {attribute((encoding,field),_,_)} < 1."
                 ])
