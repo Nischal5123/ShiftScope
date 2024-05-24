@@ -64,6 +64,12 @@
 export function displayBookmarkCharts(container, created = true) {
     $(container).empty();
 
+      if (app.sumview.bookmarkedCharts.length === 0) {
+        // Append a message indicating that there are no charts to display
+        $(container).append('<h2> No Bookmarked Charts </h2>');
+        return;
+    }
+
      app.sumview.bookmarkedCharts.forEach((ch) => {
         var vegachart = _.extend({}, ch.originalspec,
             {width: 470, height: 225, autosize: 'fit'},
@@ -73,10 +79,10 @@ export function displayBookmarkCharts(container, created = true) {
             class: 'chartdiv',
             id: 'bookchart' + ch.overallchid
         });
-        var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.overallchid);
+        // var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.overallchid);
 
         $(container).append($chartContainer);
-        $chartContainer.append('<div class="chartcontainer"></div>', $chartLabel);
+        $chartContainer.append('<div class="chartcontainer"></div>');
 
         vegaEmbed('#bookchart' + ch.overallchid + ' .chartcontainer', vegachart, {
             actions: false
@@ -93,9 +99,8 @@ export function displayBookmarkCharts(container, created = true) {
         });
            // Create and append bookmark button
         var $removebookmarkButton = $('<button>', {
-            class: 'bookmark-button',
-            text: 'Remove'
-        }).click(() => {
+                class: 'fas fa-trash'
+            }).click(() => {
 
             console.log('Removing bookmarked chart ID:', ch.overallchid);
             const index = app.sumview._bookmarkedCharts.indexOf(ch);
@@ -142,16 +147,16 @@ export function displayBookmarkCharts(container, created = true) {
             app.sumview.selectedChartID = ch.chid;
         });
 
-        // Create and append bookmark button
-        var $bookmarkButton = $('<button>', {
-            class: 'bookmark-button',
-            text: 'Bookmark'
-        }).click(() => {
+         // Create and append bookmark button
+            var $bookmarkButton = $('<button>', {
+                class: 'fas fa-bookmark'
+            }).click(() => {
 
-            console.log('Bookmarking chart ID:', ch.overallchid);
-            app.sumview._bookmarkedCharts.push(ch);
-        });
-        $chartContainer.append($bookmarkButton);
+                console.log('Bookmarking chart ID:', ch.overallchid);
+                app.sumview._bookmarkedCharts.push(ch);
+            });
+            $chartContainer.append($bookmarkButton);
+
     });
 
 }
@@ -584,8 +589,10 @@ function closeBaseline() {
 
 
 function openBookmark() {
-    document.getElementById("myBookmark").style.width = "100%";
+    document.getElementById("myBookmark").style.width = "75%";
+    createTaskForm();
     displayBookmarkCharts('#bookmarkview', true)
+
     }
 function closeBookmark() {
   document.getElementById("myBookmark").style.width = "0%";
@@ -905,3 +912,58 @@ function computeAccuracy(predictions, groundTruth) {
 
 // ######################################### Task Description #########################################################################################
 
+function createTaskForm() {
+  const taskview = document.getElementById('taskview');
+  taskview.innerHTML = ''; // Clear any existing content
+
+  const formTitle = document.createElement('h2');
+  formTitle.classList.add('task-form-title');
+  formTitle.innerText = 'Task Form';
+
+  const questions = [
+    "Username",
+    "Task Question-\n What kinds of birdstrikes would usually cost the most to repair the airplane? \n Note that any dataset columns that are interesting to you can be included. \n Summarize the 2-3 factors that you believe would cause the highest repair cost\n",
+  ];
+
+  const form = document.createElement('form');
+  form.id = 'taskForm';
+
+  questions.forEach((question, index) => {
+    const formGroup = document.createElement('div');
+    formGroup.classList.add('form-group');
+
+    const label = document.createElement('label');
+    label.innerText = `${question}`;
+    formGroup.appendChild(label);
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.name = `answer${index}`;
+    input.classList.add('form-control');
+    formGroup.appendChild(input);
+
+    form.appendChild(formGroup);
+  });
+
+  const submitButton = document.createElement('button');
+  submitButton.type = 'button';
+  submitButton.innerText = 'Submit';
+  submitButton.classList.add('btn');
+  submitButton.onclick = getAnswers;
+  form.appendChild(submitButton);
+
+  taskview.appendChild(formTitle);
+  taskview.appendChild(form);
+}
+
+function getAnswers() {
+  const form = document.getElementById('taskForm');
+  const formData = new FormData(form);
+  const answers = {};
+
+  formData.forEach((value, key) => {
+    answers[key] = value;
+  });
+
+  console.log(answers); // Replace with your desired action, e.g., send to server, display on page, etc.
+}
