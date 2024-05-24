@@ -498,7 +498,7 @@ function openNav() {
     }).done((full_data) => {
         var data = full_data['distribution_response'];
 
-
+        // console.log(data)
         // Create baseline charts
         createBaselineChart("UserChart", data['distribution_map'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
         createBaselineChart("RLChart", data['baselines_distribution_maps']['Greedy'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
@@ -591,11 +591,6 @@ function CSVToArray(text) {
   const rows = text.split('\n');
   return rows.map(row => row.split(','));
 }
-
-
-var hitRateHistory = {'RL': [], 'Random': [], 'Momentum': []  };
-
-
 
 function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
     const fieldNames = [
@@ -775,8 +770,6 @@ function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) 
         });
     }
 }
-
-
 
 
 function createShiftFocusChart(full_data) {

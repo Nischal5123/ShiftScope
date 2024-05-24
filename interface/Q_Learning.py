@@ -57,7 +57,7 @@ class QLearningAgent:
                 state = next_state
                 total_reward += reward
                 # Linearly decay epsilon
-                #self.epsilon = max(self.min_epsilon, self.initial_epsilon - ((episode / num_episodes) * (self.initial_epsilon - self.min_epsilon)))
+                self.epsilon = max(self.min_epsilon, self.initial_epsilon - ((episode / num_episodes) * (self.initial_epsilon - self.min_epsilon)))
                 # Print episode number and total reward
                 #print(f"Episode {episode + 1}/{num_episodes}, Step {step}, Total Reward: {total_reward}")
                 if step > 20:
@@ -78,7 +78,8 @@ def convert_to_one_hot(input_attributes, fieldnames):
     one_hot_state = [1 if field in input_attributes else 0 for field in fieldnames]
     return one_hot_state
 
-def Rl_Driver(dataset='birdstrikes', attributes_history_path="attributes_history.npy", current_state=['speed_ias_in_knots', 'aircraft_make_model'], epsilon=0.9):
+
+def Rl_Driver(dataset='birdstrikes', attributes_history_path="attributes_history.npy", current_state=['speed_ias_in_knots', 'aircraft_make_model']):
     if dataset == 'birdstrikes':
         # Define fieldnames, attributes history, and maximum fields per state
         fieldnames = sorted(['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
@@ -98,7 +99,7 @@ def Rl_Driver(dataset='birdstrikes', attributes_history_path="attributes_history
     rl_env = RLEnvironment(fieldnames, max_fields_per_state, attributes_history_path)
 
     # Create Q-learning agent
-    agent = QLearningAgent(rl_env, initial_epsilon=epsilon)
+    agent = QLearningAgent(rl_env)
 
     # Train the agent
     num_episodes = 100

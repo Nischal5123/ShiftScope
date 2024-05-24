@@ -114,10 +114,10 @@ class ActorCriticModel:
 
         self.fieldnames = None
         if dataset == 'birdstrikes': 
-            self.fieldnames = sorted(['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
+            self.fieldnames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
                             'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
                             'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
-                            'speed_ias_in_knots','none'])
+                            'speed_ias_in_knots','none']
             self.attributes_birdstrikes = {'airport_name': 1, 'aircraft_make_model': 2, 'effect_amount_of_damage': 3, 'flight_date': 4, 'aircraft_airline_operator': 5, 'origin_state': 6, 'when_phase_of_flight': 7, 'wildlife_size': 8, 'wildlife_species': 9, 'when_time_of_day': 10, 'cost_other': 11, 'cost_repair': 12, 'cost_total_a': 13, 'speed_ias_in_knots': 14, 'none': 15}
 
         # self.attribute_history
@@ -144,7 +144,7 @@ class ActorCriticModel:
         topk_actions = topk_actions.squeeze().tolist()
         ret_action = []
         for a in topk_actions:
-            taken_action_one_hot = list(self.rl_env.valid_actions.keys())[a]
+            taken_action_one_hot = self.rl_env.inverse_valid_actions[a]
             taken_action = [self.fieldnames[i] for i in range(len(taken_action_one_hot)) if taken_action_one_hot[i] == 1]
             ret_action.append(taken_action)
         
@@ -156,7 +156,7 @@ class ActorCriticModel:
         prob = self.model.pi(torch.from_numpy(state).float())
         m = Categorical(prob)
         a = m.sample().item()
-        taken_action_one_hot = list(self.rl_env.valid_actions.keys())[a]
+        taken_action_one_hot = self.rl_env.inverse_valid_actions[a]
         taken_action = [self.fieldnames[i] for i in range(len(taken_action_one_hot)) if taken_action_one_hot[i] == 1]
         
         return taken_action
@@ -201,7 +201,6 @@ def main():
             user_list_name = env.get_user_list(dataset, task)
             for fname in user_list_name:
                 # print(fname)
-                # fname = '/nfs/hpc/share/sahasa/project/VizGame/interface/interactions/data/zeng/birdstrikes_processed_interactions_p4/pro30_bde_p4_logs.csv'
                 env = environment()
                 env.process_data(fname)
                 for n_epi in range(num_epochs):
@@ -231,12 +230,12 @@ def main():
                     if n_epi%print_interval==0 and n_epi!=0:
                         print("# of episode :{}, avg score : {:.1f}".format(n_epi, score/print_interval))
                         score = 0.0
-        torch.save(model.state_dict(), 'pretrained_actor_critic.pth')
+        torch.save(model.state_dict(), 'pretrained_actor_critic_V2.pth')
 
     # env.close()
 
 if __name__ == '__main__':
-    # main() 
-    ac_model = ActorCriticModel('birdstrikes')
+    main() 
+    # ac_model = ActorCriticModel('birdstrikes')
     # print(ac_model.generate_action(['aircraft_make_model']))
-    print(ac_model.generate_actions_topk(['aircraft_make_model'], k=5))
+    # print(ac_model.generate_actions_topk(['aircraft_make_model'], k=5))

@@ -107,8 +107,8 @@ def encode2():
 
     system.response_history.append(field_names)
     system.update_models()
-    #write to a log file the selected recommendation for current session. can i get current session id?
 
+    #write to a log file the selected recommendation for current session. can i get current session id?
     with open('selected_recommendation.txt', 'a') as f:
        #write field names and time
        time= datetime.datetime.now()
@@ -151,15 +151,13 @@ def top_k(save_csv=False):
             chart_recom = future.result()
             chart_recom_list.extend(chart_recom)
 
-        # pdb.set_trace()
-    print(' Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
-    # print('Recommendation Size:', len(chart_recom))
-
-    print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', 'Momentum')
     #now for baseline algorithm
-    baseline_recommendations = draco_test.get_draco_recommendations(attributes_baseline)
-    baseline_chart_recom = system.remove_irrelevant_recommendations(attributes_baseline, baseline_recommendations, max_constrained=False)
-    print(' Basline Recommendations Finished...', "--- %s seconds ---" % (time.time() - start_time))
+    baseline_chart_recom = []
+    with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:
+        future_to_attributes = {executor.submit(recommendation_generation, attributes): attributes for attributes in attributes_baseline}
+        for future in concurrent.futures.as_completed(future_to_attributes):
+            baseline_recommendations = future.result()
+            baseline_chart_recom.extend(baseline_recommendations)
 
     response_data = {
         "chart_recommendations": chart_recom_list,

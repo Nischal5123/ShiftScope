@@ -75,6 +75,7 @@ class OnlineLearningSystem:
         checks = 0
         for prediction in rl_prediction:
             for attributes in current_history:
+                pdb.set_trace()
                 checks += 1
                 if prediction in attributes:
                     total_matches += 1
@@ -88,7 +89,7 @@ class OnlineLearningSystem:
             "baselines_distribution_maps": self.all_algorithms_distribution_map,
             "algorithm_predictions": self.response_algorithm_predictions
         }
-
+        pdb.set_trace()
         # Convert self.current_user_attributes to a list if it's a NumPy array
         if isinstance(self.current_user_attributes, np.ndarray):
             response_user = self.current_user_attributes.tolist()
@@ -101,10 +102,10 @@ class OnlineLearningSystem:
             'accuracy_response': self.response_accuracy,
             'algorithm_predictions': self.response_algorithm_predictions,
             'user_selections': response_user,
-             'recTimetoInteractionTime': self.interaction_map,
+            'recTimetoInteractionTime': self.interaction_map,
             'full_history': self.last_users_attributes_history,
         }
-
+        # pdb.set_trace()
         # Return final response as JSON
         return jsonify(final_response)
 
@@ -123,11 +124,11 @@ class OnlineLearningSystem:
             match = 0
 
         return chart_all
-
+    
     def get_distribution_of_states(self, data, algo, dataset='birdstrikes'):
 
         distribution = Counter({key: 0 for key in self.fieldnames})
-        if algo == 'ActorCritic':
+        if algo != 'algo':
             for state_list in data['State']:
                 for state in state_list:
                     for attribute_set in state:
@@ -142,7 +143,7 @@ class OnlineLearningSystem:
         total = sum(distribution.values()) + 0.000000000000001
         distribution = {key: count / total for key, count in distribution.items()}
         return distribution
-
+    
     def extend_state(self, history):
         history.extend(['none'] * (3 - len(history)))
         return history
@@ -177,9 +178,11 @@ class OnlineLearningSystem:
                 future_performance_data = executor.submit(self.set_performance_data)
         ############################################################################################################
 
-        generator = StateGenerator(dataset)
+        # generator = StateGenerator(dataset)
+        generator = None
         df = pd.DataFrame({'State': attributesHistory})
         distribution_map = self.get_distribution_of_states(df, 'algo')
+        # pdb.set_trace()
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
             futures = {executor.submit(self.utils_obj.run_algorithm, algorithm, attributesHistory, generator, dataset): algorithm for algorithm in algorithms_to_run}
@@ -234,7 +237,6 @@ class OnlineLearningSystem:
         # next_state_baseline = self.extend_state(results['Momentum'])
 
         return next_state_ac, distribution_map, all_algorithms_distribution_map, next_state_momentum
-        # return next_state_ac, distribution_map, all_algorithms_distribution_map
 
     #Updating the Actor-Critic Model based on user's feedback
     def update_models(self):
@@ -264,8 +266,11 @@ class OnlineLearningSystem:
         self.state_history.append(S_prime)
         # pdb.set_trace()
 
-        self.utils_obj.ac_model.update_reward(data)
+        self.utils_obj.ac_model.update_reward(S, )
 
+        ########updating the momentum model########
+        A = self.extend_state(cur_attributes)
+        self.utils_obj.m.update_prob(S, A)
 
     def save_histories(self, path):
         np.save(path + 'momentum_attributes_history.npy', self.momentum_attributes_history)
