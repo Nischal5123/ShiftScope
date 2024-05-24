@@ -619,15 +619,18 @@ html, body {
   left: 0; /* Move from left */
   background-color: rgba(255, 255, 255, 1); /* White background */
   overflow-x: hidden; /* Disable horizontal scroll */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+  overflow-y: hidden; /* Disable vertical scroll */
+  transition: 0s; /* 0.5 second transition effect to slide in the sidebar */
   padding-top: 60px; /* Place content 60px from the top */
 }
 
 .sidebar2 .closebtn {
-    font-size: 40px;
-    top: 80px;
-    left: calc(100% - 15px);
-  }
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 40px;
+  cursor: pointer;
+}
 
 .bookmark-task-container {
   display: flex;
@@ -663,6 +666,7 @@ html, body {
 
 .form-control {
   width: calc(100% - 25px); /* Adjust the width as needed */
+  height: 40px;
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;

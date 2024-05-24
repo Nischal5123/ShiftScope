@@ -18,6 +18,7 @@ from performance import OnlineLearningSystem
 import pdb
 import concurrent.futures
 import pickle
+import os
 
 port = 5500
 MAX_LEN = 20
@@ -190,24 +191,35 @@ def top_k(save_csv=False):
 def index():
     session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     manual_session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    return 'You are not logged in'
+    return jsonify(manual_session)
 
 @app.route('/submit-form', methods=['POST'])
 def submit_form():
     global manual_session
     # Create a new session folder
     folder_name = 'ShiftScopeLogs/' + str( manual_session.get('session_id'))
-    import os
+
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
 
     save_path = 'ShiftScopeLogs/' + str( manual_session.get('session_id')) + '/'
 
     # Save form data for the new session
-    form_data = request.get_json()
+    all_data = request.get_json()
+    taskanswers = all_data.get('taskanswers')
+    chartdata = all_data.get('chartdata')
+    interactionlogs = all_data.get('interactionlogs')
+
 
     with open(save_path + 'task_answer.json', 'w') as f:
-        json.dump(form_data, f)
+        json.dump(taskanswers, f)
+
+    with open(save_path + 'chart_data.json', 'w') as f:
+        json.dump(chartdata, f)
+
+    with open(save_path + 'interaction_logs.json', 'w') as f:
+        json.dump(interactionlogs, f)
+
 
     # Save online learning models to file
     with open(save_path + 'online_learning_models.pkl', 'wb') as f:
@@ -218,6 +230,32 @@ def submit_form():
     manual_session={}
 
     return jsonify({'message': 'Form submitted successfully. New session started.'})
+
+
+@app.route('/store-logs', methods=['POST'])
+def store_logs():
+    global manual_session
+    # Create a new session folder
+    folder_name = 'ShiftScopeLogs/' + str( manual_session.get('session_id'))
+
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+
+    save_path = 'ShiftScopeLogs/' + str( manual_session.get('session_id')) + '/'
+
+    # Save logs for the new session
+    logs = request.get_json()
+    chart_data = logs.get('chartdata')
+    interaction_logs = logs.get('interactionlogs')
+    with open(save_path + 'chart_data.json', 'w') as f:
+        json.dump(chart_data, f)
+
+    with open(save_path + 'interaction_logs.json', 'w') as f:
+        json.dump(interaction_logs, f)
+
+    return jsonify({'message': 'Logs stored successfully.'})
+
+
 
 if __name__ == '__main__':
     app.run(port=5500, debug=True)
