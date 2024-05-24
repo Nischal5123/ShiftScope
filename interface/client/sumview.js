@@ -54,6 +54,10 @@ export default class SumView extends EventEmitter {
         return this._bookmarkedCharts
     }
 
+     get allrecommendedCharts() {
+        return this._allRecommendedcharts
+    }
+
     get selectedChartID() {
         return this._selectedChartID
     }
@@ -148,7 +152,7 @@ export default class SumView extends EventEmitter {
         this._prevcharts = this._charts
 
         this._recommendCharts(attributesHistory)
-        // this._collectAllRecommendedCharts()
+        this._collectAllRecommendedCharts()
         // this.render()
         // if (callback) callback()
 

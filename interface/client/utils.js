@@ -18,6 +18,7 @@
  var fieldsArray = [];
  var attributesHistory = [];
  var bookmarkedCharts = [];
+ var user_session_id = 'user1';
  export var vegaConfig = {
      axis: {labelFontSize:9, titleFontSize:9, labelAngle:-45, labelLimit:50},
      legend: {gradientLength:20, labelFontSize:6, titleFontSize:6, clipHeight:20}
@@ -59,10 +60,31 @@
      columns.forEach((c) => {
          $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
      })
+
+     // call backend to start session
+        $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            url: 'http://localhost:5500/',
+            contentType: 'application/json'
+        }).done((data) => {
+            user_session_id=data['session_id'];
+            //log session id
+            console.log("Session ID: ", user_session_id);
+            storeInteractionLogs('study begins', user_session_id, new Date())
+        }).fail((xhr, status, error) => {
+            alert('Cannot start session.');
+        });
  }
 
 export function displayBookmarkCharts(container, created = true) {
     $(container).empty();
+
+      if (app.sumview.bookmarkedCharts.length === 0) {
+        // Append a message indicating that there are no charts to display
+        $(container).append('<h2> No Bookmarked Charts </h2>');
+        return;
+    }
 
      app.sumview.bookmarkedCharts.forEach((ch) => {
         var vegachart = _.extend({}, ch.originalspec,
@@ -73,10 +95,9 @@ export function displayBookmarkCharts(container, created = true) {
             class: 'chartdiv',
             id: 'bookchart' + ch.overallchid
         });
-        var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.overallchid);
 
         $(container).append($chartContainer);
-        $chartContainer.append('<div class="chartcontainer"></div>', $chartLabel);
+        $chartContainer.append('<div class="chartcontainer"></div>');
 
         vegaEmbed('#bookchart' + ch.overallchid + ' .chartcontainer', vegachart, {
             actions: false
@@ -85,12 +106,32 @@ export function displayBookmarkCharts(container, created = true) {
         $chartContainer.hover((e) => {
             $chartContainer.css('border-color', 'crimson');
             app.sumview.highlight(ch.overallchid, true, true);
+            if(logging) app.logger.push({time:Date.now(), action:'hoverbookmarkedchart', data:ch})
+            storeInteractionLogs('hover over bookmarked chart', ch, new Date())
         }, (e) => {
             $chartContainer.css('border-color', 'lightgray');
             app.sumview.highlight(ch.overallchid, false, true);
         }).click((e) => {
             app.sumview.bookmarkedselectedChartID = ch.overallchid;
+            if(logging) app.logger.push({time:Date.now(), action:'clickbookmarkedchart', data:ch})
+            storeInteractionLogs('clicked bookmarked charts', ch, new Date())
         });
+           // Create and append bookmark button
+        var $removebookmarkButton = $('<button>', {
+                class: 'fas fa-trash'
+            }).click(() => {
+
+            console.log('Removing bookmarked chart ID:', ch.overallchid);
+            if(logging) app.logger.push({time:Date.now(), action:'removebookmarkedchart', data:ch})
+            storeInteractionLogs('removed bookmarked charts', ch, new Date())
+            const index = app.sumview._bookmarkedCharts.indexOf(ch);
+            if (index > -1) { // only splice array when item is found
+              app.sumview._bookmarkedCharts.splice(index, 1); // 2nd parameter means remove one item only
+            }
+            displayBookmarkCharts('#bookmarkview', true)
+        });
+        $chartContainer.append($removebookmarkButton);
+
     });
 }
 
@@ -125,18 +166,21 @@ export function displayBookmarkCharts(container, created = true) {
             app.sumview.highlight(ch.chid, false, false);
         }).click((e) => {
             app.sumview.selectedChartID = ch.chid;
+
+            storeInteractionLogs('clicked on suggested chart', ch, new Date())
         });
 
-        // Create and append bookmark button
-        var $bookmarkButton = $('<button>', {
-            class: 'bookmark-button',
-            text: 'Bookmark'
-        }).click(() => {
+         // Create and append bookmark button
+            var $bookmarkButton = $('<button>', {
+                class: 'fas fa-bookmark'
+            }).click(() => {
 
-            console.log('Bookmarking chart ID:', ch.overallchid);
-            app.sumview._bookmarkedCharts.push(ch);
-        });
-        $chartContainer.append($bookmarkButton);
+                console.log('Bookmarking chart ID:', ch.overallchid);
+                storeInteractionLogs('bookmarked suggested chart', ch, new Date())
+                app.sumview._bookmarkedCharts.push(ch);
+            });
+            $chartContainer.append($bookmarkButton);
+
     });
 
 }
@@ -144,6 +188,7 @@ export function displayBookmarkCharts(container, created = true) {
 
 export function displayBaselineCharts(container, created = true) {
     $(container).empty();
+    storeInteractionLogs('requested baseline charts', "", new Date())
 
      app.sumview.baselineCharts.forEach((ch) => {
         var vegachart = _.extend({}, ch.originalspec,
@@ -160,16 +205,6 @@ export function displayBaselineCharts(container, created = true) {
 
         vegaEmbed('#baseline' + ch.chid + ' .chartcontainer', vegachart, {
             actions: false
-        });
-
-        $chartContainer.hover((e) => {
-            $chartContainer.css('border-color', 'crimson');
-            app.sumview.highlight(ch.chid, true, true);
-        }, (e) => {
-            $chartContainer.css('border-color', 'lightgray');
-            app.sumview.highlight(ch.chid, false, true);
-        }).click((e) => {
-            app.sumview.selectedChartID = ch.chid;
         });
     });
 }
@@ -227,12 +262,14 @@ export function displayBaselineCharts(container, created = true) {
      .on('recommendchart', () => {
          displayAllCharts('#suggestionview', true)
          displayBaselineCharts('#suggestionview2', true)
+         displayBookmarkCharts('#bookmarkview', true)
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart'})
 
      })
 
      app.chartview.on('similar', (spec) => {
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart', data:spec})
+         storeInteractionLogs('requested suggested chart', spec, new Date())
 
          if(app.sumview.data.chartspecs.length > 0)
             spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
@@ -269,6 +306,7 @@ export function displayBaselineCharts(container, created = true) {
 
          //$('#suggestionview').empty()
          displayAllCharts('#suggestionview', true)
+         displayBookmarkCharts('#bookmarkview', true)
 
          if(logging) app.logger.push({time:Date.now(), action:'addchart', data:spec})
      })
@@ -306,6 +344,7 @@ export function displayBaselineCharts(container, created = true) {
      // we are getting the state of the clicked chart
      $('#allchartsview').click(() => {
          console.log("A chart has been clicked in Chart View")
+         if(logging) app.logger.push({time:Date.now(), action:'clickchart', data:app.chartview._cheditor.session.getValue()})
          var specs = app.chartview._cheditor.session.getValue()
          //geting the vegalite encoding of the clicked chart
          //sending it to encode2 in modelserver.py to get the one-hot vector (state)
@@ -324,6 +363,8 @@ export function displayBaselineCharts(container, created = true) {
      $('#suggestionview').click(() => {
          console.log("A chart has been clicked in Suggestion")
          var specs = app.chartview._cheditor.session.getValue()
+         if(logging) app.logger.push({time:Date.now(), action:'clickchart-suggestionview', data:specs})
+         storeInteractionLogs('clicked on suggested chart', specs, new Date())
          $.ajax({
              type: 'POST',
              crossDomain: true,
@@ -357,21 +398,41 @@ export function displayBaselineCharts(container, created = true) {
          if(logging) app.logger.push({time:Date.now(), action:'submitdata'})
      })
 
+     // ########################################################## SAVE INTERACTION DATA ########################################################
+     // this is the End Session button
     $('#export').click(() => {
+         let savepath='ShiftScopeLogs/'+user_session_id;
+         let datacharts_name = savepath + '/datacharts.json';
+            let interactionlogs_name = savepath + '/interactionlogs.json';
+
          download(JSON.stringify({
                  charts: app.sumview.data.chartspecs,
                  attributes: app.sumview.data.chartdata.attributes,
-                 data: app.sumview.data.chartdata.values
-             }, null, '  '), 'datacharts.json', 'text/json')
-         if(logging) download(JSON.stringify(app.logger, null, '  '), 'logs.json', 'text/json')
+                 data: app.sumview.data.chartdata.values,
+                 bookmarked_charts: app.sumview.bookmarkedCharts
+             }, null, '  '), datacharts_name, 'text/json')
+         if(logging) download(JSON.stringify(app.logger, null, '  '), interactionlogs_name, 'text/json')
 
-        // Redirect to the post-task-survey.html page with the correct port number
-        window.location.href = `${window.location.href}post-task-survey.html`; // Change 8000 to your actual port number
-        restartProcess()
+        // Redirect to the post-task-survey.html page
+        window.location.href = `${window.location.href}post-task-survey`;
+        // restartProcess()
      })
+
+      function download(content, fileName, contentType) {
+     //save to sepcific folder ShiftScopeLogs/session_id
+     let savepath='ShiftScopeLogs/'+user_session_id;
+     var a = document.createElement("a");
+     var file = new Blob([content], {type: contentType});
+     a.href = URL.createObjectURL(file);
+     a.download = fileName;
+     a.click();
+ }
+
+ // ########################################################## SAVE INTERACTION DATA ########################################################
 
      $('#performaceViewOpen').click(() => {
             console.log("User requested Performance View")
+
             openNav()
 
 
@@ -456,18 +517,13 @@ export function displayBaselineCharts(container, created = true) {
      displayAllCharts('#allchartsview', true)
      displayAllCharts('#suggestionview', true)
      displayBaselineCharts('#suggestionview2', true)
+         displayBookmarkCharts('#bookmarkview', true)
 
      // events handling
      handleEvents()
  }
 
- function download(content, fileName, contentType) {
-     var a = document.createElement("a");
-     var file = new Blob([content], {type: contentType});
-     a.href = URL.createObjectURL(file);
-     a.download = fileName;
-     a.click();
- }
+
 
  export default {vegaConfig, handleEvents, parseurl, createDataTable, displayAllCharts, updateData}
 
@@ -496,6 +552,7 @@ function openNav() {
         url: 'http://localhost:5500' + '/get-performance-data',
         contentType: 'application/json'
     }).done((full_data) => {
+        storeInteractionLogs('Open Performance View', full_data, new Date())
         var data = full_data['distribution_response'];
 
         // console.log(data)
@@ -576,8 +633,10 @@ function closeBaseline() {
 
 
 function openBookmark() {
-    document.getElementById("myBookmark").style.width = "100%";
+    document.getElementById("myBookmark").style.width = "75%";
+    createTaskForm();
     displayBookmarkCharts('#bookmarkview', true)
+
     }
 function closeBookmark() {
   document.getElementById("myBookmark").style.width = "0%";
@@ -884,3 +943,117 @@ function computeAccuracy(predictions, groundTruth) {
 
     return { matches, checks };
 }
+
+
+
+
+// ######################################### Task Description #########################################################################################
+
+// Function to clear localStorage
+function clearLocalStorage() {
+  localStorage.clear();
+}
+// Attach event listener to window's beforeunload event
+window.addEventListener('beforeunload', clearLocalStorage);
+
+
+// Function to create task form
+function createTaskForm() {
+  const taskview = document.getElementById('taskview');
+  taskview.innerHTML = ''; // Clear any existing content
+
+  const formTitle = document.createElement('h2');
+  formTitle.classList.add('task-form-title');
+  formTitle.innerText = 'Task Form';
+
+  const questions = [
+    "Username",
+    "Task Question-\n What kinds of birdstrikes would usually cost the most to repair the airplane? \n Note that any dataset columns that are interesting to you can be included. \n Summarize the 2-3 factors that you believe would cause the highest repair cost\n",
+  ];
+
+  const form = document.createElement('form');
+  form.id = 'taskForm';
+
+  questions.forEach((question, index) => {
+    const formGroup = document.createElement('div');
+    formGroup.classList.add('form-group');
+
+    const label = document.createElement('label');
+    label.innerText = `${question}`;
+    formGroup.appendChild(label);
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.name = `answer${index}`;
+    input.classList.add('form-control');
+    formGroup.appendChild(input);
+
+    // Load saved value from local storage
+    const savedValue = localStorage.getItem(`answer${index}`);
+    if (savedValue) {
+      input.value = savedValue;
+    }
+
+    input.addEventListener('input', function() {
+      // Save value to local storage on input change
+        storeInteractionLogs('task form input', input.value, new Date())
+        console.log('task form input', input.value);
+      localStorage.setItem(`answer${index}`, input.value);
+    });
+
+    form.appendChild(formGroup);
+  });
+
+  const submitButton = document.createElement('button');
+  submitButton.type = 'button';
+  submitButton.innerText = 'Submit';
+  submitButton.classList.add('btn');
+  submitButton.onclick = sendLogs;
+  form.appendChild(submitButton);
+
+  taskview.appendChild(formTitle);
+  taskview.appendChild(form);
+
+  // submit button click event
+  submitButton.addEventListener('click', function() {
+    sendLogs();
+  });
+}
+
+// ######################################### Send Logs to Backend #########################################################################################
+function sendLogs() {
+  const form = document.getElementById('taskForm');
+  const formData = new FormData(form);
+  const answers = {};
+
+  formData.forEach((value, key) => {
+    answers[key] = value;
+  });
+
+  const chartdata= {
+                 charts: app.sumview.allrecommendedCharts,
+                 attributes_history: attributesHistory,
+                 bookmarked_charts: app.sumview.bookmarkedCharts
+             };
+    const interactionlogs = interactionLogs;
+    const finalData = {'chartdata': chartdata, 'interactionlogs': interactionlogs, 'taskanswers': answers};
+
+
+  // call backend to store the answers
+    $.ajax({
+        type: 'POST',
+        crossDomain: true,
+        url: 'http://localhost:5500' + '/submit-form',
+        data: JSON.stringify(finalData),
+        contentType: 'application/json'
+    }).done(() => {
+        alert('Safe to close the window. Your task answers have been stored successfully.');
+    }).fail(() => {
+        alert('Failed to store task answers. Please try again later.');
+    });
+  console.log(answers);
+
+}
+
+
+

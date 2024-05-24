@@ -17,20 +17,24 @@ app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({extended: true, limit: '50mb', parameterLimit: 50000}))
 app.use(compress())
 app.use(methodOverride())
-// static directories
-app.use(express.static('public'))
+
+//this is for the dataset
 app.use('/data', express.static('staticdata'))
 
+// this is for welcome page post-task page and so on
+app.use('/static', express.static(path.join(__dirname, 'web/static')));
 
-app.get('/post-task-survey.html', (req, res) => {
-    // Send the static post-task-survey.html file
-    res.sendFile('post-task-survey.html');
+// Route for the post-task survey
+app.get('/post-task-survey', (req, res) => {
+    res.sendFile(path.join(__dirname, 'web/templates', 'post-task-survey.html'));
 });
 
-app.get('/index-demo.html', (req, res) => {
-    // Send the static post-task-survey.html file
-    res.sendFile('/Users/aryal/Desktop/Personal/RLVisRec/interface/client/index-demo.html');
+// Route for the pilot introduction page
+app.get('/welcome', (req, res) => {
+    res.sendFile(path.join(__dirname, 'web/templates', 'welcome.html'));
 });
+
+
 app.listen(8000, function() {
 	console.log('Server: listening 8000')
 });;

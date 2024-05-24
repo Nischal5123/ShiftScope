@@ -2,7 +2,7 @@ import json
 
 import re
 import numpy as np
-from flask import Flask, render_template, request, jsonify, send_from_directory, current_app
+from flask import Flask, render_template, request, jsonify, send_from_directory, current_app, session
 from flask_cors import CORS
 
 import draco_test
@@ -17,18 +17,22 @@ from zeng_app import perform_snd_flds
 from performance import OnlineLearningSystem
 import pdb
 import concurrent.futures
+import pickle
+import os
 
 port = 5500
-
 MAX_LEN = 20
-
 app = Flask(__name__, static_folder='web/static',
             template_folder='web/templates')
-CORS(app)
+CORS(app, supports_credentials=True)
+# Session configuration
+app.secret_key = 'your_secret_key'
+
 
 env = environment()
-
 system = OnlineLearningSystem()
+
+manual_session={}
 
 class InvalidUsage(Exception):
     status_code = 400
@@ -139,6 +143,7 @@ def top_k(save_csv=False):
         system.state_history = [['flight_date', 'wildlife_size'], ['flight_date', 'wildlife_size', 'airport_name'],
                          ['flight_date', 'wildlife_size', 'airport_name']]
 
+
     # print('Attribute History', attributesHistory)
     attributes_list,distribution_map,baselines_distribution_maps, attributes_baseline=system.onlinelearning(algorithms_to_run=['Momentum','Random','Greedy','ActorCritic'])
 
@@ -180,8 +185,75 @@ def top_k(save_csv=False):
     return jsonify(response_data)
 
 
+@app.route('/')
+def index():
+    session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    manual_session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    return jsonify(manual_session)
+
+@app.route('/submit-form', methods=['POST'])
+def submit_form():
+    global manual_session
+    # Create a new session folder
+    folder_name = 'ShiftScopeLogs/' + str( manual_session.get('session_id'))
+
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+
+    save_path = 'ShiftScopeLogs/' + str( manual_session.get('session_id')) + '/'
+
+    # Save form data for the new session
+    all_data = request.get_json()
+    taskanswers = all_data.get('taskanswers')
+    chartdata = all_data.get('chartdata')
+    interactionlogs = all_data.get('interactionlogs')
+
+
+    with open(save_path + 'task_answer.json', 'w') as f:
+        json.dump(taskanswers, f)
+
+    with open(save_path + 'chart_data.json', 'w') as f:
+        json.dump(chartdata, f)
+
+    with open(save_path + 'interaction_logs.json', 'w') as f:
+        json.dump(interactionlogs, f)
+
+
+    # Save online learning models to file
+    with open(save_path + 'online_learning_models.pkl', 'wb') as f:
+        pickle.dump(system, f)
+
+    # Reset session variables
+    session.clear()
+    manual_session={}
+
+    return jsonify({'message': 'Form submitted successfully. New session started.'})
+
+
+@app.route('/store-logs', methods=['POST'])
+def store_logs():
+    global manual_session
+    # Create a new session folder
+    folder_name = 'ShiftScopeLogs/' + str( manual_session.get('session_id'))
+
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+
+    save_path = 'ShiftScopeLogs/' + str( manual_session.get('session_id')) + '/'
+
+    # Save logs for the new session
+    logs = request.get_json()
+    chart_data = logs.get('chartdata')
+    interaction_logs = logs.get('interactionlogs')
+    with open(save_path + 'chart_data.json', 'w') as f:
+        json.dump(chart_data, f)
+
+    with open(save_path + 'interaction_logs.json', 'w') as f:
+        json.dump(interaction_logs, f)
+
+    return jsonify({'message': 'Logs stored successfully.'})
+
+
+
 if __name__ == '__main__':
-    # attributesHistory= [['flight_data','wildlife_size'],['flight_data','wildlife_size','airport_name'],['flight_data','wildlife_size','airport_name']]
-    # onlinelearning(attributesHistory)
-    # top_k()
-    app.run(port=port, debug=False)
+    app.run(port=5500, debug=True)
