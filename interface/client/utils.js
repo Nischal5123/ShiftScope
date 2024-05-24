@@ -59,6 +59,18 @@
      columns.forEach((c) => {
          $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
      })
+
+     // call backend to start session
+        $.ajax({
+            type: 'GET',
+            crossDomain: true,
+            url: 'http://localhost:5500/',
+            contentType: 'application/json'
+        }).done((data) => {
+            console.log('Session started');
+        }).fail((xhr, status, error) => {
+            alert('Cannot start session.');
+        });
  }
 
 export function displayBookmarkCharts(container, created = true) {
@@ -954,6 +966,11 @@ function createTaskForm() {
 
   taskview.appendChild(formTitle);
   taskview.appendChild(form);
+
+  // submit button click event
+    submitButton.addEventListener('click', function() {
+        getAnswers();
+    });
 }
 
 function getAnswers() {
@@ -965,5 +982,17 @@ function getAnswers() {
     answers[key] = value;
   });
 
-  console.log(answers); // Replace with your desired action, e.g., send to server, display on page, etc.
+  // call backend to store the answers
+    $.ajax({
+        type: 'POST',
+        crossDomain: true,
+        url: 'http://localhost:5500' + '/submit-form',
+        data: JSON.stringify(answers),
+        contentType: 'application/json'
+    }).done(() => {
+        alert('Task answers have been successfully stored!');
+    }).fail(() => {
+        alert('Failed to store task answers. Please try again later.');
+    });
+  console.log(answers);
 }
