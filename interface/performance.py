@@ -17,13 +17,17 @@ class OnlineLearningSystem:
         self.momentum_attributes_history = []
         self.greedy_attributes_history = []
         self.random_attributes_history = []
+        self.ql_attributes_history = []
         self.rl_attributes_history = []
         self.last_users_attributes_history = []
         self.actor_critic_action_history = []
+
+        #performance data
         self.rl_accuracies = []
         self.random_accuracies = []
         self.momentum_accuracies = []
         self.greedy_accuracies = []
+        self.ql_accuracies = []
         self.master_current_user_attributes = None
         self.current_user_attributes = []
 
@@ -49,6 +53,8 @@ class OnlineLearningSystem:
             self.response_algorithm_predictions['RL'] = self.rl_attributes_history
             self.response_algorithm_predictions['Random'] = self.random_attributes_history
             self.response_algorithm_predictions['Momentum'] = self.momentum_attributes_history
+            self.response_algorithm_predictions['Greedy'] = self.greedy_attributes_history
+            self.response_algorithm_predictions['QLearning'] = self.ql_attributes_history
             
         
  
@@ -164,6 +170,7 @@ class OnlineLearningSystem:
         next_state_greedy = self.extend_state(results['Greedy'])
         next_state_random = self.extend_state(results['Random'])
         next_state_ac = self.extend_state(results['ActorCritic'])
+        next_state_qlearn= self.extend_state(results['Qlearning'])
         # next_state_return = results[specified_algorithm]
 
         ####### add new predictions to the history ################################################################
@@ -171,24 +178,22 @@ class OnlineLearningSystem:
         self.greedy_attributes_history.append(next_state_greedy)
         self.random_attributes_history.append(next_state_random)
         self.actor_critic_action_history.append(next_state_ac)
-        # self.rl_attributes_history.append(next_state_rl)
         self.rl_attributes_history.append(next_state_ac)
+        self.ql_attributes_history.append(next_state_qlearn)
         ############################################################################################################
 
 
         df_momentum = pd.DataFrame({'State': self.momentum_attributes_history})
         distribution_map_momentum = self.get_distribution_of_states(df_momentum, 'Momentum')
-
         df_greedy = pd.DataFrame({'State': self.greedy_attributes_history})
         distribution_map_greedy = self.get_distribution_of_states(df_greedy, 'Greedy')
-
         df_random = pd.DataFrame({'State': self.random_attributes_history})
         distribution_map_random = self.get_distribution_of_states(df_random, 'Random')
-
         df_ac = pd.DataFrame(({'State': self.actor_critic_action_history}))
         distribution_map_ac = self.get_distribution_of_states(df_ac, 'ActorCritic')
+        df_ql = pd.DataFrame({'State': self.ql_attributes_history})
+        distribution_map_ql = self.get_distribution_of_states(df_ql, 'Qlearning')
 
-        df_rl = pd.DataFrame({'State': self.rl_attributes_history})
         distribution_map_rl = distribution_map_ac
         # distribution_map_rl = self.get_distribution_of_states(df_rl, 'ActorCritic')
 
@@ -197,7 +202,8 @@ class OnlineLearningSystem:
             'Momentum': distribution_map_momentum,
             'Greedy': distribution_map_rl, # lets send this as greedy for now
             'Random': distribution_map_random,
-            'Actor_Critic': distribution_map_ac
+            'Actor_Critic': distribution_map_ac,
+            'Qlearning': distribution_map_ql
         }
 
          # Store these for everytime the performance view is clicked even if there is no new data need to return this
@@ -207,7 +213,7 @@ class OnlineLearningSystem:
         #baseline next state: something other than specified algorithm
         # next_state_baseline = self.extend_state(results['Momentum'])
 
-        return next_state_ac, distribution_map, all_algorithms_distribution_map, next_state_momentum
+        return next_state_ac, distribution_map, all_algorithms_distribution_map, next_state_qlearn
 
     #Updating the Actor-Critic Model based on user's feedback
     def update_models(self):
@@ -250,6 +256,7 @@ class OnlineLearningSystem:
         np.save(path + 'rl_attributes_history.npy', self.rl_attributes_history)
         np.save(path + 'user_attributes_history.npy', self.current_user_attributes)
         np.save(path + 'actor_critic_attributes_history.npy', self.actor_critic_action_history)
+        np.save(path + 'ql_attributes_history.npy', self.ql_attributes_history)
 
 # Assuming other necessary functions like StateGenerator etc. are implemented elsewhere
 

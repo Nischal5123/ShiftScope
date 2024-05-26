@@ -18,21 +18,21 @@ class utils:
     def run_algorithm(self, algorithm, attributes_history, generator, dataset):
         if algorithm == 'Qlearning':
             # Save the attribute history to a numpy file
-            Rl_attributesHistory = attributes_history.copy()
+            Copy_attributesHistory = attributes_history.copy()
             # Make all the attributes inside the list to be 3 in size, fill with 'none' if not enough
-            for i in range(len(Rl_attributesHistory)):
-                if len(Rl_attributesHistory[i]) < 3:
-                    Rl_attributesHistory[i].extend(['none'] * (3 - len(Rl_attributesHistory[i])))
+            for i in range(len(Copy_attributesHistory)):
+                if len(Copy_attributesHistory[i]) < 3:
+                    Copy_attributesHistory[i].extend(['none'] * (3 - len(Copy_attributesHistory[i])))
 
             # Remove the existing file if it exists
             if os.path.exists("attributes_history.npy"):
                 os.remove("attributes_history.npy")
 
             # Save the new attribute history to a numpy file
-            np.save("attributes_history.npy", Rl_attributesHistory)
+            np.save("attributes_history.npy", Copy_attributesHistory)
 
-            next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="attributes_history.npy", current_state=Rl_attributesHistory[-1], epsilon=0.9)
-            return list(filter(lambda x: x.lower() != 'none', next_state_rl))
+            next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="attributes_history.npy", current_state=Copy_attributesHistory[-1])
+            return next_state_rl
 
         elif algorithm == 'Momentum':
             current_state= attributes_history[-1]

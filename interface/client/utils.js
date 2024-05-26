@@ -677,7 +677,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const xScale = d3.scaleBand()
-        .domain(Object.keys(fullHistory))
+        .domain(Object.keys(recTimetoInteractionTime))
         .range([0, width])
         .padding(0.1);
 
@@ -706,8 +706,6 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
                 concatenatedHistory.push(fullHistory[step]);
             }
         });
-        // console.log(predictions[time])
-        // console.log(concatenatedHistory)
         // Check if predictions[time] and concatenatedHistory are valid
         let total = 0;
         concatenatedHistory.forEach((historyItem, index) => {
@@ -835,24 +833,25 @@ function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) 
         allTimeSteps.forEach(timeStep => {
             var userAttributes = localattributeHistory[timeStep];
 
-            Predictions.forEach(Prediction => {
-                if (userAttributes.includes(Prediction)) {
-                    const fieldIndex = fieldNames.indexOf(Prediction);
-                    if (fieldIndex !== -1) {
-                        // Highlight the corresponding element in the time series chart
-                        d3.selectAll(`#timeSeriesChart [data-index="${fieldIndex}"]`)
-                            .filter(function() {
-                                return +d3.select(this).attr("x") === xScale(timeStep);
-                            })
-                            .attr("fill", fillColor)
-                            .classed("highlight", true);
+            Predictions.forEach(predictionArray => {
+                predictionArray.forEach(prediction => {
+                    if (userAttributes.includes(prediction)) {
+                        const fieldIndex = fieldNames.indexOf(prediction);
+                        if (fieldIndex !== -1) {
+                            // Highlight the corresponding element in the time series chart
+                            d3.selectAll(`#timeSeriesChart [data-index="${fieldIndex}"]`)
+                                .filter(function() {
+                                    return +d3.select(this).attr("x") === xScale(timeStep);
+                                })
+                                .attr("fill", fillColor)
+                                .classed("highlight", true);
+                        }
                     }
-                }
+                });
             });
         });
     }
 }
-
 
 function createShiftFocusChart(full_data) {
 

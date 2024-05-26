@@ -74,6 +74,19 @@ class QLearningAgent:
         next_state=self.env.convert_back_to_state(next_state)
         return next_state
 
+    def inference_predict_top_next_states(self, inference_state, top_k=6):
+        q_values = {a: self.env.get_q_value(inference_state, a) for a in self.env.states}
+        top_actions = sorted(q_values, key=q_values.get, reverse=True)[:top_k]
+
+        top_next_states = []
+        for action in top_actions:
+            next_state, _ = self.env.step(action)
+            next_state_decoded = self.env.convert_back_to_state(next_state)
+            top_next_states.append(next_state_decoded)
+
+        return top_next_states
+
+
 def convert_to_one_hot(input_attributes, fieldnames):
     one_hot_state = [1 if field in input_attributes else 0 for field in fieldnames]
     return one_hot_state
@@ -115,10 +128,11 @@ def Rl_Driver(dataset='birdstrikes', attributes_history_path="attributes_history
 
     # Inference: Predict the next state
     current_state_encoded = convert_to_one_hot(current_state, fieldnames)
-    predicted_next_state = agent.inference_predict_next_state(current_state_encoded)
+    predicted_next_state = agent.inference_predict_top_next_states(current_state_encoded)
     # print(f"Inference: Predicted next state: {predicted_next_state}")
     return predicted_next_state
 
 
 if __name__ == '__main__':
-     Rl_Driver(current_state=['when_phase_of_flight', 'aircraft_make_model'])
+     next_state_ql=Rl_Driver(current_state=['when_phase_of_flight', 'aircraft_make_model'])
+     print(next_state_ql)
