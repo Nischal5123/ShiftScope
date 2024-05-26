@@ -24,7 +24,7 @@ port = 5500
 MAX_LEN = 20
 app = Flask(__name__, static_folder='web/static',
             template_folder='web/templates')
-CORS(app, supports_credentials=True)
+CORS(app)
 # Session configuration
 app.secret_key = 'your_secret_key'
 
@@ -117,7 +117,7 @@ def encode2():
        #write field names and time
        time= datetime.datetime.now()
        f.write(f'{field_names} {time}\n')
-
+    # print('click', system.state_history)
     return jsonify(specs)
 
 def recommendation_generation(attributes):
@@ -133,18 +133,18 @@ def top_k(save_csv=False):
 
     total_data = request.get_json()
     data = eval(total_data.get('history'))
-
+    # print(data)
     bookmarked_charts = total_data.get('bookmarked', [])
     specified_algorithm = total_data.get('algorithm', 'ActorCritic')
 
     if data and isinstance(data, list):
+        print("past ",system.state_history)
         system.state_history = data
+        print("present ",system.state_history)
     else:
-        system.state_history = [['flight_date', 'wildlife_size'], ['flight_date', 'wildlife_size', 'airport_name'],
-                         ['flight_date', 'wildlife_size', 'airport_name']]
+        system.state_history = [['flight_date', 'wildlife_size', 'airport_name']]
 
-
-    # print('Attribute History', attributesHistory)
+    # print('Similar', system.state_history)
     attributes_list,distribution_map,baselines_distribution_maps, attributes_baseline=system.onlinelearning(algorithms_to_run=['Momentum','Random','Greedy','ActorCritic'])
 
     # print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)

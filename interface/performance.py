@@ -45,51 +45,21 @@ class OnlineLearningSystem:
 
     #if algorithm's future is the user's current choice, then it is a hit
     def set_performance_data(self, algorithms=['Momentum', 'Random', 'Greedy']):
-        print("Calculating performance data")
-        #if there are new interactions
-        if self.current_user_attributes: #technically this should be the case always
-            rl_history = np.array([sorted(arr) for arr in self.rl_attributes_history])
-            random_history = np.array([sorted(arr) for arr in self.random_attributes_history])
-            momentum_history = np.array([sorted(arr) for arr in self.momentum_attributes_history])
-            current_user_attributes = np.array([sorted(arr) for arr in self.current_user_attributes])
-
-            # -1 because we are looking at if the user interacted with last recommendation
-            self.rl_accuracies.append(self.compute_accuracy(rl_history[-1], current_user_attributes))
-            self.random_accuracies.append(self.compute_accuracy(random_history[-1], current_user_attributes))
-            self.momentum_accuracies.append(self.compute_accuracy(momentum_history[-1], current_user_attributes))
-
-            self.response_accuracy['RL'] = self.rl_accuracies
-            self.response_accuracy['Random'] = self.random_accuracies
-            self.response_accuracy['Momentum'] = self.momentum_accuracies
-
-            self.response_algorithm_predictions['RL'] = rl_history.tolist()
-            self.response_algorithm_predictions['Random'] = random_history.tolist()
-            self.response_algorithm_predictions['Momentum'] = momentum_history.tolist()
-
-            # return self.response_accuracy , self.all_algorithms_distribution_map, self.user_distribution_map
-            # print("Performance data calculated", self.response_accuracy)
-
-
-    def compute_accuracy(self, rl_prediction, current_history):
-        total_matches = 0
-        checks = 0
-        for prediction in rl_prediction:
-            for attributes in current_history:
-                pdb.set_trace()
-                checks += 1
-                if prediction in attributes:
-                    total_matches += 1
-        average_matches = total_matches / checks if checks > 0 else 0
-        return average_matches
-
+        if len(self.current_user_attributes) > 0: #technically this should be the case always
+            self.response_algorithm_predictions['RL'] = self.rl_attributes_history
+            self.response_algorithm_predictions['Random'] = self.random_attributes_history
+            self.response_algorithm_predictions['Momentum'] = self.momentum_attributes_history
+            
+        
+ 
     def read_json_file(self, algorithms=['Momentum', 'Random', 'Greedy']):
         # Prepare response data
         response_data = {
             "distribution_map": self.user_distribution_map,
             "baselines_distribution_maps": self.all_algorithms_distribution_map,
-            "algorithm_predictions": self.response_algorithm_predictions
+            # "algorithm_predictions": self.response_algorithm_predictions
         }
-        pdb.set_trace()
+        # pdb.set_trace()
         # Convert self.current_user_attributes to a list if it's a NumPy array
         if isinstance(self.current_user_attributes, np.ndarray):
             response_user = self.current_user_attributes.tolist()
@@ -99,7 +69,7 @@ class OnlineLearningSystem:
         # Construct final response
         final_response = {
             'distribution_response': response_data,
-            'accuracy_response': self.response_accuracy,
+            # 'accuracy_response': self.response_accuracy,
             'algorithm_predictions': self.response_algorithm_predictions,
             'user_selections': response_user,
             'recTimetoInteractionTime': self.interaction_map,
@@ -150,7 +120,8 @@ class OnlineLearningSystem:
 
 
     def onlinelearning(self, algorithms_to_run=['Momentum', 'Random', 'Greedy', 'Qlearning', 'ActorCritic'], dataset='birdstrikes'):
-        current_interactions = []
+        # current_interactions = []
+        # pdb.set_trace()
         last_history = self.last_users_attributes_history
         attributesHistory = self.state_history
         for i in range(len(attributesHistory)):
@@ -165,7 +136,7 @@ class OnlineLearningSystem:
 
         self.current_user_attributes.extend(new_interactions)
         self.last_users_attributes_history = attributesHistory
-
+        
         #get the hit rate and other performance data ################################################################
         if len(self.rl_attributes_history) > 0:
             # Map the user's position of interaction in the new attributesHistory to the corresponding predictions
@@ -173,7 +144,7 @@ class OnlineLearningSystem:
             interaction_indices = list(range(len(last_history), len(attributesHistory)))
             interaction_time_id = len(self.rl_attributes_history)-1
             self.interaction_map[interaction_time_id] = interaction_indices
-
+            # pdb.set_trace()
             with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
                 future_performance_data = executor.submit(self.set_performance_data)
         ############################################################################################################
@@ -263,10 +234,10 @@ class OnlineLearningSystem:
             A = self.extend_state(attr_set)
             R = total_r
             data.append((S, A, R, S_prime, False))
-        self.state_history.append(S_prime)
+        # self.state_history.append(S_prime)
         # pdb.set_trace()
 
-        self.utils_obj.ac_model.update_reward(S, )
+        self.utils_obj.ac_model.update_reward(data)
 
         ########updating the momentum model########
         A = self.extend_state(cur_attributes)

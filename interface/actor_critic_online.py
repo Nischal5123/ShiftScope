@@ -110,7 +110,7 @@ class ActorCriticModel:
     def __init__(self, dataset='birdstrikes'):
 
         self.model = ActorCritic()
-        self.model.load_state_dict(torch.load('pretrained_actor_critic.pth'))
+        self.model.load_state_dict(torch.load('pretrained_actor_critic_V2.pth'))
 
         self.fieldnames = None
         if dataset == 'birdstrikes': 
