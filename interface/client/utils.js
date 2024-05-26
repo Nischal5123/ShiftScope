@@ -295,12 +295,12 @@ export function displayBaselineCharts(container, created = true) {
         // Check if colorField, xField, and yField exist
         // Remove null or undefined values from fieldsArray
         fieldsArray = [colorField, xField, yField, shapeField,sizeField].filter(field => field !== null && field !== undefined);
-        attributesHistory.push(fieldsArray);
+        // attributesHistory.push(fieldsArray);
 
 
 
         // Log extracted fields array
-         console.log("Fields array:", fieldsArray);
+        //  console.log("Fields array:", fieldsArray);
          app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid }, attributesHistory)
          //app.sumview.update(()=> {app.sumview.selectedChartID = spec._meta.chid }, fieldsArray)
 
@@ -555,7 +555,7 @@ function openNav() {
         storeInteractionLogs('Open Performance View', full_data, new Date())
         var data = full_data['distribution_response'];
 
-
+        // console.log(data)
         // Create baseline charts
         createBaselineChart("UserChart", data['distribution_map'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
         createBaselineChart("RLChart", data['baselines_distribution_maps']['Greedy'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
@@ -651,11 +651,6 @@ function CSVToArray(text) {
   return rows.map(row => row.split(','));
 }
 
-
-var hitRateHistory = {'RL': [], 'Random': [], 'Momentum': []  };
-
-
-
 function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
     const fieldNames = [
         'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
@@ -682,7 +677,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const xScale = d3.scaleBand()
-        .domain(Object.keys(recTimetoInteractionTime))
+        .domain(Object.keys(fullHistory))
         .range([0, width])
         .padding(0.1);
 
@@ -699,39 +694,62 @@ const hitRateHistory = {};
 Object.keys(algorithmPredictions).forEach(algorithm => {
     const predictions = algorithmPredictions[algorithm];
     const hitRates = [];
-
     Object.keys(recTimetoInteractionTime).forEach(time => {
         const timeSteps = recTimetoInteractionTime[time];
 
         // Concatenate the fullHistory arrays corresponding to the timeSteps
+        // console.log(timeSteps)
+        // console.log(fullHistory)
         let concatenatedHistory = [];
         timeSteps.forEach(step => {
             if (fullHistory[step] !== undefined) {
-                concatenatedHistory = concatenatedHistory.concat(fullHistory[step]);
+                concatenatedHistory.push(fullHistory[step]);
             }
         });
-
+        // console.log(predictions[time])
+        // console.log(concatenatedHistory)
         // Check if predictions[time] and concatenatedHistory are valid
-        if (predictions[time] && predictions[time].length > 0 && concatenatedHistory.length > 0) {
-            const accuracy = computeAccuracy(predictions[time], concatenatedHistory);
-            const averageAccuracy = accuracy.checks > 0 ? accuracy.matches / accuracy.checks : 0;
-            hitRates.push(averageAccuracy);
-        } else {
-            // If either is empty, push 0 accuracy
-            hitRates.push(0);
-        }
+        let total = 0;
+        concatenatedHistory.forEach((historyItem, index) => {
+            if (predictions[time] && predictions[time].length > 0) {
+                const accuracy = computeCTR(predictions[time], historyItem); // Compute for single elements
+                hitRates.push(accuracy);
+                total += accuracy; 
+            } else {
+                hitRates.push(0); // No prediction or empty history at this index
+                total += 0;
+            }
+        });
+        // hitRates.push(total / concatenatedHistory.length)
     });
 
     hitRateHistory[algorithm] = hitRates;
+    let cumulativeSum = 0;
+
+    for (let i = 0; i < hitRates.length; i++) {
+        cumulativeSum += hitRates[i]; // Add the current element to the cumulative sum
+        // hitRates[i] = cumulativeSum / (i + 1); // Calculate the average and update the element
+        hitRates[i] = Math.round((cumulativeSum / (i + 1)) * 100) / 100;
+    }
+    // console.log(hitRateHistory)
 });
 
     // Draw lines for each dataset
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
         const line = d3.line()
-            .x((_, j) => xScale(j.toString()) + xScale.bandwidth() / 2)
-            .y(d => yScale(d))
-            .curve(d3.curveCardinal.tension(0.5));
-
+            .x((_, j) => {
+                const xValue = xScale(j.toString()) + xScale.bandwidth() / 2;
+                // console.log(`x[${j}] = ${xValue}`); // Debugging x values
+                return xValue;
+            })
+            .y(d => {
+                const yValue = yScale(d);
+                // console.log(`y = ${yValue}`); // Debugging y values
+                return yValue;
+            })
+            .curve(d3.curveCardinal.tension(0));
+        // console.log(line(hitRateHistory[algorithm]));
+        // console.log(hitRateHistory[algorithm])        
         svg.append("path")
             .datum(hitRateHistory[algorithm])
             .attr("fill", "none")
@@ -739,13 +757,13 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
             .attr("stroke-width", 2)
             .attr("d", line)
             .on("click", (_, j) => {
-                updateTimeSeriesChart(j, data, xsc,algorithm,colors(algorithm));
+                updateTimeSeriesChart(j, data, xsc,algorithm, colors(algorithm));
             });
 
         // Add labels for different algorithms colors
         svg.append("text")
             .attr("x", margin.left - 80)
-            .attr("y", margin.top + 140 * i)
+            .attr("y", margin.top + 30 * i)
             .attr("fill", colors(algorithm))
             .text(algorithm);
     });
@@ -793,6 +811,8 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
 
 
 function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) {
+    console.log("Circle clicked:", clickedTime, algorithm);
+
     const fieldNames = [
         'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
         'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
@@ -802,7 +822,7 @@ function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) 
 
     var localattributeHistory = data['full_history'];
     var mapping = data['recTimetoInteractionTime'];
-    var rlPredictions = data['algorithm_predictions'][algorithm][clickedTime];
+    var Predictions = data['algorithm_predictions'][algorithm][clickedTime];
 
     // Remove previous highlighting
     d3.selectAll(".highlight").attr("fill", "rgba(54, 160, 235, 0.4)").classed("highlight", false);
@@ -815,11 +835,9 @@ function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) 
         allTimeSteps.forEach(timeStep => {
             var userAttributes = localattributeHistory[timeStep];
 
-            // Iterate over each RL prediction
-            rlPredictions.forEach(rlPrediction => {
-                // Check if the RL algorithm's prediction matches any user attribute
-                if (userAttributes.includes(rlPrediction)) {
-                    const fieldIndex = fieldNames.indexOf(rlPrediction);
+            Predictions.forEach(Prediction => {
+                if (userAttributes.includes(Prediction)) {
+                    const fieldIndex = fieldNames.indexOf(Prediction);
                     if (fieldIndex !== -1) {
                         // Highlight the corresponding element in the time series chart
                         d3.selectAll(`#timeSeriesChart [data-index="${fieldIndex}"]`)
@@ -834,8 +852,6 @@ function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) 
         });
     }
 }
-
-
 
 
 function createShiftFocusChart(full_data) {
@@ -951,6 +967,26 @@ function computeAccuracy(predictions, groundTruth) {
     return { matches, checks };
 }
 
+function computeCTR(predictions, groundTruth) {
+    // Helper function to compare two arrays
+    function arraysEqual(a, b) {
+        if (a.length !== b.length) return false;
+        const sortedA = [...a].sort();
+        const sortedB = [...b].sort();
+        for (let i = 0; i < sortedA.length; i++) {
+            if (sortedA[i] !== sortedB[i]) return false;
+        }
+        return true;
+    }
+
+    // Check if groundTruth exists in predictions
+    for (let i = 0; i < predictions.length; i++) {
+        if (arraysEqual(predictions[i], groundTruth)) {
+            return 1;
+        }
+    }
+    return 0;
+}
 
 
 

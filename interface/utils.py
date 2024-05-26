@@ -1,10 +1,10 @@
 # Define a function to run each algorithm
 
-import random
+from baseline import RandomStrategy
 import numpy as np
 from Q_Learning import Rl_Driver
 # import Q_Learning
-from Momentum import Momentum
+from baseline import Momentum
 import os
 from actor_critic_online import ActorCriticModel
 
@@ -12,6 +12,8 @@ class utils:
     def __init__(self):
         # self.qlearning = Rl_Driver()
         self.ac_model = ActorCriticModel('birdstrikes')
+        self.rs = RandomStrategy()
+        self.m = Momentum()
 
     def run_algorithm(self, algorithm, attributes_history, generator, dataset):
         if algorithm == 'Qlearning':
@@ -33,19 +35,16 @@ class utils:
             return list(filter(lambda x: x.lower() != 'none', next_state_rl))
 
         elif algorithm == 'Momentum':
-            # algo=Momentum()
-            # action=algo.MomentumDriver(df_with_actions)
-            if len(attributes_history) > 1:
-                return list(filter(lambda x: x.lower() != 'none', attributes_history[-2]))
-            else:
-                return []
-
+            current_state= attributes_history[-1]
+            return self.m.generate_actions(current_state)
+            
         elif algorithm == 'Greedy':
-            return list(filter(lambda x: x.lower() != 'none', attributes_history[-1]))
+            current_state= attributes_history[-1]
+            return self.m.generate_actions(current_state)
 
         elif algorithm == 'Random':
-            return list(filter(lambda x: x.lower() != 'none', random.choice(generator.generate_independent_next_states())))
-
+            return self.rs.generate_actions()
+            
         elif algorithm == 'ActorCritic':
             # ac_model = ActorCriticModel('birdstrikes')
             current_state= attributes_history[-1]

@@ -47,6 +47,7 @@ class environment:
         # # List of valid actions and states
         self.attributes_birdstrikes = {'Airport_Name': 1, 'Aircraft_Make_Model': 2, 'Effect_Amount_of_damage': 3, 'Flight_Date': 4, 'Aircraft_Airline_Operator': 5, 'Origin_State': 6, 'When_Phase_of_flight': 7, 'Wildlife_Size': 8, 'Wildlife_Species': 9, 'When_Time_of_day': 10, 'Cost_Other': 11, 'Cost_Repair': 12, 'Cost_Total': 13, 'Speed_IAS_in_knots': 14, 'None': 15}
         self.valid_actions = self.generate_actions()
+        self.inverse_valid_actions = {v: k for k, v in self.valid_actions.items()}
 
         # Storing the data into main memory. Focus is now only on action and states for a fixed user's particular subtask
         self.mem_states = []
