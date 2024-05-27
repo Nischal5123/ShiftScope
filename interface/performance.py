@@ -96,8 +96,8 @@ class OnlineLearningSystem:
         for chart_key, _ in recommendations.items():
             chart = recommendations[chart_key]
             chart_all.append(chart)
-            encodings = json.loads(chart).get('encoding', {})
-            match = 0
+            # encodings = json.loads(chart).get('encoding', {})
+            # match = 0
 
         return chart_all
     
@@ -144,15 +144,16 @@ class OnlineLearningSystem:
         self.last_users_attributes_history = attributesHistory
         
         #get the hit rate and other performance data ################################################################
-        if len(self.rl_attributes_history) > 0:
+        if len(self.rl_attributes_history) > 0:    #before new predictions are made last prection is mapped to new interactions
             # Map the user's position of interaction in the new attributesHistory to the corresponding predictions
             # Determine the indices of the current_user_attributes in attributesHistory
             interaction_indices = list(range(len(last_history), len(attributesHistory)))
             interaction_time_id = len(self.rl_attributes_history)-1
             self.interaction_map[interaction_time_id] = interaction_indices
             # pdb.set_trace()
-            with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-                future_performance_data = executor.submit(self.set_performance_data)
+            # with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
+            #     future_performance_data = executor.submit(self.set_performance_data)
+            self.set_performance_data()
         ############################################################################################################
 
         # generator = StateGenerator(dataset)
@@ -174,12 +175,14 @@ class OnlineLearningSystem:
         # next_state_return = results[specified_algorithm]
 
         ####### add new predictions to the history ################################################################
+
         self.momentum_attributes_history.append(next_state_momentum)
         self.greedy_attributes_history.append(next_state_greedy)
         self.random_attributes_history.append(next_state_random)
         self.actor_critic_action_history.append(next_state_ac)
         self.rl_attributes_history.append(next_state_ac)
         self.ql_attributes_history.append(next_state_qlearn)
+
         ############################################################################################################
 
 
@@ -200,10 +203,11 @@ class OnlineLearningSystem:
         # pdb.set_trace()
         all_algorithms_distribution_map = {
             'Momentum': distribution_map_momentum,
-            'Greedy': distribution_map_rl, # lets send this as greedy for now
+            'Greedy': distribution_map_greedy, # lets send this as greedy for now
             'Random': distribution_map_random,
             'Actor_Critic': distribution_map_ac,
-            'Qlearning': distribution_map_ql
+            'Qlearning': distribution_map_ql,
+            'RL': distribution_map_rl
         }
 
          # Store these for everytime the performance view is clicked even if there is no new data need to return this
@@ -214,6 +218,15 @@ class OnlineLearningSystem:
         # next_state_baseline = self.extend_state(results['Momentum'])
 
         return next_state_ac, distribution_map, all_algorithms_distribution_map, next_state_qlearn
+
+
+    def set_performance_data(self, algorithms=['Momentum', 'Random', 'Greedy']):
+        if len(self.current_user_attributes) > 0: #technically this should be the case always
+            self.response_algorithm_predictions['RL'] = self.rl_attributes_history.copy()
+            self.response_algorithm_predictions['Random'] = self.random_attributes_history.copy()
+            self.response_algorithm_predictions['Momentum'] = self.momentum_attributes_history.copy()
+            self.response_algorithm_predictions['Greedy'] = self.greedy_attributes_history.copy()
+            self.response_algorithm_predictions['QLearning'] = self.ql_attributes_history.copy()
 
     #Updating the Actor-Critic Model based on user's feedback
     def update_models(self):
