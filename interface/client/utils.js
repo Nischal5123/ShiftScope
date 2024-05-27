@@ -24,6 +24,8 @@
      legend: {gradientLength:20, labelFontSize:6, titleFontSize:6, clipHeight:20}
  }
 
+
+
  export function createDataTable(scrollH) {
      var columns = _.keys(app.data.chartdata.values[0]).map((d) => {return {title: d} })
      var tabledata = app.data.chartdata.values.map((d) => {
@@ -558,7 +560,7 @@ function openNav() {
         // console.log(data)
         // Create baseline charts
         createBaselineChart("UserChart", data['distribution_map'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
-        createBaselineChart("RLChart", data['baselines_distribution_maps']['Greedy'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
+        createBaselineChart("RLChart", data['baselines_distribution_maps']['RL'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
         createBaselineChart("RandombaselineChart", data['baselines_distribution_maps']['Random'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
         createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
         // createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart);
@@ -659,14 +661,21 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         'speed_ias_in_knots'
     ];
 
-    const algorithmPredictions = data['algorithm_predictions'];
+    var algorithmPredictions = data['algorithm_predictions'];
+    //only select Random, RL, and Momentum from the algorithm predictions
+    const selectedAlgorithms = ['Random', 'RL', 'Momentum'];
+    const selectedAlgorithmPredictions = {};
+    selectedAlgorithms.forEach(algorithm => {
+        selectedAlgorithmPredictions[algorithm] = algorithmPredictions[algorithm];
+    });
+    algorithmPredictions = selectedAlgorithmPredictions;
     const fullHistory = data['full_history'];
     const recTimetoInteractionTime = data['recTimetoInteractionTime'];
 
     // Clear the existing SVG content
     d3.select(`#${id}`).selectAll("*").remove();
 
-    const margin = { top: 0, right: 50, bottom: 40, left: 190 };
+    const margin = { top: 0, right: 50, bottom: 60, left: 190 }; // increased bottom margin
     const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
     const height = window.innerHeight * 0.3 - margin.top - margin.bottom;
 
@@ -677,7 +686,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const xScale = d3.scaleBand()
-        .domain(Object.keys(fullHistory))
+        .domain(Object.keys(recTimetoInteractionTime))
         .range([0, width])
         .padding(0.1);
 
@@ -689,67 +698,42 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .domain(Object.keys(algorithmPredictions))
         .range(d3.schemeCategory10);
 
-// Compute hit rates for each algorithm
-const hitRateHistory = {};
-Object.keys(algorithmPredictions).forEach(algorithm => {
-    const predictions = algorithmPredictions[algorithm];
-    const hitRates = [];
-    Object.keys(recTimetoInteractionTime).forEach(time => {
-        const timeSteps = recTimetoInteractionTime[time];
+    // Compute hit rates for each algorithm
+    const hitRateHistory = {};
+    Object.keys(algorithmPredictions).forEach(algorithm => {
+        const predictions = algorithmPredictions[algorithm];
+        const hitRates = [];
+        Object.keys(recTimetoInteractionTime).forEach(time => {
+            const timeSteps = recTimetoInteractionTime[time];
 
-        // Concatenate the fullHistory arrays corresponding to the timeSteps
-        // console.log(timeSteps)
-        // console.log(fullHistory)
-        let concatenatedHistory = [];
-        timeSteps.forEach(step => {
-            if (fullHistory[step] !== undefined) {
-                concatenatedHistory.push(fullHistory[step]);
-            }
+            let concatenatedHistory = [];
+            timeSteps.forEach(step => {
+                if (fullHistory[step] !== undefined) {
+                    concatenatedHistory.push(fullHistory[step]);
+                }
+            });
+
+            let total = 0;
+            concatenatedHistory.forEach((historyItem, index) => {
+                if (predictions[time] && predictions[time].length > 0) {
+                    const accuracy = computeCTR(predictions[time], historyItem);
+                    total += accuracy;
+                } else {
+                    total += 0;
+                }
+            });
+            hitRates.push(total / concatenatedHistory.length);
         });
-        // console.log(predictions[time])
-        // console.log(concatenatedHistory)
-        // Check if predictions[time] and concatenatedHistory are valid
-        let total = 0;
-        concatenatedHistory.forEach((historyItem, index) => {
-            if (predictions[time] && predictions[time].length > 0) {
-                const accuracy = computeCTR(predictions[time], historyItem); // Compute for single elements
-                hitRates.push(accuracy);
-                total += accuracy; 
-            } else {
-                hitRates.push(0); // No prediction or empty history at this index
-                total += 0;
-            }
-        });
-        // hitRates.push(total / concatenatedHistory.length)
+        hitRateHistory[algorithm] = hitRates;
     });
-
-    hitRateHistory[algorithm] = hitRates;
-    let cumulativeSum = 0;
-
-    for (let i = 0; i < hitRates.length; i++) {
-        cumulativeSum += hitRates[i]; // Add the current element to the cumulative sum
-        // hitRates[i] = cumulativeSum / (i + 1); // Calculate the average and update the element
-        hitRates[i] = Math.round((cumulativeSum / (i + 1)) * 100) / 100;
-    }
-    // console.log(hitRateHistory)
-});
 
     // Draw lines for each dataset
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
         const line = d3.line()
-            .x((_, j) => {
-                const xValue = xScale(j.toString()) + xScale.bandwidth() / 2;
-                // console.log(`x[${j}] = ${xValue}`); // Debugging x values
-                return xValue;
-            })
-            .y(d => {
-                const yValue = yScale(d);
-                // console.log(`y = ${yValue}`); // Debugging y values
-                return yValue;
-            })
-            .curve(d3.curveCardinal.tension(0));
-        // console.log(line(hitRateHistory[algorithm]));
-        // console.log(hitRateHistory[algorithm])        
+            .x((_, j) => xScale(j.toString()) + xScale.bandwidth() / 2)
+            .y(d => yScale(d))
+            .curve(d3.curveCardinal.tension(0.5));
+
         svg.append("path")
             .datum(hitRateHistory[algorithm])
             .attr("fill", "none")
@@ -757,15 +741,8 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
             .attr("stroke-width", 2)
             .attr("d", line)
             .on("click", (_, j) => {
-                updateTimeSeriesChart(j, data, xsc,algorithm, colors(algorithm));
+                updateTimeSeriesChart(j, data, xsc, algorithm, colors(algorithm));
             });
-
-        // Add labels for different algorithms colors
-        svg.append("text")
-            .attr("x", margin.left - 80)
-            .attr("y", margin.top + 30 * i)
-            .attr("fill", colors(algorithm))
-            .text(algorithm);
     });
 
     // Add circles to represent data points
@@ -794,7 +771,7 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
     // Add x-axis label
     svg.append("text")
         .attr("x", width / 2)
-        .attr("y", height + margin.bottom - 10)
+        .attr("y", height + margin.bottom - 20)  // Adjusted position for more space
         .attr("text-anchor", "middle")
         .style("font-size", "14px")
         .text("Recommendation Cycle");
@@ -805,53 +782,64 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
         .attr("text-anchor", "middle")
         .style("font-size", "14px")
         .text("Hit Rate");
+
+    // Add labels for different algorithms colors
+    Object.keys(hitRateHistory).forEach((algorithm, i) => {
+        svg.append("text")
+            .attr("x", (width / Object.keys(hitRateHistory).length) * i + 10)  // Distribute labels evenly
+            .attr("y", height + margin.bottom - 5)  // Place below x-axis label
+            .attr("fill", colors(algorithm))
+            .style("font-size", "20px")
+            .style("font-weight", "bold")
+            .text(algorithm);
+    });
 }
 
 
+    function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) {
+        console.log("Circle clicked:", clickedTime, algorithm);
 
+        const fieldNames = [
+            'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
+            'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
+            'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
+            'speed_ias_in_knots'
+        ];
 
-function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) {
-    console.log("Circle clicked:", clickedTime, algorithm);
+        var localattributeHistory = data['full_history'];
+        var mapping = data['recTimetoInteractionTime'];
+        var Predictions = data['algorithm_predictions'][algorithm][clickedTime];
 
-    const fieldNames = [
-        'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
-        'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
-        'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
-        'speed_ias_in_knots'
-    ];
+        // Remove previous highlighting
+        d3.selectAll(".highlight").attr("fill", "rgba(54, 160, 235, 0.4)").classed("highlight", false);
 
-    var localattributeHistory = data['full_history'];
-    var mapping = data['recTimetoInteractionTime'];
-    var Predictions = data['algorithm_predictions'][algorithm][clickedTime];
+        // Get the corresponding time steps from the mapping
+        var allTimeSteps = mapping[clickedTime];
 
-    // Remove previous highlighting
-    d3.selectAll(".highlight").attr("fill", "rgba(54, 160, 235, 0.4)").classed("highlight", false);
+        if (allTimeSteps && allTimeSteps.length > 0) {
+            // Iterate over the time steps to highlight the corresponding elements
+            allTimeSteps.forEach(timeStep => {
+                var userAttributes = localattributeHistory[timeStep];
 
-    // Get the corresponding time steps from the mapping
-    var allTimeSteps = mapping[clickedTime];
-
-    if (allTimeSteps && allTimeSteps.length > 0) {
-        // Iterate over the time steps to highlight the corresponding elements
-        allTimeSteps.forEach(timeStep => {
-            var userAttributes = localattributeHistory[timeStep];
-
-            Predictions.forEach(Prediction => {
-                if (userAttributes.includes(Prediction)) {
-                    const fieldIndex = fieldNames.indexOf(Prediction);
-                    if (fieldIndex !== -1) {
-                        // Highlight the corresponding element in the time series chart
-                        d3.selectAll(`#timeSeriesChart [data-index="${fieldIndex}"]`)
-                            .filter(function() {
-                                return +d3.select(this).attr("x") === xScale(timeStep);
-                            })
-                            .attr("fill", fillColor)
-                            .classed("highlight", true);
-                    }
-                }
+                Predictions.forEach(predictionArray => {
+                    predictionArray.forEach(prediction => {
+                        if (userAttributes.includes(prediction)) {
+                            const fieldIndex = fieldNames.indexOf(prediction);
+                            if (fieldIndex !== -1) {
+                                // Highlight the corresponding element in the time series chart
+                                d3.selectAll(`#timeSeriesChart [data-index="${fieldIndex}"]`)
+                                    .filter(function () {
+                                        return +d3.select(this).attr("x") === xScale(timeStep);
+                                    })
+                                    .attr("fill", fillColor)
+                                    .classed("highlight", true);
+                            }
+                        }
+                    });
+                });
             });
-        });
+        }
     }
-}
 
 
 function createShiftFocusChart(full_data) {

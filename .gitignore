@@ -13,3 +13,4 @@
 /tamer
 /interface/__pycache__/
 /sourcedata/
+*.json

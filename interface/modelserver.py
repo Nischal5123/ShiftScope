@@ -145,7 +145,7 @@ def top_k(save_csv=False):
         system.state_history = [['flight_date', 'wildlife_size', 'airport_name']]
 
     # print('Similar', system.state_history)
-    attributes_list,distribution_map,baselines_distribution_maps, attributes_baseline=system.onlinelearning(algorithms_to_run=['Momentum','Random','Greedy','ActorCritic'])
+    attributes_list,distribution_map,baselines_distribution_maps, attributes_baseline=system.onlinelearning(algorithms_to_run=['Momentum','Random','Greedy','ActorCritic','Qlearning'])
 
     # print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
     # print(len(attributes_list))
