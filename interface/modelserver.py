@@ -138,9 +138,9 @@ def top_k(save_csv=False):
     specified_algorithm = total_data.get('algorithm', 'ActorCritic')
 
     if data and isinstance(data, list):
-        print("past ",system.state_history)
+        # print("past ",system.state_history)
         system.state_history = data
-        print("present ",system.state_history)
+        # print("present ",system.state_history)
     else:
         system.state_history = [['flight_date', 'wildlife_size', 'airport_name']]
 
@@ -149,12 +149,20 @@ def top_k(save_csv=False):
 
     # print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
     # print(len(attributes_list))
+
     chart_recom_list = []
+
+    # Use a list to preserve order
+    future_to_attributes = []
     with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:
-        future_to_attributes = {executor.submit(recommendation_generation, attributes): attributes for attributes in attributes_list}
-        for future in concurrent.futures.as_completed(future_to_attributes):
+        for attributes in attributes_list:
+            future = executor.submit(recommendation_generation, attributes)
+            future_to_attributes.append((future, attributes))  # Store future and attributes as a tuple
+
+        # Process results in the original order
+        for future, attributes in future_to_attributes:
             chart_recom = future.result()
-            chart_recom_list.extend(chart_recom)
+            chart_recom_list.append(chart_recom)  # Append instead of extend for each set of recommendations
 
     #now for baseline algorithm
     baseline_chart_recom = []

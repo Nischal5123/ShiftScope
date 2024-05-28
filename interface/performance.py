@@ -150,9 +150,6 @@ class OnlineLearningSystem:
             interaction_indices = list(range(len(last_history), len(attributesHistory)))
             interaction_time_id = len(self.rl_attributes_history)-1
             self.interaction_map[interaction_time_id] = interaction_indices
-            # pdb.set_trace()
-            # with concurrent.futures.ThreadPoolExecutor(max_workers=1) as executor:
-            #     future_performance_data = executor.submit(self.set_performance_data)
             self.set_performance_data()
         ############################################################################################################
 
@@ -220,7 +217,7 @@ class OnlineLearningSystem:
         return next_state_ac, distribution_map, all_algorithms_distribution_map, next_state_qlearn
 
 
-    def set_performance_data(self, algorithms=['Momentum', 'Random', 'Greedy']):
+    def set_performance_data(self):
         if len(self.current_user_attributes) > 0: #technically this should be the case always
             self.response_algorithm_predictions['RL'] = self.rl_attributes_history.copy()
             self.response_algorithm_predictions['Random'] = self.random_attributes_history.copy()
@@ -256,6 +253,7 @@ class OnlineLearningSystem:
         # self.state_history.append(S_prime)
         # pdb.set_trace()
 
+        #Updating the Actor Critic model
         self.utils_obj.ac_model.update_reward(data)
 
         ########updating the momentum model########

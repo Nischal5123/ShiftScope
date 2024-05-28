@@ -686,7 +686,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const xScale = d3.scaleBand()
-        .domain(Object.keys(recTimetoInteractionTime))
+        .domain(Object.keys(fullHistory))
         .range([0, width])
         .padding(0.1);
 
@@ -797,7 +797,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
 
 
     function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) {
-        console.log("Circle clicked:", clickedTime, algorithm);
+        // console.log("Circle clicked:", clickedTime, algorithm);
 
         const fieldNames = [
             'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
