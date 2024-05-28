@@ -6,7 +6,74 @@ from Q_Learning import Rl_Driver
 # import Q_Learning
 from baseline import Momentum
 import os
-from actor_critic_online import ActorCriticModel
+# from actor_critic_online import ActorCriticModel
+from actor_critic_online_RLHF import ActorCriticModel
+
+def attribute_similarity(attr1, attr2):
+
+    # Exact match
+    if attr1 == attr2:
+        return 2.0
+
+    # Synonyms or strong relationships
+    synonyms = {
+        "cost_total_a": ["cost_other", "cost_repair"],  
+        "cost_other": ["cost_total_a", "cost_repair"],
+        "cost_repair": ["cost_total_a", "cost_other"],
+        "aircraft_make_model": ["aircraft_airline_operator"],  
+        "aircraft_airline_operator": ["aircraft_make_model"],
+        "flight_date": ["when_time_of_day"],  # Temporal relationship
+        "when_time_of_day":["flight_date"],
+        "when_phase_of_flight": ["speed_ias_in_knots"],  # Specific speeds for flight phases
+        "speed_ias_in_knots":["when_phase_of_flight"],
+        "wildlife_size": ["wildlife_species"],  # wildlife
+        "wildlife_species": ["wildlife_size"],
+    }
+    if attr1 in synonyms and attr2 in synonyms[attr1]:
+        return 0.8  # Strong similarity
+
+    # Weaker relationships 
+    loose_relationships = {
+        "airport_name": ["origin_state", "aircraft_airline_operator"],
+        "origin_state": ["airport_name"],
+        "effect_amount_of_damage": ["aircraft_make_model", "wildlife_size", "speed_ias_in_knots"]
+    }
+    if attr1 in loose_relationships and attr2 in loose_relationships[attr1]:
+        return 0.5  # Moderate similarity
+
+    # No clear relationship
+    return 0.0
+
+def sort_by_lexical_similarity(recommended_sets, current_state, attribute_similarity_func=attribute_similarity):
+
+    # Calculate pairwise similarities between all attributes
+    all_attributes = [attr for s in recommended_sets for attr in s] + current_state
+
+    # Initialize a similarity matrix (all zeros)
+    num_attributes = len(all_attributes)
+    attribute_similarities = np.zeros((num_attributes, num_attributes))
+
+    # Fill the similarity matrix using the provided function
+    for i in range(num_attributes):
+        for j in range(num_attributes):
+            attribute_similarities[i, j] = attribute_similarity_func(all_attributes[i], all_attributes[j])
+
+    # Calculate set similarities
+    set_similarities = []
+    for set_attributes in recommended_sets:
+        set_similarity = 0
+        for state_attr in current_state:
+            for set_attr in set_attributes:
+                state_index = all_attributes.index(state_attr)
+                set_index = all_attributes.index(set_attr)
+                set_similarity += attribute_similarities[state_index, set_index]
+        set_similarities.append(set_similarity)
+
+    # Sort sets based on adjusted similarities, break ties using number of matching attributes
+    sorted_sets = sorted(zip(recommended_sets, set_similarities), 
+                         key=lambda x: (-x[1], -len(set(x[0]) & set(current_state))))
+
+    return [s for s, _ in sorted_sets]
 
 class utils:
     def __init__(self):
@@ -48,6 +115,10 @@ class utils:
         elif algorithm == 'ActorCritic':
             # ac_model = ActorCriticModel('birdstrikes')
             current_state= attributes_history[-1]
+            # print(current_state)
             ret = self.ac_model.generate_actions_topk(current_state, k=6)
+            # print(ret)
+            ret = sort_by_lexical_similarity(ret, current_state)
+            # print(ret)
             return ret
             # return list(filter(lambda x: x.lower() != 'none', next_state_rl))
