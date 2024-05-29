@@ -79,7 +79,7 @@ class OnlineLearningSystem:
             'algorithm_predictions': self.response_algorithm_predictions,
             'user_selections': response_user,
             'recTimetoInteractionTime': self.interaction_map,
-            'full_history': self.last_users_attributes_history,
+            'full_history': self.last_users_attributes_history[1:],
         }
         # pdb.set_trace()
         # Return final response as JSON

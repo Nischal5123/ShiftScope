@@ -8,8 +8,9 @@
         [
             "Aircraft_Make_Model"
         ],
+
         [
-            "Effect_Amount_of_damage"
+            "Speed_IAS_in_knots"
         ],
         [
             "Flight_Date"
@@ -19,6 +20,9 @@
         ],
         [
             "Origin_State"
+        ],
+        [
+            "Effect_Amount_of_damage"
         ],
         [
             "When_Phase_of_flight"
@@ -40,9 +44,6 @@
         ],
         [
             "Cost_Total_a"
-        ],
-        [
-            "Speed_IAS_in_knots"
         ]
     ],
     "data": [
