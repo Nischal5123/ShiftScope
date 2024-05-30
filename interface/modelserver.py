@@ -216,6 +216,10 @@ def submit_form():
     chartdata = all_data.get('chartdata')
     interactionlogs = all_data.get('interactionlogs')
 
+    # Clean chart logs
+    chartdata['bookmarked_charts'] = clean_chart_logs(chartdata['bookmarked_charts'])
+    chartdata['allrecommendedcharts'] = clean_chart_logs(chartdata['allrecommendedcharts'])
+
 
     with open(save_path + 'task_answer.json', 'w') as f:
         json.dump(taskanswers, f)
@@ -261,7 +265,13 @@ def store_logs():
 
     return jsonify({'message': 'Logs stored successfully.'})
 
-
+def clean_chart_logs(chartList):
+    trimmed_chartdata = {}
+    for chart in chartList:
+        chart_specs = chart.get('originalspec', {})
+        trimmed_chartdata[chart.get('chid', '0')] = {'encoding': chart_specs.get('encoding', {}),
+                                                     'mark': chart_specs.get('mark', {})}
+    return trimmed_chartdata
 
 if __name__ == '__main__':
     app.run(port=5500, debug=True)
