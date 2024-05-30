@@ -1,10 +1,6 @@
 import json
-
-import re
-import numpy as np
 from flask import Flask, render_template, request, jsonify, send_from_directory, current_app, session
 from flask_cors import CORS
-
 import draco_test
 import pandas as pd
 import time
@@ -24,11 +20,10 @@ CORS(app)
 # Session configuration
 app.secret_key = 'your_secret_key'
 
-
 env = environment()
 system = OnlineLearningSystem()
 
-manual_session={}
+manual_session = {}
 
 class InvalidUsage(Exception):
     status_code = 400
@@ -73,18 +68,15 @@ def encode():
     system.response_history.append(field_names)
     # Get Draco recommendations
     recommendations = draco_test.get_draco_recommendations(field_names, 'birdstrikes', parsed_data)
-    chart_recom=system.remove_irrelevant_recommendations(field_names, recommendations)
+    chart_recom = system.remove_irrelevant_recommendations(field_names, recommendations)
     return jsonify(chart_recom[0])
 
-
 @app.route('/get-performance-data', methods=['GET'])
-def read_json_file(file_path='distribution_map.json', algorithms=['Momentum','Random','Greedy']):
-    response=system.read_json_file(algorithms)
+def read_json_file(file_path='distribution_map.json', algorithms=['Momentum', 'Random', 'Greedy']):
+    response = system.read_json_file(algorithms)
 
     return response
 
-
-#This is to get the recommendation that the user has selected
 @app.route('/encode2', methods=['POST'])
 def encode2():
     specs = request.get_json()
@@ -93,7 +85,7 @@ def encode2():
     # Extract field names from the parsed JSON
     field_names = []
     parsed_data.get('encoding', {})
-    if parsed_data.get('encoding', {})!= {}:
+    if parsed_data.get('encoding', {}) != {}:
         encodings = parsed_data.get('encoding', {})
     elif parsed_data.get('spec', {}).get('encoding', {}) != {}:
         encodings = parsed_data.get('spec', {}).get('encoding', {})
@@ -108,59 +100,47 @@ def encode2():
     system.response_history.append(field_names)
     system.update_models()
 
-    #write to a log file the selected recommendation for current session. can i get current session id?
+    # Write to a log file the selected recommendation for current session
     with open('performance-data/selected_recommendation.txt', 'a') as f:
-       #write field names and time
-       time= datetime.datetime.now()
-       f.write(f'{field_names} {time}\n')
-    # print('click', system.state_history)
+        # Write field names and time
+        time = datetime.datetime.now()
+        f.write(f'{field_names} {time}\n')
     return jsonify(specs)
 
 def recommendation_generation(attributes):
     recommendations = draco_test.get_draco_recommendations(attributes)
-    chart_recom= system.remove_irrelevant_recommendations(attributes, recommendations, max_constrained=False)
+    chart_recom = system.remove_irrelevant_recommendations(attributes, recommendations, max_constrained=False)
     return chart_recom
 
 @app.route('/top_k', methods=['POST'])
 def top_k(save_csv=False):
     print('Starting Recommendation Engine...')
-    #get running time in console
     start_time = time.time()
 
     total_data = request.get_json()
     data = eval(total_data.get('history'))
-    # print(data)
     bookmarked_charts = total_data.get('bookmarked', [])
     specified_algorithm = total_data.get('algorithm', 'ActorCritic')
 
     if data and isinstance(data, list):
-        # print("past ",system.state_history)
         system.state_history = data
-        # print("present ",system.state_history)
     else:
         system.state_history = [['flight_date', 'wildlife_size', 'airport_name']]
 
-    # print('Similar', system.state_history)
-    attributes_list,distribution_map,baselines_distribution_maps, attributes_baseline=system.onlinelearning(algorithms_to_run=['Momentum','Random','Greedy','ActorCritic','Qlearning'])
-
-    # print('Requesting Encodings...', '--- %s seconds ---' % (time.time() - start_time), 'Algorithm:', specified_algorithm)
-    # print(len(attributes_list))
+    attributes_list, distribution_map, baselines_distribution_maps, attributes_baseline = system.onlinelearning(algorithms_to_run=['Momentum', 'Random', 'Greedy', 'ActorCritic', 'Qlearning'])
 
     chart_recom_list = []
 
-    # Use a list to preserve order
     future_to_attributes = []
     with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:
         for attributes in attributes_list:
             future = executor.submit(recommendation_generation, attributes)
-            future_to_attributes.append((future, attributes))  # Store future and attributes as a tuple
+            future_to_attributes.append((future, attributes))
 
-        # Process results in the original order
         for future, attributes in future_to_attributes:
             chart_recom = future.result()
-            chart_recom_list.append(chart_recom)  # Append instead of extend for each set of recommendations
+            chart_recom_list.append(chart_recom)
 
-    #now for baseline algorithm
     baseline_chart_recom = []
     with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:
         future_to_attributes = {executor.submit(recommendation_generation, attributes): attributes for attributes in attributes_baseline}
@@ -188,7 +168,6 @@ def top_k(save_csv=False):
 
     return jsonify(response_data)
 
-
 @app.route('/')
 def index():
     session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
@@ -198,24 +177,23 @@ def index():
 @app.route('/submit-form', methods=['POST'])
 def submit_form():
     global manual_session
-    # Create a new session folder
-    folder_name = 'ShiftScopeLogs/' + str( manual_session.get('session_id'))
+    global system
+    global env
+
+    folder_name = 'ShiftScopeLogs/' + str(manual_session.get('session_id'))
 
     if not os.path.exists(folder_name):
         os.makedirs(folder_name)
 
-    save_path = 'ShiftScopeLogs/' + str( manual_session.get('session_id')) + '/'
+    save_path = 'ShiftScopeLogs/' + str(manual_session.get('session_id')) + '/'
 
-    # Save form data for the new session
     all_data = request.get_json()
     taskanswers = all_data.get('taskanswers')
     chartdata = all_data.get('chartdata')
     interactionlogs = all_data.get('interactionlogs')
 
-    # Clean chart logs
     chartdata['bookmarked_charts'] = clean_chart_logs(chartdata['bookmarked_charts'])
     chartdata['allrecommendedcharts'] = clean_chart_logs(chartdata['allrecommendedcharts'])
-
 
     with open(save_path + 'task_answer.json', 'w') as f:
         json.dump(taskanswers, f)
@@ -226,40 +204,18 @@ def submit_form():
     with open(save_path + 'interaction_logs.json', 'w') as f:
         json.dump(interactionlogs, f)
 
-
-    # Save online learning models to file
     with open(save_path + 'online_learning_models.pkl', 'wb') as f:
         pickle.dump(system, f)
 
-    # Reset session variables
     session.clear()
-    manual_session={}
+    manual_session = {}
+    system = OnlineLearningSystem()
+    env=environment()
+
+
 
     return jsonify({'message': 'Form submitted successfully. New session started.'})
 
-
-@app.route('/store-logs', methods=['POST'])
-def store_logs():
-    global manual_session
-    # Create a new session folder
-    folder_name = 'ShiftScopeLogs/' + str( manual_session.get('session_id'))
-
-    if not os.path.exists(folder_name):
-        os.makedirs(folder_name)
-
-    save_path = 'ShiftScopeLogs/' + str( manual_session.get('session_id')) + '/'
-
-    # Save logs for the new session
-    logs = request.get_json()
-    chart_data = logs.get('chartdata')
-    interaction_logs = logs.get('interactionlogs')
-    with open(save_path + 'chart_data.json', 'w') as f:
-        json.dump(chart_data, f)
-
-    with open(save_path + 'interaction_logs.json', 'w') as f:
-        json.dump(interaction_logs, f)
-
-    return jsonify({'message': 'Logs stored successfully.'})
 
 def clean_chart_logs(chartList):
     trimmed_chartdata = {}

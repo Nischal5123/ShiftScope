@@ -83,6 +83,7 @@ class OnlineLearningSystem:
         }
         # pdb.set_trace()
         # Return final response as JSON
+        print('Performance data retrieved successfully.', final_response)
         return jsonify(final_response)
 
     def load_json(self, file_path):
@@ -128,38 +129,41 @@ class OnlineLearningSystem:
     def onlinelearning(self, algorithms_to_run=['Momentum', 'Random', 'Greedy', 'Qlearning', 'ActorCritic'], dataset='birdstrikes'):
         # current_interactions = []
         # pdb.set_trace()
-        last_history = self.last_users_attributes_history
-        attributesHistory = self.state_history
-        for i in range(len(attributesHistory)):
-            attributesHistory[i].extend(['none'] * (3 - len(attributesHistory[i])))
+        last_history = self.last_users_attributes_history.copy()
+        current_history = self.state_history
+        for i in range(len(current_history)):
+            current_history[i].extend(['none'] * (3 - len(current_history[i])))
 
         if len(last_history) > 0:
-            new_interactions = [attr for attr in attributesHistory[len(last_history):]]
+            new_interactions = [attr for attr in current_history[len(last_history):]]
         else:
             new_interactions = []
 
-
-
         self.current_user_attributes.extend(new_interactions)
-        self.last_users_attributes_history = attributesHistory
+
+
         
         #get the hit rate and other performance data ################################################################
         if len(self.rl_attributes_history) > 0:    #before new predictions are made last prection is mapped to new interactions
             # Map the user's position of interaction in the new attributesHistory to the corresponding predictions
             # Determine the indices of the current_user_attributes in attributesHistory
-            interaction_indices = list(range(len(last_history), len(attributesHistory)))
+            interaction_indices = list(range(len(last_history), len(current_history)))
             interaction_time_id = len(self.rl_attributes_history)-1
             self.interaction_map[interaction_time_id] = interaction_indices
+            self.set_performance_data()
         ############################################################################################################
+
+        #update the last user's attributes history to the current one
+        self.last_users_attributes_history = current_history.copy()
 
         # generator = StateGenerator(dataset)
         generator = None
-        df = pd.DataFrame({'State': attributesHistory})
+        df = pd.DataFrame({'State': current_history})
         distribution_map = self.get_distribution_of_states(df, 'algo')
         # pdb.set_trace()
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
-            futures = {executor.submit(self.utils_obj.run_algorithm, algorithm, attributesHistory, generator, dataset): algorithm for algorithm in algorithms_to_run}
+            futures = {executor.submit(self.utils_obj.run_algorithm, algorithm, current_history, generator, dataset): algorithm for algorithm in algorithms_to_run}
             results = {futures[future]: future.result() for future in concurrent.futures.as_completed(futures)}
 
         # next_state_rl = self.extend_state(results['Qlearning'])
