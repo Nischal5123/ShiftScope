@@ -13,6 +13,7 @@
  import ace from 'ace-builds/src-noconflict/ace'
  import 'ace-builds/webpack-resolver'
  import vegaEmbed from 'vega-embed'
+ import { storeInteractionLogs } from "./utils.js"
  
  export default class ChartView extends EventEmitter {
      constructor(data, conf) {
@@ -113,6 +114,7 @@
                      delete data['encoding'][channel]
              })
             //  console.log(data)
+              storeInteractionLogs('manually Edited Chart', {encoding:data['encoding'], mark:data['mark']}, new Date())
               this._validateChart(data, (recommended_chart_specs) => {
         this.update(recommended_chart_specs, 'uicontrols');
         this.emit('similar', this.data); // Automatically generate similar charts
@@ -125,6 +127,7 @@
  
          $('#preview2').click((e) => {
              var data = this._cheditor.session.getValue()
+
              this._validateChart(data, () => {this.update(data, 'texteditor')})            
          })
      
@@ -136,8 +139,8 @@
          })
      }
      
-     update(data_all, eventsource) {
-             // Handle data parsing, string or object
+update(data_all, eventsource) {
+    // Handle data parsing, string or object
     if (['outside'].includes(eventsource)) {
         this.data = data_all;
     } else {
@@ -149,39 +152,54 @@
             data_all = [data_all];
         }
 
-            var data = data_all[0]
-            //  console.log(data)
-             if(typeof data == 'string') {
-                 try {
-                     this.data = JSON.parse(data)
-                 }
-                 catch(err) {
-                     console.log(err, data)
-                     return
-                 }
-             }
-             else if(typeof data == 'object') {
-                 this.data = data
-             }
+        var data = data_all[0];
+        if (typeof data == 'string') {
+            try {
+                this.data = JSON.parse(data);
+            } catch (err) {
+                console.log(err, data);
+                return;
+            }
+        } else if (typeof data == 'object') {
+            this.data = data;
         }
+    }
 
-        var vegachart = _.extend({}, this.data,
-             { width: 835, height: 550, autosize: 'fit' },
-             // { data: {values: this.conf.datavalues} },
-             { config: this.conf.vegaconfig})
-        //  console.log(vegachart)
-        //  console.log(vegachart[0])
+    var vegachart = _.extend({}, this.data, {
+        width: 835,
+        height: 550,
+        autosize: 'fit',
+        config: this.conf.vegaconfig
+    });
 
-         vegaEmbed('#chartview .chartcontainer', vegachart, {actions: false})
+    vegaEmbed('#chartview .chartcontainer', vegachart, { actions: false })
+        .then((result) => {
+            // Access the Vega view instance
+            var view = result.view;
+            var spec = result.spec; // Capture the spec here
 
-         if(eventsource != 'texteditor')
-             this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '))
+            // Add hover event listeners to the view
+            view.addEventListener('mousemove', (event, item) => {
+                if (item && item.datum) {
+                    storeInteractionLogs('hover on main chart', {
+                        encoding: spec.encoding,
+                        mark: spec.mark,
+                        fields: item.datum
+                    }, new Date());
+                }
+            });
 
-         if(eventsource != 'uicontrols')
-             this._updateChartComposer(this.data)
+        })
+        .catch(console.error);
 
-     }
- 
+    if (eventsource != 'texteditor')
+        this._cheditor.session.setValue(JSON.stringify(this.data, null, '  '));
+
+    if (eventsource != 'uicontrols')
+        this._updateChartComposer(this.data);
+}
+
+
      _updateChartComposer(chart_data){
          if(this.data['mark'])
              $('#ch-mark').val(this.data['mark']['type'])
@@ -214,6 +232,7 @@
          var sp = chart
          if(typeof chart == 'object') 
              sp = JSON.stringify(chart)
+
          $.ajax({
              type: 'POST',
              crossDomain: true,
