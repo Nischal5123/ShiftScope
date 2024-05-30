@@ -1057,7 +1057,7 @@ function createTaskForm() {
 
   // submit button click event
   submitButton.addEventListener('click', function() {
-      storeInteractionLogs('Task Complete for User', {sessionid: user_session_id}, new Date())
+      storeInteractionLogs('Task Complete for User', {sessionid: user_session_id, algorithm:app.sumview._algorithm , baseline:app.sumview._baseline }, new Date())
     sendLogs();
   });
 }

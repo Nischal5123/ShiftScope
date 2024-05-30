@@ -83,38 +83,44 @@ class utils:
         self.m = Momentum()
 
     def run_algorithm(self, algorithm, attributes_history, generator, dataset):
+        current_state = attributes_history[-1]
         if algorithm == 'Qlearning':
             # Save the attribute history to a numpy file
-            Copy_attributesHistory = attributes_history.copy()
+            copy_attributesHistory = attributes_history.copy()
             # Make all the attributes inside the list to be 3 in size, fill with 'none' if not enough
-            for i in range(len(Copy_attributesHistory)):
-                if len(Copy_attributesHistory[i]) < 3:
-                    Copy_attributesHistory[i].extend(['none'] * (3 - len(Copy_attributesHistory[i])))
+            for i in range(len(copy_attributesHistory)):
+                if len(copy_attributesHistory[i]) < 3:
+                    copy_attributesHistory[i].extend(['none'] * (3 - len(copy_attributesHistory[i])))
 
             # Remove the existing file if it exists
             if os.path.exists("performance-data/attributes_history.npy"):
                 os.remove("performance-data/attributes_history.npy")
 
             # Save the new attribute history to a numpy file
-            np.save("performance-data/attributes_history.npy", Copy_attributesHistory)
+            np.save("performance-data/attributes_history.npy", copy_attributesHistory)
 
-            next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="performance-data/attributes_history.npy", current_state=Copy_attributesHistory[-1])
-            return next_state_rl
+            next_state_ql = Rl_Driver(dataset=dataset, attributes_history_path="performance-data/attributes_history.npy", current_state=copy_attributesHistory[-1])
+            ret= sort_by_lexical_similarity(next_state_ql, current_state)
+            return ret
 
         elif algorithm == 'Momentum':
-            current_state= attributes_history[-1]
-            return self.m.generate_actions(current_state)
+            ret = self.m.generate_actions(current_state)
+            ret = sort_by_lexical_similarity(ret, current_state)
+            return ret
             
         elif algorithm == 'Greedy':
-            current_state= attributes_history[-1]
-            return self.m.generate_actions(current_state)
+            ret = self.m.generate_actions(current_state)
+            ret = sort_by_lexical_similarity(ret, current_state)
+            return ret
 
         elif algorithm == 'Random':
-            return self.rs.generate_actions()
+            ret= self.rs.generate_actions()
+            ret = sort_by_lexical_similarity(ret, current_state)
+            return ret
             
         elif algorithm == 'ActorCritic':
             # ac_model = ActorCriticModel('birdstrikes')
-            current_state= attributes_history[-1]
+
             # print(current_state)
             ret = self.ac_model.generate_actions_topk(current_state, k=6)
             # print(ret)

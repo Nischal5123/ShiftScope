@@ -83,7 +83,7 @@ class OnlineLearningSystem:
         }
         # pdb.set_trace()
         # Return final response as JSON
-        print('Performance data retrieved successfully.', final_response)
+        print('Performance data retrieved successfully...')
         return jsonify(final_response)
 
     def load_json(self, file_path):
@@ -126,7 +126,7 @@ class OnlineLearningSystem:
         return history
 
 
-    def onlinelearning(self, algorithms_to_run=['Momentum', 'Random', 'Greedy', 'Qlearning', 'ActorCritic'], dataset='birdstrikes'):
+    def onlinelearning(self, algorithms_to_run=['Momentum', 'Random', 'Greedy', 'Qlearning', 'ActorCritic'], specified_algorithm='ActorCritic', specified_baseline='Momentum', bookmarked_charts=[], dataset='birdstrikes'):
         # current_interactions = []
         # pdb.set_trace()
         last_history = self.last_users_attributes_history.copy()
@@ -172,7 +172,11 @@ class OnlineLearningSystem:
         next_state_random = self.extend_state(results['Random'])
         next_state_ac = self.extend_state(results['ActorCritic'])
         next_state_qlearn= self.extend_state(results['Qlearning'])
-        # next_state_return = results[specified_algorithm]
+
+        ############# get the next state based on the specified algorithm and baseline ############################
+        next_state_return = results[specified_algorithm]
+        next_state_baseline_return = results[specified_baseline]
+        ############################################################################################################
 
         ####### add new predictions to the history ################################################################
 
@@ -203,7 +207,7 @@ class OnlineLearningSystem:
         # pdb.set_trace()
         all_algorithms_distribution_map = {
             'Momentum': distribution_map_momentum,
-            'Greedy': distribution_map_greedy, # lets send this as greedy for now
+            'Greedy': distribution_map_greedy,
             'Random': distribution_map_random,
             'Actor_Critic': distribution_map_ac,
             'Qlearning': distribution_map_ql,
@@ -217,7 +221,7 @@ class OnlineLearningSystem:
         #baseline next state: something other than specified algorithm
         # next_state_baseline = self.extend_state(results['Momentum'])
 
-        return next_state_ac, distribution_map, all_algorithms_distribution_map, next_state_qlearn
+        return next_state_return, distribution_map, all_algorithms_distribution_map, next_state_baseline_return
 
 
     def set_performance_data(self):
