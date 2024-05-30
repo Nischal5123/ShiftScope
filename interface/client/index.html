@@ -59,12 +59,24 @@
                     <label></label>
                     <label for="algorithm">Select Algorithm:</label>
                     <select id="algorithm" name="algorithm">
-                        <option value="Actor-Critic">ActorCritic</option>
+                        <option value="ActorCritic">ActorCritic</option>
+                        <option value="QLearning">QLearning</option>
                       <option value="Momentum">Momentum</option>
                       <option value="Random">Random</option>
                       <option value="Greedy">Greedy</option>
 
                     </select>
+
+                     <label for="baseline">Select Baseline:</label>
+                    <select id="baseline" name="baseline">
+                        <option value="Momentum">Momentum</option>
+                        <option value="QLearning">QLearning</option>
+                      <option value="Random">Random</option>
+                      <option value="Greedy">Greedy</option>
+                           <option value="ActorCritic">ActorCritic</option>
+
+                    </select>
+
                     <span id="slider_wrapper">
 <!--                        <i>Data/Encoding Ratio</i><label id="weight">0.50</label>-->
 <!--                        <input type="range" min="0" max="100" value="50" id="weight_slider">-->
