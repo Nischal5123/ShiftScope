@@ -1,7 +1,7 @@
 
 import itertools
 import numpy as np
-import random
+
 class StateGenerator:
     def __init__(self, dataset='birdstrikes'):
         if dataset== 'birdstrikes':

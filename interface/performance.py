@@ -150,7 +150,6 @@ class OnlineLearningSystem:
             interaction_indices = list(range(len(last_history), len(attributesHistory)))
             interaction_time_id = len(self.rl_attributes_history)-1
             self.interaction_map[interaction_time_id] = interaction_indices
-            self.set_performance_data()
         ############################################################################################################
 
         # generator = StateGenerator(dataset)
