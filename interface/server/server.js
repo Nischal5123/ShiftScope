@@ -25,14 +25,14 @@ app.use('/data', express.static('staticdata'))
 app.use('/static', express.static(path.join(__dirname, 'web/static')));
 
 // Route for the post-task survey
-app.get('/post-task-survey', (req, res) => {
-    res.sendFile(path.join(__dirname, 'web/templates', 'post-task-survey.html'));
-});
-
-// Route for the pilot introduction page
-app.get('/welcome', (req, res) => {
-    res.sendFile(path.join(__dirname, 'web/templates', 'welcome.html'));
-});
+// app.get('/post-task-survey', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'web/templates', 'post-task-survey.html'));
+// });
+//
+// // Route for the pilot introduction page
+// app.get('/welcome', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'web/templates', 'welcome.html'));
+// });
 
 
 app.listen(8000, function() {

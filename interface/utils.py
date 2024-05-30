@@ -92,13 +92,13 @@ class utils:
                     Copy_attributesHistory[i].extend(['none'] * (3 - len(Copy_attributesHistory[i])))
 
             # Remove the existing file if it exists
-            if os.path.exists("attributes_history.npy"):
-                os.remove("attributes_history.npy")
+            if os.path.exists("performance-data/attributes_history.npy"):
+                os.remove("performance-data/attributes_history.npy")
 
             # Save the new attribute history to a numpy file
-            np.save("attributes_history.npy", Copy_attributesHistory)
+            np.save("performance-data/attributes_history.npy", Copy_attributesHistory)
 
-            next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="attributes_history.npy", current_state=Copy_attributesHistory[-1])
+            next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="performance-data/attributes_history.npy", current_state=Copy_attributesHistory[-1])
             return next_state_rl
 
         elif algorithm == 'Momentum':

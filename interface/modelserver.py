@@ -7,15 +7,11 @@ from flask_cors import CORS
 
 import draco_test
 import pandas as pd
-from collections import Counter
 import time
 import concurrent.futures
 from environment import environment
 import datetime
-from StateGenerator import StateGenerator
-from zeng_app import perform_snd_flds
 from performance import OnlineLearningSystem
-import pdb
 import concurrent.futures
 import pickle
 import os
@@ -113,7 +109,7 @@ def encode2():
     system.update_models()
 
     #write to a log file the selected recommendation for current session. can i get current session id?
-    with open('selected_recommendation.txt', 'a') as f:
+    with open('performance-data/selected_recommendation.txt', 'a') as f:
        #write field names and time
        time= datetime.datetime.now()
        f.write(f'{field_names} {time}\n')
@@ -179,16 +175,16 @@ def top_k(save_csv=False):
     }
 
     for algo, base_distribution_map in baselines_distribution_maps.items():
-        with open(f'{algo}_distribution_map.json', 'w') as f:
+        with open(f'performance-data/{algo}_distribution_map.json', 'w') as f:
             json.dump(base_distribution_map, f)
 
-    with open('distribution_map.json', 'w') as file:
+    with open('performance-data/distribution_map.json', 'w') as file:
         json.dump(distribution_map, file)
 
     if save_csv:
         distribution_map_dataframe = pd.DataFrame.from_dict(distribution_map, orient='index', columns=['Probability'])
         distribution_map_dataframe.index.name = 'Fields'
-        pd.DataFrame.to_csv(distribution_map_dataframe, 'distribution_map.csv')
+        pd.DataFrame.to_csv(distribution_map_dataframe, 'performance-data/distribution_map.csv')
 
     return jsonify(response_data)
 

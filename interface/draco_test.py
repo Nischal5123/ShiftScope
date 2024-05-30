@@ -245,7 +245,7 @@ def load_dataset(file_path):
     return dataset_dict
 
 
-def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, data_schema_file_path='birdstrikes_dataset_schema.json'):
+def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, data_schema_file_path='staticdata/birdstrikes_dataset_schema.json'):
     ret = [f.replace('__', '_').lower() for f in attributes]
     field_names_renamed = [f.replace('$', 'a') for f in ret]
     field_names_final = [f for f in field_names_renamed if f != 'none']
@@ -313,7 +313,7 @@ def remove_datapart(recommendations):
 
 
 if __name__ == '__main__':
-    all_fields = np.load('birdstrikes_all_states.npy', allow_pickle=True)
+    all_fields = np.load('staticdata/birdstrikes_all_states.npy', allow_pickle=True)
 
     recommendations_dict = {}
 
