@@ -419,7 +419,6 @@ export function displayBaselineCharts(container, created = true) {
 
         // Redirect to the post-task-survey.html page
         window.location.href = `${window.location.href}post-task-survey`;
-        // restartProcess()
      })
 
       function download(content, fileName, contentType) {
@@ -566,7 +565,12 @@ function openNav() {
         createBaselineChart("RandombaselineChart", data['baselines_distribution_maps']['Random'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
         createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
         // createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart);
-        createShiftFocusChart(full_data);
+        try {
+            createShiftFocusChart(full_data);
+        } catch (error) {
+            console.warn('Failed to create accuracy chart:', error);
+            alert('Not enough interactions to derive Performance View. Please try again later.');
+        }
         document.getElementById("myNav").style.width = "100%";
     }).fail((xhr, status, error) => {
         alert('Cannot Derive Performance View. Please Try Again Later');
@@ -691,7 +695,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const xScale = d3.scaleBand()
-        .domain(Object.keys(fullHistory))
+        .domain(Object.keys(recTimetoInteractionTime)) // Use the length of predictions as the domain not the full history because # interactions can be larger than # predictions
         .range([0, width])
         .padding(0.1);
 
@@ -1085,7 +1089,11 @@ function sendLogs() {
         data: JSON.stringify(finalData),
         contentType: 'application/json'
     }).done(() => {
-        alert('Safe to close the window. Your task answers have been stored successfully.');
+        if(!alert('Safe to close the window. Your task answers have been stored successfully.')){window.location.reload();}
+        // Restart the application using pm2
+    // setTimeout(() => {
+    //     process.exit(0); // Exit the application to allow pm2 to restart it
+    // }, 1000); // Adding a delay to ensure the response is sent before restarting
     }).fail(() => {
         alert('Failed to store task answers. Please try again later.');
     });
