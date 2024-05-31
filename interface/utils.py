@@ -79,6 +79,7 @@ class utils:
     def __init__(self):
         # self.qlearning = Rl_Driver()
         self.ac_model = ActorCriticModel('birdstrikes')
+        self.ac_model_offline = ActorCriticModel('birdstrikes')
         self.rs = RandomStrategy()
         self.m = Momentum()
 
@@ -104,7 +105,7 @@ class utils:
             return ret
 
         elif algorithm == 'Momentum':
-            ret = self.m.generate_actions(current_state)
+            ret = self.ac_model_offline.generate_actions_topk(current_state, k=6)
             ret = sort_by_lexical_similarity(ret, current_state)
             return ret
             
