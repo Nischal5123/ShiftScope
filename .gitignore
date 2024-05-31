@@ -12,7 +12,5 @@
 /deep-tamer
 /tamer
 /interface/__pycache__/
-/sourcedata/
-*.json
-/interface/ShiftScopeLogs/
+
 
