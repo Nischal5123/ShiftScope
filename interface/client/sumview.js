@@ -39,6 +39,9 @@ export default class SumView extends EventEmitter {
         this._usrclr = d3.scaleOrdinal(d3.schemeGreys[5]).domain([0, 1, 2, 3, 4])
         this._bookmarkedCharts = []
 
+        this._algorithm= 'ActorCritic'
+        this._baseline= 'Momentum'
+
         this._init()
     }
 
@@ -61,6 +64,7 @@ export default class SumView extends EventEmitter {
     get selectedChartID() {
         return this._selectedChartID
     }
+
 
      set bookmarkedselectedChartID(ch) {
         this._svgDrawing.selectAll('.chartdot.selected')
@@ -200,13 +204,18 @@ _recommendCharts(attributesHistory, callback) {
 
     // Get the selected algorithm directly here
     var algorithmDropdown = document.getElementById("algorithm");
-    var algorithm = algorithmDropdown.value;
+     this._algorithm = algorithmDropdown.value;
+
+      // Get the selected baseline directly here
+    var baselinealgorithmDropdown = document.getElementById("baseline");
+     this._baseline = baselinealgorithmDropdown.value;
 
     // also send bookmarked charts
     var JsonRequest = {
         history: JSON.stringify(attributesHistory),
         bookmarked: this._bookmarkedCharts,
-        algorithm: algorithm
+        algorithm: this._algorithm,
+        baseline:  this._baseline
     };
 
     $.ajax({

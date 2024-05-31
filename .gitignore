@@ -14,3 +14,14 @@
 /interface/__pycache__/
 /sourcedata/
 *.json
+/interface/ShiftScopeLogs/
+/interface/performance-data/Random_distribution_map.json
+/interface/performance-data/selected_recommendation.txt
+/interface/performance-data/Qlearning_distribution_map.json
+/interface/performance-data/RL_distribution_map.json
+/interface/performance-data/distribution_map.json
+/interface/performance-data/Greedy_distribution_map.json
+/interface/performance-data/Momentum_distribution_map.json
+/interface/performance-data/attributes_history.npy
+/interface/performance-data/Actor_Critic_distribution_map.json
+/interface/ShiftScopeLogs

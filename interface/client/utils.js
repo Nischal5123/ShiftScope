@@ -109,14 +109,14 @@ export function displayBookmarkCharts(container, created = true) {
             $chartContainer.css('border-color', 'crimson');
             app.sumview.highlight(ch.overallchid, true, true);
             if(logging) app.logger.push({time:Date.now(), action:'hoverbookmarkedchart', data:ch})
-            storeInteractionLogs('hover over bookmarked chart', ch, new Date())
+            storeInteractionLogs('hover over bookmarked chart', {encoding:ch.originalspec.encoding, mark:ch.originalspec.mark}, new Date())
         }, (e) => {
             $chartContainer.css('border-color', 'lightgray');
             app.sumview.highlight(ch.overallchid, false, true);
         }).click((e) => {
             app.sumview.bookmarkedselectedChartID = ch.overallchid;
             if(logging) app.logger.push({time:Date.now(), action:'clickbookmarkedchart', data:ch})
-            storeInteractionLogs('clicked bookmarked charts', ch, new Date())
+            storeInteractionLogs('clicked bookmarked charts', {encoding:ch.originalspec.encoding, mark:ch.originalspec.mark}, new Date())
         });
            // Create and append bookmark button
         var $removebookmarkButton = $('<button>', {
@@ -125,7 +125,7 @@ export function displayBookmarkCharts(container, created = true) {
 
             console.log('Removing bookmarked chart ID:', ch.overallchid);
             if(logging) app.logger.push({time:Date.now(), action:'removebookmarkedchart', data:ch})
-            storeInteractionLogs('removed bookmarked charts', ch, new Date())
+            storeInteractionLogs('removed bookmarked charts', {encoding:ch.originalspec.encoding, mark:ch.originalspec.mark}, new Date())
             const index = app.sumview._bookmarkedCharts.indexOf(ch);
             if (index > -1) { // only splice array when item is found
               app.sumview._bookmarkedCharts.splice(index, 1); // 2nd parameter means remove one item only
@@ -163,13 +163,15 @@ export function displayBookmarkCharts(container, created = true) {
         $chartContainer.hover((e) => {
             $chartContainer.css('border-color', 'crimson');
             app.sumview.highlight(ch.chid, true, false);
+            storeInteractionLogs('hover on suggested chart', {encoding:ch.originalspec.encoding, mark:ch.originalspec.mark}, new Date())
+
         }, (e) => {
             $chartContainer.css('border-color', 'lightgray');
             app.sumview.highlight(ch.chid, false, false);
         }).click((e) => {
             app.sumview.selectedChartID = ch.chid;
 
-            storeInteractionLogs('clicked on suggested chart', ch, new Date())
+            storeInteractionLogs('clicked on suggested chart', {encoding:ch.originalspec.encoding, mark:ch.originalspec.mark}, new Date())
         });
 
          // Create and append bookmark button
@@ -178,7 +180,7 @@ export function displayBookmarkCharts(container, created = true) {
             }).click(() => {
 
                 console.log('Bookmarking chart ID:', ch.overallchid);
-                storeInteractionLogs('bookmarked suggested chart', ch, new Date())
+                storeInteractionLogs('bookmarked suggested chart', {encoding:ch.originalspec.encoding, mark:ch.originalspec.mark}, new Date())
                 app.sumview._bookmarkedCharts.push(ch);
             });
             $chartContainer.append($bookmarkButton);
@@ -271,7 +273,7 @@ export function displayBaselineCharts(container, created = true) {
 
      app.chartview.on('similar', (spec) => {
          if(logging) app.logger.push({time:Date.now(), action:'recommendchart', data:spec})
-         storeInteractionLogs('requested suggested chart', spec, new Date())
+         storeInteractionLogs('requested chart recommendation', {encoding:spec.encoding, mark:spec.mark}, new Date())
 
          if(app.sumview.data.chartspecs.length > 0)
             spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
@@ -366,7 +368,7 @@ export function displayBaselineCharts(container, created = true) {
          console.log("A chart has been clicked in Suggestion")
          var specs = app.chartview._cheditor.session.getValue()
          if(logging) app.logger.push({time:Date.now(), action:'clickchart-suggestionview', data:specs})
-         storeInteractionLogs('clicked on suggested chart', specs, new Date())
+         storeInteractionLogs('clicked on suggested chart', {encoding:JSON.parse(specs).encoding, mark:JSON.parse(specs).mark}, new Date())
          $.ajax({
              type: 'POST',
              crossDomain: true,
@@ -417,7 +419,6 @@ export function displayBaselineCharts(container, created = true) {
 
         // Redirect to the post-task-survey.html page
         window.location.href = `${window.location.href}post-task-survey`;
-        // restartProcess()
      })
 
       function download(content, fileName, contentType) {
@@ -564,7 +565,12 @@ function openNav() {
         createBaselineChart("RandombaselineChart", data['baselines_distribution_maps']['Random'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
         createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
         // createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart);
-        createShiftFocusChart(full_data);
+        try {
+            createShiftFocusChart(full_data);
+        } catch (error) {
+            console.warn('Failed to create accuracy chart:', error);
+            alert('Not enough interactions to derive Performance View. Please try again later.');
+        }
         document.getElementById("myNav").style.width = "100%";
     }).fail((xhr, status, error) => {
         alert('Cannot Derive Performance View. Please Try Again Later');
@@ -630,18 +636,21 @@ function openBaseline() {
 
 function closeBaseline() {
         document.getElementById("mySidebar").style.width = "0";
+        storeInteractionLogs('Close Baseline View', "", new Date())
 
     }
 
 
 function openBookmark() {
     document.getElementById("myBookmark").style.width = "75%";
+    storeInteractionLogs('Open Task/Bookmark View', "", new Date())
     createTaskForm();
     displayBookmarkCharts('#bookmarkview', true)
 
     }
 function closeBookmark() {
   document.getElementById("myBookmark").style.width = "0%";
+   storeInteractionLogs('Close Task/Bookmark View', "", new Date())
 }
 
 
@@ -686,7 +695,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
     const xScale = d3.scaleBand()
-        .domain(Object.keys(fullHistory))
+        .domain(Object.keys(recTimetoInteractionTime)) // Use the length of predictions as the domain not the full history because # interactions can be larger than # predictions
         .range([0, width])
         .padding(0.1);
 
@@ -730,7 +739,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         });
         hitRateHistory[algorithm] = hitRates;
     });
-    console.log(hitRateHistory)
+    // console.log(hitRateHistory)
     // Draw lines for each dataset
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
         const line = d3.line()
@@ -854,7 +863,7 @@ function createShiftFocusChart(full_data) {
 
     const localattributeHistory = full_data['full_history'];
 
-    const fieldNames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a', 'speed_ias_in_knots'];
+    const fieldNames = ['airport_name', 'speed_ias_in_knots','aircraft_make_model', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'effect_amount_of_damage', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a'];
 
     const timeSeriesData = localattributeHistory.map((attributes, index) => {
         const dataPoint = { time: index};
@@ -1031,7 +1040,7 @@ function createTaskForm() {
 
     input.addEventListener('input', function() {
       // Save value to local storage on input change
-        storeInteractionLogs('task form input', input.value, new Date())
+        storeInteractionLogs('Taking notes', input.value, new Date())
         console.log('task form input', input.value);
       localStorage.setItem(`answer${index}`, input.value);
     });
@@ -1051,6 +1060,7 @@ function createTaskForm() {
 
   // submit button click event
   submitButton.addEventListener('click', function() {
+      storeInteractionLogs('Task Complete for User', {sessionid: user_session_id, algorithm:app.sumview._algorithm , baseline:app.sumview._baseline }, new Date())
     sendLogs();
   });
 }
@@ -1066,7 +1076,7 @@ function sendLogs() {
   });
 
   const chartdata= {
-                 charts: app.sumview.allrecommendedCharts,
+                 allrecommendedcharts: app.sumview.allrecommendedCharts,
                  attributes_history: attributesHistory,
                  bookmarked_charts: app.sumview.bookmarkedCharts
              };
@@ -1082,7 +1092,11 @@ function sendLogs() {
         data: JSON.stringify(finalData),
         contentType: 'application/json'
     }).done(() => {
-        alert('Safe to close the window. Your task answers have been stored successfully.');
+        if(!alert('Safe to close the window. Your task answers have been stored successfully.')){window.location.reload();}
+        // Restart the application using pm2
+    // setTimeout(() => {
+    //     process.exit(0); // Exit the application to allow pm2 to restart it
+    // }, 1000); // Adding a delay to ensure the response is sent before restarting
     }).fail(() => {
         alert('Failed to store task answers. Please try again later.');
     });

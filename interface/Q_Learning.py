@@ -39,7 +39,7 @@ class QLearningAgent:
 
     def train(self, num_episodes):
         episode_rewards = []
-        for episode in tqdm(range(num_episodes), desc="Training Progress"):
+        for episode in range(num_episodes):
             state = self.env.reset()
             total_reward = 0
             done = False

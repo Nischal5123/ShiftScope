@@ -27,7 +27,7 @@
                <!-- <button id="export">End Session </button>-->
                  <label>Attribute Color Encodings: </label><span id="legend"></span>
                 <button type="button" id="bookmarkViewOpen">
-                <i class="fas fa-tasks fa-lg" style="color: #010b13;"> My Task</i>
+                    <i class="fas fa-tasks fa-lg" style="color: #010b13;"> My Task</i></button>
                 <button id="performaceViewOpen">Performance View</button>
                 <button id="baselineViewOpen">&#9776; Baseline Recs</button>
             </div>
@@ -59,12 +59,24 @@
                     <label></label>
                     <label for="algorithm">Select Algorithm:</label>
                     <select id="algorithm" name="algorithm">
-                        <option value="Actor-Critic">ActorCritic</option>
+                        <option value="ActorCritic">ActorCritic</option>
+                        <option value="QLearning">QLearning</option>
                       <option value="Momentum">Momentum</option>
                       <option value="Random">Random</option>
                       <option value="Greedy">Greedy</option>
 
                     </select>
+
+                     <label for="baseline">Select Baseline:</label>
+                    <select id="baseline" name="baseline">
+                        <option value="Momentum">Momentum</option>
+                        <option value="QLearning">QLearning</option>
+                      <option value="Random">Random</option>
+                      <option value="Greedy">Greedy</option>
+                           <option value="ActorCritic">ActorCritic</option>
+
+                    </select>
+
                     <span id="slider_wrapper">
 <!--                        <i>Data/Encoding Ratio</i><label id="weight">0.50</label>-->
 <!--                        <input type="range" min="0" max="100" value="50" id="weight_slider">-->
@@ -80,7 +92,7 @@
                     <div class="chartcontainer"></div>
 
                     <span class="editorbuttons3">
-                       <button id="add" style="color: #28a745">Similar</button>
+                       <button type=button id="add" style="color: #ffffff">Recommend</button>
 <!--                        <button id="update" style="color:#007bff">Update</button>-->
 <!--                        <button id="remove" style="color:#dc3545">Remove</button>-->
                     </span>

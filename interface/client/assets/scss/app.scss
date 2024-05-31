@@ -212,21 +212,45 @@ html, body {
   left: 0;
 }
 
+//this if for the Recommend button
 .editorbuttons3 {
-  height: 20px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px; /* Add some space between the buttons */
 
   button {
     margin: 2px;
-    height: 20px;
-    width: 80px;
-    border-radius: 2px;
+    height: 30px; /* Increased height for better readability */
+    width: 100px; /* Increased width to fit 'Recommend' */
+    border-radius: 5px; /* Slightly more rounded corners */
+    background-color: #007baa; /* Primary blue color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    font-size: 14px; /* Increased font size for readability */
+    font-weight: bold; /* Bold text */
+    padding: 0 10px; /* Horizontal padding for better spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for interactions */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+
+  button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow */
+  }
+
+  button:active {
+    background-color: #003f7f; /* Even darker blue on click */
+    transform: translateY(2px); /* Slight movement down on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow on click */
   }
 
   button:disabled {
-    opacity: 0.5;
+    opacity: 0.6; /* Slightly more opaque for visibility */
+    cursor: not-allowed; /* Not-allowed cursor on disabled */
+    background-color: #b0b0b0; /* Gray background for disabled state */
   }
 }
 //#suggestionview {

@@ -1,50 +1,22 @@
 {
     "charts": [          
     ],
-    "attributes": [
-        [
-            "Airport_Name"
-        ],
-        [
-            "Aircraft_Make_Model"
-        ],
-        [
-            "Effect_Amount_of_damage"
-        ],
-        [
-            "Flight_Date"
-        ],
-        [
-            "Aircraft_Airline_Operator"
-        ],
-        [
-            "Origin_State"
-        ],
-        [
-            "When_Phase_of_flight"
-        ],
-        [
-            "Wildlife_Size"
-        ],
-        [
-            "Wildlife_Species"
-        ],
-        [
-            "When_Time_of_day"
-        ],
-        [
-            "Cost_Other"
-        ],
-        [
-            "Cost_Repair"
-        ],
-        [
-            "Cost_Total_a"
-        ],
-        [
-            "Speed_IAS_in_knots"
-        ]
-    ],
+    "attributes":[
+    ["airport_name", "str", "nominal"],
+    ["aircraft_make_model", "str", "ordinal"],
+    ["speed_ias_in_knots", "num", "quantitative"],
+    ["flight_date", "str", "ordinal"],
+    ["aircraft_airline_operator", "str", "ordinal"],
+    ["origin_state", "str", "ordinal"],
+    ["effect_amount_of_damage", "num", "ordinal"],
+    ["when_phase_of_flight", "str", "nominal"],
+    ["wildlife_size", "num", "ordinal"],
+    ["wildlife_species", "str", "ordinal"],
+    ["when_time_of_day", "str", "ordinal"],
+    ["cost_other", "num", "quantitative"],
+    ["cost_repair", "num", "quantitative"],
+    ["cost_total_a", "num", "quantitative"]
+],
     "data": [
         {
             "Airport_Name": "ATLANTA INTL",
