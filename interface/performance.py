@@ -246,7 +246,7 @@ class OnlineLearningSystem:
             total_r = 0
             for attr in attr_set:
                 if attr in cur_attributes:
-                    total_r += 5
+                    total_r += 1
             A = self.extend_state(attr_set)
             R = total_r
             data.append((S, A, R, S_prime, False))

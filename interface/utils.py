@@ -5,9 +5,10 @@ import numpy as np
 from Q_Learning import Rl_Driver
 # import Q_Learning
 from baseline import Momentum
+from baseline import Hotspot
 import os
 # from actor_critic_online import ActorCriticModel
-from actor_critic_online_RLHF import ActorCriticModel
+from actor_critic_online_RLHF import ActorCriticModel as ActorCriticModelRLHF
 
 def attribute_similarity(attr1, attr2):
 
@@ -78,9 +79,11 @@ def sort_by_lexical_similarity(recommended_sets, current_state, attribute_simila
 class utils:
     def __init__(self):
         # self.qlearning = Rl_Driver()
-        self.ac_model = ActorCriticModel('birdstrikes')
+        self.ac_model = ActorCriticModelRLHF('birdstrikes')
         self.rs = RandomStrategy()
         self.m = Momentum()
+        # self.ac_model_staic = 
+        self.h = Hotspot()
 
     def run_algorithm(self, algorithm, attributes_history, generator, dataset):
         if algorithm == 'Qlearning':
@@ -101,10 +104,11 @@ class utils:
             next_state_rl = Rl_Driver(dataset=dataset, attributes_history_path="attributes_history.npy", current_state=Copy_attributesHistory[-1])
             return next_state_rl
 
-        elif algorithm == 'Momentum':
+        elif algorithm == 'Momentum': #Return HotSpot
             current_state= attributes_history[-1]
-            return self.m.generate_actions(current_state)
-            
+            # return self.m.generate_actions(current_state)
+            return self.h.generate_actions(current_state)
+
         elif algorithm == 'Greedy':
             current_state= attributes_history[-1]
             return self.m.generate_actions(current_state)
@@ -113,7 +117,6 @@ class utils:
             return self.rs.generate_actions()
             
         elif algorithm == 'ActorCritic':
-            # ac_model = ActorCriticModel('birdstrikes')
             current_state= attributes_history[-1]
             # print(current_state)
             ret = self.ac_model.generate_actions_topk(current_state, k=6)
