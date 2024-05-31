@@ -55,19 +55,13 @@ class Momentum(RandomStrategy):
         # print(s, state, a, action)
         self.prob[s, :] = 0.1 / (self.action_space_size - 1)
         self.prob[s, a] = 0.9    
-        # for idx, x in enumerate(self.prob[s]):
-        #     print(idx, x)
-        # taken_action_one_hot = self.rl_env.inverse_valid_actions[a]
-        # taken_action = [self.fieldnames[i] for i in range(len(taken_action_one_hot)) if taken_action_one_hot[i] == 1]
-        # pdb.set_trace()
-
-        # print("debug", taken_action)
         
     #pick 'x' actions given the state
     def generate_actions(self, state, k=6):
         # Get probabilities for actions in the given state
         s = self.rl_env.valid_actions[tuple(self.get_state(state))]
         state_probs = self.prob[s]
+        # print(state_probs.sum())
         # print(s)
         # Sample 6 actions (without replacement) based on probabilities
         actions = np.random.choice(
@@ -85,10 +79,57 @@ class Momentum(RandomStrategy):
         
         return ret_action
 
+class Hotspot(Momentum):
+    def __init__(self, dataset='birdstrikes'):
+        super().__init__(dataset)
+        self.freq = np.ones((self.action_space_size, self.action_space_size))
+        self.pretrain()
+        
+    def pretrain(self):
+        datasets = ['birdstrikes']
+        tasks = ['p4'] #For now let's train the data on open-ended tasks
+
+        for dataset in datasets:
+            for task in tasks:
+                env = environment()
+                user_list_name = env.get_user_list(dataset, task)
+                for fname in user_list_name:
+                    # print(fname)
+                    env = environment()
+                    env.process_data(fname)
+                    
+                    s = env.reset()
+                    done = False
+                    while not done:
+                        s_prime, r, done, a = env.step(s, 1)
+                        s = self.rl_env.valid_actions[tuple(s)]   
+                        self.freq[s, a] += 1
+                        # pdb.set_trace() 
+
+                        s = s_prime
+                        if done:
+                            break                     
+
     
+    def update_prob(self, state, action):
+        s = self.rl_env.valid_actions[tuple(self.get_state(state))] #find the encoded number of the state, first state list -> numpy array -> encoded number 
+        a = self.rl_env.valid_actions[tuple(self.get_state(action))]
+        
+        self.freq[s, a] += 1
+        row_sums = self.freq.sum(axis=1, keepdims=True)
+        # print(self.freq[s,a], row_sums)
+        self.prob = self.freq / row_sums 
+        # print(self.freq[s,a], self.prob[0].sum())
+        
+    #generating actions should be same as momentum top 6 based on probability
+
 if __name__ == "__main__":
     # r = RandomStrategy()
     # print(r.generate_actions())
-    m = Momentum()
-    m.update_prob(['none', 'effect_amount_of_damage', 'flight_date'], ['none', 'effect_amount_of_damage'])
-    print(m.generate_actions(['none', 'effect_amount_of_damage', 'flight_date']))
+    # m = Momentum()
+    # m.update_prob(['none', 'effect_amount_of_damage', 'flight_date'], ['none', 'effect_amount_of_damage'])
+    # print(m.generate_actions(['none', 'effect_amount_of_damage', 'flight_date']))
+
+    h = Hotspot()
+    h.update_prob(['none', 'effect_amount_of_damage', 'flight_date'], ['none', 'effect_amount_of_damage'])
+    print(h.generate_actions(['none', 'effect_amount_of_damage', 'flight_date']))

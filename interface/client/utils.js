@@ -530,8 +530,8 @@ export function displayBaselineCharts(container, created = true) {
 
  export default {vegaConfig, handleEvents, parseurl, createDataTable, displayAllCharts, updateData}
 
-export function storeInteractionLogs(interaction, value, time) {
-  console.log({ Interaction: interaction, Value: value, Time: time.getTime() });
+function storeInteractionLogs(interaction, value, time) {
+//   console.log({ Interaction: interaction, Value: value, Time: time.getTime() });
   interactionLogs.push({
     Interaction: interaction,
     Value: value,
@@ -731,12 +731,15 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
                     total += 0;
                 }
             });
-            hitRates.push(total / concatenatedHistory.length);
+            if (concatenatedHistory.length > 0) {
+                hitRates.push(total / concatenatedHistory.length);
+              } else {
+                hitRates.push(0);
+              }
         });
         hitRateHistory[algorithm] = hitRates;
     });
-     storeInteractionLogs('Algorithm performance', hitRateHistory, new Date())
-
+    // console.log(hitRateHistory)
     // Draw lines for each dataset
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
         const line = d3.line()

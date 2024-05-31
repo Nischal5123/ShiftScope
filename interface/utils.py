@@ -5,9 +5,10 @@ import numpy as np
 from Q_Learning import Rl_Driver
 # import Q_Learning
 from baseline import Momentum
+from baseline import Hotspot
 import os
 # from actor_critic_online import ActorCriticModel
-from actor_critic_online_RLHF import ActorCriticModel
+from actor_critic_online_RLHF import ActorCriticModel as ActorCriticModelRLHF
 
 def attribute_similarity(attr1, attr2):
 
@@ -78,10 +79,10 @@ def sort_by_lexical_similarity(recommended_sets, current_state, attribute_simila
 class utils:
     def __init__(self):
         # self.qlearning = Rl_Driver()
-        self.ac_model = ActorCriticModel('birdstrikes')
-        self.ac_model_offline = ActorCriticModel('birdstrikes')
+        self.ac_model = ActorCriticModelRLHF('birdstrikes')
         self.rs = RandomStrategy()
         self.m = Momentum()
+        self.h = Hotspot()
 
     def run_algorithm(self, algorithm, attributes_history, generator, dataset):
         current_state = attributes_history[-1]
@@ -104,24 +105,23 @@ class utils:
             ret= sort_by_lexical_similarity(next_state_ql, current_state)
             return ret
 
-        elif algorithm == 'Momentum':
-            ret = self.ac_model_offline.generate_actions_topk(current_state, k=6)
-            ret = sort_by_lexical_similarity(ret, current_state)
-            return ret
-            
-        elif algorithm == 'Greedy':
+        elif algorithm == 'Momentum': #Return Momentum
             ret = self.m.generate_actions(current_state)
             ret = sort_by_lexical_similarity(ret, current_state)
             return ret
 
-        elif algorithm == 'Random':
-            ret= self.rs.generate_actions()
+        elif algorithm == 'Greedy': #Hotspot
+            ret = self.h.generate_actions(current_state)
+            ret = sort_by_lexical_similarity(ret, current_state)
+            return ret
+
+        elif algorithm == 'Random': #AC_OFFline
+            ret = self.ac_model_offline.generate_actions_topk(current_state, k=6)
             ret = sort_by_lexical_similarity(ret, current_state)
             return ret
             
         elif algorithm == 'ActorCritic':
-            # ac_model = ActorCriticModel('birdstrikes')
-
+            current_state= attributes_history[-1]
             # print(current_state)
             ret = self.ac_model.generate_actions_topk(current_state, k=6)
             # print(ret)
