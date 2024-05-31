@@ -376,7 +376,7 @@ export function displayBaselineCharts(container, created = true) {
              data: JSON.stringify(specs),
              contentType: 'application/json'
          }).done((data) => {
-            //  console.log(data)
+
          })
      })
 

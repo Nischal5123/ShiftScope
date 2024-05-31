@@ -105,18 +105,18 @@ class utils:
             ret= sort_by_lexical_similarity(next_state_ql, current_state)
             return ret
 
-        elif algorithm == 'Momentum': #Return HotSpot
-            ret = self.h.generate_actions(current_state)
-            ret = sort_by_lexical_similarity(ret, current_state)
-            return ret
-
-        elif algorithm == 'Greedy':
+        elif algorithm == 'Momentum': #Return Momentum
             ret = self.m.generate_actions(current_state)
             ret = sort_by_lexical_similarity(ret, current_state)
             return ret
 
-        elif algorithm == 'Random':
-            ret= self.rs.generate_actions()
+        elif algorithm == 'Greedy': #Hotspot
+            ret = self.h.generate_actions(current_state)
+            ret = sort_by_lexical_similarity(ret, current_state)
+            return ret
+
+        elif algorithm == 'Random': #AC_OFFline
+            ret = self.ac_model_offline.generate_actions_topk(current_state, k=6)
             ret = sort_by_lexical_similarity(ret, current_state)
             return ret
             
