@@ -116,7 +116,8 @@ class utils:
             return ret
 
         elif algorithm == 'Random': #AC_OFFline
-            ret = self.ac_model_offline.generate_actions_topk(current_state, k=6)
+            # ret = self.ac_model_offline.generate_actions_topk(current_state, k=6)
+            ret = self.h.generate_actions(current_state)
             ret = sort_by_lexical_similarity(ret, current_state)
             return ret
             
