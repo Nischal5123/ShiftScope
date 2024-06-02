@@ -171,6 +171,9 @@ def top_k(save_csv=False):
 
 @app.route('/')
 def index():
+    global manual_session
+
+
     session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     manual_session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     return jsonify(manual_session)
@@ -180,6 +183,8 @@ def submit_form():
     global manual_session
     global system
     global env
+
+
 
     folder_name = 'ShiftScopeLogs/' + str(manual_session.get('session_id'))
 
