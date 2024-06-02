@@ -192,7 +192,7 @@ export function displayBookmarkCharts(container, created = true) {
 
 export function displayBaselineCharts(container, created = true) {
     $(container).empty();
-    storeInteractionLogs('requested baseline charts', "", new Date())
+
 
      app.sumview.baselineCharts.forEach((ch) => {
         var vegachart = _.extend({}, ch.originalspec,
@@ -459,12 +459,13 @@ export function displayBaselineCharts(container, created = true) {
 
      $('#baselineViewOpen').click(() => {
             console.log("User requested Baseline View")
+         storeInteractionLogs('requested baseline charts', "", new Date())
             openBaseline()
 
      })
 
      $('#baselineViewClose').click(() => {
-            console.log("User requested Baseline View to be closed")
+            storeInteractionLogs('closed baseline charts', "", new Date())
             closeBaseline()
      })
 
@@ -530,8 +531,8 @@ export function displayBaselineCharts(container, created = true) {
 
  export default {vegaConfig, handleEvents, parseurl, createDataTable, displayAllCharts, updateData}
 
-function storeInteractionLogs(interaction, value, time) {
-//   console.log({ Interaction: interaction, Value: value, Time: time.getTime() });
+export function storeInteractionLogs(interaction, value, time) {
+     console.log({ Interaction: interaction, Value: value, Time: time.getTime() });
   interactionLogs.push({
     Interaction: interaction,
     Value: value,
