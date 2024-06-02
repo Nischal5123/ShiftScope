@@ -121,7 +121,7 @@ def top_k(save_csv=False):
     data = eval(total_data.get('history'))
     bookmarked_charts = total_data.get('bookmarked', [])
     specified_algorithm = total_data.get('algorithm', 'ActorCritic')
-    specified_baseline = total_data.get('baseline', 'Momentum')
+    specified_baseline = total_data.get('baseline', 'Random')
 
     if data and isinstance(data, list):
         system.state_history = data
@@ -171,6 +171,9 @@ def top_k(save_csv=False):
 
 @app.route('/')
 def index():
+    global manual_session
+
+
     session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     manual_session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     return jsonify(manual_session)
@@ -180,6 +183,8 @@ def submit_form():
     global manual_session
     global system
     global env
+
+
 
     folder_name = 'ShiftScopeLogs/' + str(manual_session.get('session_id'))
 

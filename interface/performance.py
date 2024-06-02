@@ -176,6 +176,7 @@ class OnlineLearningSystem:
         ############# get the next state based on the specified algorithm and baseline ############################
         next_state_return = results[specified_algorithm]
         next_state_baseline_return = results[specified_baseline]
+        print(specified_algorithm, specified_baseline)
         ############################################################################################################
 
         ####### add new predictions to the history ################################################################
@@ -249,14 +250,19 @@ class OnlineLearningSystem:
         S = self.extend_state(self.state_history[-1])
         S_prime = self.extend_state(cur_attributes)
         for attr_set in Prev_recommended_attributes: #(prev_recommended attributes are each an action)
-            # if sorted(attr_set) == sorted(cur_attributes):
-            total_r = 0
+            if sorted(attr_set) == sorted(cur_attributes):
+                total_r = 10
+            else:
+                total_r = 0
+
+            # total_r = 0
             for attr in attr_set:
                 if attr in cur_attributes:
-                    total_r += 1
+                    total_r += 5
             A = self.extend_state(attr_set)
             R = total_r
             data.append((S, A, R, S_prime, False))
+        
         # self.state_history.append(S_prime)
         # pdb.set_trace()
 

@@ -111,15 +111,17 @@ class ActorCritic(nn.Module):
         
         # td_target = r + gamma * self.v(s_prime) * done
         # delta = td_target - self.v(s)
-        
+        for param_group in self.optimizer.param_groups:
+            param_group['lr'] = 0.1 
+
         pi = self.pi(s, softmax_dim=1)
         pi_a = pi.gather(1,a)
         loss = -torch.log(pi_a) * f
-
+        # print(pi)
         self.optimizer.zero_grad()
         loss.mean().backward()
-
         self.optimizer.step()         
+
 
 class ActorCriticModel:
     def __init__(self, dataset='birdstrikes'):
@@ -155,6 +157,14 @@ class ActorCriticModel:
         
         state = self.get_state(current_state) #one-hot of current_state
         prob = self.model.pi(torch.from_numpy(state).float())
+
+        ##### Make sure that we do not repeat the same action #####
+        last_action = self.rl_env.valid_actions[tuple(state)]
+        mask = torch.ones_like(prob)
+        mask[last_action] = 0
+        prob *= mask
+        #####################################################
+
         topk_prob, topk_actions = torch.topk(prob, k)
         topk_actions = topk_actions.squeeze().tolist()
         ret_action = []
@@ -177,7 +187,6 @@ class ActorCriticModel:
         return taken_action
 
     def update_reward(self, data):
-        
         for d in data:
             S, A, R, S_prime, done = d
             s = self.get_state(S)
@@ -187,7 +196,7 @@ class ActorCriticModel:
             s_prime = self.get_state(S_prime)
             # print(s, a, r, s_prime, done)
             self.model.put_data((s,a,r,s_prime,done))
-        
+        # pdb.set_trace()
         # self.model.train_net(self.gamma)
         self.model.train_net_rlhf()
         self.gamma *= self.gamma_decay
