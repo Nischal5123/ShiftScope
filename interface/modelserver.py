@@ -121,7 +121,7 @@ def top_k(save_csv=False):
     data = eval(total_data.get('history'))
     bookmarked_charts = total_data.get('bookmarked', [])
     specified_algorithm = total_data.get('algorithm', 'ActorCritic')
-    specified_baseline = total_data.get('baseline', 'Momentum')
+    specified_baseline = total_data.get('baseline', 'Random')
 
     if data and isinstance(data, list):
         system.state_history = data
