@@ -33,6 +33,8 @@ class ActorCritic(nn.Module):
         nn.init.zeros_(self.fc_pi.bias)
         nn.init.xavier_uniform_(self.fc_v.weight)
         nn.init.zeros_(self.fc_v.bias)
+
+
         
     def pi(self, x, softmax_dim = 0):
         x = F.relu(self.fc1(x))
@@ -124,7 +126,7 @@ class ActorCritic(nn.Module):
 
 
 class ActorCriticModel:
-    def __init__(self, dataset='birdstrikes'):
+    def __init__(self, dataset='birdstrikes', exploration_method='greedy',decay_steps=5): #after 5 steps I want it to be greedy i.e focus on what I have been clicking on
 
         self.model = ActorCritic()
         self.model.load_state_dict(torch.load('pretrained_actor_critic_V2.pth'))
@@ -142,7 +144,16 @@ class ActorCriticModel:
         #hyper-parameters
         #hyperparameters:
         self.gamma         = 0.9
-        self.gamma_decay   = 0.9 
+        self.gamma_decay   = 0.9
+
+        ##### Exploration parameters #####
+        self.initial_exploration_param = 1.0
+        self.exploration_method = exploration_method
+        self.call_count = 0
+        self.exploration_parameter = 1.0
+        # Calculate decay rate for exponential decay to reach near zero after decay_steps
+        self.decay_rate = (0.01 / self.initial_exploration_param) ** (1 / decay_steps)
+        ##################################
     
     def get_state(self, cur_attrs):
         state = np.zeros(len(self.attributes_birdstrikes), dtype = np.int32)
@@ -153,9 +164,13 @@ class ActorCriticModel:
         
         return state
 
-    def generate_actions_topk(self, current_state, dataset = 'birdstrikes', k = 1):
-        
-        state = self.get_state(current_state) #one-hot of current_state
+    def generate_actions_topk(self, current_state, dataset='birdstrikes', k=1):
+        self.call_count += 1
+
+        # Update exploration parameter using exponential decay
+        self.exploration_param = self.initial_exploration_param * (self.decay_rate ** self.call_count) # as many times this function is called the decay rate will be applied to the exploration parameter
+
+        state = self.get_state(current_state)  # one-hot of current_state
         prob = self.model.pi(torch.from_numpy(state).float())
 
         ##### Make sure that we do not repeat the same action #####
@@ -165,14 +180,26 @@ class ActorCriticModel:
         prob *= mask
         #####################################################
 
-        topk_prob, topk_actions = torch.topk(prob, k)
-        topk_actions = topk_actions.squeeze().tolist()
+        if self.exploration_method == "greedy":
+            topk_prob, topk_actions = torch.topk(prob, k)
+        elif self.exploration_method == "boltzmann":
+            print("Boltzmann exploration current exploration parameter: {}".format(self.exploration_param))
+            prob = torch.softmax(prob / (self.exploration_param + 1e-10), dim=0)
+            topk_actions = torch.multinomial(prob, k).tolist()
+        else:
+            raise ValueError("Unknown exploration method: {}".format(self.exploration_method))
+
+        ##########################################################
+
+        topk_actions = topk_actions if isinstance(topk_actions, list) else topk_actions.squeeze().tolist()
+        print('topk_actions:', topk_actions)
         ret_action = []
         for a in topk_actions:
             taken_action_one_hot = self.rl_env.inverse_valid_actions[a]
-            taken_action = [self.fieldnames[i] for i in range(len(taken_action_one_hot)) if taken_action_one_hot[i] == 1]
+            taken_action = [self.fieldnames[i] for i in range(len(taken_action_one_hot)) if
+                            taken_action_one_hot[i] == 1]
             ret_action.append(taken_action)
-        
+
         return ret_action
 
     def generate_action(self, current_state, dataset = 'birdstrikes'):

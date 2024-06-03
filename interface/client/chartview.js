@@ -13,7 +13,7 @@
  import ace from 'ace-builds/src-noconflict/ace'
  import 'ace-builds/webpack-resolver'
  import vegaEmbed from 'vega-embed'
- import { storeInteractionLogs } from "./utils.js"
+ import { storeInteractionLogs, createTaskForm } from "./utils.js"
  
  export default class ChartView extends EventEmitter {
      constructor(data, conf) {
@@ -32,7 +32,7 @@
      }
  
      _init() {
-         // text editor
+        // text editor
          this._cheditor = ace.edit('editorcontainer', {
              mode: 'ace/mode/json',
              minLines: 20,
@@ -44,6 +44,7 @@
                 showGutter: false,
          })
 
+         createTaskForm();
          // ui controls
          var html = ''
  

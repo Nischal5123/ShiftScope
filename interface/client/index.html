@@ -27,7 +27,7 @@
                <!-- <button id="export">End Session </button>-->
                  <label>Attribute Color Encodings: </label><span id="legend"></span>
                 <button type="button" id="bookmarkViewOpen">
-                    <i class="fas fa-tasks fa-lg" style="color: #010b13;"> My Task</i></button>
+                    <i class="fas fa-bookmark" style="color: #010b13;"> My Bookmarks</i></button>
                 <button id="performaceViewOpen">Performance View</button>
                 <button id="baselineViewOpen">&#9776; Baseline Recs</button>
             </div>
@@ -47,11 +47,12 @@
                         <button id="preview1" style="color:#007bff">Preview</button>
 <!--                        <button id="cancel1" style="color:#dc3545;">Cancel</button>-->
                     </span>
-                    <div id="editorcontainer"></div>
-                    <span class="editorbuttons" id="editorbutton2">
+<!--                    <div id="editorcontainer"></div> -->
+              <!--      <span class="editorbuttons" id="editorbutton2"> -->
 <!--                        <button id="preview2" style="color:#007bff">Preview2</button>-->
 <!--                        <button id="cancel2" style="color:#dc3545;">Cancel</button>-->
-                    </span>
+                    <div id="editorcontainer"></div>
+                    <div id="taskview"></div>
                 </div>
             </div>
             <div id="panel2">
@@ -69,10 +70,12 @@
 
                      <label for="baseline">Select Baseline:</label>
                     <select id="baseline" name="baseline">
+                        <option value="Random">Offline</option>
+                        <option value="Greedy">Hotspot</option>
                         <option value="Momentum">Momentum</option>
                         <option value="Qlearning">Qlearning</option>
-                      <option value="Random">Random</option>
-                      <option value="Greedy">Greedy</option>
+
+
                            <option value="ActorCritic">ActorCritic</option>
 
                     </select>
@@ -92,7 +95,7 @@
                     <div class="chartcontainer"></div>
 
                     <span class="editorbuttons3">
-                       <button type=button id="add" style="color: #ffffff">Recommend</button>
+                       <button type=button id="add" style="color: #ffffff">Update</button>
 <!--                        <button id="update" style="color:#007bff">Update</button>-->
 <!--                        <button id="remove" style="color:#dc3545">Remove</button>-->
                     </span>
@@ -185,9 +188,8 @@
     <div id="myBookmark" class="sidebar2">
       <!-- Button to close the overlay navigation -->
       <a class="closebtn" id="bookmarkViewClose">&times;</a>
-         <div class="bookmark-task-container">
         <div id="bookmarkview", class="one"></div>
-        <div id="taskview" class="two"></div>
+
     </div>
     </div>
 

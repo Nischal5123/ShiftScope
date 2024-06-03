@@ -180,14 +180,13 @@ html, body {
   }
 }
 
+
+
 #editorcontainer {
-  width: 100%;
-  top: 350px;
-  bottom: 20px;
-  left: 10px;
+  width: 0%;
+  top: 0px;
+  left: 0px;
   position: absolute;
-  border-top: 1px solid gray;
-  display: inline-block;
 }
 
 .editorbuttons {
@@ -281,7 +280,7 @@ html, body {
   margin: 2px;
 }
 
-#suggestionview2 {
+#suggestionview2 { // this is for baseline view
   position: absolute;
   top: 20px;
   bottom: 0;
@@ -295,21 +294,7 @@ html, body {
   width: 550px;
 }
 
-#bookmarkview {
-  position: absolute;
-  width: 500px;
-  top: 20px;
-  bottom: 0;
-  left: 10px;
-  right: 20px;
-  display: inline-block;
-  border: gray 1px solid;
-  border-radius: 5px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  vertical-align: top;
-  margin: 2px;
-}
+
 
 //thi is old sumview now history
 #allchartsview {
@@ -651,22 +636,44 @@ html, body {
 .sidebar2 .closebtn {
   position: absolute;
   top: 20px;
-  right: 25px;
+  left: 515px;
   font-size: 40px;
   cursor: pointer;
 }
 
-.bookmark-task-container {
-  display: flex;
-  width: 100%;
-  height: 100%;
-}
+//.bookmark-task-container {
+//  display: flex;
+//  width: 100%;
+//  height: 100%;
+//}
 
 #bookmarkview {
+  position: absolute;
+  width: 500px;
+  top: 20px;
+  bottom: 0;
+  left: 10px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
   background-color: #f9f9f9; /* Light background color */
 }
 
+
+
+
+//***************************************** This is to add Task to the main interface
 #taskview {
+  width: 90%;
+  top: 350px;
+  left: 10px;
+  position: absolute;
+  border-top: 1px solid gray;
+  display: inline-block;
   background-color: #ffffff; /* White background color */
   box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow */
   border-radius: 8px; /* Rounded corners */
@@ -684,21 +691,18 @@ html, body {
 }
 
 .form-group label {
-  font-size: 18px;
-  font-weight: bold;
+  display: block;
+  width: 100%;
 }
 
-.form-control {
-  width: calc(100% - 25px); /* Adjust the width as needed */
-  height: 40px;
-  padding: 10px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.form-group .form-control {
+  width: 100%;
+  height: 150px; /* Increase the height of the input box */
+  overflow-x: scroll; /* Make it scrollable if content exceeds height */
 }
 
 .btn {
-  width: 100%;
+  width: 50%;
   padding: 10px;
   background-color: #007bff;
   color: white;
@@ -718,3 +722,7 @@ html, body {
   height: 500px;
   margin-right: 20px;
 }
+//  ****************************************
+
+
+

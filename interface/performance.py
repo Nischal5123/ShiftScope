@@ -259,9 +259,12 @@ class OnlineLearningSystem:
             for attr in attr_set:
                 if attr in cur_attributes:
                     total_r += 5
+
             A = self.extend_state(attr_set)
             R = total_r
+
             data.append((S, A, R, S_prime, False))
+
         
         # self.state_history.append(S_prime)
         # pdb.set_trace()

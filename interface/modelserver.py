@@ -66,6 +66,7 @@ def encode():
                 field_names.append(field_name)
                 field_types[field_name] = key
     system.response_history.append(field_names)
+    system.update_models()
     # Get Draco recommendations
     recommendations = draco_test.get_draco_recommendations(field_names, 'birdstrikes', parsed_data)
     chart_recom = system.remove_irrelevant_recommendations(field_names, recommendations)
@@ -172,6 +173,9 @@ def top_k(save_csv=False):
 @app.route('/')
 def index():
     global manual_session
+    global session
+
+    session.clear()
 
 
     session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
