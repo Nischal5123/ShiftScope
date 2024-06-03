@@ -643,9 +643,9 @@ function closeBaseline() {
 
 
 function openBookmark() {
-    document.getElementById("myBookmark").style.width = "75%";
-    storeInteractionLogs('Open Task/Bookmark View', "", new Date())
-    createTaskForm();
+    document.getElementById("myBookmark").style.width = "550px";
+    storeInteractionLogs('Open Bookmark View', "", new Date())
+
     displayBookmarkCharts('#bookmarkview', true)
 
     }
@@ -1003,17 +1003,16 @@ window.addEventListener('beforeunload', clearLocalStorage);
 
 
 // Function to create task form
-function createTaskForm() {
+export function createTaskForm() {
   const taskview = document.getElementById('taskview');
   taskview.innerHTML = ''; // Clear any existing content
 
   const formTitle = document.createElement('h2');
   formTitle.classList.add('task-form-title');
-  formTitle.innerText = 'Task Form';
+  formTitle.innerText = 'Exploration Task';
 
   const questions = [
-    "Username",
-    "Task Question-\n What kinds of birdstrikes would usually cost the most to repair the airplane? \n Note that any dataset columns that are interesting to you can be included. \n Summarize the 2-3 factors that you believe would cause the highest repair cost\n",
+    "\n How can we improve aviation safety and business?"
   ];
 
   const form = document.createElement('form');
@@ -1025,12 +1024,16 @@ function createTaskForm() {
 
     const label = document.createElement('label');
     label.innerText = `${question}`;
+    label.style.display = 'block';
+    label.style.width = '100%';
     formGroup.appendChild(label);
 
-    const input = document.createElement('input');
-    input.type = 'text';
+    const input = document.createElement('textarea');
     input.name = `answer${index}`;
     input.classList.add('form-control');
+    input.style.width = '90%';
+    input.style.height = '150px'; // Increase the height of the input box
+    input.style.overflowY = 'scroll'; // Make it scrollable if content exceeds height
     formGroup.appendChild(input);
 
     // Load saved value from local storage
@@ -1041,8 +1044,8 @@ function createTaskForm() {
 
     input.addEventListener('input', function() {
       // Save value to local storage on input change
-        storeInteractionLogs('Taking notes', input.value, new Date())
-        console.log('task form input', input.value);
+      storeInteractionLogs('Taking notes', input.value, new Date());
+      console.log('task form input', input.value);
       localStorage.setItem(`answer${index}`, input.value);
     });
 
@@ -1061,10 +1064,15 @@ function createTaskForm() {
 
   // submit button click event
   submitButton.addEventListener('click', function() {
-      storeInteractionLogs('Task Complete for User', {sessionid: user_session_id, algorithm:app.sumview._algorithm , baseline:app.sumview._baseline }, new Date())
+    storeInteractionLogs('Task Complete for User', {
+      sessionid: user_session_id,
+      algorithm: app.sumview._algorithm,
+      baseline: app.sumview._baseline
+    }, new Date());
     sendLogs();
   });
 }
+
 
 // ######################################### Send Logs to Backend #########################################################################################
 function sendLogs() {
