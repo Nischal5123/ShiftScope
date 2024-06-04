@@ -129,7 +129,7 @@ def top_k(save_csv=False):
     else:
         system.state_history = [['flight_date', 'wildlife_size', 'airport_name']]
 
-    attributes_list, distribution_map, baselines_distribution_maps, attributes_baseline = system.onlinelearning(algorithms_to_run=['Momentum', 'Random', 'Greedy', 'ActorCritic', 'Qlearning'],specified_algorithm=specified_algorithm, specified_baseline=specified_baseline,bookmarked_charts=bookmarked_charts)
+    attributes_list, distribution_map, baselines_distribution_maps, attributes_baseline = system.onlinelearning(algorithms_to_run=['Momentum', 'Hotspot', 'ActorCritic'],specified_algorithm=specified_algorithm, specified_baseline=specified_baseline,bookmarked_charts=bookmarked_charts)
 
     chart_recom_list = []
 

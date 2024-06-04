@@ -21,13 +21,9 @@ class OnlineLearningSystem:
         self.rl_attributes_history = []
         self.last_users_attributes_history = []
         self.actor_critic_action_history = []
+        self.hotspot_attributes_history = []
 
         #performance data
-        self.rl_accuracies = []
-        self.random_accuracies = []
-        self.momentum_accuracies = []
-        self.greedy_accuracies = []
-        self.ql_accuracies = []
         self.master_current_user_attributes = None
         self.current_user_attributes = []
 
@@ -51,10 +47,9 @@ class OnlineLearningSystem:
     def set_performance_data(self, algorithms=['Momentum', 'Random', 'Greedy']):
         if len(self.current_user_attributes) > 0: #technically this should be the case always
             self.response_algorithm_predictions['RL'] = self.rl_attributes_history
-            self.response_algorithm_predictions['Random'] = self.random_attributes_history
             self.response_algorithm_predictions['Momentum'] = self.momentum_attributes_history
-            self.response_algorithm_predictions['Greedy'] = self.greedy_attributes_history
-            self.response_algorithm_predictions['QLearning'] = self.ql_attributes_history
+            self.response_algorithm_predictions['Hotspot'] = self.hotspot_attributes_history
+
             
         
  
@@ -142,7 +137,7 @@ class OnlineLearningSystem:
         self.current_user_attributes.extend(new_interactions)
 
 
-        
+
         #get the hit rate and other performance data ################################################################
         if len(self.rl_attributes_history) > 0:    #before new predictions are made last prection is mapped to new interactions
             # Map the user's position of interaction in the new attributesHistory to the corresponding predictions
@@ -168,39 +163,36 @@ class OnlineLearningSystem:
 
         # next_state_rl = self.extend_state(results['Qlearning'])
         next_state_momentum = self.extend_state(results['Momentum'])
-        next_state_greedy = self.extend_state(results['Greedy'])
-        next_state_random = self.extend_state(results['Random'])
+        next_state_hotspot = self.extend_state(results['Hotspot'])
         next_state_ac = self.extend_state(results['ActorCritic'])
-        next_state_qlearn= self.extend_state(results['Qlearning'])
+
 
         ############# get the next state based on the specified algorithm and baseline ############################
         next_state_return = results[specified_algorithm]
         next_state_baseline_return = results[specified_baseline]
         print(specified_algorithm, specified_baseline)
+
         ############################################################################################################
 
         ####### add new predictions to the history ################################################################
 
         self.momentum_attributes_history.append(next_state_momentum)
-        self.greedy_attributes_history.append(next_state_greedy)
-        self.random_attributes_history.append(next_state_random)
+        self.hotspot_attributes_history.append(next_state_hotspot)
         self.actor_critic_action_history.append(next_state_ac)
         self.rl_attributes_history.append(next_state_ac)
-        self.ql_attributes_history.append(next_state_qlearn)
+        # self.ql_attributes_history.append(next_state_qlearn)
+        # self.random_attributes_history.append(next_state_random)
 
         ############################################################################################################
 
 
         df_momentum = pd.DataFrame({'State': self.momentum_attributes_history})
         distribution_map_momentum = self.get_distribution_of_states(df_momentum, 'Momentum')
-        df_greedy = pd.DataFrame({'State': self.greedy_attributes_history})
-        distribution_map_greedy = self.get_distribution_of_states(df_greedy, 'Greedy')
-        df_random = pd.DataFrame({'State': self.random_attributes_history})
-        distribution_map_random = self.get_distribution_of_states(df_random, 'Random')
+        df_hotspot = pd.DataFrame({'State': self.hotspot_attributes_history})
+        distribution_map_hotspot = self.get_distribution_of_states(df_hotspot, 'Hotspot')
         df_ac = pd.DataFrame(({'State': self.actor_critic_action_history}))
         distribution_map_ac = self.get_distribution_of_states(df_ac, 'ActorCritic')
-        df_ql = pd.DataFrame({'State': self.ql_attributes_history})
-        distribution_map_ql = self.get_distribution_of_states(df_ql, 'Qlearning')
+
 
         distribution_map_rl = distribution_map_ac
         # distribution_map_rl = self.get_distribution_of_states(df_rl, 'ActorCritic')
@@ -208,17 +200,15 @@ class OnlineLearningSystem:
         # pdb.set_trace()
         all_algorithms_distribution_map = {
             'Momentum': distribution_map_momentum,
-            'Greedy': distribution_map_greedy,
-            'Random': distribution_map_random,
+            'Hotspot': distribution_map_hotspot,
             'Actor_Critic': distribution_map_ac,
-            'Qlearning': distribution_map_ql,
             'RL': distribution_map_rl
         }
 
          # Store these for everytime the performance view is clicked even if there is no new data need to return this
         self.all_algorithms_distribution_map= all_algorithms_distribution_map
         self.user_distribution_map = distribution_map
-        
+
         #baseline next state: something other than specified algorithm
         # next_state_baseline = self.extend_state(results['Momentum'])
 
@@ -228,10 +218,9 @@ class OnlineLearningSystem:
     def set_performance_data(self):
         if len(self.current_user_attributes) > 0: #technically this should be the case always
             self.response_algorithm_predictions['RL'] = self.rl_attributes_history.copy()
-            self.response_algorithm_predictions['Random'] = self.random_attributes_history.copy()
             self.response_algorithm_predictions['Momentum'] = self.momentum_attributes_history.copy()
-            self.response_algorithm_predictions['Greedy'] = self.greedy_attributes_history.copy()
-            self.response_algorithm_predictions['QLearning'] = self.ql_attributes_history.copy()
+            self.response_algorithm_predictions['Hotspot'] = self.hotspot_attributes_history.copy()
+
 
     #Updating the Actor-Critic Model based on user's feedback
     def update_models(self):
@@ -278,7 +267,7 @@ class OnlineLearningSystem:
 
     def save_histories(self, path):
         np.save(path + 'momentum_attributes_history.npy', self.momentum_attributes_history)
-        np.save(path + 'greedy_attributes_history.npy', self.greedy_attributes_history)
+        np.save(path + 'hotspot_attributes_history.npy', self.hotspot_attributes_history)
         np.save(path + 'random_attributes_history.npy', self.random_attributes_history)
         np.save(path + 'rl_attributes_history.npy', self.rl_attributes_history)
         np.save(path + 'user_attributes_history.npy', self.current_user_attributes)

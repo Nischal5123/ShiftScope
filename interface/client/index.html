@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>AdaptiveViz</title>
+        <title>ShiftScope</title>
         <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -43,8 +43,8 @@
                         <label>Size</label><select id="ch-size"></select><select id="ch-sizetrans"></select><br/>
                         <label>Shape</label><select id="ch-shape"></select><br/>
                     </div>
-                    <span class="editorbuttons">
-                        <button id="preview1" style="color:#007bff">Preview</button>
+                    <span class="editorbuttons3">
+                        <button id="preview1"  style="color:#ffffff">Update</button>
 <!--                        <button id="cancel1" style="color:#dc3545;">Cancel</button>-->
                     </span>
 <!--                    <div id="editorcontainer"></div> -->
@@ -55,55 +55,48 @@
                     <div id="taskview"></div>
                 </div>
             </div>
-            <div id="panel2">
+               <div id="panel2">
                 <span class="panel-header">
                     <label></label>
                     <label for="algorithm">Select Algorithm:</label>
                     <select id="algorithm" name="algorithm">
                         <option value="ActorCritic">ActorCritic</option>
-                        <option value="Qlearning">Qlearning</option>
-                      <option value="Momentum">Momentum</option>
-                      <option value="Random">Random</option>
-                      <option value="Greedy">Greedy</option>
-
+                        <option value="Momentum">Momentum</option>
+                        <option value="Hotspot">Modified-Hotspot</option>
                     </select>
 
-                     <label for="baseline">Select Baseline:</label>
+                    <label for="baseline">Select Baseline:</label>
                     <select id="baseline" name="baseline">
-                        <option value="Random">Offline</option>
-                        <option value="Greedy">Hotspot</option>
+                        <option value="Hotspot">Modified-Hotspot</option>
                         <option value="Momentum">Momentum</option>
-                        <option value="Qlearning">Qlearning</option>
-
-
-                           <option value="ActorCritic">ActorCritic</option>
-
                     </select>
 
                     <span id="slider_wrapper">
-<!--                        <i>Data/Encoding Ratio</i><label id="weight">0.50</label>-->
-<!--                        <input type="range" min="0" max="100" value="50" id="weight_slider">-->
+                        <!--                        <i>Data/Encoding Ratio</i><label id="weight">0.50</label>-->
+                        <!--                        <input type="range" min="0" max="100" value="50" id="weight_slider">-->
                     </span>
                     <span id="check_wrapper">
-<!--                        <i>Annotation</i>-->
-<!--                        <input type="checkbox" id="show_bubble" checked>-->
+                        <!--                        <i>Annotation</i>-->
+                        <!--                        <input type="checkbox" id="show_bubble" checked>-->
                     </span>
                 </span>
-<!--                <div id="suggestionview"></div>-->
-<!--                <div class="chartcontainer"></div>-->
-                 <div id="chartview">
+                <!--                <div id="suggestionview"></div>-->
+                <!--                <div class="chartcontainer"></div>-->
+
+                <div id="chartview">
                     <div class="chartcontainer"></div>
 
-                    <span class="editorbuttons3">
-                       <button type=button id="add" style="color: #ffffff">Update</button>
-<!--                        <button id="update" style="color:#007bff">Update</button>-->
-<!--                        <button id="remove" style="color:#dc3545">Remove</button>-->
-                    </span>
                 </div>
                 <div id="dataview">
+                    <span class="editorbuttons3">
+                        <button type="button" id="add" style="color: #ffffff"> Recommend</button>
+                        <!--                        <button id="update" style="color:#007bff">Update</button>-->
+                        <!--                        <button id="remove" style="color:#dc3545">Remove</button>-->
+                    </span>
                     <table class="compact hover cell-border nowrap"></table>
                 </div>
             </div>
+
             <div id="panel3">
                 <span class="panel-header"><label>----------------------------------------------------- Suggested Charts---------------------------------------</label></span>
 <!--                <div id="sumview"></div>-->
@@ -173,8 +166,8 @@
                 <canvas id="RLChart" style="max-width:100%"></canvas>
             </div>
             <div class="chart">
-                <h2>Baseline-R Focus</h2>
-                <canvas id="RandombaselineChart" style="max-width:100%"></canvas>
+                <h2>Baseline-H Focus</h2>
+                <canvas id="HotspotbaselineChart" style="max-width:100%"></canvas>
             </div>
             <div class="chart">
                 <h2>Baseline-M Focus</h2>
