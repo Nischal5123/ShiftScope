@@ -104,29 +104,29 @@ class utils:
             np.save("performance-data/attributes_history.npy", copy_attributesHistory)
 
             next_state_ql = Rl_Driver(dataset=dataset, attributes_history_path="performance-data/attributes_history.npy", current_state=copy_attributesHistory[-1])
-            ret= sort_by_lexical_similarity(next_state_ql, current_state)
+            # ret= sort_by_lexical_similarity(next_state_ql, current_state)
             return next_state_ql
 
         elif algorithm == 'Momentum': #Return Momentum
             ret = self.m.generate_actions(current_state)
-            ret = sort_by_lexical_similarity(ret, current_state)
+            # ret = sort_by_lexical_similarity(ret, current_state)
             return ret
 
-        elif algorithm == 'Greedy': #Hotspot
+        elif algorithm == 'Hotspot': #Hotspot
             ret = self.h.generate_actions(current_state)
-            ret = sort_by_lexical_similarity(ret, current_state)
+            # ret = sort_by_lexical_similarity(ret, current_state)
             return ret
 
         elif algorithm == 'Random': #AC_OFFline
             ret = self.ac_offline.generate_actions_topk(current_state, k=6)
             # print(ret)
-            ret = sort_by_lexical_similarity(ret, current_state)
+            # ret = sort_by_lexical_similarity(ret, current_state)
             return ret
             
         elif algorithm == 'ActorCritic': #AC_Online
             ret = self.ac_model.generate_actions_topk(current_state, k=6)
             # print(ret)
-            ret = sort_by_lexical_similarity(ret, current_state)
+            # ret = sort_by_lexical_similarity(ret, current_state)
             # print(ret)
             return ret
             # return list(filter(lambda x: x.lower() != 'none', next_state_rl))

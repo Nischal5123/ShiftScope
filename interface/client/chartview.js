@@ -165,11 +165,15 @@ update(data_all, eventsource) {
             this.data = data;
         }
     }
+// Calculate the dimensions of chartview
+    var chartViewElement = document.getElementById('chartview');
+    var chartViewWidth = chartViewElement.clientWidth;
+    var chartViewHeight = chartViewElement.clientHeight;
 
     var vegachart = _.extend({}, this.data, {
-        width: 835,
-        height: 550,
-        autosize: 'fit',
+        width: chartViewWidth*0.95 ,
+        height: chartViewHeight*0.95 ,
+        autosize: { type: 'fit', resize: true },
         config: this.conf.vegaconfig
     });
 
@@ -199,7 +203,6 @@ update(data_all, eventsource) {
     if (eventsource != 'uicontrols')
         this._updateChartComposer(this.data);
 }
-
 
      _updateChartComposer(chart_data){
          if(this.data['mark'])

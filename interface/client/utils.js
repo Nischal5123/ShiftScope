@@ -151,10 +151,10 @@ export function displayBookmarkCharts(container, created = true) {
             class: 'chartdiv',
             id: 'chart' + ch.chid
         });
-        var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.chid);
+        // var $chartLabel = $('<span class="chartlabel"></span>').css('background-color', ch.created ? '#f1a340' : '#998ec3').html('#' + ch.chid);
 
         $(container).append($chartContainer);
-        $chartContainer.append('<div class="chartcontainer"></div>', $chartLabel);
+        $chartContainer.append('<div class="chartcontainer"></div>');
 
         vegaEmbed('#chart' + ch.chid + ' .chartcontainer', vegachart, {
             actions: false
@@ -563,7 +563,7 @@ function openNav() {
         // Create baseline charts
         createBaselineChart("UserChart", data['distribution_map'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
         createBaselineChart("RLChart", data['baselines_distribution_maps']['RL'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
-        createBaselineChart("RandombaselineChart", data['baselines_distribution_maps']['Random'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
+        createBaselineChart("HotspotbaselineChart", data['baselines_distribution_maps']['Hotspot'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
         createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
         // createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart);
         try {
@@ -673,7 +673,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
 
     var algorithmPredictions = data['algorithm_predictions'];
     //only select Random, RL, and Momentum from the algorithm predictions
-    const selectedAlgorithms = ['Random', 'RL', 'Momentum'];
+    const selectedAlgorithms = ['Hotspot', 'RL', 'Momentum'];
     const selectedAlgorithmPredictions = {};
     selectedAlgorithms.forEach(algorithm => {
         selectedAlgorithmPredictions[algorithm] = algorithmPredictions[algorithm];
@@ -708,39 +708,46 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .domain(Object.keys(algorithmPredictions))
         .range(d3.schemeCategory10);
 
-    // Compute hit rates for each algorithm
-    const hitRateHistory = {};
-    Object.keys(algorithmPredictions).forEach(algorithm => {
-        const predictions = algorithmPredictions[algorithm];
-        const hitRates = [];
-        Object.keys(recTimetoInteractionTime).forEach(time => {
-            const timeSteps = recTimetoInteractionTime[time];
+    /// Compute hit rates for each algorithm
+const hitRateHistory = {};
+Object.keys(algorithmPredictions).forEach(algorithm => {
+    const predictions = algorithmPredictions[algorithm];
+    const hitRates = [];
+    Object.keys(recTimetoInteractionTime).forEach(time => {
+        const timeSteps = recTimetoInteractionTime[time];
 
-            let concatenatedHistory = [];
-            timeSteps.forEach(step => {
-                if (fullHistory[step] !== undefined) {
-                    concatenatedHistory.push(fullHistory[step]);
-                }
-            });
-
-            let total = 0;
-            concatenatedHistory.forEach((historyItem, index) => {
-                if (predictions[time] && predictions[time].length > 0) {
-                    const accuracy = computeCTR(predictions[time], historyItem);
-                    total += accuracy;
-                } else {
-                    total += 0;
-                }
-            });
-            if (concatenatedHistory.length > 0) {
-                hitRates.push(total / concatenatedHistory.length);
-              } else {
-                hitRates.push(0);
-              }
+        let concatenatedHistory = {};
+        // Same as concatenatedPredictions, full history step is also a list of interactions; flatten that too
+        timeSteps.forEach(step => {
+            if (!fullHistory[step]) {
+                console.log('No interactions for time:', time, 'step:', step);
+                return;
+            }
+            concatenatedHistory.push(...fullHistory[step].flat());
         });
-        hitRateHistory[algorithm] = hitRates;
+
+        let concatenatedPredictions = [];
+        // For each item in predictions[time], make one array of all predictions
+        if (predictions[time] && predictions[time].length > 0) {
+            predictions[time].forEach(predictionArray => {
+                concatenatedPredictions.push(...predictionArray);
+            });
+        }
+
+        if (concatenatedHistory.length > 0) {
+            let accuracy = computeAccuracy(concatenatedPredictions, concatenatedHistory);
+            hitRates.push(accuracy);
+        } else {
+            console.log('No interactions for time:', time);
+            hitRates.push(0);
+        }
     });
-    // console.log(hitRateHistory)
+    hitRateHistory[algorithm] = hitRates;
+});
+
+
+
+    storeInteractionLogs('updated accuracy chart', hitRateHistory, new Date())
     // Draw lines for each dataset
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
         const line = d3.line()
@@ -765,7 +772,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
             svg.append("circle")
                 .attr("cx", xScale(i.toString()) + xScale.bandwidth() / 2)
                 .attr("cy", yScale(hitRate))
-                .attr("r", 5)
+                .attr("r", 10)
                 .attr("fill", colors(algorithm))
                 .on("click", () => {
                     updateTimeSeriesChart(i, data, xsc, algorithm, colors(algorithm));
@@ -787,15 +794,15 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .attr("x", width / 2)
         .attr("y", height + margin.bottom - 20)  // Adjusted position for more space
         .attr("text-anchor", "middle")
-        .style("font-size", "14px")
+        .style("font-size", "20px")
         .text("Recommendation Cycle");
 
     // Add y-axis label
     svg.append("text")
         .attr("transform", `translate(-35, ${height / 2}) rotate(-90)`)
         .attr("text-anchor", "middle")
-        .style("font-size", "14px")
-        .text("Hit Rate");
+        .style("font-size", "20px")
+        .text("Algorithms Coverage");
 
     // Add labels for different algorithms colors
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
@@ -803,57 +810,58 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
             .attr("x", (width / Object.keys(hitRateHistory).length) * i + 10)  // Distribute labels evenly
             .attr("y", height + margin.bottom - 5)  // Place below x-axis label
             .attr("fill", colors(algorithm))
-            .style("font-size", "20px")
+            .style("font-size", "25px")
             .style("font-weight", "bold")
             .text(algorithm);
     });
 }
 
 
-    function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) {
-        // console.log("Circle clicked:", clickedTime, algorithm);
+ function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) {
+    // console.log("Circle clicked:", clickedTime, algorithm);
 
-        const fieldNames = [
-            'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
-            'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
-            'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
-            'speed_ias_in_knots'
-        ];
+    const fieldNames = [
+        'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
+        'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
+        'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
+        'speed_ias_in_knots'
+    ];
 
-        var localattributeHistory = data['full_history'];
-        var mapping = data['recTimetoInteractionTime'];
-        var Predictions = data['algorithm_predictions'][algorithm][clickedTime];
+    var localattributeHistory = data['full_history'];
+    var mapping = data['recTimetoInteractionTime'];
+    var Predictions = data['algorithm_predictions'][algorithm][clickedTime];
 
-        // Remove previous highlighting
-        d3.selectAll(".highlight").attr("fill", "rgba(54, 160, 235, 0.4)").classed("highlight", false);
+    // Remove previous highlighting
+    d3.selectAll(".highlight").attr("fill", "rgba(54, 160, 235, 0.4)").classed("highlight", false);
 
-        // Get the corresponding time steps from the mapping
-        var allTimeSteps = mapping[clickedTime];
+    // Get the corresponding time steps from the mapping
+    var allTimeSteps = mapping[clickedTime];
 
-        if (allTimeSteps && allTimeSteps.length > 0) {
-            // Iterate over the time steps to highlight the corresponding elements
-            allTimeSteps.forEach(timeStep => {
-                var userAttributes = localattributeHistory[timeStep];
+    if (allTimeSteps && allTimeSteps.length > 0) {
+        // Iterate over the time steps to highlight the corresponding elements
+        allTimeSteps.forEach(timeStep => {
+            var userAttributes = localattributeHistory[timeStep];
 
-                Predictions.forEach(predictionArray => {
-                    predictionArray.forEach(prediction => {
-                        if (userAttributes.includes(prediction)) {
-                            const fieldIndex = fieldNames.indexOf(prediction);
-                            if (fieldIndex !== -1) {
-                                // Highlight the corresponding element in the time series chart
-                                d3.selectAll(`#timeSeriesChart [data-index="${fieldIndex}"]`)
-                                    .filter(function () {
-                                        return +d3.select(this).attr("x") === xScale(timeStep);
-                                    })
-                                    .attr("fill", fillColor)
-                                    .classed("highlight", true);
-                            }
+            Predictions.forEach(predictionArray => {
+                predictionArray.forEach(prediction => {
+                    if (userAttributes.includes(prediction)) {
+                        const fieldIndex = fieldNames.indexOf(prediction);
+                        if (fieldIndex !== -1) {
+                            // Highlight the corresponding element in the time series chart
+                            d3.selectAll(`#timeSeriesChart [data-index="${fieldIndex}"]`)
+                                .filter(function () {
+                                    return +d3.select(this).attr("x") === xScale(timeStep);
+                                })
+                                .attr("fill", fillColor)
+                                .classed("highlight", true);
                         }
-                    });
+                    }
                 });
             });
-        }
+        });
     }
+}
+
 
 
 function createShiftFocusChart(full_data) {
@@ -930,18 +938,19 @@ function createShiftFocusChart(full_data) {
         .style("font-size", "14px")
         .style("font-weight", "bold");
 
-    svg.append("text")
-        .attr("transform", "rotate(-90)")
-        .attr("y", 0 - margin.left)
-        .attr("x", 0 - (height / 2))
-        .attr("dy", "1em")
-        .style("text-anchor", "middle")
-        .text("Attribute");
+    // svg.append("text")
+    //     .attr("transform", "rotate(-90)")
+    //     .attr("y", 0 - margin.left)
+    //     .attr("x", 0 - (height / 2))
+    //     .attr("dy", "1em")
+    //     .style("text-anchor", "middle")
+
 
     svg.append("text")
-        .attr("transform", `translate(${width / 2},${height + margin.top + 20})`)
+        .attr("transform", `translate(${width / 2},${height + margin.top + 22})`)
         .style("text-anchor", "middle")
-        .text("Interactions Observed");
+        .text("Interactions Observed")
+        .style("font-weight", "bold");
     createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart, xScale);
 
 }
@@ -950,29 +959,38 @@ function createShiftFocusChart(full_data) {
 
 function computeAccuracy(predictions, groundTruth) {
     // Filter out placeholders like 'none' from ground truth
-    groundTruth = groundTruth.filter(attribute => attribute !== 'none');
-    predictions = predictions.filter(attribute => attribute !== 'none');
+    var ground = groundTruth.filter(attribute => attribute !== 'none');
+    var predict = predictions.filter(attribute => attribute !== 'none');
 
-    const predictionSet = new Set(predictions);
-    const groundTruthSet = new Set(groundTruth);
+    // remove duplicates
+    ground = [...new Set(ground)];
+    predict = [...new Set(predict)];
+
+
 
     let matches = 0;
-    predictionSet.forEach(prediction => {
-        if (groundTruthSet.has(prediction)) {
+    predict.forEach(pred => {
+        if (ground.includes(pred)) {
             matches++;
         }
     });
 
-    const unionSet = new Set([...predictionSet, ...groundTruthSet]);
-    const checks = unionSet.size;
+    // calculate the accuracy of the prediction checking if ground truth is not empty
 
-    return { matches, checks };
+    if (ground.length > 0) {
+        return matches / ground.length;
+    }
+    else {
+        return 0;
+    }
 }
 
 function computeCTR(predictions, groundTruth) {
     // Helper function to compare two arrays
+    //fileter out 'none' from both predictions and groundTruth
+    predictions = predictions.filter(attribute => attribute !== 'none');
+    groundTruth = groundTruth.filter(attribute => attribute !== 'none');
     function arraysEqual(a, b) {
-        if (a.length !== b.length) return false;
         const sortedA = [...a].sort();
         const sortedB = [...b].sort();
         for (let i = 0; i < sortedA.length; i++) {
@@ -1012,7 +1030,7 @@ export function createTaskForm() {
   formTitle.innerText = 'Exploration Task';
 
   const questions = [
-    "\n How can we improve aviation safety and business?"
+    "\n What birdstrikes should the FAA be most concerned about? \n \n"
   ];
 
   const form = document.createElement('form');
@@ -1032,7 +1050,7 @@ export function createTaskForm() {
     input.name = `answer${index}`;
     input.classList.add('form-control');
     input.style.width = '90%';
-    input.style.height = '150px'; // Increase the height of the input box
+    input.style.height = '250px'; // Increase the height of the input box
     input.style.overflowY = 'scroll'; // Make it scrollable if content exceeds height
     formGroup.appendChild(input);
 
@@ -1058,6 +1076,8 @@ export function createTaskForm() {
   submitButton.classList.add('btn');
   submitButton.onclick = sendLogs;
   form.appendChild(submitButton);
+
+
 
   taskview.appendChild(formTitle);
   taskview.appendChild(form);
@@ -1101,13 +1121,13 @@ function sendLogs() {
         data: JSON.stringify(finalData),
         contentType: 'application/json'
     }).done(() => {
-        if(!alert('Safe to close the window. Your task answers have been stored successfully.')){window.location.reload();}
+        if(!alert('Note Stored! Safe to close')){window.location.reload();}
         // Restart the application using pm2
     // setTimeout(() => {
     //     process.exit(0); // Exit the application to allow pm2 to restart it
     // }, 1000); // Adding a delay to ensure the response is sent before restarting
     }).fail(() => {
-        alert('Failed to store task answers. Please try again later.');
+        alert('Failed to store notes. Please try again later.');
     });
   console.log(answers);
 

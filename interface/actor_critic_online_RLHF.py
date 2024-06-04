@@ -114,7 +114,7 @@ class ActorCritic(nn.Module):
         # td_target = r + gamma * self.v(s_prime) * done
         # delta = td_target - self.v(s)
         for param_group in self.optimizer.param_groups:
-            param_group['lr'] = 0.1 
+            param_group['lr'] = 0.5
 
         pi = self.pi(s, softmax_dim=1)
         pi_a = pi.gather(1,a)
@@ -126,7 +126,7 @@ class ActorCritic(nn.Module):
 
 
 class ActorCriticModel:
-    def __init__(self, dataset='birdstrikes', exploration_method='greedy',decay_steps=5): #after 5 steps I want it to be greedy i.e focus on what I have been clicking on
+    def __init__(self, dataset='birdstrikes', exploration_method='greedy',decay_steps=2): #after 5 steps I want it to be greedy i.e focus on what I have been clicking on
 
         self.model = ActorCritic()
         self.model.load_state_dict(torch.load('pretrained_actor_critic_V2.pth'))
