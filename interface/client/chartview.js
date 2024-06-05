@@ -118,7 +118,23 @@
               storeInteractionLogs('manually Edited Chart', {encoding:data['encoding'], mark:data['mark']}, new Date())
               this._validateChart(data, (recommended_chart_specs) => {
         this.update(recommended_chart_specs, 'uicontrols');
-        this.emit('similar', this.data); // Automatically generate similar charts
+
+
+        /// ############################### Manually Edited Chart should also make to the history ##############################
+         const visualizationConfig = this.data.encoding;
+
+         const shapeField = visualizationConfig.shape?.field !== undefined ? visualizationConfig.shape.field : null;
+         const sizeField = visualizationConfig.size?.field !== undefined ? visualizationConfig.size.field : null;
+         const xField = visualizationConfig.x?.field !== undefined ? visualizationConfig.x.field : null;
+         const yField = visualizationConfig.y?.field !== undefined ? visualizationConfig.y.field : null;
+         const colorField = visualizationConfig.color?.field !== undefined ? visualizationConfig.color.field : null;
+         const fieldsArray = [colorField, xField, yField, shapeField,sizeField].filter(field => field !== null && field !== undefined);
+
+
+        //#######################################################################################################################
+
+        // Automatically generate similar charts
+        this.emit('similar', this.data, fieldsArray); // Automatically generate similar charts
     });
 
 

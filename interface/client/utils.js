@@ -271,37 +271,25 @@ export function displayBaselineCharts(container, created = true) {
 
      })
 
-     app.chartview.on('similar', (spec) => {
-         if(logging) app.logger.push({time:Date.now(), action:'recommendchart', data:spec})
-         storeInteractionLogs('requested chart recommendation', {encoding:spec.encoding, mark:spec.mark}, new Date())
+       app.chartview.on('similar', (spec, fieldsArray = []) => {
+        if (logging) app.logger.push({ time: Date.now(), action: 'recommendchart', data: spec });
+        storeInteractionLogs('requested chart recommendation', { encoding: spec.encoding, mark: spec.mark }, new Date());
 
-         if(app.sumview.data.chartspecs.length > 0)
-            spec._meta = {chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0}
-        else
-            spec._meta = {chid:0, uid:0}
-        app.sumview.data.chartspecs.push(spec) //this holds all the charts that make it to the CenterView
+        if (app.sumview.data.chartspecs.length > 0) {
+            spec._meta = { chid: app.sumview.data.chartspecs[app.sumview.data.chartspecs.length - 1]._meta.chid + 1, uid: 0 };
+        } else {
+            spec._meta = { chid: 0, uid: 0 };
+        }
+        app.sumview.data.chartspecs.push(spec); // This holds all the charts that make it to the CenterView
 
+        $('#suggestionview').empty();
 
-
-        //displayAllCharts('#allchartsview', false)
-        $('#suggestionview').empty()
-        //displayAllCharts('#suggestionview', false)
-
-
-      // Parse JSON string into a JavaScript object
-         const visualizationConfig = spec.encoding;
-
-         const shapeField = visualizationConfig.shape?.field !== undefined ? visualizationConfig.shape.field : null;
-         const sizeField = visualizationConfig.size?.field !== undefined ? visualizationConfig.size.field : null;
-         const xField = visualizationConfig.x?.field !== undefined ? visualizationConfig.x.field : null;
-         const yField = visualizationConfig.y?.field !== undefined ? visualizationConfig.y.field : null;
-         const colorField = visualizationConfig.color?.field !== undefined ? visualizationConfig.color.field : null;
-        // Check if colorField, xField, and yField exist
-        // Remove null or undefined values from fieldsArray
-        fieldsArray = [colorField, xField, yField, shapeField,sizeField].filter(field => field !== null && field !== undefined);
-        // attributesHistory.push(fieldsArray);
-
-
+        //###################### This only comes if the call is made from Manual Chart editing ########################################################################
+        if (fieldsArray.length > 0) {
+            console.log("Fields array:", fieldsArray);
+            attributesHistory.push(fieldsArray);
+        }
+        //#######################################################################################################################
 
         // Log extracted fields array
         //  console.log("Fields array:", fieldsArray);
@@ -319,6 +307,9 @@ export function displayBaselineCharts(container, created = true) {
          spec._meta = app.sumview.data.chartspecs[app.sumview.selectedChartID]._meta
          app.sumview.data.chartspecs[app.sumview.selectedChartID] = spec
 
+
+
+
          app.sumview.update(() => {app.sumview.selectedChartID = spec._meta.chid })
          displayAllCharts('#allchartsview', false)
          $('#suggestionview').empty()
@@ -326,14 +317,6 @@ export function displayBaselineCharts(container, created = true) {
          if(logging) app.logger.push({time:Date.now(), action:'updatechart', data:spec})
      })
 
-    //  app.chartview.on('remove-chart', (spec) => {
-    //      app.sumview.data.chartspecs = app.sumview.data.chartspecs.filter((d) => { return d._meta.chid != app.sumview.selectedChartID })
-    //      app.sumview.update()
-    //      displayAllCharts('#allchartsview', false)
-    //      $('#suggestionview').empty()
-
-    //      if(logging) app.logger.push({time:Date.now(), action:'removechart', data:spec})
-    //  })
 
      $('#import').click(() => {
          $('#dialog').css('display', 'block')
@@ -344,8 +327,7 @@ export function displayBaselineCharts(container, created = true) {
      })
 
 
-     // If the user has clicked on the previous charts from the past users then
-     // we are getting the state of the clicked chart
+
      $('#allchartsview').click(() => {
          console.log("A chart has been clicked in Chart View")
          if(logging) app.logger.push({time:Date.now(), action:'clickchart', data:app.chartview._cheditor.session.getValue()})
@@ -521,7 +503,7 @@ export function displayBaselineCharts(container, created = true) {
      displayAllCharts('#allchartsview', true)
      displayAllCharts('#suggestionview', true)
      displayBaselineCharts('#suggestionview2', true)
-         displayBookmarkCharts('#bookmarkview', true)
+     displayBookmarkCharts('#bookmarkview', true)
 
      // events handling
      handleEvents()
@@ -671,6 +653,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         'speed_ias_in_knots'
     ];
 
+    // ########################################################## Variables ########################################################
     var algorithmPredictions = data['algorithm_predictions'];
     //only select Random, RL, and Momentum from the algorithm predictions
     const selectedAlgorithms = ['Hotspot', 'RL', 'Momentum'];
@@ -681,6 +664,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
     algorithmPredictions = selectedAlgorithmPredictions;
     const fullHistory = data['full_history'];
     const recTimetoInteractionTime = data['recTimetoInteractionTime'];
+    // ########################################################## Variables ########################################################
 
     // Clear the existing SVG content
     d3.select(`#${id}`).selectAll("*").remove();
@@ -708,6 +692,8 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .domain(Object.keys(algorithmPredictions))
         .range(d3.schemeCategory10);
 
+    // ########################################################## Calculating Accuracy ########################################################
+
     /// Compute hit rates for each algorithm
 const hitRateHistory = {};
 Object.keys(algorithmPredictions).forEach(algorithm => {
@@ -716,7 +702,7 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
     Object.keys(recTimetoInteractionTime).forEach(time => {
         const timeSteps = recTimetoInteractionTime[time];
 
-        let concatenatedHistory = {};
+        let concatenatedHistory = [];
         // Same as concatenatedPredictions, full history step is also a list of interactions; flatten that too
         timeSteps.forEach(step => {
             if (!fullHistory[step]) {
@@ -745,8 +731,7 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
     hitRateHistory[algorithm] = hitRates;
 });
 
-
-
+// ########################################################## Plotting Accuracy Calculations ########################################################
     storeInteractionLogs('updated accuracy chart', hitRateHistory, new Date())
     // Draw lines for each dataset
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
@@ -820,12 +805,8 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
  function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) {
     // console.log("Circle clicked:", clickedTime, algorithm);
 
-    const fieldNames = [
-        'airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
-        'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
-        'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
-        'speed_ias_in_knots'
-    ];
+    const fieldNames = ['airport_name', 'speed_ias_in_knots','aircraft_make_model', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'effect_amount_of_damage', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a'];
+
 
     var localattributeHistory = data['full_history'];
     var mapping = data['recTimetoInteractionTime'];
@@ -958,32 +939,34 @@ function createShiftFocusChart(full_data) {
 // ###################################################### Helper Functions ########################################################
 
 function computeAccuracy(predictions, groundTruth) {
-    // Filter out placeholders like 'none' from ground truth
-    var ground = groundTruth.filter(attribute => attribute !== 'none');
-    var predict = predictions.filter(attribute => attribute !== 'none');
+    // Filter out placeholders like 'none' from ground truth and predictions
+    const ground = groundTruth.filter(attribute => attribute !== 'none');
+    const predict = predictions.filter(attribute => attribute !== 'none');
 
-    // remove duplicates
-    ground = [...new Set(ground)];
-    predict = [...new Set(predict)];
+    // Count occurrences of each element in ground truth
+    const groundCount = ground.reduce((count, attribute) => {
+        count[attribute] = (count[attribute] || 0) + 1;
+        return count;
+    }, {});
 
-
-
+    // Initialize total matches
     let matches = 0;
+
+    // Iterate through predictions
     predict.forEach(pred => {
-        if (ground.includes(pred)) {
+        // If the element exists in ground truth and has remaining count, increment matches and decrement count in groundCount
+        if (groundCount[pred] !== undefined && groundCount[pred] > 0) {
             matches++;
+            groundCount[pred]--;
         }
     });
 
-    // calculate the accuracy of the prediction checking if ground truth is not empty
+    // Calculate accuracy as the proportion of total matches to the length of the ground truth
+    const accuracy = matches / ground.length;
 
-    if (ground.length > 0) {
-        return matches / ground.length;
-    }
-    else {
-        return 0;
-    }
+    return accuracy;
 }
+
 
 function computeCTR(predictions, groundTruth) {
     // Helper function to compare two arrays
