@@ -126,7 +126,7 @@ class ActorCritic(nn.Module):
 
 
 class ActorCriticModel:
-    def __init__(self, dataset='birdstrikes', exploration_method='greedy',decay_steps=2): #after 5 steps I want it to be greedy i.e focus on what I have been clicking on
+    def __init__(self, dataset='birdstrikes', exploration_method='greedy',decay_steps=30): #after 5 steps I want it to be greedy i.e focus on what I have been clicking on
 
         self.model = ActorCritic()
         self.model.load_state_dict(torch.load('pretrained_actor_critic_V2.pth'))

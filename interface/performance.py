@@ -68,13 +68,18 @@ class OnlineLearningSystem:
             response_user = self.current_user_attributes
 
         # Construct final response
+        if len(self.response_algorithm_predictions) ==0:
+            return_shift_focus_data = []
+        else:
+            return_shift_focus_data = self.last_users_attributes_history
+
         final_response = {
             'distribution_response': response_data,
             # 'accuracy_response': self.response_accuracy,
             'algorithm_predictions': self.response_algorithm_predictions,
             'user_selections': response_user,
             'recTimetoInteractionTime': self.interaction_map,
-            'full_history': self.last_users_attributes_history,
+            'full_history': return_shift_focus_data,
         }
         # pdb.set_trace()
         # Return final response as JSON
@@ -157,13 +162,13 @@ class OnlineLearningSystem:
         distribution_map = self.get_distribution_of_states(df, 'algo')
         # pdb.set_trace()
 
-        with concurrent.futures.ThreadPoolExecutor(max_workers=5) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=len(algorithms_to_run)) as executor:
             futures = {executor.submit(self.utils_obj.run_algorithm, algorithm, current_history, generator, dataset): algorithm for algorithm in algorithms_to_run}
             results = {futures[future]: future.result() for future in concurrent.futures.as_completed(futures)}
 
         # next_state_rl = self.extend_state(results['Qlearning'])
         next_state_momentum = self.extend_state(results['Momentum'])
-        next_state_hotspot = self.extend_state(results['Hotspot'])
+        next_state_hotspot = self.extend_state(results['Modified-Hotspot'])
         next_state_ac = self.extend_state(results['ActorCritic'])
 
 
@@ -189,7 +194,7 @@ class OnlineLearningSystem:
         df_momentum = pd.DataFrame({'State': self.momentum_attributes_history})
         distribution_map_momentum = self.get_distribution_of_states(df_momentum, 'Momentum')
         df_hotspot = pd.DataFrame({'State': self.hotspot_attributes_history})
-        distribution_map_hotspot = self.get_distribution_of_states(df_hotspot, 'Hotspot')
+        distribution_map_hotspot = self.get_distribution_of_states(df_hotspot, 'Modified-Hotspot')
         df_ac = pd.DataFrame(({'State': self.actor_critic_action_history}))
         distribution_map_ac = self.get_distribution_of_states(df_ac, 'ActorCritic')
 
@@ -200,7 +205,7 @@ class OnlineLearningSystem:
         # pdb.set_trace()
         all_algorithms_distribution_map = {
             'Momentum': distribution_map_momentum,
-            'Hotspot': distribution_map_hotspot,
+            'Modified-Hotspot': distribution_map_hotspot,
             'Actor_Critic': distribution_map_ac,
             'RL': distribution_map_rl
         }
@@ -217,9 +222,9 @@ class OnlineLearningSystem:
 
     def set_performance_data(self):
         if len(self.current_user_attributes) > 0: #technically this should be the case always
-            self.response_algorithm_predictions['RL'] = self.rl_attributes_history.copy()
+            self.response_algorithm_predictions['ActorCritic'] = self.rl_attributes_history.copy()
             self.response_algorithm_predictions['Momentum'] = self.momentum_attributes_history.copy()
-            self.response_algorithm_predictions['Hotspot'] = self.hotspot_attributes_history.copy()
+            self.response_algorithm_predictions['Modified-Hotspot'] = self.hotspot_attributes_history.copy()
 
 
     #Updating the Actor-Critic Model based on user's feedback

@@ -359,7 +359,9 @@ export function displayBaselineCharts(container, created = true) {
              contentType: 'application/json'
          }).done((data) => {
 
-         })
+         });
+         // Emit the 'similar' event with the current data
+        // app.chartview.emit('similar', JSON.parse(specs)); ################################ Just adding this will start recommendation without user clicking on the 'Recommend' button
      })
 
 
@@ -541,12 +543,12 @@ function openNav() {
         storeInteractionLogs('Open Performance View', full_data, new Date())
         var data = full_data['distribution_response'];
 
-        // console.log(data)
-        // Create baseline charts
-        createBaselineChart("UserChart", data['distribution_map'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
-        createBaselineChart("RLChart", data['baselines_distribution_maps']['RL'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
-        createBaselineChart("HotspotbaselineChart", data['baselines_distribution_maps']['Hotspot'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
-        createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
+        // // console.log(data)
+        // // Create baseline charts
+        // createBaselineChart("UserChart", data['distribution_map'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
+        // createBaselineChart("RLChart", data['baselines_distribution_maps']['RL'], "Probability", "rgba(54, 160, 235, 0.2)", "rgba(42, 160, 235, 1)");
+        // createBaselineChart("HotspotbaselineChart", data['baselines_distribution_maps']['Hotspot'], "Probability", "rgba(255, 99, 132, 0.2)", "rgba(255, 99, 132, 1)");
+        // createBaselineChart("MomentumbaselineChart", data['baselines_distribution_maps']['Momentum'], "Probability", "rgba(220, 90, 132, 0.2)", "rgba(220, 90, 132, 1)");
         // createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart);
         try {
             createShiftFocusChart(full_data);
@@ -656,7 +658,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
     // ########################################################## Variables ########################################################
     var algorithmPredictions = data['algorithm_predictions'];
     //only select Random, RL, and Momentum from the algorithm predictions
-    const selectedAlgorithms = ['Hotspot', 'RL', 'Momentum'];
+    const selectedAlgorithms = ['Modified-Hotspot', 'ActorCritic', 'Momentum'];
     const selectedAlgorithmPredictions = {};
     selectedAlgorithms.forEach(algorithm => {
         selectedAlgorithmPredictions[algorithm] = algorithmPredictions[algorithm];
@@ -669,7 +671,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
     // Clear the existing SVG content
     d3.select(`#${id}`).selectAll("*").remove();
 
-    const margin = { top: 0, right: 50, bottom: 60, left: 190 }; // increased bottom margin
+    const margin = { top: 0, right: 200, bottom: 60, left: 190 }; // increased right margin for legend
     const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
     const height = window.innerHeight * 0.3 - margin.top - margin.bottom;
 
@@ -694,44 +696,44 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
 
     // ########################################################## Calculating Accuracy ########################################################
 
-    /// Compute hit rates for each algorithm
-const hitRateHistory = {};
-Object.keys(algorithmPredictions).forEach(algorithm => {
-    const predictions = algorithmPredictions[algorithm];
-    const hitRates = [];
-    Object.keys(recTimetoInteractionTime).forEach(time => {
-        const timeSteps = recTimetoInteractionTime[time];
+    // Compute hit rates for each algorithm
+    const hitRateHistory = {};
+    Object.keys(algorithmPredictions).forEach(algorithm => {
+        const predictions = algorithmPredictions[algorithm];
+        const hitRates = [];
+        Object.keys(recTimetoInteractionTime).forEach(time => {
+            const timeSteps = recTimetoInteractionTime[time];
 
-        let concatenatedHistory = [];
-        // Same as concatenatedPredictions, full history step is also a list of interactions; flatten that too
-        timeSteps.forEach(step => {
-            if (!fullHistory[step]) {
-                console.log('No interactions for time:', time, 'step:', step);
-                return;
-            }
-            concatenatedHistory.push(...fullHistory[step].flat());
-        });
-
-        let concatenatedPredictions = [];
-        // For each item in predictions[time], make one array of all predictions
-        if (predictions[time] && predictions[time].length > 0) {
-            predictions[time].forEach(predictionArray => {
-                concatenatedPredictions.push(...predictionArray);
+            let concatenatedHistory = [];
+            // Same as concatenatedPredictions, full history step is also a list of interactions; flatten that too
+            timeSteps.forEach(step => {
+                if (!fullHistory[step]) {
+                    console.log('No interactions for time:', time, 'step:', step);
+                    return;
+                }
+                concatenatedHistory.push(...fullHistory[step].flat());
             });
-        }
 
-        if (concatenatedHistory.length > 0) {
-            let accuracy = computeAccuracy(concatenatedPredictions, concatenatedHistory);
-            hitRates.push(accuracy);
-        } else {
-            console.log('No interactions for time:', time);
-            hitRates.push(0);
-        }
+            let concatenatedPredictions = [];
+            // For each item in predictions[time], make one array of all predictions
+            if (predictions[time] && predictions[time].length > 0) {
+                predictions[time].forEach(predictionArray => {
+                    concatenatedPredictions.push(...predictionArray);
+                });
+            }
+
+            if (concatenatedHistory.length > 0) {
+                let accuracy = computeAccuracy(concatenatedPredictions, concatenatedHistory);
+                hitRates.push(accuracy);
+            } else {
+                console.log('No interactions for time:', time);
+                hitRates.push(0);
+            }
+        });
+        hitRateHistory[algorithm] = hitRates;
     });
-    hitRateHistory[algorithm] = hitRates;
-});
 
-// ########################################################## Plotting Accuracy Calculations ########################################################
+    // ########################################################## Plotting Accuracy Calculations ########################################################
     storeInteractionLogs('updated accuracy chart', hitRateHistory, new Date())
     // Draw lines for each dataset
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
@@ -789,17 +791,32 @@ Object.keys(algorithmPredictions).forEach(algorithm => {
         .style("font-size", "20px")
         .text("Algorithms Coverage");
 
-    // Add labels for different algorithms colors
+    // Add a label box for different algorithms on the right
+    const legend = svg.append("g")
+        .attr("transform", `translate(${width + 30}, 0)`);  // add extra padding
+
     Object.keys(hitRateHistory).forEach((algorithm, i) => {
-        svg.append("text")
-            .attr("x", (width / Object.keys(hitRateHistory).length) * i + 10)  // Distribute labels evenly
-            .attr("y", height + margin.bottom - 5)  // Place below x-axis label
-            .attr("fill", colors(algorithm))
-            .style("font-size", "25px")
+        const legendRow = legend.append("g")
+            .attr("transform", `translate(0, ${i * 30})`);  // 30 pixels spacing between labels
+
+        legendRow.append("rect")
+            .attr("width", 20)
+            .attr("height", 20)
+            .attr("fill", colors(algorithm));
+
+        const legendText = legendRow.append("text")
+            .attr("x", 30)
+            .attr("y", 15)
+            .attr("text-anchor", "start")
+            .style("font-size", "15px")
             .style("font-weight", "bold")
             .text(algorithm);
+
     });
+
 }
+
+
 
 
  function updateTimeSeriesChart(clickedTime, data, xScale, algorithm, fillColor) {

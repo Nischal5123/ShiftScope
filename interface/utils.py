@@ -85,8 +85,10 @@ class utils:
         self.rs = RandomStrategy()
         self.m = Momentum()
         self.h = Hotspot()
+        self.counter = 0
 
     def run_algorithm(self, algorithm, attributes_history, generator, dataset):
+
         current_state = attributes_history[-1]
         if algorithm == 'Qlearning':
             # Save the attribute history to a numpy file
@@ -112,7 +114,7 @@ class utils:
             # ret = sort_by_lexical_similarity(ret, current_state)
             return ret
 
-        elif algorithm == 'Hotspot': #Hotspot
+        elif algorithm == 'Modified-Hotspot': #Hotspot
             ret = self.h.generate_actions(current_state)
             # ret = sort_by_lexical_similarity(ret, current_state)
             return ret
@@ -125,8 +127,11 @@ class utils:
             
         elif algorithm == 'ActorCritic': #AC_Online
             ret = self.ac_model.generate_actions_topk(current_state, k=6)
+            self.counter += 1
             # print(ret)
-            # ret = sort_by_lexical_similarity(ret, current_state)
+            if self.counter >  2:
+                print('Now recommending more relevant attributes:', self.counter)
+                ret = sort_by_lexical_similarity(ret, current_state)
             # print(ret)
             return ret
             # return list(filter(lambda x: x.lower() != 'none', next_state_rl))

@@ -23,15 +23,40 @@ html, body {
 }
 
 #toolbar {
-  width: 100%;
-  height: 5px;
-  display: inline-block;
-  font-size: 8px;
-
-  button {
-    margin: 8px;
-  }
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
 }
+
+#toolbar button,
+{
+    margin: 5px;
+    font-size: 15px;
+    white-space: nowrap; /* Ensure text doesn't wrap inside elements */
+}
+
+#legend{
+    flex-grow: 1;
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+    white-space: nowrap; /* Prevent wrapping of long text */
+   font-size: 7px;
+}
+
+/* Optional: Add some space between elements */
+#toolbar > * {
+    margin-right: 10px;
+}
+
+/* Optional: For smaller screens, make text size adaptive */
+@media (max-width: 600px) {
+    #toolbar button{
+        font-size: 8px;
+    }
+}
+
+
+
 
 #datafile {
   width: 150px;
