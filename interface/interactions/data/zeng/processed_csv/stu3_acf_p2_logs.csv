@@ -1,0 +1,462 @@
+Interaction,Value,Time
+clicked on a field,add Source,1605906758348
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1605906758381
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Source-nominal-color,Title-nominal-y",1605906763119
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Source-nominal-color,Title-nominal-y",1605906763555
+clicked on a field,add Worldwide_Gross,1605906769263
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906769311
+clicked on a field,add Running_Time_min,1605906779662
+main chart changed because of clicking a field,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906779698
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906794845
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906795665
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906799692
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906799775
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906802889
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906802972
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906811732
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906811816
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906814979
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906814996
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906814996
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906815129
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906815595
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906815612
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906817844
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906817862
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906817862
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906818631
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906818660
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906818677
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906818695
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906818712
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906818728
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906818744
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906819442
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Source-nominal-color,Title-nominal-y",1605906820891
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Source-nominal-color,Title-nominal-y",1605906821607
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Source-nominal-color,Title-nominal-y",1605906821607
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Source-nominal-color,Title-nominal-y",1605906821624
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1605906821657
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1605906821708
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1605906822663
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1605906822675
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1605906822675
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1605906822690
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Source-nominal-color,Title-nominal-y",1605906822707
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Source-nominal-color,Title-nominal-y",1605906822774
+clicked on a field,remove Source,1605906825134
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906825191
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906827801
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906828863
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906829029
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906830109
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906830109
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906830245
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906830245
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906830715
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906833553
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906839760
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906841709
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906842024
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906842045
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906842062
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906842078
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906842094
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906842111
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906842129
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,MPAA_Rating-nominal-y,Worldwide_Gross-quantitative-size",1605906849718
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906849718
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850423
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850451
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850469
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850485
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850502
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850519
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850535
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850552
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850568
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850585
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850602
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850619
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850635
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906850651
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851126
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851151
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851168
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851185
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851201
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851218
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851235
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851251
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851268
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851285
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851301
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851317
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851366
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851400
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906851418
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852565
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852599
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852617
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852633
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852650
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852667
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852683
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852700
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852717
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852733
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852750
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852767
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852784
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852800
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852817
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852882
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852900
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852917
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852933
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852950
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852966
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852983
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906852999
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853017
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853033
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853050
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853082
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853099
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853116
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853133
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853149
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853166
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853183
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853199
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853216
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853233
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853301
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853331
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853350
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853366
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853383
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853399
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853416
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853433
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853449
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853466
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853483
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853499
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853531
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853650
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853912
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853931
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853949
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853966
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853982
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906853999
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854016
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854032
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854048
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854066
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854082
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854099
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854116
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854132
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854164
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854214
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854502
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854518
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854533
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854549
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854567
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854582
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854600
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854617
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854632
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854648
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854665
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854681
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854698
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906854854
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855130
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855148
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855165
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855181
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855198
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855215
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855231
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855248
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855265
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855281
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855298
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906855330
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856067
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856080
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856097
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856114
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856130
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856147
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856164
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856180
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856199
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856214
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856230
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856247
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856264
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906856599
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859655
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859676
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859694
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859711
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859727
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859744
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859761
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859777
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859794
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859811
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859827
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859847
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859861
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859881
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859898
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859911
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906859944
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860496
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860526
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860543
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860560
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860577
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860594
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860610
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860627
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860643
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860660
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860677
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860694
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860726
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906860828
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861258
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861259
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861275
+mouseover a related chart,"mark:point;encoding:Production_Budget-quantitative-size,Release_Date-nominal-x,Running_Time_min-quantitative-y<bin>",1605906861358
+mouseout a related chart,"mark:point;encoding:Production_Budget-quantitative-size,Release_Date-nominal-x,Running_Time_min-quantitative-y<bin>",1605906861408
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861475
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861811
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861841
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861859
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861876
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861892
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861909
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861926
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861943
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861959
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861976
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906861992
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862009
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862025
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862043
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862059
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862075
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862092
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862109
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862126
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862229
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862259
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862277
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862294
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862311
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862327
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862351
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862360
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862375
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862400
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862443
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862463
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862492
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862741
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862741
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906862757
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Worldwide_Gross-quantitative-size",1605906863424
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Worldwide_Gross-quantitative-size",1605906865888
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Worldwide_Gross-quantitative-size",1605906865888
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Worldwide_Gross-quantitative-size",1605906865904
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906865987
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906866004
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906866004
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906866404
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906866405
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906866421
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906873015
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906873032
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906873032
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906879060
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906883457
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906883772
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906883773
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906883806
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906883823
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906883840
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906884903
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906884989
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906884990
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906885022
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906885522
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906885539
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906885539
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,US_Gross-quantitative-size,Worldwide_Gross-quantitative-y<bin>",1605906885572
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Worldwide_Gross-quantitative-size",1605906885589
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Worldwide_Gross-quantitative-size",1605906885605
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Worldwide_Gross-quantitative-size",1605906885605
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Worldwide_Gross-quantitative-size",1605906885621
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,MPAA_Rating-nominal-y,Running_Time_min-quantitative-size",1605906887055
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,MPAA_Rating-nominal-y,Running_Time_min-quantitative-size",1605906887070
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,MPAA_Rating-nominal-y,Running_Time_min-quantitative-size",1605906890251
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,MPAA_Rating-nominal-y,Running_Time_min-quantitative-size",1605906907854
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,MPAA_Rating-nominal-y,Running_Time_min-quantitative-size",1605906907856
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,MPAA_Rating-nominal-y,Running_Time_min-quantitative-size",1605906907871
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906913529
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906913599
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915147
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915654
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915680
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915699
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915715
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915731
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915748
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915765
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915781
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915798
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915815
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915847
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906915880
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906916130
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906916148
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906916165
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906916181
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906916198
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906916214
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906916231
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906916248
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906916264
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906917796
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906917813
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906917830
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906917847
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906917863
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906917879
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906917897
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906917913
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906918527
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,MPAA_Rating-nominal-y,Running_Time_min-quantitative-size",1605906919513
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,MPAA_Rating-nominal-y,Running_Time_min-quantitative-size",1605906919910
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906922108
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906922126
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906922127
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906922275
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906922275
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906922324
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906922492
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906923090
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906923125
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,Worldwide_Gross-quantitative-size",1605906923140
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906927955
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928608
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928636
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928654
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928671
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928688
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928704
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928721
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928738
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928755
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928819
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906928886
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929070
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929102
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929120
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929137
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929169
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929219
+scroll on a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929237
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929552
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929552
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Running_Time_min-quantitative-size,Title-nominal-y",1605906929569
+mouseover a related chart,"mark:point;encoding:Production_Budget-quantitative-size,Release_Date-nominal-x,Running_Time_min-quantitative-y<bin>",1605906929602
+mouseout a related chart,"mark:point;encoding:Production_Budget-quantitative-size,Release_Date-nominal-x,Running_Time_min-quantitative-y<bin>",1605906929785
+mouseover a related chart,"mark:point;encoding:Production_Budget-quantitative-size,Release_Date-nominal-x,Running_Time_min-quantitative-y<bin>",1605906929785
+mouseout a related chart,"mark:point;encoding:Production_Budget-quantitative-size,Release_Date-nominal-x,Running_Time_min-quantitative-y<bin>",1605906930002
+mouseover a related chart,"mark:point;encoding:Production_Budget-quantitative-size,Release_Date-nominal-x,Running_Time_min-quantitative-y<bin>",1605906930002
+mouseout a related chart,"mark:point;encoding:Production_Budget-quantitative-size,Release_Date-nominal-x,Running_Time_min-quantitative-y<bin>",1605906930085
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906932166
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906932184
+mouseover on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906932184
+mouseout on the specified chart,"mark:point;encoding:-quantitative-x<aggregate>count,Running_Time_min-quantitative-y<aggregate>mean,Worldwide_Gross-quantitative-size<aggregate>mean",1605906932267
+clicked on a field,add Source,1605906942882
+main chart changed because of clicking a field,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906942932
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906947292
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906949551
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906949897
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906950240
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906952489
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906954024
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906954358
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906954595
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906960793
+added chart to bookmark,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906962125
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906962561
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906962592
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906962592
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906962691
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906962691
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906962725
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906967870
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906967954
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906967954
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906968522
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906968523
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906970847
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906970869
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906970886
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906970904
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906970920
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906970936
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906970953
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906970969
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906970986
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906971018
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906971036
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906971355
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983150
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983176
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983193
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983210
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983226
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983392
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983411
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983427
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983442
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983459
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983476
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983493
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983509
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983526
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906983542
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984141
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984141
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984175
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984324
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984425
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984425
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984876
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984908
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984925
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984941
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984958
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906984995
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906985008
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906985024
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906985041
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906985058
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906985258
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906985307
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906989636
+mouseover on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906989637
+mouseout on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605906989653
+scroll on the specified chart,"mark:point;encoding:Running_Time_min-quantitative-size,Source-nominal-y,Worldwide_Gross-quantitative-x<bin>",1605907026559

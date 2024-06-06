@@ -1,0 +1,576 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068711395
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068711411
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068711412
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068711512
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068711512
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068711545
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068711545
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068712029
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068712079
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068712329
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068712930
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068713146
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068713146
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068713196
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068713196
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068713629
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068713629
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068714562
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068714563
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068714764
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068714764
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068714797
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1599068715804
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1599068716380
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1599068716380
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Origin_State-nominal-y",1599068716815
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068734963
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068735563
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068735563
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599068735579
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1599068735596
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1599068735613
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1599068735613
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Aircraft_Make_Model-nominal-y",1599068735630
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068735647
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068735680
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068735680
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Airport_Name-nominal-y",1599068736980
+clicked on a field,add Speed_IAS_in_knots,1599068745061
+main chart changed because of clicking a field,mark:tick;encoding:Speed_IAS_in_knots-quantitative-x,1599068745176
+clicked on a field,add When_Time_of_day,1599068752255
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Speed_IAS_in_knots-quantitative-x<bin>,When_Time_of_day-nominal-y",1599068752312
+clicked on a field,add When_Phase_of_flight,1599068773745
+main chart changed because of clicking a field,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068773864
+mouseover on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068779058
+mouseout on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068788086
+mouseover on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068789436
+mouseout on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068789452
+mouseover on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068789469
+mouseout on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068789918
+mouseover on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068789919
+mouseout on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068806077
+mouseover on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068806678
+mouseout on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068807227
+mouseover on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068807228
+mouseout on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068807244
+mouseover on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068807244
+mouseout on the specified chart,"mark:point;encoding:Speed_IAS_in_knots-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068807277
+clicked on a field,remove When_Phase_of_flight,1599068814759
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Speed_IAS_in_knots-quantitative-x<bin>,When_Time_of_day-nominal-y",1599068814875
+clicked on a field,add Effect_Amount_of_damage,1599068818456
+main chart changed because of clicking a field,"mark:point;encoding:Effect_Amount_of_damage-nominal-x,Speed_IAS_in_knots-quantitative-size,When_Time_of_day-nominal-y",1599068818510
+clicked on a field,remove Speed_IAS_in_knots,1599068848689
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068848815
+clicked on a field,add Cost_Total,1599068851832
+main chart changed because of clicking a field,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068851887
+added chart to bookmark,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068867447
+deleted chart from bookmark,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068869869
+added chart to bookmark,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068874187
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068879661
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068879761
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068879761
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068885219
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068885219
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068885338
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068902061
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068902095
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068902096
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068910886
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068925974
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068926010
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068926010
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068929307
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068929307
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068929325
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068955421
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Effect_Amount_of_damage-nominal-x,When_Time_of_day-nominal-y",1599068955437
+clicked on a field,remove Effect_Amount_of_damage,1599068962458
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Cost_Total-quantitative-x<bin>,When_Time_of_day-nominal-y",1599068962561
+clicked on a field,add When_Phase_of_flight,1599068967741
+main chart changed because of clicking a field,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068967825
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068999782
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068999848
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599068999849
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069008465
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069008465
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069008482
+added chart to bookmark,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069081949
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069082643
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069082660
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069082660
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069083177
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069083177
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,When_Phase_of_flight-nominal-x,When_Time_of_day-nominal-y",1599069083193
+clicked on a field,remove When_Phase_of_flight,1599069088552
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Cost_Total-quantitative-x<bin>,When_Time_of_day-nominal-y",1599069088670
+clicked on a field,add Flight_Date,1599069090437
+main chart changed because of clicking a field,"mark:point;encoding:Cost_Total-quantitative-size,Flight_Date-nominal-x,When_Time_of_day-nominal-y",1599069090491
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069119226
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069119242
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069119242
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069119895
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069120076
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069120343
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069120493
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069120526
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069120561
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069120643
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069120976
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069121009
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069121027
+scroll on a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069121076
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069122634
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069122634
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069122649
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069122733
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069122749
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069122749
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069123383
+mouseover a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069123899
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069125367
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069125383
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069125400
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069125435
+scroll on a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069125500
+mouseout a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069125749
+mouseover a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069125750
+mouseout a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069125765
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1599069126298
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Aircraft_Make_Model-nominal-y,Flight_Date-nominal-color",1599069126462
+mouseover a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Airport_Name-nominal-y,Flight_Date-nominal-color",1599069126462
+mouseout a related chart,"mark:point;encoding:Aircraft_Airline_Operator-nominal-x,Airport_Name-nominal-y,Flight_Date-nominal-color",1599069127610
+mouseover a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069127610
+mouseout a related chart,"mark:point;encoding:Aircraft_Make_Model-nominal-x,Flight_Date-nominal-color,Wildlife_Species-nominal-y",1599069127899
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069127899
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069128315
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Flight_Date-nominal-x,When_Time_of_day-nominal-y",1599069193360
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Flight_Date-nominal-x,When_Time_of_day-nominal-y",1599069194627
+added chart to bookmark,"mark:point;encoding:Cost_Total-quantitative-size,Flight_Date-nominal-x,When_Time_of_day-nominal-y",1599069195300
+mouseover on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Flight_Date-nominal-x,When_Time_of_day-nominal-y",1599069197509
+mouseout on the specified chart,"mark:point;encoding:Cost_Total-quantitative-size,Flight_Date-nominal-x,When_Time_of_day-nominal-y",1599069197543
+clicked on a field,remove Cost_Total,1599069203836
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Time_of_day-nominal-y",1599069203935
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Time_of_day-nominal-y",1599069205671
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,When_Time_of_day-nominal-y",1599069206528
+clicked on a field,remove When_Time_of_day,1599069210803
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-y<aggregate>count,Flight_Date-nominal-x",1599069210857
+clicked on a field,add Wildlife_Species,1599069220023
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Flight_Date-nominal-x,Wildlife_Species-nominal-y",1599069220082
+clicked on a field,add When_Time_of_day,1599069224951
+main chart changed because of clicking a field,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069225002
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069267925
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069272371
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069272371
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069273882
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069273882
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286004
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286326
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286357
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286386
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286400
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286417
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286434
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286451
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286467
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286484
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286500
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286517
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286534
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286551
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286568
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286584
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286601
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286619
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286742
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286750
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286767
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286784
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286800
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286818
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286834
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286867
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286885
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286903
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286916
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286933
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286951
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286967
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069286984
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069287001
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069287017
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069287034
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069287051
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069287068
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069287083
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069290932
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069291683
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069291999
+added chart to bookmark,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069292807
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069332726
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069332742
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069332742
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069332810
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069332810
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069334392
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069336857
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069338325
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069338384
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069338469
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069338568
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069338667
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069339035
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069339068
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069339086
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069339119
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069340301
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069340319
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069340351
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069340385
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069340417
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069343867
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069343935
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069343967
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069344051
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069344135
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069344185
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069344984
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069345085
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069345753
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069345817
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069345950
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069346434
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069346434
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069346450
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069355326
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069355341
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069355341
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069355576
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069355625
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069355709
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069356159
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069356192
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069356211
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069356275
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069356642
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069356675
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069356709
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069357475
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069357513
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069357547
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069357679
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069357995
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069358030
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069358047
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069358080
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069358446
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069376482
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069376516
+mouseover on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069376516
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069377164
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069377217
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069377297
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069377758
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069377792
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069377809
+scroll on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069377826
+mouseout on the specified chart,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069379709
+main chart changed because of clicking a field,"mark:point;encoding:Flight_Date-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069397785
+clicked on a field,"tried to add Airport_Name, but failed because already selected 3 fields",1599069400871
+clicked on a field,remove Flight_Date,1599069408442
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,When_Time_of_day-nominal-x,Wildlife_Species-nominal-y",1599069408540
+clicked on a field,add Airport_Name,1599069412199
+main chart changed because of clicking a field,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069412278
+mouseover on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069432813
+mouseout on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069435858
+mouseover on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069435859
+mouseout on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069439277
+mouseover on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069439277
+mouseout on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069441868
+mouseover on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069441868
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069441869
+mouseout on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069442408
+mouseover on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069442408
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069442409
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069444635
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069447190
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069447252
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069447386
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069447435
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069447485
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069447535
+mouseout on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069448951
+mouseover on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069448952
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449318
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449334
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449352
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449369
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449385
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449401
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449418
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449434
+scroll on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449451
+mouseout on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449851
+mouseover on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069449851
+mouseout on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069450351
+mouseover on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069450351
+mouseout on the specified chart,"mark:point;encoding:Airport_Name-nominal-x,When_Time_of_day-nominal-color,Wildlife_Species-nominal-y",1599069450367
+clicked on a field,remove Wildlife_Species,1599069450975
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069451086
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069457418
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069460055
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069463728
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069465016
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069465017
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469384
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469400
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469417
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469434
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469451
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469467
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469484
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469501
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469517
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469533
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469551
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469568
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469583
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469600
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469617
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469635
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469651
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469667
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469684
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469700
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469718
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469739
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069469750
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472200
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472217
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472233
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472251
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472268
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472283
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472300
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472317
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472333
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472352
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472368
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472384
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472400
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472417
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472436
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472468
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472484
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472500
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472517
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472533
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472552
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472568
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472584
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472617
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472633
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472652
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472668
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472701
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472717
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472733
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472768
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472784
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472800
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472817
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472851
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472884
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472901
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472917
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472935
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472952
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069472968
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473000
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473033
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473068
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473084
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473117
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473150
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473217
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473252
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473268
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473284
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473300
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473651
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069473651
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069475267
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069475267
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069475284
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069475303
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069475320
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069475321
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069475684
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069502491
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069503226
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069503226
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069503258
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069503459
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069503941
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069503960
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069503974
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069503992
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504009
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504025
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504041
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504058
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504074
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504092
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504109
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504125
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504245
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504258
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504274
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504292
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504308
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504325
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504373
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504391
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504408
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504441
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504458
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504474
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504491
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504508
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504525
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504541
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504558
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504575
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504591
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504607
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504625
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504641
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504658
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504675
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504693
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504708
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504724
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504741
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504758
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504775
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504791
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504808
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504824
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504843
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504858
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504876
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504891
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504908
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504925
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504942
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504958
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504975
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069504991
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505009
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505025
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505042
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505058
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505075
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505091
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505108
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505125
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505141
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505158
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505175
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505191
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505208
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505225
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505242
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505258
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505275
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505291
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505308
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505325
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505342
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505358
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505375
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505391
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505407
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505425
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505442
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505458
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069505475
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069506208
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069506208
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069513491
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069513841
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069513875
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069513875
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515091
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515091
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515341
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515357
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515375
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515391
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515408
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515425
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515441
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515457
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515475
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515490
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515508
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515525
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515541
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515557
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515575
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515590
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515608
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515625
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515641
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515658
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515676
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515725
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515758
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515777
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515808
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515841
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069515958
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069516041
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069516291
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069516325
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069516341
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069516341
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519453
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519454
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519750
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519767
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519782
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519799
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519817
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519833
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519850
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069519866
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069520183
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069520184
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069528367
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069528367
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069528383
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069528651
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069528666
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069528666
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069528734
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069528734
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069528902
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069529280
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069533507
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069533524
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069533525
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069536673
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069552879
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069552896
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069552897
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069553363
+mouseover a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069553363
+mouseout a related chart,"mark:point;encoding:Airport_Name-nominal-x,Flight_Date-nominal-color,Origin_State-nominal-y",1599069553395
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069554329
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069554413
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069554414
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069554428
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069563785
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Airport_Name-nominal-x,When_Time_of_day-nominal-y",1599069564286

@@ -1,0 +1,37 @@
+Interaction,Value,Time
+clicked on a field,add Creative_Type,1603257664020
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1603257664058
+clicked on a field,remove Creative_Type,1603257664827
+clicked on a field,add Creative_Type,1603257672516
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1603257672561
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694316
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694456
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694463
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694476
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694493
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694510
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694526
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694543
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694560
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694576
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694593
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694610
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694626
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694643
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694660
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694677
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694693
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694710
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694726
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694743
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694760
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694776
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694793
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694810
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694826
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694843
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694860
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694876
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694893
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1603257694910
+added chart to bookmark,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1603257705377

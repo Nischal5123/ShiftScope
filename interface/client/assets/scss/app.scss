@@ -1,0 +1,750 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic,300,300italic);
+@import 'vis';
+
+html, body { 
+  height: 100%; 
+  width: 100%; 
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+#main_window {
+  position: absolute;
+  left: 0;
+  min-width: 1500px;
+  min-height: 500px;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+
+  label {
+    margin: 0 5px;
+  }
+}
+
+#toolbar {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+}
+
+#toolbar button,
+{
+    margin: 5px;
+    font-size: 15px;
+    white-space: nowrap; /* Ensure text doesn't wrap inside elements */
+}
+
+#legend{
+    flex-grow: 1;
+    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+    white-space: nowrap; /* Prevent wrapping of long text */
+   font-size: 7px;
+}
+
+/* Optional: Add some space between elements */
+#toolbar > * {
+    margin-right: 10px;
+}
+
+/* Optional: For smaller screens, make text size adaptive */
+@media (max-width: 600px) {
+    #toolbar button{
+        font-size: 8px;
+    }
+}
+
+
+
+
+#datafile {
+  width: 150px;
+}
+
+#panel1 {
+  position: absolute;
+  width: 300px;
+  height: 95%;
+  display: inline-block;
+  top: 40px;
+  left: 0;
+  margin: 0px;
+}
+
+
+#panel3 {
+  position: absolute;
+  left: calc(100% - 550px); /* Adjusted to allow adaptive layout */
+  width: 550px;
+  height: 95%;
+  display: inline-block;
+  top: 40px;
+  margin: 0px;
+}
+
+.panel-header {
+  position: absolute;
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  height: 20px;
+  display: inline-block;
+  border-color: white;
+  top: 0; /* Added top position to fix the header at the top */
+  left: 0; /* Ensure it stretches the full width */
+}
+
+#weight_slider {
+  display: inline-block;
+  width: 150px;
+  height: 12px;
+  margin: 0px 2px;
+  outline: none;
+}
+
+
+
+
+// ########## This is for the CENTER PANEL ########################################
+#panel2 {
+  position: absolute;
+  top: 40px;
+  bottom: 0;
+  left: 300px;
+  right: 500px;
+  display: flex;
+  height: 95%;
+  flex-direction: column;
+  width: calc(100% - 850px);
+}
+
+
+#chartview {
+  top: 20px;
+  position: absolute;
+  height: 65%;
+    width: 100%;
+  margin: 2px;
+  overflow: hidden;
+  justify-content: center;
+  vertical-align: top;
+  overflow-y: auto;
+    overflow-x: auto;
+}
+
+.chartcontainer {
+    height: 90%;
+    width: 100%;
+
+}
+
+//#updateContainer {
+//    position: fixed;
+//    bottom: 200px; /* Align to the bottom */
+//    left: 300px; /* Adjust according to your design */
+//    width: calc(100% - 850px); /* Same width as panel2 */
+//    z-index: 1; /* Ensure it's above other content */
+//}
+
+.editorbuttons3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.editorbuttons3 button {
+  margin: 2px;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #007baa;
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.editorbuttons3 button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.editorbuttons3 button:active {
+  background-color: #003f7f;
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.editorbuttons3 button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: #b0b0b0;
+}
+
+#dataview {
+    position: absolute;
+    z-index: 1; /* Ensure it's above other content */
+    bottom: 0; /* Align to the bottom */
+    left: 0;
+    width: 100%;
+    font-size: 12px;
+    display: inline-block;
+    border-radius: 5px;
+    margin-bottom: 0%; /* Add some margin from the bottom */
+}
+
+
+
+
+
+// ########## END : This is for the CENTER PANEL ############################
+
+#charteditor {
+   position: absolute;
+  width: 100%;
+  left: 0;
+  top: 20px;
+  bottom: 0px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+}
+
+#chartcomposer {
+  width: 100%;
+  height: 280px;
+  padding: 5px 10px;
+  display: inline-block;
+  font-size: 12px;
+
+  label {
+    width: 50px;
+    display: inline-block;
+    font-weight: bold;
+    margin: 2px;
+  }
+
+  select {
+    width: 110px;
+    display: inline-block;
+    margin: 1px;
+  }
+}
+
+
+
+#editorcontainer {
+  width: 0%;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+}
+
+.editorbuttons {
+  height: 20px;
+  display: inline-block;
+
+  button {
+    margin: 2px;
+    height: 20px;
+    width: 80px;
+    border-radius: 2px;
+  }
+
+  button:disabled {
+    opacity: 0.5;
+  }
+}
+
+#editorbutton2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+
+//#suggestionview {
+//  position: absolute;
+//  width: 100%;
+//  left: 0;
+//  top: 20px;
+//  bottom: 310px;
+//  display: inline-block;
+//  border: gray 1px solid;
+//  border-radius: 5px;
+//  overflow-y: auto;
+//  overflow-x: hidden;
+//  vertical-align: top;
+//  margin: 2px;
+//}
+
+#suggestionview {
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+}
+
+#suggestionview2 { // this is for baseline view
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+  width: 550px;
+}
+
+
+
+//thi is old sumview now history
+#allchartsview {
+  position: absolute;
+  width: 100px;
+  top: 20px;
+  bottom: 0;
+  left: 0px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+}
+
+//this is till sumview
+#sumview {
+  position: absolute;
+  width: 1000px;
+  top: 20px;
+  bottom: 0;
+  left: 500px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+}
+
+.chartdiv {
+  position: relative;
+  border-top: 1px dashed lightgray;
+  border-bottom: 1px dashed lightgray;
+   height: 300px; /* Adjust the height as needed */
+}
+
+.chartlabel {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  display: inline-block;
+  width: 40px;
+  height: 12px;
+  background-color: transparent;
+  border-radius: 2px;
+  font-size: 11px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#tooltip {
+  position: absolute;
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  pointer-events: none;
+  padding: 1px;
+  display: none;
+  -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+
+
+.legend-item {
+  margin: 1.5px;
+}
+
+.modal {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto;
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; 
+  padding: 20px;
+  border: 1px solid #888;
+  width: 600px; 
+
+  label {
+    margin: 2px;
+    width: 150px; 
+    display: inline-block;
+  }
+
+  input {
+    width: 200px;
+    margin: 2px;
+    display: inline-block;
+  }
+
+  button {
+    margin: 10px 2px;
+  }
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.collapse {
+            background-color: #a2de96;
+            border: none;
+            outline: none;
+            font-size: 25px;
+        }
+
+        .active,
+        .collapse:hover {
+            background-color: #438a5e;
+        }
+
+        .text {
+            background-color: #e1ffc2;
+            display: none;
+            font-size: 20px;
+        }
+
+
+        /* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  top: 0;
+  background-color: #aaaaaa; /* Black fallback color */
+  background-color: rgba(255,255,255); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+
+#performanceView {
+  position: absolute;
+  width: 100%;
+  left: 100px;
+  right:500px;
+  top: 200px;
+  bottom: 321px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  vertical-align: top;
+  margin: 2px;
+
+  .chartcontainer {
+    height: 90%;
+    width: 50%;
+  }
+}
+
+
+//#performanceView {
+//  height: 1000px;
+//}
+
+.chart-container-perf {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-gap: 20px; /* Spacing between charts */
+}
+
+.chart {
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.chart h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#accuracyChartContainer {
+    width: 80%; /* Allow the SVG to expand beyond the viewport width */
+    height: 80vh; /* 80% of viewport height */
+}
+
+
+/// ##############################  Shift in Data Focus Chart  ########################################
+#chartContainerShiftFocus {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling */
+
+}
+#timeSeriesChart {
+    width: auto; /* Allow the SVG to expand beyond the viewport width */
+    height: 60vh; /* 80% of viewport height */
+}
+.legend-container {
+    height: 10px; /* Set the height to make it scrollable */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: auto; /* Disable horizontal scrolling */
+}
+.bar:hover {
+    fill: grey; /* Change color on hover */
+}
+
+/// ##############################  VIS  ########################################
+
+
+/* The sidebar menu */
+.sidebar {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 60px;
+  right: 0; /* Change from left to right */
+  background-color: #818181; /* Black fallback color */
+  background-color: rgba(255,255,255); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+/* The sidebar links */
+.sidebar-content{
+  padding: 8px 32px 8px 8px; /* Adjust padding for better layout */
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+
+/* Position and style the close button (top left corner) */
+.sidebar .closebtn {
+  position: absolute;
+  color: black;
+  top: 0;
+  left: 25px; /* Change from right to left */
+  font-size: 36px;
+  margin-right: 50px; /* Adjust margin */
+}
+
+/* The button used to open the sidebar */
+.openbtn {
+  font-size: 10px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+/* Style page content - use this if you want to push the page content to the left when you open the side navigation */
+#main {
+  transition: margin-right .5s; /* If you want a transition effect */
+  padding: 20px;
+  margin-right: 0; /* Change from margin-left to margin-right */
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+
+/* The sidebar menu */
+.sidebar2 {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0; /* Move from left */
+  background-color: rgba(255, 255, 255, 1); /* White background */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  overflow-y: hidden; /* Disable vertical scroll */
+  transition: 0s; /* 0.5 second transition effect to slide in the sidebar */
+  padding-top: 60px; /* Place content 60px from the top */
+}
+
+.sidebar2 .closebtn {
+  position: absolute;
+  top: 20px;
+  left: 515px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+//.bookmark-task-container {
+//  display: flex;
+//  width: 100%;
+//  height: 100%;
+//}
+
+#bookmarkview {
+  position: absolute;
+  width: 500px;
+  top: 20px;
+  bottom: 0;
+  left: 10px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+  background-color: #f9f9f9; /* Light background color */
+}
+
+
+
+
+//***************************************** This is to add Task to the main interface
+#taskview {
+  width: 90%;
+  top: 350px;
+  left: 10px;
+  position: absolute;
+  border-top: 1px solid gray;
+  display: inline-block;
+  background-color: #ffffff; /* White background color */
+  box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow */
+  border-radius: 8px; /* Rounded corners */
+}
+
+.task-form-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  width: 100%;
+}
+
+.form-group .form-control {
+  width: 100%;
+  height: 150px; /* Increase the height of the input box */
+  overflow-x: scroll; /* Make it scrollable if content exceeds height */
+}
+
+.btn {
+  width: 50%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.one {
+  width: 15%;
+  float: left;
+}
+
+.two {
+  margin-left: 580px;
+  height: 500px;
+  margin-right: 20px;
+}
+//  ****************************************
+
+

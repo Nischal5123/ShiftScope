@@ -1,0 +1,11 @@
+numpy
+nltk
+simplejson
+scipy
+Flask
+setuptools
+Flask_Cors
+six
+scikit_learn
+torch
+draco==2.0.1

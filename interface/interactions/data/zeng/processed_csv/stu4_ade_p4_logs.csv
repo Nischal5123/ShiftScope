@@ -1,0 +1,175 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1600108700626
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1600108702202
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1600108702202
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1600108702217
+clicked on a field,add Creative_Type,1600108705741
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1600108705784
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1600108723866
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1600108723983
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1600108723984
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1600108724717
+added chart to bookmark,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1600108725207
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1600108764661
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1600108765760
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-row",1600108767053
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-row",1600108767187
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-row",1600108767187
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-row",1600108767502
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-row",1600108780051
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-row",1600108780068
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-row",1600108780068
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y,Release_Date-nominal-row",1600108780115
+clicked on a field,add MPAA_Rating,1600108783075
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,MPAA_Rating-nominal-y",1600108783156
+clicked on a field,remove Creative_Type,1600108795710
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108795780
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108806347
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108806881
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108806881
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108806979
+added chart to bookmark,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108814224
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108815906
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108815923
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108815924
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108819393
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108819394
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1600108819427
+clicked on a field,add Source,1600108824851
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108824923
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108829768
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108829784
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108829785
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830180
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830201
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830218
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830234
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830251
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830268
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830285
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830303
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830318
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830334
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830351
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830368
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830384
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830402
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830419
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830435
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830452
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830951
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830968
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108830985
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831002
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831017
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831034
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831051
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831595
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831618
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831637
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831650
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831668
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831685
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831701
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831720
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831735
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831754
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831770
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831788
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831804
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831819
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831836
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831853
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108831867
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108832953
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108832970
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108832987
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833003
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833019
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833036
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833052
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833069
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833136
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833155
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833169
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833188
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108833204
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834758
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834771
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834788
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834803
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834821
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834837
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834854
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834870
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834888
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834908
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834918
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834937
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834953
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108834985
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108835619
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108835619
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Source-nominal-y",1600108835720
+clicked on a field,add Release_Date,1600108839247
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-row,Source-nominal-y",1600108839322
+clicked on a field,remove Source,1600108841448
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600108841486
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600108852027
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600108852060
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600108869838
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600108882834
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600108882849
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600108882850
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600108882901
+clicked on a field,add Source,1600108883953
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-row,Source-nominal-y",1600108884021
+clicked on a field,remove MPAA_Rating,1600108884958
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108884999
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108898035
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108898059
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108898059
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108898381
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108898381
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108898517
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108898883
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108898899
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108899359
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108900115
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108900132
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108900132
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Release_Date-nominal-y,Source-nominal-x",1600108901481
+clicked on a field,remove Source,1600108955907
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Release_Date-nominal-y",1600108955985
+clicked on a field,add US_Gross,1600108957715
+main chart changed because of clicking a field,"mark:tick;encoding:Release_Date-nominal-y,US_Gross-quantitative-x",1600108957750
+mouseover on the specified chart,"mark:tick;encoding:Release_Date-nominal-y,US_Gross-quantitative-x",1600108963028
+mouseout on the specified chart,"mark:tick;encoding:Release_Date-nominal-y,US_Gross-quantitative-x",1600108963044
+mouseover on the specified chart,"mark:tick;encoding:Release_Date-nominal-y,US_Gross-quantitative-x",1600108963044
+mouseout on the specified chart,"mark:tick;encoding:Release_Date-nominal-y,US_Gross-quantitative-x",1600108963062
+mouseover on the specified chart,"mark:tick;encoding:Release_Date-nominal-y,US_Gross-quantitative-x",1600108972567
+mouseout on the specified chart,"mark:tick;encoding:Release_Date-nominal-y,US_Gross-quantitative-x",1600108972584
+clicked on a field,add MPAA_Rating,1600108975613
+main chart changed because of clicking a field,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600108975695
+mouseover on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600108984407
+mouseout on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600108984440
+mouseover on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109045913
+mouseout on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109045930
+mouseover on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109045931
+mouseout on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109045950
+mouseover a related chart,"mark:tick;encoding:Release_Date-nominal-y,US_Gross-quantitative-x",1600109188248
+mouseout a related chart,"mark:tick;encoding:Release_Date-nominal-y,US_Gross-quantitative-x",1600109188532
+mouseover on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109190572
+mouseout on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109190588
+mouseover on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109190588
+mouseout on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109190606
+mouseover a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600109221291
+mouseout a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600109221488
+mouseover a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600109221488
+mouseout a related chart,"mark:point;encoding:-quantitative-size<aggregate>count,MPAA_Rating-nominal-x,Release_Date-nominal-y",1600109221504
+submission failed,did not bookmark the correct number of charts,1600109280215
+mouseover on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109289980
+mouseout on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109290963
+mouseover on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109290964
+mouseout on the specified chart,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109290979
+added chart to bookmark,"mark:point;encoding:MPAA_Rating-nominal-x,Release_Date-nominal-y,US_Gross-quantitative-size",1600109291428

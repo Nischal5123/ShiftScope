@@ -1,0 +1,526 @@
+Interaction,Value,Time
+clicked on a field,add Creative_Type,1613520754258
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520754354
+clicked on a field,remove Creative_Type,1613520755035
+clicked on a field,add Creative_Type,1613520756328
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520756425
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520769142
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520769174
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520769175
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520770925
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520770959
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520771008
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520771224
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520771242
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520771242
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520781833
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783081
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783251
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783271
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783288
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783305
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783322
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783338
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783355
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783372
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783389
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783405
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783422
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783439
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783455
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783472
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520783522
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520784005
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520784005
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520784021
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520784338
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520784338
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520785172
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520785172
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520785222
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520785255
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520785272
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520785272
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520785505
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520785505
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520785539
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520785771
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520785788
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520785788
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786547
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786572
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786588
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786606
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786622
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786639
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786655
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786671
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786688
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786705
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786721
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786738
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786756
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786772
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520786788
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787056
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787071
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787088
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787106
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787122
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787139
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787155
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787172
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787188
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787206
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787221
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787239
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787255
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787272
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520787472
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520788253
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520788270
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520788271
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520796987
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520796987
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797004
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797170
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797187
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797187
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797320
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797337
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797353
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797370
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797388
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797404
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797420
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797438
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520797454
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520799293
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520799321
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520799337
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520799361
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520799379
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520799395
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520799411
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520802161
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520802161
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520802179
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520802844
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520803253
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520803278
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520803295
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520803311
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520803877
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520806028
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520806128
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520806128
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520806161
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520806695
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520806711
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520806712
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520809477
+mouseover a related chart,"mark:tick;encoding:Creative_Type-nominal-y,Production_Budget-quantitative-x",1613520815132
+mouseout a related chart,"mark:tick;encoding:Creative_Type-nominal-y,Production_Budget-quantitative-x",1613520815629
+mouseover a related chart,"mark:tick;encoding:Creative_Type-nominal-y,IMDB_Rating-quantitative-x",1613520818739
+mouseout a related chart,"mark:tick;encoding:Creative_Type-nominal-y,IMDB_Rating-quantitative-x",1613520819195
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Title-nominal-y",1613520819206
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Title-nominal-y",1613520821512
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520821512
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520822070
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520822070
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520822319
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520822437
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520822452
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520822452
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520824687
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520824687
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520824703
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520825386
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520825386
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520825404
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520825420
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520825437
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520826036
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520829770
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520829786
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520829786
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520829819
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520830053
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520830069
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520830069
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520830586
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520832226
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520832259
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520832259
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520832542
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520832542
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Creative_Type-nominal-y",1613520834025
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y",1613520836442
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y",1613520836592
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520836608
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520836625
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520836625
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520836726
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520836726
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520836875
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y",1613520836909
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y",1613520836925
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y",1613520836925
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y",1613520837026
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y",1613520837026
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y",1613520837042
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837110
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837668
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837678
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837692
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837708
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837725
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837742
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837759
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837775
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837791
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837808
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837825
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837842
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837859
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837874
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520837891
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y",1613520838117
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520838692
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520838859
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520838892
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520838925
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520838925
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520839109
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520840125
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520840242
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520840276
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y",1613520840292
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520840292
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520840593
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520840609
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520841026
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520841026
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y",1613520841042
+mouseover a related chart,"mark:tick;encoding:Creative_Type-nominal-y,IMDB_Rating-quantitative-x",1613520841639
+mouseout a related chart,"mark:tick;encoding:Creative_Type-nominal-y,IMDB_Rating-quantitative-x",1613520842037
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520842320
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520842387
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520842387
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520842471
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520842936
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520843103
+specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520843574
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1613520844955
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1613520845329
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520845329
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520846122
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520846122
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520846482
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520853690
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520853941
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,Source-nominal-color",1613520856240
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,Source-nominal-color",1613520856257
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,Source-nominal-color",1613520856257
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,Source-nominal-color",1613520856340
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,Source-nominal-color",1613520856891
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,Source-nominal-color",1613520856924
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,Source-nominal-color",1613520856924
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,Source-nominal-color",1613520856940
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520860707
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520860724
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520860724
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520860790
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520860790
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520860806
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520861557
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520861590
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520861590
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520862439
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520862473
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520862807
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520863273
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520863440
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520863441
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520863590
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520863590
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520869789
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520869789
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-y",1613520869807
+clicked on a field,add Title,1613520870676
+main chart changed because of clicking a field,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520870981
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520874215
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520874282
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520874283
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520874315
+mouseover a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875400
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875402
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875415
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875432
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875449
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875467
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875482
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875499
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875516
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875532
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875549
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875566
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875582
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875598
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875617
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875633
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875649
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875666
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875684
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875699
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875716
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875733
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875749
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875765
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875782
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875798
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875816
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875834
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875849
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875867
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875882
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875899
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875917
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875933
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875949
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875967
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875982
+mouseout a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875999
+mouseover a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520875999
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876000
+mouseout a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876017
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876017
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876032
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876049
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876066
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876083
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876099
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876115
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876133
+scroll on a related chart,"mark:point;encoding:Source-nominal-x,Title-nominal-y",1613520876149
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520876982
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520876998
+mouseover on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520876998
+mouseout on the specified chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520877182
+clicked on a field,remove Title,1613520878090
+main chart changed because of clicking a field,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520878199
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520879646
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520880186
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1613520883825
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1613520883840
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1613520883841
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1613520883875
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1613520883875
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Major_Genre-nominal-y,Source-nominal-color",1613520883941
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520884124
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520884191
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520884191
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520884324
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520884324
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520884341
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520884341
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520884374
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885140
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885174
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885174
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885313
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885325
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885341
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885358
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885375
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885392
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885424
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885442
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885459
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885475
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885492
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885508
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885525
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885542
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885558
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885575
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885592
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885608
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885625
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885642
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885659
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885675
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885692
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885708
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885725
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885742
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885758
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885776
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885791
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885809
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885825
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885841
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885859
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885875
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885892
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885908
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885926
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885942
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885958
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885975
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520885991
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886008
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886025
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886042
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886058
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886074
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886091
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886108
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886124
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886142
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886158
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886174
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886193
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886209
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886225
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886241
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886258
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886275
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886292
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886308
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886325
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886341
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886358
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886374
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886391
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886408
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886425
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886441
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886458
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886475
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886491
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886508
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886525
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886558
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886575
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886591
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520886757
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520887509
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520887524
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520887524
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520887574
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520894340
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520894357
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520894357
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520895990
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520896771
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520896787
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520896787
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520896971
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520896971
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520897004
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520899765
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520899782
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520899783
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520900762
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520901928
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520901944
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520901945
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-y,Release_Date-nominal-x,Source-nominal-color",1613520902827
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520902827
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903109
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903127
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903144
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903161
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903177
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903194
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903211
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903243
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903260
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903277
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903293
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903311
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903326
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903343
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903359
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903376
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903394
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903411
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903427
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903444
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903459
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903477
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903493
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903510
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903527
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903543
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903560
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903577
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903592
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903593
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903610
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903627
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903643
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903659
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903675
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903693
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903710
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903726
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903742
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903759
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Source-nominal-color,Title-nominal-y",1613520903775
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520904625
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520905223
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520905223
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520905257
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520905356
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520905673
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520905673
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520908186
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520908303
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520908469
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520908487
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520908502
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520908538
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520908566
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520908591
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520908629
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520912865
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914649
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914664
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914664
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914851
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914865
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914882
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914899
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914915
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914932
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914949
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520914965
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520924127
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520924143
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520924159
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520924175
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520924192
+scroll on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520924212
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520926411
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520942330
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520942347
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520953321
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613520953388
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520989128
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520989212
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520991645
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520991662
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520991662
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520991762
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520991762
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520991778
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520995661
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Source-nominal-color",1613520995678
+submission failed,did not bookmark charts,1613521011614
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613521013687
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613521013721
+mouseover on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613521013721
+mouseout on the specified chart,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613521013754
+added chart to bookmark,"mark:point;encoding:-quantitative-size<aggregate>count,Creative_Type-nominal-x,Source-nominal-y",1613521014181

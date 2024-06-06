@@ -1,0 +1,560 @@
+Interaction,Value,Time
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961017050
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961017116
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961062238
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961062405
+added chart to bookmark,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1602961063001
+added chart to bookmark,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961068088
+specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961074164
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961106693
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961106725
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961106725
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961106759
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961106826
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961106843
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961106843
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961106961
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961107010
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961107078
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961107177
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961107227
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961107228
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961107762
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108246
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108281
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108298
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108314
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108331
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108348
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108380
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108547
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108564
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108615
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108615
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108631
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108899
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,MPAA_Rating-nominal-color",1602961108981
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y,Source-nominal-color",1602961108981
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y,Source-nominal-color",1602961109032
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y,Source-nominal-color",1602961109616
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y,Source-nominal-color",1602961109633
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y,Source-nominal-color",1602961109633
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y,Source-nominal-color",1602961109650
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y,Source-nominal-color",1602961109683
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,MPAA_Rating-nominal-y,Source-nominal-color",1602961109818
+mouseover a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Source-nominal-color,Title-nominal-y",1602961109818
+mouseout a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Source-nominal-color,Title-nominal-y",1602961109852
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110235
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110252
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110252
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110452
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110452
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110486
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110636
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110670
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110670
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110769
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110770
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961110887
+clicked on a field,remove MPAA_Rating,1602961111638
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961113261
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961113310
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961119360
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961119460
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961119460
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961119644
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961119677
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961119710
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961119744
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961119928
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961119946
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961119978
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961119996
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961120013
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961120045
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961120178
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961120212
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961120228
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961120630
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961121047
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961121064
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961121082
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961121099
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961121116
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961121148
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961122147
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961122184
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961122218
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961122268
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961122602
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961122619
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961122636
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961122653
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961122686
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961125817
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961125844
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961125878
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961125895
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961125929
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961127383
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961127416
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961127433
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961127466
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961127883
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961127917
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961127935
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128351
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128368
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128386
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128403
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128419
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128436
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128453
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128802
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128819
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961128837
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961129103
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961129103
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961129136
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961129487
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961129504
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961129504
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961130457
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961130457
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961130473
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961130775
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961130807
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961131159
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961131192
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961131192
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961131426
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961133063
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961133097
+mouseover a related chart,mark:tick;encoding:IMDB_Votes-quantitative-x,1602961133231
+mouseout a related chart,mark:tick;encoding:IMDB_Votes-quantitative-x,1602961133499
+mouseover a related chart,mark:tick;encoding:IMDB_Votes-quantitative-x,1602961133499
+mouseout a related chart,mark:tick;encoding:IMDB_Votes-quantitative-x,1602961135921
+mouseover a related chart,mark:tick;encoding:IMDB_Votes-quantitative-x,1602961135921
+mouseout a related chart,mark:tick;encoding:IMDB_Votes-quantitative-x,1602961135938
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961136525
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Major_Genre-nominal-y",1602961136543
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1602961136558
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1602961137978
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1602961137978
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1602961138095
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961138144
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961140216
+mouseover a related chart,mark:tick;encoding:US_Gross-quantitative-x,1602961144143
+mouseout a related chart,mark:tick;encoding:US_Gross-quantitative-x,1602961144161
+mouseover a related chart,mark:tick;encoding:US_Gross-quantitative-x,1602961144161
+mouseout a related chart,mark:tick;encoding:US_Gross-quantitative-x,1602961150127
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961150143
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961150160
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961150160
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961150528
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961150529
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Title-nominal-y",1602961150544
+clicked on a field,add Director,1602961154165
+main chart changed because of clicking a field,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961154351
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961171569
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961171652
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961172338
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961172353
+mouseover on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961172354
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961172566
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961172604
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961172640
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961172657
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961172706
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173073
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173091
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173107
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173124
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173139
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173173
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173641
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173658
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173675
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173692
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173708
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173724
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961173758
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174025
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174043
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174059
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174076
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174093
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174375
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174393
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174411
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174427
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174444
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174460
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174744
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174761
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174777
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174795
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174810
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961174827
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175161
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175179
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175197
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175212
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175228
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175245
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175263
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175546
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175563
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175580
+scroll on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961175597
+mouseout on the specified chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961178236
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1602961178459
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Release_Date-nominal-color,Title-nominal-y",1602961178505
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1602961178505
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1602961179539
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1602961179539
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Release_Date-nominal-color",1602961179572
+clicked on a field,remove Director,1602961180528
+mouseover a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1602961188080
+mouseout a related chart,"mark:bar;encoding:-quantitative-y<aggregate>count,Release_Date-nominal-x",1602961188089
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961188114
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,MPAA_Rating-nominal-y",1602961188147
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961188314
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961188466
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961188498
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961188532
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961188548
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961189751
+added chart to bookmark,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961190324
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961190470
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961190487
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961190487
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961190703
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961190721
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961190739
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Distributor-nominal-y",1602961191255
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961191272
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961191288
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961191288
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Source-nominal-y",1602961191306
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961212531
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961212547
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961212547
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961212714
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961212732
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961212748
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961212783
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961212799
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961212830
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961213266
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961213299
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961213332
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961213350
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961213383
+scroll on a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961213416
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961214285
+mouseover a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961214285
+mouseout a related chart,"mark:bar;encoding:-quantitative-x<aggregate>count,Director-nominal-y",1602961214302
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961214318
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961214334
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961214334
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961215638
+mouseover a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961215638
+mouseout a related chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961215789
+specified chart,mark:tick;encoding:Rotten_Tomatoes_Rating-quantitative-x,1602961216967
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961222843
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961226768
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961226768
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227170
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227186
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227203
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227220
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227237
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227253
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227270
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227287
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227303
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227320
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227337
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227354
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227369
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227386
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227404
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227420
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227437
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227454
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227470
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227487
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227504
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227521
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227537
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227553
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227654
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227671
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227687
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227704
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227721
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227738
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227754
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227771
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961227788
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961228851
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961228924
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961231196
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961233034
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961233102
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961233102
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961233386
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961233386
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961233554
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961234223
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961234255
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961234255
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961235076
+mouseover a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961237998
+mouseout a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961238133
+mouseover a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961238667
+mouseout a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961238734
+mouseover a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961238734
+mouseout a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961245938
+mouseover a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961245938
+mouseout a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961246656
+mouseover a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961248043
+mouseout a related chart,"mark:point;encoding:IMDB_Rating-quantitative-size,Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-y<bin>",1602961248779
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961248845
+scroll on a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961248896
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961248930
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961251435
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961252305
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961252305
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961252321
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961252571
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961253946
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961253992
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254010
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254027
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254043
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254060
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254077
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254094
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254427
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254445
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254460
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254479
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254495
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254511
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254529
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254545
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254562
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254579
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254846
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254863
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254879
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254897
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254912
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254930
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961254946
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961255246
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961255263
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961255281
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961255298
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961255315
+scroll on a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961255364
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961255580
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961255580
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961255631
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961267146
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961267729
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961267729
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961267746
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961267913
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961267963
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961274247
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961274397
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961274398
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961274582
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961282854
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961282886
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961282886
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961293617
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961293617
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961293633
+mouseover a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961293649
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294221
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294251
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294269
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294285
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294303
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294320
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294353
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294686
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294702
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294720
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294737
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294755
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961294871
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295074
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295088
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295105
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295123
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295138
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295172
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295455
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295473
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295489
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295506
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295523
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961295555
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961296394
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961296544
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961296547
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961296693
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961296709
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961296725
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961296743
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961296760
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961296993
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297010
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297027
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297044
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297077
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297378
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297395
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297412
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297429
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297445
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297744
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297763
+scroll on a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961297780
+mouseout a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961301439
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961302277
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961302792
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961302792
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961304941
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961304963
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961304997
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305016
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305032
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305065
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305483
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305501
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305517
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305534
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305550
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305568
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305583
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305901
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305919
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305935
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305952
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961305967
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306285
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306303
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306320
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306335
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306352
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306369
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306671
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306687
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306704
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306720
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306737
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961306753
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307354
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307387
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307406
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307422
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307439
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307456
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307488
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307771
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307790
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307807
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307823
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307840
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307856
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961307873
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961308223
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961308241
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961308257
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961308275
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961308290
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961314406
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961314406
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961314440
+mouseover a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961314506
+mouseout a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961314556
+mouseover a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961314556
+mouseout a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961314807
+mouseover a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961314807
+mouseout a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961314823
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961314857
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961314874
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961314874
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961315667
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961315694
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961315711
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961315728
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961315745
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961316129
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961316129
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961316429
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961316429
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961316495
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961316562
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_DVD_Sales-quantitative-y<bin>",1602961317399
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961317399
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961317800
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961317833
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961317851
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961317866
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961317884
+scroll on a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961317901
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961318166
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961318166
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Director-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961318183
+mouseover a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961318183
+mouseout a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961318200
+mouseover a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961318200
+mouseout a related chart,"mark:point;encoding:MPAA_Rating-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Source-nominal-y",1602961318452
+mouseover a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961318452
+mouseout a related chart,"mark:point;encoding:Distributor-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961318486
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_Gross-quantitative-y<bin>",1602961318551
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_Gross-quantitative-y<bin>",1602961320907
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_Gross-quantitative-y<bin>",1602961320907
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_Gross-quantitative-y<bin>",1602961332238
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_Gross-quantitative-y<bin>",1602961332238
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_Gross-quantitative-y<bin>",1602961332254
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961332254
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961332305
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961333625
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961333809
+mouseover a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961333809
+mouseout a related chart,"mark:point;encoding:Director-nominal-x,Distributor-nominal-y,Rotten_Tomatoes_Rating-quantitative-size",1602961333827
+added chart to bookmark,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_Gross-quantitative-y<bin>",1602961334736
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Running_Time_min-quantitative-y<bin>",1602961365963
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Running_Time_min-quantitative-y<bin>",1602961365980
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Running_Time_min-quantitative-y<bin>",1602961365980
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Running_Time_min-quantitative-y<bin>",1602961366013
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961366013
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,Title-nominal-y",1602961366047
+mouseover a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_Gross-quantitative-y<bin>",1602961366047
+mouseout a related chart,"mark:point;encoding:Release_Date-nominal-x,Rotten_Tomatoes_Rating-quantitative-size,US_Gross-quantitative-y<bin>",1602961366080
+clicked on a field,remove Rotten_Tomatoes_Rating,1602961367735
+clicked on a field,add US_DVD_Sales,1602961369417
+main chart changed because of clicking a field,mark:tick;encoding:US_DVD_Sales-quantitative-x,1602961369517
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,US_DVD_Sales-quantitative-size",1602961372598
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,US_DVD_Sales-quantitative-size",1602961372614
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,US_DVD_Sales-quantitative-size",1602961372615
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,US_DVD_Sales-quantitative-size",1602961373249
+mouseover a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,US_DVD_Sales-quantitative-size",1602961373249
+mouseout a related chart,"mark:point;encoding:Creative_Type-nominal-x,Distributor-nominal-y,US_DVD_Sales-quantitative-size",1602961381345
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,US_DVD_Sales-quantitative-size",1602961381439
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,US_DVD_Sales-quantitative-size",1602961383761
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,US_DVD_Sales-quantitative-size",1602961383761
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,US_DVD_Sales-quantitative-size",1602961383778
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,US_DVD_Sales-quantitative-size",1602961401945
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,US_DVD_Sales-quantitative-size",1602961402596
+mouseover a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,US_DVD_Sales-quantitative-size",1602961402597
+mouseout a related chart,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,US_DVD_Sales-quantitative-size",1602961402629
+added chart to bookmark,"mark:point;encoding:Major_Genre-nominal-x,Source-nominal-y,US_DVD_Sales-quantitative-size",1602961403126
