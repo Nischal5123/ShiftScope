@@ -29,6 +29,34 @@ class NpEncoder(json.JSONEncoder):
 # def pprint(obj):
 #     md(f"```json\n{json.dumps(obj, indent=2, cls=NpEncoder)}\n```")
 
+def parse_spec(spec):
+    ########### data type ############
+    data_types = {
+        "aircraft_airline_operator": "nominal",
+        "aircraft_make_model": "nominal",
+        "airport_name": "nominal",
+        "cost_other": "quantitative",
+        "cost_repair": "quantitative",
+        "cost_total_a": "quantitative",
+        "effect_amount_of_damage": "nominal",
+        "flight_date": "temporal",
+        "origin_state": "nominal",
+        "speed_ias_in_knots": "quantitative",
+        "when_phase_of_flight": "nominal",
+        "when_time_of_day": "nominal",
+        "wildlife_size": "nominal",
+        "wildlife_species": "nominal",
+    }
+    ###################################
+    for channel, encoding in spec["encoding"].items():
+        # if "color" in channel:
+        field_name = encoding.get("field", None)
+        if field_name == None:
+            continue
+        # print(field_name)
+        encoding["type"] = data_types[field_name]
+    return json.dumps(spec)
+
 def localpprint(obj):
         print(json.dumps(obj, indent=2, cls=NpEncoder))
 
@@ -49,7 +77,8 @@ def recommend_charts(
         # print(f"COST: {model.cost}")
         chart = renderer.render(spec=spec, data=df)
         if not ( isinstance(chart, alt.FacetChart) or isinstance(chart, alt.LayerChart)):
-            chart_vega_specs[chart_name] = {'chart': chart.to_json(), 'cost': model.cost[0]}
+            chart = parse_spec(json.loads(chart.to_json()))
+            chart_vega_specs[chart_name] = {'chart': chart, 'cost': model.cost[0]}
 
         # # Adjust column-faceted chart size
 
@@ -68,6 +97,22 @@ def rec_from_generated_spec(
     data: pd.DataFrame,
     num: int = 50, config=None
 ) -> dict[str, dict]:
+    attribute_mapping = {
+        "airport_name": 0,
+        "aircraft_make_model": 1,
+        "effect_amount_of_damage": 2,
+        "flight_date": 3,
+        "aircraft_airline_operator": 4,
+        "origin_state": 5,
+        "when_phase_of_flight": 6,
+        "wildlife_size": 7,
+        "wildlife_species": 8,
+        "when_time_of_day": 9,
+        "cost_other": 10,
+        "cost_repair": 11,
+        "cost_total_a": 12,
+        "speed_ias_in_knots": 13
+    }
     if config is None:
         num_encodings = len(fields)
         # make different arrangement of fields elements
@@ -79,9 +124,9 @@ def rec_from_generated_spec(
             force_attributes = []
 
             for index, item in enumerate(fields):
-                connect_root = f'entity(encoding,m0,e{index}).'
+                connect_root = f'entity(encoding,m0,e{attribute_mapping[item]}).'
                 force_attributes.append(connect_root)
-                specify_field = f'attribute((encoding,field),e{index},{item}).'
+                specify_field = f'attribute((encoding,field),e{attribute_mapping[item]},{item}).'
                 force_attributes.append(specify_field)
             id=id+1
             spec =(
@@ -98,6 +143,7 @@ def rec_from_generated_spec(
                     [
                         # ":- {attribute((encoding,field),_,_)} =" + str(num_encodings) + ".",
                         ":- {attribute((encoding,field),_,_)} < 1."
+                        ":- {attribute((encoding,aggregate),_,_)} < 1."
                     ]
                 )
             input_specs.append(spec)
@@ -211,6 +257,7 @@ def validate_chart(config, input_spec_base):
     input_spec[1].extend([
                     # ":- {attribute((encoding,field),_,_)} <" + str(num_encodings) + "."]
                     ":- {attribute((encoding,field),_,_)} < 1."
+
                 ])
 
     return [input_spec]
@@ -340,18 +387,82 @@ def remove_datapart(recommendations):
     return chart_recom
 
 
+def remove_datapart(recommendations):
+    dataset_part = None
+    chart_recom = {}
+    for chart_key, chart_json in recommendations.items():
+        chart = json.loads(chart_json)
+        if 'datasets' in chart:
+            dataset_part = chart.pop('datasets')  # Remove and store the 'datasets' part
+        chart_recom[chart_key] = chart  # Add the modified chart back to the result dictionary
+
+    # # Save the dataset part to a file
+    # if dataset_part:
+    #     with open('birdstrikes_dataset_schema.json', 'w') as f:
+    #         json.dump(dataset_part, f)
+
+    return chart_recom
+
+def remove_irrelevant_reccomendations(interested_attributes, recommendations, max_constrained=True):
+    fieldnames = ['airport_name', 'aircraft_make_model', 'effect_amount_of_damage', 'flight_date',
+                  'aircraft_airline_operator', 'origin_state', 'when_phase_of_flight', 'wildlife_size',
+                  'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a',
+                  'speed_ias_in_knots']
+    chart_recom = []
+    chart_all = []
+    matched_field = []
+    for chart_key, _ in recommendations.items():
+        chart = recommendations[chart_key]
+        chart_all.append(chart)
+        encodings = chart.get('encoding', {})
+        match = 0
+        mark= chart.get('mark', {})
+        mark=mark.get('type',{})
+
+        if  max_constrained:
+            for field in fieldnames:
+                if field in str(encodings):
+                    match += 1
+                    matched_field.append(field)
+            if match == len(interested_attributes):
+                chart_recom.append(chart)
+        else:
+            for f in interested_attributes:
+                if f in str(encodings):
+                    match += 1
+                else:
+                    match -= 1
+            if match > 0:
+                chart_recom.append(chart)
+
+    if len(chart_recom) == 0:
+        print("##############################################")
+        print('No relevant recommendations found, returning all')
+
+        return chart_all[:1], mark, matched_field # Need to return something to avoid empty response
+    else:
+        return chart_recom, mark, matched_field
+
 if __name__ == '__main__':
     all_fields = np.load('../staticdata/birdstrikes_all_states.npy', allow_pickle=True)
 
     recommendations_dict = {}
+    bar_count=0
 
     for fields_birdstrikes in all_fields:
-        attributes = [field for field in fields_birdstrikes if field.lower() != 'none']
-        recommendations = test_get_draco_recommendations(attributes=attributes, datasetname='birdstrikes')
-        print(f"Recommendations for {fields_birdstrikes}: {len(recommendations)}")
-        key = '+'.join(np.sort(fields_birdstrikes))
-        recommendations_dict[key] = recommendations
 
-    with open('new_precomputed_recommendations.json', 'w') as f:
+            attributes = [field for field in fields_birdstrikes if field.lower() != 'none']
+            recommendations = test_get_draco_recommendations(attributes=attributes, datasetname='birdstrikes')
+            print(f"Recommendations for {fields_birdstrikes}: {recommendations}")
+            recommendations, mark, matched_field= remove_irrelevant_reccomendations(attributes, recommendations)
+            if mark=='bar':
+                bar_count+=1
+
+            print(f"Filtered Recommendations for {fields_birdstrikes}: {matched_field}, mark: {mark}")
+            print(' ************ Bar count:', bar_count)
+            key = '+'.join(np.sort(fields_birdstrikes))
+            recommendations_dict[key] = recommendations
+
+    with open('bar_precomputed_recommendations.json', 'w') as f:
         json.dump(recommendations_dict, f, indent=4)
 

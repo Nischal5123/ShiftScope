@@ -217,6 +217,8 @@ def validate_chart(config, input_spec_base):
     input_spec[1].extend([
                     # ":- {attribute((encoding,field),_,_)} <" + str(num_encodings) + "."]
                     ":- {attribute((encoding,field),_,_)} < 1."
+
+
                 ])
 
     return [input_spec]
@@ -236,7 +238,8 @@ def start_draco(fields,datasetname='birdstrikes',config=None, color=False):
         df = pd.read_csv('distribution_map.csv')
     else:
 
-        df = pd.read_csv(f'staticdata/{datasetname}.csv')
+        df: pd.DataFrame = vega_data.birdstrikes()
+        df = df.sample(n=500, random_state=1)
     # print(df.head(10))
     df.columns = [col.replace('__', '_').lower() for col in df.columns]
     df.columns = [col.replace('$', 'a') for col in df.columns]
@@ -280,15 +283,16 @@ def load_dataset(file_path):
     return dataset_dict
 
 
-def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, data_schema_file_path='staticdata/birdstrikes_dataset_schema.json', color=False):
+def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, data_schema_file_path='staticdata/birdstrikes_dataset_schema.json', color=True):
     ret = [f.replace('__', '_').lower() for f in attributes]
     field_names_renamed = [f.replace('$', 'a') for f in ret]
     field_names_final = [f for f in field_names_renamed if f != 'none']
 
     if config is None:
+
         # Attempt to load precomputed recommendations
         if color==True:
-            recommendations_dict = load_precomputed_recommendations('staticdata/color_precomputed_recommendations.json')
+            recommendations_dict = load_precomputed_recommendations('staticdata/bar_precomputed_recommendations.json')
         else:
             recommendations_dict = load_precomputed_recommendations('staticdata/precomputed_recommendations.json')
         key = '+'.join(np.sort(field_names_final))
@@ -302,12 +306,12 @@ def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None
         return reco
 
     else:
-        # Always start Draco if config is provided
+
         recommendations = start_draco(fields=field_names_final, datasetname=datasetname, config=config, color=color)
         if len(recommendations) == 0:
             print('Draco recommendations are empty, retrying with one less field')
             recommendations = start_draco(fields=[f for f in field_names_final[:2] if f != 'none'],
-                                          datasetname=datasetname, config=config)
+                                          datasetname=datasetname, config=config, color=color)
 
         if len(recommendations) > 2:
             return dict(list(recommendations.items())[:1])
@@ -317,7 +321,7 @@ def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None
 
 
 
-def test_get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, color=False):
+def test_get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, color=True):
     ret = [f.replace('__', '_').lower() for f in attributes]
     field_names_renamed = [f.replace('$', 'a') for f in ret]
     field_names_final = [f for f in field_names_renamed if f != 'none']
@@ -359,7 +363,7 @@ if __name__ == '__main__':
     for fields_birdstrikes in all_fields:
         attributes = [field for field in fields_birdstrikes if field.lower() != 'none']
         print('Attributes:', attributes)
-        recommendations = test_get_draco_recommendations(attributes=attributes, datasetname='birdstrikes', config=None, color=False)
+        recommendations = test_get_draco_recommendations(attributes=attributes, datasetname='birdstrikes', config=None, color=True)
         print(f"Recommendations for {fields_birdstrikes}: {len(recommendations)}")
         key = '+'.join(np.sort(fields_birdstrikes))
         recommendations_dict[key] = recommendations

@@ -156,11 +156,12 @@ class OnlineLearningSystem:
         #update the last user's attributes history to the current one
         self.last_users_attributes_history = current_history.copy()
 
-        # generator = StateGenerator(dataset)
+        # # generator = StateGenerator(dataset)
         generator = None
-        df = pd.DataFrame({'State': current_history})
-        distribution_map = self.get_distribution_of_states(df, 'algo')
-        # pdb.set_trace()
+        # df = pd.DataFrame({'State': current_history})
+        # distribution_map = self.get_distribution_of_states(df, 'algo')
+        distribution_map = {}
+        # # pdb.set_trace()
 
         with concurrent.futures.ThreadPoolExecutor(max_workers=len(algorithms_to_run)) as executor:
             futures = {executor.submit(self.utils_obj.run_algorithm, algorithm, current_history, generator, dataset): algorithm for algorithm in algorithms_to_run}
@@ -191,28 +192,28 @@ class OnlineLearningSystem:
         ############################################################################################################
 
 
-        df_momentum = pd.DataFrame({'State': self.momentum_attributes_history})
-        distribution_map_momentum = self.get_distribution_of_states(df_momentum, 'Momentum')
-        df_hotspot = pd.DataFrame({'State': self.hotspot_attributes_history})
-        distribution_map_hotspot = self.get_distribution_of_states(df_hotspot, 'Modified-Hotspot')
-        df_ac = pd.DataFrame(({'State': self.actor_critic_action_history}))
-        distribution_map_ac = self.get_distribution_of_states(df_ac, 'ActorCritic')
+        # df_momentum = pd.DataFrame({'State': self.momentum_attributes_history})
+        # distribution_map_momentum = self.get_distribution_of_states(df_momentum, 'Momentum')
+        # df_hotspot = pd.DataFrame({'State': self.hotspot_attributes_history})
+        # distribution_map_hotspot = self.get_distribution_of_states(df_hotspot, 'Modified-Hotspot')
+        # df_ac = pd.DataFrame(({'State': self.actor_critic_action_history}))
+        # distribution_map_ac = self.get_distribution_of_states(df_ac, 'ActorCritic')
 
 
-        distribution_map_rl = distribution_map_ac
-        # distribution_map_rl = self.get_distribution_of_states(df_rl, 'ActorCritic')
-
-        # pdb.set_trace()
+        # distribution_map_rl = distribution_map_ac
+        # # distribution_map_rl = self.get_distribution_of_states(df_rl, 'ActorCritic')
+        #
+        # # pdb.set_trace()
         all_algorithms_distribution_map = {
-            'Momentum': distribution_map_momentum,
-            'Modified-Hotspot': distribution_map_hotspot,
-            'Actor_Critic': distribution_map_ac,
-            'RL': distribution_map_rl
+            'Momentum': {},
+            'Modified-Hotspot': {},
+            'Actor_Critic': {},
+            'RL': {}
         }
 
-         # Store these for everytime the performance view is clicked even if there is no new data need to return this
-        self.all_algorithms_distribution_map= all_algorithms_distribution_map
-        self.user_distribution_map = distribution_map
+        #  # Store these for everytime the performance view is clicked even if there is no new data need to return this
+        # self.all_algorithms_distribution_map= all_algorithms_distribution_map
+        # self.user_distribution_map = distribution_map
 
         #baseline next state: something other than specified algorithm
         # next_state_baseline = self.extend_state(results['Momentum'])

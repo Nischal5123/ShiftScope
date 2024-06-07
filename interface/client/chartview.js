@@ -248,22 +248,30 @@ update(data_all, eventsource) {
          })
      }
  
-     _validateChart(chart, callback) {
-         var sp = chart
-         if(typeof chart == 'object') 
-             sp = JSON.stringify(chart)
-
-         $.ajax({
-             type: 'POST',
-             crossDomain: true,
-             url: app.sumview.conf.backend + '/encode',
-             data: JSON.stringify([sp]),
-             contentType: 'application/json'
-         }).done((data) => {
-            //  console.log(data)
-             callback(data)
-         }).fail((xhr, status, error) => {
-             alert('This chart is currently not supported.')
-         })
-     }
- }
+             _validateChart(chart, callback) {
+                 var sp = chart
+                 if(typeof chart == 'object')
+                     sp = JSON.stringify(chart)
+            $.ajax({
+                type: 'POST',
+                crossDomain: true,
+                url: app.sumview.conf.backend + '/encode',
+                data: JSON.stringify([sp]),
+                contentType: 'application/json'
+            }).done((data) => {
+                callback(data);
+            }).fail((xhr, status, error) => {
+                if (xhr.status == 400) {
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        const errorMessage = response.message;
+                        alert(errorMessage);
+                    } catch (e) {
+                        alert('Invalid chart specification.');
+                    }
+                } else {
+                    alert('This chart is currently not supported. Updating recommendations.');
+                }
+            });
+        }
+    }
