@@ -5,6 +5,7 @@ import json
 if __name__ == "__main__":
     df: pd.DataFrame = vega_data.birdstrikes()
     df = df.sample(n=500, random_state=1)
+    df.to_csv('staticdata/birdstrikes.csv', index=False)
     df.columns = [col.replace('__', '_') for col in df.columns]
     df.columns = [col.replace('$', 'a') for col in df.columns]
     

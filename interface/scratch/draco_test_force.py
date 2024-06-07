@@ -341,7 +341,7 @@ def remove_datapart(recommendations):
 
 
 if __name__ == '__main__':
-    all_fields = np.load('staticdata/birdstrikes_all_states.npy', allow_pickle=True)
+    all_fields = np.load('../staticdata/birdstrikes_all_states.npy', allow_pickle=True)
 
     recommendations_dict = {}
 

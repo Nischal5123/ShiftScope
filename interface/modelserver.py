@@ -24,7 +24,7 @@ env = environment()
 system = OnlineLearningSystem()
 
 manual_session = {}
-
+MAX_LEN = 3
 class InvalidUsage(Exception):
     status_code = 400
 
@@ -65,6 +65,8 @@ def encode():
             if field_name:
                 field_names.append(field_name)
                 field_types[field_name] = key
+    if len(field_names) > MAX_LEN:
+        raise InvalidUsage('Too many fields selected. Please select <4 fields.', status_code=400)
     system.response_history.append(field_names)
     system.update_models()
     # Get Draco recommendations
@@ -109,7 +111,7 @@ def encode2():
     return jsonify(specs)
 
 def recommendation_generation(attributes):
-    recommendations = draco_test.get_draco_recommendations(attributes)
+    recommendations = draco_test.get_draco_recommendations(attributes,color=False)
     chart_recom = system.remove_irrelevant_recommendations(attributes, recommendations, max_constrained=False)
     return chart_recom
 
@@ -132,7 +134,7 @@ def top_k(save_csv=False):
     attributes_list, distribution_map, baselines_distribution_maps, attributes_baseline = system.onlinelearning(algorithms_to_run=['Momentum', 'Modified-Hotspot', 'ActorCritic'],specified_algorithm=specified_algorithm, specified_baseline=specified_baseline,bookmarked_charts=bookmarked_charts)
 
     chart_recom_list = []
-
+    # Use a list to preserve order
     future_to_attributes = []
     with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:
         for attributes in attributes_list:
@@ -142,6 +144,9 @@ def top_k(save_csv=False):
         for future, attributes in future_to_attributes:
             chart_recom = future.result()
             chart_recom_list.append(chart_recom)
+
+
+
 
     baseline_chart_recom = []
     with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:

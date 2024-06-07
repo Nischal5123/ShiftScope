@@ -32,8 +32,37 @@ class NpEncoder(json.JSONEncoder):
 def localpprint(obj):
         print(json.dumps(obj, indent=2, cls=NpEncoder))
 
+
+def parse_spec(spec):
+    ########### data type ############
+    data_types = {
+        "aircraft_airline_operator": "nominal",
+        "aircraft_make_model": "nominal",
+        "airport_name": "nominal",
+        "cost_other": "quantitative",
+        "cost_repair": "quantitative",
+        "cost_total_a": "quantitative",
+        "effect_amount_of_damage": "nominal",
+        "flight_date": "temporal",
+        "origin_state": "nominal",
+        "speed_ias_in_knots": "quantitative",
+        "when_phase_of_flight": "nominal",
+        "when_time_of_day": "nominal",
+        "wildlife_size": "nominal",
+        "wildlife_species": "nominal",
+    }
+    ###################################
+    for channel, encoding in spec["encoding"].items():
+        # if "color" in channel:
+        field_name = encoding.get("field", None)
+        if field_name == None:
+            continue
+        # print(field_name)
+        encoding["type"] = data_types[field_name]
+    return json.dumps(spec)
+
 def recommend_charts(
-    spec: list[str], draco: drc.Draco, df: pd.DataFrame, num: int = 5, labeler=lambda i: f"CHART {i+1}"
+    spec: list[str], draco: drc.Draco, df: pd.DataFrame, num: int = 5, labeler=lambda i: f"CHART {i+1}", color=False
 ) -> dict[str, tuple[list[str], dict]]:
     # Dictionary to store the generated recommendations, keyed by chart name
 
@@ -44,12 +73,20 @@ def recommend_charts(
         # print(i)
         chart_name = labeler(i)
         spec = drc.answer_set_to_dict(model.answer_set)
+        # spec=parse_spec(spec)
         chart_specs[chart_name] = drc.dict_to_facts(spec), spec
+
+
         # print(chart_name)
         # print(f"COST: {model.cost}")
         chart = renderer.render(spec=spec, data=df)
         if not ( isinstance(chart, alt.FacetChart) or isinstance(chart, alt.LayerChart)):
-            chart_vega_specs[chart_name] = {'chart': chart.to_json(), 'cost': model.cost[0]}
+            if color==True:
+                chart=parse_spec(json.loads(chart.to_json()))
+                chart_vega_specs[chart_name] = {'chart': chart, 'cost': model.cost[0]}
+            else:
+                chart_vega_specs[chart_name] = {'chart': chart.to_json(), 'cost': model.cost[0]}
+
 
         # # Adjust column-faceted chart size
 
@@ -66,7 +103,7 @@ def rec_from_generated_spec(
     draco: drc.Draco,
     input_spec_base: list[str],
     data: pd.DataFrame,
-    num: int = 50, config=None
+    num: int = 50, config=None, color=False
 ) -> dict[str, dict]:
     if config is None:
         num_encodings = len(fields)
@@ -79,9 +116,6 @@ def rec_from_generated_spec(
             force_attributes = []
 
             for index, item in enumerate(fields):
-                if num_encodings < 2:
-                    bar_mark = f"attribute((mark,type),m0,{'bar'}).",
-                    force_attributes.append(bar_mark)
                 connect_root = f'entity(encoding,m0,e{index}).'
                 force_attributes.append(connect_root)
                 specify_field = f'attribute((encoding,field),e{index},{item}).'
@@ -110,7 +144,7 @@ def rec_from_generated_spec(
         for cfg, spec in input_specs:
             labeler = lambda i: f"CHART {i + 1} ({' | '.join(cfg)})"
             try:
-                new_recs = recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler)
+                new_recs = recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler, color=color)
                 recs.update(new_recs)
             except:
                 print('Altair went wrong')
@@ -122,7 +156,7 @@ def rec_from_generated_spec(
         recs = {}
         for cfg, spec in input_specs:
             labeler = lambda i: f"CHART {i + 1} ({' | '.join(cfg)})"
-            recs= recs | recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler)
+            recs= recs | recommend_charts(spec=spec, draco=draco, df=data, num=num, labeler=labeler, color=color)
 
     # sort recs by cost
     recs = dict(sorted(recs.items(), key=lambda item: item[1]['cost']))
@@ -190,7 +224,7 @@ def validate_chart(config, input_spec_base):
 
 
 
-def start_draco(fields,datasetname='birdstrikes',config=None):
+def start_draco(fields,datasetname='birdstrikes',config=None, color=False):
     # Loading data to be explored
     d = drc.Draco()
     if datasetname == 'movies':
@@ -201,8 +235,8 @@ def start_draco(fields,datasetname='birdstrikes',config=None):
     elif datasetname=='performance':
         df = pd.read_csv('distribution_map.csv')
     else:
-        df: pd.DataFrame = vega_data.birdstrikes()
-        df = df.sample(n=500, random_state=1)
+
+        df = pd.read_csv(f'staticdata/{datasetname}.csv')
     # print(df.head(10))
     df.columns = [col.replace('__', '_').lower() for col in df.columns]
     df.columns = [col.replace('$', 'a') for col in df.columns]
@@ -225,7 +259,8 @@ def start_draco(fields,datasetname='birdstrikes',config=None):
     draco=d,
     input_spec_base=input_spec_base,
     data=df,
-    config=config
+    config=config,
+    color=color
     )
     return recommendations
 
@@ -245,26 +280,30 @@ def load_dataset(file_path):
     return dataset_dict
 
 
-def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, data_schema_file_path='staticdata/birdstrikes_dataset_schema.json'):
+def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, data_schema_file_path='staticdata/birdstrikes_dataset_schema.json', color=False):
     ret = [f.replace('__', '_').lower() for f in attributes]
     field_names_renamed = [f.replace('$', 'a') for f in ret]
     field_names_final = [f for f in field_names_renamed if f != 'none']
 
     if config is None:
         # Attempt to load precomputed recommendations
-        recommendations_dict = load_precomputed_recommendations('precomputed_recommendations.json')
+        if color==True:
+            recommendations_dict = load_precomputed_recommendations('staticdata/color_precomputed_recommendations.json')
+        else:
+            recommendations_dict = load_precomputed_recommendations('staticdata/precomputed_recommendations.json')
         key = '+'.join(np.sort(field_names_final))
         reco = recommendations_dict.get(key, {})
         dataset_schema = load_dataset(data_schema_file_path)
         #for all reco's add the dataset schema
         for key in reco:
+            reco[key]['data']['name'] = "data-722b4bfc7f88aef30ebf554c12f5320c"
             reco[key]['datasets'] = dataset_schema
             reco[key]=json.dumps(reco[key])
         return reco
 
     else:
         # Always start Draco if config is provided
-        recommendations = start_draco(fields=field_names_final, datasetname=datasetname, config=config)
+        recommendations = start_draco(fields=field_names_final, datasetname=datasetname, config=config, color=color)
         if len(recommendations) == 0:
             print('Draco recommendations are empty, retrying with one less field')
             recommendations = start_draco(fields=[f for f in field_names_final[:2] if f != 'none'],
@@ -278,12 +317,12 @@ def get_draco_recommendations(attributes, datasetname='birdstrikes', config=None
 
 
 
-def test_get_draco_recommendations(attributes, datasetname='birdstrikes', config=None):
+def test_get_draco_recommendations(attributes, datasetname='birdstrikes', config=None, color=False):
     ret = [f.replace('__', '_').lower() for f in attributes]
     field_names_renamed = [f.replace('$', 'a') for f in ret]
     field_names_final = [f for f in field_names_renamed if f != 'none']
         # If not found in precomputed, generate recommendations
-    recommendations = start_draco(fields=field_names_final, datasetname=datasetname, config=config)
+    recommendations = start_draco(fields=field_names_final, datasetname=datasetname, config=config, color=color)
     if len(recommendations) == 0:
         print('Draco recommendations are empty, retrying with one less field')
         recommendations = start_draco(fields=[f for f in field_names_final[:2] if f != 'none'], datasetname=datasetname,
@@ -319,7 +358,8 @@ if __name__ == '__main__':
 
     for fields_birdstrikes in all_fields:
         attributes = [field for field in fields_birdstrikes if field.lower() != 'none']
-        recommendations = test_get_draco_recommendations(attributes=attributes, datasetname='birdstrikes')
+        print('Attributes:', attributes)
+        recommendations = test_get_draco_recommendations(attributes=attributes, datasetname='birdstrikes', config=None, color=False)
         print(f"Recommendations for {fields_birdstrikes}: {len(recommendations)}")
         key = '+'.join(np.sort(fields_birdstrikes))
         recommendations_dict[key] = recommendations
