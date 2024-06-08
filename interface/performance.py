@@ -271,7 +271,7 @@ class OnlineLearningSystem:
         ########updating the momentum model########
         A = self.extend_state(cur_attributes)
         # self.utils_obj.m.update_prob(S, A)
-        self.utils_obj.h.hotspot_update_prob(S, A)
+        self.utils_obj.h.update_prob(S, A)
 
     def save_histories(self, path):
         np.save(path + 'momentum_attributes_history.npy', self.momentum_attributes_history)

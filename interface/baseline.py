@@ -70,6 +70,15 @@ class Momentum(RandomStrategy):
             replace=False,              # Allow sampling the same action multiple times
             p=state_probs              # Use the probabilities from self.prob
         )
+
+        if len(self.greedy_actions) > 1:
+            actions = actions[:k - 1]
+            print("Appending greedy actions", self.greedy_actions)
+            random_greedy_action = np.random.choice(self.greedy_actions, 1)
+            actions = np.append(actions, random_greedy_action)
+            # shuffle the actions
+            np.random.shuffle(actions)
+
         # print(actions)
         ret_action = []
         for a in actions:
@@ -84,6 +93,7 @@ class Hotspot(Momentum):
         super().__init__(dataset)
         self.freq = np.ones((self.action_space_size, self.action_space_size))
         self.pretrain()
+        self.greedy_actions = []
         
     def pretrain(self):
         datasets = ['birdstrikes']
@@ -115,11 +125,12 @@ class Hotspot(Momentum):
         s = self.rl_env.valid_actions[tuple(self.get_state(state))] #find the encoded number of the state, first state list -> numpy array -> encoded number 
         a = self.rl_env.valid_actions[tuple(self.get_state(action))]
         
-        self.freq[s, a] += 1
+        self.freq[s, a] += 20
         row_sums = self.freq.sum(axis=1, keepdims=True)
         # print(self.freq[s,a], row_sums)
         self.prob = self.freq / row_sums 
         # print(self.freq[s,a], self.prob[0].sum())
+        self.greedy_actions.append(a)
         
     #generating actions should be same as momentum top 6 based on probability
 

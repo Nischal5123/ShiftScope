@@ -71,7 +71,6 @@ def encode():
     # if elements in field_names are not unique, raise an error
     if len(field_names) != len(set(field_names)):
         raise InvalidUsage('Duplicate fields selected. Please select unique fields.', status_code=400)
-
     system.response_history.append(field_names)
     system.update_models()
 
@@ -105,7 +104,6 @@ def encode2():
         field_name = field_info.get('field')
         if field_name:
             field_names.append(field_name)
-
     system.response_history.append(field_names)
     system.update_models()
 
@@ -242,4 +240,4 @@ def clean_chart_logs(chartList):
     return trimmed_chartdata
 
 if __name__ == '__main__':
-    app.run(port=5500, debug=False)
+    app.run(port=5500, debug=True)
