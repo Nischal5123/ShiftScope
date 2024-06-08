@@ -126,7 +126,7 @@ class OnlineLearningSystem:
         return history
 
 
-    def onlinelearning(self, algorithms_to_run=['Momentum', 'Random', 'Greedy', 'Qlearning', 'ActorCritic'], specified_algorithm='ActorCritic', specified_baseline='Momentum', bookmarked_charts=[], dataset='birdstrikes'):
+    def onlinelearning(self, algorithms_to_run=['Hotspot', 'Random', 'Greedy', 'Qlearning', 'ShiftScope'], specified_algorithm='ActorCritic', specified_baseline='Momentum', bookmarked_charts=[], dataset='birdstrikes'):
         # current_interactions = []
         # pdb.set_trace()
         last_history = self.last_users_attributes_history.copy()
@@ -168,9 +168,9 @@ class OnlineLearningSystem:
             results = {futures[future]: future.result() for future in concurrent.futures.as_completed(futures)}
 
         # next_state_rl = self.extend_state(results['Qlearning'])
-        next_state_momentum = self.extend_state(results['Momentum'])
+        next_state_momentum = self.extend_state(results['Hotspot'])
         next_state_hotspot = self.extend_state(results['Modified-Hotspot'])
-        next_state_ac = self.extend_state(results['ActorCritic'])
+        next_state_ac = self.extend_state(results['ShiftScope'])
 
 
         ############# get the next state based on the specified algorithm and baseline ############################
@@ -208,7 +208,8 @@ class OnlineLearningSystem:
             'Momentum': {},
             'Modified-Hotspot': {},
             'Actor_Critic': {},
-            'RL': {}
+            'RL': {},
+            'Hotspot': {},
         }
 
         #  # Store these for everytime the performance view is clicked even if there is no new data need to return this
@@ -223,8 +224,8 @@ class OnlineLearningSystem:
 
     def set_performance_data(self):
         if len(self.current_user_attributes) > 0: #technically this should be the case always
-            self.response_algorithm_predictions['ActorCritic'] = self.rl_attributes_history.copy()
-            self.response_algorithm_predictions['Momentum'] = self.momentum_attributes_history.copy()
+            self.response_algorithm_predictions['ShiftScope'] = self.rl_attributes_history.copy()
+            self.response_algorithm_predictions['Hotspot'] = self.momentum_attributes_history.copy()
             self.response_algorithm_predictions['Modified-Hotspot'] = self.hotspot_attributes_history.copy()
 
 
@@ -269,7 +270,8 @@ class OnlineLearningSystem:
 
         ########updating the momentum model########
         A = self.extend_state(cur_attributes)
-        self.utils_obj.m.update_prob(S, A)
+        # self.utils_obj.m.update_prob(S, A)
+        self.utils_obj.h.hotspot_update_prob(S, A)
 
     def save_histories(self, path):
         np.save(path + 'momentum_attributes_history.npy', self.momentum_attributes_history)
