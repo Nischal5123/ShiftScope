@@ -85,6 +85,7 @@ class utils:
         self.rs = RandomStrategy()
         self.m = Momentum()
         self.h = Hotspot()
+        self.h_offline = Hotspot()
         self.counter = 0
 
     def run_algorithm(self, algorithm, attributes_history, generator, dataset):
@@ -109,8 +110,8 @@ class utils:
             # ret= sort_by_lexical_similarity(next_state_ql, current_state)
             return next_state_ql
 
-        elif algorithm == 'Momentum': #Return Momentum
-            ret = self.m.generate_actions(current_state)
+        elif algorithm == 'Hotspot': #Return Momentum
+            ret = self.h_offline.generate_actions(current_state)
             # ret = sort_by_lexical_similarity(ret, current_state)
             return ret
 
@@ -125,7 +126,7 @@ class utils:
             # ret = sort_by_lexical_similarity(ret, current_state)
             return ret
             
-        elif algorithm == 'ActorCritic': #AC_Online
+        elif algorithm == 'ShiftScope': #AC_Online
             ret = self.ac_model.generate_actions_topk(current_state, k=6)
             self.counter += 1
             # print(ret)

@@ -210,9 +210,10 @@ export function displayBaselineCharts(container, created = true) {
         vegaEmbed('#baseline' + ch.chid + ' .chartcontainer', vegachart, {
             actions: false
         });
-    });
-}
 
+    });
+
+}
 
 
  export function handleEvents() {
@@ -363,6 +364,8 @@ export function displayBaselineCharts(container, created = true) {
          // Emit the 'similar' event with the current data
         // app.chartview.emit('similar', JSON.parse(specs)); ################################ Just adding this will start recommendation without user clicking on the 'Recommend' button
      })
+
+
 
 
 
@@ -658,7 +661,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
     // ########################################################## Variables ########################################################
     var algorithmPredictions = data['algorithm_predictions'];
     //only select Random, RL, and Momentum from the algorithm predictions
-    const selectedAlgorithms = ['Modified-Hotspot', 'ActorCritic', 'Momentum'];
+    const selectedAlgorithms = ['Hotspot','Modified-Hotspot', 'ShiftScope'];
     const selectedAlgorithmPredictions = {};
     selectedAlgorithms.forEach(algorithm => {
         selectedAlgorithmPredictions[algorithm] = algorithmPredictions[algorithm];
@@ -730,8 +733,21 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
                 hitRates.push(0);
             }
         });
+        // // ########################################################## make hitRateHistory cumulative and between 0-1 ########################################################
+        //  hitRates.forEach((hitRate, hr) => {
+        //     if (hr > 0) {
+        //         hitRates[hr] += hitRates[hr - 1];
+        //     }
+        //  });
+        // hitRates.forEach((hitRate, hr) => {
+        //     hitRates[hr] = hitRate / (hr + 1);
+        // }   );
         hitRateHistory[algorithm] = hitRates;
+
+
     });
+
+
 
     // ########################################################## Plotting Accuracy Calculations ########################################################
     storeInteractionLogs('updated accuracy chart', hitRateHistory, new Date())
@@ -782,14 +798,14 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
         .attr("y", height + margin.bottom - 20)  // Adjusted position for more space
         .attr("text-anchor", "middle")
         .style("font-size", "20px")
-        .text("Recommendation Cycle");
+        .text("Interactions");
 
     // Add y-axis label
     svg.append("text")
         .attr("transform", `translate(-35, ${height / 2}) rotate(-90)`)
         .attr("text-anchor", "middle")
         .style("font-size", "20px")
-        .text("Algorithms Coverage");
+        .text(" Coverage");
 
     // Add a label box for different algorithms on the right
     const legend = svg.append("g")
@@ -830,7 +846,7 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
     var Predictions = data['algorithm_predictions'][algorithm][clickedTime];
 
     // Remove previous highlighting
-    d3.selectAll(".highlight").attr("fill", "rgba(54, 160, 235, 0.4)").classed("highlight", false);
+    d3.selectAll(".highlight").attr("fill", "rgba(128, 128, 128, 0.6)").classed("highlight", false);
 
     // Get the corresponding time steps from the mapping
     var allTimeSteps = mapping[clickedTime];
@@ -863,26 +879,21 @@ function createAccuracyChart(id, data, updateTimeSeriesChart, xsc, algorithm) {
 
 
 function createShiftFocusChart(full_data) {
-
-
-
-    d3.select('#timeSeriesChart').selectAll('svg').remove()
+    d3.select('#timeSeriesChart').selectAll('svg').remove();
 
     const localattributeHistory = full_data['full_history'];
 
     const fieldNames = ['airport_name', 'speed_ias_in_knots','aircraft_make_model', 'flight_date', 'aircraft_airline_operator', 'origin_state', 'effect_amount_of_damage', 'when_phase_of_flight', 'wildlife_size', 'wildlife_species', 'when_time_of_day', 'cost_other', 'cost_repair', 'cost_total_a'];
 
     const timeSeriesData = localattributeHistory.map((attributes, index) => {
-        const dataPoint = { time: index};
+        const dataPoint = { time: index };
         fieldNames.forEach((field, fieldIndex) => {
             dataPoint[field] = attributes.includes(field) ? fieldIndex : null;
         });
         return dataPoint;
     });
 
-    // console.log(timeSeriesData)
-
-    const margin = { top: 0, right: 50, bottom: 50, left: 190 };
+    const margin = { top: 0, right: 200, bottom: 50, left: 190 }; // Adjusted right margin for legend
     const width = Math.max(window.innerWidth * 0.8 - margin.left - margin.right, 300);
     const height = window.innerHeight * 0.6 - margin.top - margin.bottom;
     const svg = d3.select("#timeSeriesChart").append("svg")
@@ -891,20 +902,15 @@ function createShiftFocusChart(full_data) {
         .append("g")
         .attr("transform", `translate(${margin.left},${margin.top})`);
 
-
-    //create another grouping axis with the prediction time
     const xScale = d3.scaleBand()
         .domain(timeSeriesData.map(d => d.time))
         .range([0, width])
         .padding(0.1);
 
-
-
     const yScale = d3.scaleBand()
         .domain(fieldNames)
         .range([height, 0])
         .padding(0.1);
-
 
     svg.selectAll(".line")
         .data(timeSeriesData)
@@ -920,8 +926,7 @@ function createShiftFocusChart(full_data) {
                         .attr("height", yScale.bandwidth())
                         .attr("class", "bar")
                         .attr("data-index", d[field])
-                        .attr("fill", "rgba(54, 160, 235, 0.4)"); // Adjust alpha value for a slightly darker shade
-
+                        .attr("fill", "rgba(128, 128, 128, 0.6)"); // Grey color with adjusted alpha value
                 }
             });
         });
@@ -936,49 +941,54 @@ function createShiftFocusChart(full_data) {
         .style("font-size", "14px")
         .style("font-weight", "bold");
 
-    // svg.append("text")
-    //     .attr("transform", "rotate(-90)")
-    //     .attr("y", 0 - margin.left)
-    //     .attr("x", 0 - (height / 2))
-    //     .attr("dy", "1em")
-    //     .style("text-anchor", "middle")
-
-
     svg.append("text")
         .attr("transform", `translate(${width / 2},${height + margin.top + 22})`)
         .style("text-anchor", "middle")
-        .text("Interactions Observed")
+        .text("Interactions")
         .style("font-weight", "bold");
-    createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart, xScale);
 
+    // Add a label for the grey color on the right side
+    const legend = svg.append("g")
+        .attr("transform", `translate(${width + 30}, 0)`);  // add extra padding
+
+    const legendRow = legend.append("g")
+        .attr("transform", `translate(0, 0)`);  // 30 pixels spacing between labels
+
+    legendRow.append("rect")
+        .attr("width", 20)
+        .attr("height", 20)
+        .attr("fill", "rgba(128, 128, 128, 0.6)"); // Grey color
+
+    legendRow.append("text")
+        .attr("x", 30)
+        .attr("y", 15)
+        .attr("text-anchor", "start")
+        .style("font-size", "15px")
+        .style("font-weight", "bold")
+        .text("User Interactions");
+
+    createAccuracyChart('accuracyChart', full_data, updateTimeSeriesChart, xScale);
 }
+
 
 // ###################################################### Helper Functions ########################################################
 
 function computeAccuracy(predictions, groundTruth) {
     // Filter out placeholders like 'none' from ground truth and predictions
-    const ground = groundTruth.filter(attribute => attribute !== 'none');
-    const predict = predictions.filter(attribute => attribute !== 'none');
-
-    // Count occurrences of each element in ground truth
-    const groundCount = ground.reduce((count, attribute) => {
-        count[attribute] = (count[attribute] || 0) + 1;
-        return count;
-    }, {});
+    const ground = [...new Set(groundTruth.filter(attribute => attribute !== 'none'))];
+    const predict = [...new Set(predictions.filter(attribute => attribute !== 'none'))];
 
     // Initialize total matches
     let matches = 0;
 
-    // Iterate through predictions
-    predict.forEach(pred => {
-        // If the element exists in ground truth and has remaining count, increment matches and decrement count in groundCount
-        if (groundCount[pred] !== undefined && groundCount[pred] > 0) {
+    // Iterate through unique ground truth attributes
+    ground.forEach(attr => {
+        if (predict.includes(attr)) {
             matches++;
-            groundCount[pred]--;
         }
     });
 
-    // Calculate accuracy as the proportion of total matches to the length of the ground truth
+    // Calculate accuracy as the proportion of unique matches to the number of unique attributes in the ground truth
     const accuracy = matches / ground.length;
 
     return accuracy;

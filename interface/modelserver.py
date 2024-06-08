@@ -124,15 +124,15 @@ def top_k(save_csv=False):
     total_data = request.get_json()
     data = eval(total_data.get('history'))
     bookmarked_charts = total_data.get('bookmarked', [])
-    specified_algorithm = total_data.get('algorithm', 'ActorCritic')
-    specified_baseline = total_data.get('baseline', 'Modified-Hotspot')
+    specified_algorithm = total_data.get('algorithm', 'ShiftScope')
+    specified_baseline = total_data.get('baseline', 'Hotspot')
 
     if data and isinstance(data, list):
         system.state_history = data
     else:
         system.state_history = [['flight_date', 'wildlife_size', 'airport_name']]
 
-    attributes_list, distribution_map, baselines_distribution_maps, attributes_baseline = system.onlinelearning(algorithms_to_run=['Momentum', 'Modified-Hotspot', 'ActorCritic'],specified_algorithm=specified_algorithm, specified_baseline=specified_baseline,bookmarked_charts=bookmarked_charts)
+    attributes_list, distribution_map, baselines_distribution_maps, attributes_baseline = system.onlinelearning(algorithms_to_run=['Hotspot', 'Modified-Hotspot', 'ShiftScope'],specified_algorithm=specified_algorithm, specified_baseline=specified_baseline,bookmarked_charts=bookmarked_charts)
 
     chart_recom_list = []
     # Use a list to preserve order

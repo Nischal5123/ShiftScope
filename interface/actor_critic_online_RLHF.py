@@ -200,6 +200,13 @@ class ActorCriticModel:
                             taken_action_one_hot[i] == 1]
             ret_action.append(taken_action)
 
+        for all_actions in ret_action:
+            #is cost appears multiple time in same list remove it from the list
+              if 'cost_total_a' in all_actions:
+                  if 'cost_other' in all_actions:
+                      if 'cost_repair' in all_actions:
+                          all_actions.remove('cost_total_a')
+
         return ret_action
 
     def generate_action(self, current_state, dataset = 'birdstrikes'):

@@ -61,15 +61,16 @@
                     <label></label>
                     <label for="algorithm">Select Algorithm:</label>
                     <select id="algorithm" name="algorithm">
-                        <option value="ActorCritic">ActorCritic</option>
-                        <option value="Momentum">Momentum</option>
+                        <option value="ShiftScope">ShiftScope</option>
+                        <option value="Hotspot">Hotspot</option>
                         <option value="Modified-Hotspot">Modified-Hotspot</option>
                     </select>
 
                     <label for="baseline">Select Baseline:</label>
                     <select id="baseline" name="baseline">
+                        <option value="Hotspot">Hotspot</option>
                         <option value="Modified-Hotspot">Modified-Hotspot</option>
-                        <option value="Momentum">Momentum</option>
+
                     </select>
 
                     <span id="slider_wrapper">
@@ -150,7 +151,7 @@
 <!--          <h2>User's Shifts in Data Focus</h2>-->
 <!--        <div id="timeSeriesChart"></div>-->
 <!--    </div>-->
-    <h2 style="text-align: center; width: 100%;">Algorithms Performance Over Recommendation Cycles</h2>
+    <h2 style="text-align: center; width: 100%;">Algorithms Performance </h2>
     <div id="accuracyChart" style="vertical-align: top"></div>
  <h2 style="text-align: center; width: 100%;">User's Shifts in Data Focus</h2>
     <div id="timeSeriesChart" style="vertical-align: top"></div>
