@@ -26,58 +26,63 @@
 
 
 
- export function createDataTable(scrollH) {
-     var columns = _.keys(app.data.chartdata.values[0]).map((d) => {return {title: d} })
-     var tabledata = app.data.chartdata.values.map((d) => {
-         var record = []
-         for(var i = 0; i < columns.length; i++)
-             record.push(d[columns[i].title])
-         return record
-     })
+ export function createDataTable() {
+    var columns = _.keys(app.data.chartdata.values[0]).map((d) => {return {title: d} })
+    var tabledata = app.data.chartdata.values.map((d) => {
+        var record = []
+        for(var i = 0; i < columns.length; i++)
+            record.push(d[columns[i].title])
+        return record
+    })
 
-     if(app.datatable) {
-         app.datatable.destroy()
-         $('#dataview table').empty()
-     }
-     app.datatable = $('#dataview table').DataTable({
-         columnDefs: [
-             {
-                 targets: '_all',
-                 render: function(data, type, row, meta) {
-                     return '<span style="color:'
-                         + app.sumview._varclr(columns[meta.col].title) + '">' + data + '</span>'
-                 }
-             }
-         ],
-         data: tabledata,
-         columns: columns,
-         scrollY: scrollH,
-         scrollX: true,
-         paging: false,
-         scrollCollapse: true,
-         searching: false,
-         info: false
-     })
+    if(app.datatable) {
+        app.datatable.destroy()
+        $('#dataview table').empty()
+    }
 
-     columns.forEach((c) => {
-         $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
-     })
+    // Calculate dynamic scroll height as a percentage of the viewport height
+    var scrollH = `${window.innerHeight * 0.2}px`; // Example: 50% of the viewport height
 
-     // call backend to start session
-        $.ajax({
-            type: 'GET',
-            crossDomain: true,
-            url: 'http://localhost:5500/',
-            contentType: 'application/json'
-        }).done((data) => {
-            user_session_id=data['session_id'];
-            //log session id
-            console.log("Session ID: ", user_session_id);
-            storeInteractionLogs('study begins', user_session_id, new Date())
-        }).fail((xhr, status, error) => {
-            alert('Cannot start session.');
-        });
- }
+    app.datatable = $('#dataview table').DataTable({
+        columnDefs: [
+            {
+                targets: '_all',
+                render: function(data, type, row, meta) {
+                    return '<span style="color:'
+                        + app.sumview._varclr(columns[meta.col].title) + '">' + data + '</span>'
+                }
+            }
+        ],
+        data: tabledata,
+        columns: columns,
+        scrollY: scrollH,
+        scrollX: true,
+        paging: false,
+        scrollCollapse: true,
+        searching: false,
+        info: false
+    })
+
+    columns.forEach((c) => {
+        $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
+    })
+
+    // call backend to start session
+    $.ajax({
+        type: 'GET',
+        crossDomain: true,
+        url: 'http://localhost:5500/',
+        contentType: 'application/json'
+    }).done((data) => {
+        user_session_id = data['session_id'];
+        //log session id
+        console.log("Session ID: ", user_session_id);
+        storeInteractionLogs('study begins', user_session_id, new Date())
+    }).fail((xhr, status, error) => {
+        alert('Cannot start session.');
+    });
+}
+
 
 export function displayBookmarkCharts(container, created = true) {
     $(container).empty();
