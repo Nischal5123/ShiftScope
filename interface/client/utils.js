@@ -20,10 +20,9 @@
  var bookmarkedCharts = [];
  var user_session_id = 'user1';
  export var vegaConfig = {
-     axis: {labelFontSize:9, titleFontSize:9, labelAngle:-45, labelLimit:50},
-     legend: {gradientLength:20, labelFontSize:6, titleFontSize:6, clipHeight:20}
- }
-
+    axis: {labelFontSize:12, titleFontSize:13, labelAngle:-45, labelLimit:50, labelOverlap: "greedy"},
+    legend: {gradientLength:20, labelFontSize:12, titleFontSize:13, clipHeight:20}
+}
 
 
  export function createDataTable(scrollH) {
@@ -63,7 +62,6 @@
          $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
      })
 
-     // call backend to start session
         $.ajax({
             type: 'GET',
             crossDomain: true,

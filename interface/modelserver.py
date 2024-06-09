@@ -134,6 +134,26 @@ def top_k(save_csv=False):
 
     chart_recom_list = []
     # Use a list to preserve order
+    ########### data type ############
+    data_types = {
+        "aircraft_airline_operator": "nominal",
+        "aircraft_make_model": "nominal",
+        "airport_name": "nominal",
+        "cost_other": "quantitative",
+        "cost_repair": "quantitative",
+        "cost_total_a": "quantitative",
+        "effect_amount_of_damage": "nominal",
+        "flight_date": "temporal",
+        "origin_state": "nominal",
+        "speed_ias_in_knots": "quantitative",
+        "when_phase_of_flight": "nominal",
+        "when_time_of_day": "nominal",
+        "wildlife_size": "nominal",
+        "wildlife_species": "nominal",
+    }
+    ###################################
+
+    # Use a list to preserve order
     future_to_attributes = []
     with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:
         for attributes in attributes_list:
@@ -142,10 +162,17 @@ def top_k(save_csv=False):
 
         for future, attributes in future_to_attributes:
             chart_recom = future.result()
-            chart_recom_list.append(chart_recom)
-
-
-
+            for x in chart_recom:
+                spec = json.loads(x)
+                for channel, encoding in spec["encoding"].items():
+                    # if "color" in channel:
+                    field_name = encoding.get("field")
+                    if field_name == None:
+                        continue
+                    # print(field_name)
+                    encoding["type"] = data_types[field_name]                
+                
+                chart_recom_list.append([json.dumps(spec)])  # Append the modified spec back to the list
 
     baseline_chart_recom = []
     with concurrent.futures.ProcessPoolExecutor(max_workers=6) as executor:
@@ -240,4 +267,4 @@ def clean_chart_logs(chartList):
     return trimmed_chartdata
 
 if __name__ == '__main__':
-    app.run(port=5500, debug=True)
+    app.run(port=5500, debug=False)

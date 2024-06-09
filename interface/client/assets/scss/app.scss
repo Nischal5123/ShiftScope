@@ -23,40 +23,15 @@ html, body {
 }
 
 #toolbar {
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+  width: 100%;
+  height: 5px;
+  display: inline-block;
+  font-size: 8px;
+
+  button {
+    margin: 8px;
+  }
 }
-
-#toolbar button,
-{
-    margin: 5px;
-    font-size: 15px;
-    white-space: nowrap; /* Ensure text doesn't wrap inside elements */
-}
-
-#legend{
-    flex-grow: 1;
-    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
-    white-space: nowrap; /* Prevent wrapping of long text */
-   font-size: 7px;
-}
-
-/* Optional: Add some space between elements */
-#toolbar > * {
-    margin-right: 10px;
-}
-
-/* Optional: For smaller screens, make text size adaptive */
-@media (max-width: 600px) {
-    #toolbar button{
-        font-size: 8px;
-    }
-}
-
-
-
 
 #datafile {
   width: 150px;
@@ -65,19 +40,28 @@ html, body {
 #panel1 {
   position: absolute;
   width: 300px;
-  height: 95%;
+  height: 96%;
   display: inline-block;
   top: 40px;
   left: 0;
   margin: 0px;
 }
-
+#panel2 {
+  position: absolute;
+  height: 100%;
+  left: 300px;
+  right: 500px; /* Adjusted to allow adaptive layout */
+  display: inline-block;
+  top: 40px;
+  margin: 0px;
+  width: calc(100% - 850px); /* Dynamically calculates width */
+}
 
 #panel3 {
   position: absolute;
   left: calc(100% - 550px); /* Adjusted to allow adaptive layout */
   width: 550px;
-  height: 95%;
+  height: 100%;
   display: inline-block;
   top: 40px;
   margin: 0px;
@@ -105,107 +89,60 @@ html, body {
 }
 
 
-
-
-// ########## This is for the CENTER PANEL ########################################
-#panel2 {
-  position: absolute;
-  top: 40px;
-  bottom: 0;
-  left: 300px;
-  right: 500px;
-  display: flex;
-  height: 95%;
-  flex-direction: column;
-  width: calc(100% - 850px);
-}
-
-
 #chartview {
-  top: 20px;
   position: absolute;
-  height: 60%;
-    width: 100%;
-  margin: 2px;
-  overflow: hidden;
-  justify-content: center;
+  width: 100%;
+  left: 0;
+  top: 20px;
+  bottom: 321px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
   vertical-align: top;
+  margin: 2px;
   overflow-y: auto;
-    overflow-x: hidden;
+  overflow-x: auto;
 }
 
 .chartcontainer {
-    height: 90%;
-    width: 100%;
-
+  display: block;
+  position: relative;
+  width: max-content;  /* Allow the container to grow based on content */
+  height: max-content; /* Allow the container to grow based on content */
 }
 
-//#updateContainer {
-//    position: fixed;
-//    bottom: 200px; /* Align to the bottom */
-//    left: 300px; /* Adjust according to your design */
-//    width: calc(100% - 850px); /* Same width as panel2 */
-//    z-index: 1; /* Ensure it's above other content */
-//}
 
-.editorbuttons3 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-}
-
-.editorbuttons3 button {
-  margin: 2px;
-  height: 30px;
-  width: 100px;
-  border-radius: 5px;
-  background-color: #007baa;
-  color: white;
-  border: none;
-  font-size: 14px;
-  font-weight: bold;
-  padding: 0 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.editorbuttons3 button:hover {
-  background-color: #0056b3;
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-}
-
-.editorbuttons3 button:active {
-  background-color: #003f7f;
-  transform: translateY(2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.editorbuttons3 button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  background-color: #b0b0b0;
-}
 
 #dataview {
-    position: absolute;
-    z-index: 1; /* Ensure it's above other content */
-    bottom: 0; /* Align to the bottom */
-    left: 0;
-    width: 100%;
-    font-size: 12px;
-    display: inline-block;
-    border-radius: 5px;
-    margin-bottom: 0%; /* Add some margin from the bottom */
+  position: absolute;
+  top:630px;
+  left: 0;
+  width: 100%;
+  bottom: 20px;
+  font-size: 12px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  margin: 1px;
 }
 
 
 
+//#suggestionview {
+//  position: absolute;
+//  width: 100%;
+//  left: 0;
+//  top: 20px;
+//  bottom: 310px;
+//  display: inline-block;
+//  border: gray 1px solid;
+//  border-radius: 5px;
+//  overflow-y: auto;
+//  overflow-x: hidden;
+//  vertical-align: top;
+//  margin: 2px;
+//}
 
-
-// ########## END : This is for the CENTER PANEL ############################
 
 #charteditor {
    position: absolute;
@@ -221,6 +158,8 @@ html, body {
   vertical-align: top;
   margin: 2px;
 }
+
+
 
 #chartcomposer {
   width: 100%;
@@ -243,13 +182,14 @@ html, body {
   }
 }
 
-
-
 #editorcontainer {
-  width: 0%;
-  top: 0px;
-  left: 0px;
+  width: 100%;
+  top: 350px;
+  bottom: 20px;
+  left: 10px;
   position: absolute;
+  border-top: 1px solid gray;
+  display: inline-block;
 }
 
 .editorbuttons {
@@ -274,7 +214,47 @@ html, body {
   left: 0;
 }
 
+//this if for the Recommend button
+.editorbuttons3 {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; /* Add some space between the buttons */
 
+  button {
+    margin: 2px;
+    height: 30px; /* Increased height for better readability */
+    width: 100px; /* Increased width to fit 'Recommend' */
+    border-radius: 5px; /* Slightly more rounded corners */
+    background-color: #007baa; /* Primary blue color */
+    color: white; /* White text color */
+    border: none; /* No border */
+    font-size: 14px; /* Increased font size for readability */
+    font-weight: bold; /* Bold text */
+    padding: 0 10px; /* Horizontal padding for better spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for interactions */
+    cursor: pointer; /* Pointer cursor on hover */
+  }
+
+  button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Slightly larger shadow */
+  }
+
+  button:active {
+    background-color: #003f7f; /* Even darker blue on click */
+    transform: translateY(2px); /* Slight movement down on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adjust shadow on click */
+  }
+
+  button:disabled {
+    opacity: 0.6; /* Slightly more opaque for visibility */
+    cursor: not-allowed; /* Not-allowed cursor on disabled */
+    background-color: #b0b0b0; /* Gray background for disabled state */
+  }
+}
 //#suggestionview {
 //  position: absolute;
 //  width: 100%;
@@ -303,7 +283,7 @@ html, body {
   margin: 2px;
 }
 
-#suggestionview2 { // this is for baseline view
+#suggestionview2 {
   position: absolute;
   top: 20px;
   bottom: 0;
@@ -317,7 +297,21 @@ html, body {
   width: 550px;
 }
 
-
+#bookmarkview {
+  position: absolute;
+  width: 500px;
+  top: 20px;
+  bottom: 0;
+  left: 10px;
+  right: 20px;
+  display: inline-block;
+  border: gray 1px solid;
+  border-radius: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  vertical-align: top;
+  margin: 2px;
+}
 
 //thi is old sumview now history
 #allchartsview {
@@ -659,44 +653,22 @@ html, body {
 .sidebar2 .closebtn {
   position: absolute;
   top: 20px;
-  left: 515px;
+  right: 25px;
   font-size: 40px;
   cursor: pointer;
 }
 
-//.bookmark-task-container {
-//  display: flex;
-//  width: 100%;
-//  height: 100%;
-//}
+.bookmark-task-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
 
 #bookmarkview {
-  position: absolute;
-  width: 500px;
-  top: 20px;
-  bottom: 0;
-  left: 10px;
-  display: inline-block;
-  border: gray 1px solid;
-  border-radius: 5px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  vertical-align: top;
-  margin: 2px;
   background-color: #f9f9f9; /* Light background color */
 }
 
-
-
-
-//***************************************** This is to add Task to the main interface
 #taskview {
-  width: 90%;
-  top: 350px;
-  left: 10px;
-  position: absolute;
-  border-top: 1px solid gray;
-  display: inline-block;
   background-color: #ffffff; /* White background color */
   box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Add a subtle shadow */
   border-radius: 8px; /* Rounded corners */
@@ -714,18 +686,21 @@ html, body {
 }
 
 .form-group label {
-  display: block;
-  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.form-group .form-control {
-  width: 100%;
-  height: 150px; /* Increase the height of the input box */
-  overflow-x: scroll; /* Make it scrollable if content exceeds height */
+.form-control {
+  width: calc(100% - 25px); /* Adjust the width as needed */
+  height: 40px;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .btn {
-  width: 50%;
+  width: 100%;
   padding: 10px;
   background-color: #007bff;
   color: white;
@@ -745,7 +720,3 @@ html, body {
   height: 500px;
   margin-right: 20px;
 }
-//  ****************************************
-
-
-
