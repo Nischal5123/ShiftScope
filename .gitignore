@@ -4,17 +4,8 @@
 /assets/
 /.idea/
 /gvae/
-/interface/gvaemodel/__pycache__/
-/interface/gvaemodel/node_modules/
-/interface/gvaemodel/public/
 /__pycache__/
 /node_modules/
 /deep-tamer
 /tamer
 /interface/__pycache__/
-
-
-/interface/ShiftScopeLogs/
-
-
-/interface/performance-data/
