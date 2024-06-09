@@ -9,3 +9,4 @@ six
 scikit_learn
 torch
 draco==2.0.1
+vega_datasets

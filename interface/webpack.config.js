@@ -1,84 +1,115 @@
-const path = require('path'),
-      webpack = require('webpack'),
-      CleanWebpackPlugin = require('clean-webpack-plugin'),
-      HtmlWebpackPlugin = require('html-webpack-plugin'),
-      ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const extractPlugin = new ExtractTextPlugin({ filename: './assets/css/app.css' });
-
-const config = {
-
-  // absolute path for project root
+module.exports = {
+  mode: 'development', // or 'production'
   context: path.resolve(__dirname, 'client'),
 
   entry: {
-    // relative path declaration
     app1: './app1.js'
   },
 
   output: {
-    // absolute path declaration
     path: path.resolve(__dirname, 'public'),
     filename: './assets/js/[name].bundle.js'
   },
 
   module: {
     rules: [
-
-      // babel-loader with 'env' preset
-      { test: /\.js$/, include: /client/, exclude: /node_modules/, use: { loader: "babel-loader", options: { presets: ['@babel/preset-env'] } } },
-      // html-loader
-      { test: /\.html$/, use: ['html-loader'] },
-      // sass-loader with sourceMap activated
+      {
+        test: /\.js$/,
+        include: /client/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
+      },
+      {
+        test: /\.html$/,
+        use: ['html-loader']
+      },      
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ],
+      },
       {
         test: /\.scss$/,
         include: [path.resolve(__dirname, 'client', 'assets', 'scss')],
-        use: extractPlugin.extract({
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: 'sass-loader',
-              options: {
-                sourceMap: true
-              }
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
             }
-          ],
-          fallback: 'style-loader'
-        })
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
-      // file-loader(for images)
-      { test: /\.(jpg|png|gif|svg)$/, use: [ { loader: 'file-loader', options: { name: '[name].[ext]', outputPath: './assets/media/' } } ] },
-      // file-loader(for fonts)
-      { test: /\.(woff|woff2|eot|ttf|otf)$/, use: ['file-loader'] }
-
+      {
+        test: /\.(jpg|png|gif|svg)$/,
+        type: 'asset/resource', // Use 'asset/resource' for images
+        generator: {
+          filename: 'assets/media/[name][ext]'
+        }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        type: 'asset/resource', // Use 'asset/resource' for fonts
+        generator: {
+          filename: 'assets/fonts/[name][ext]'
+        }
+      }
     ]
   },
 
   plugins: [
-    new CleanWebpackPlugin(['public']),
-    new HtmlWebpackPlugin({template: './index.html', chunks: ['app1'], filename: 'index.html'}),
-    extractPlugin
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './index.html', // Path relative to the context directory
+      chunks: ['app1'],
+      filename: './index.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: './assets/css/app.css' // Output for CSS file
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'server/web/static/css/main.css'), to: 'assets/css' }
+      ]
+    })
   ],
 
   // devServer: {
-  //   // static files served from here
-  //   contentBase: path.resolve(__dirname, "./public/assets/media"),
+  //   contentBase: path.join(__dirname, 'public'),
   //   compress: true,
-  //   // open app in localhost:8000
-  //   port: 8000,
-  //   stats: 'errors-only',
-  //   open: true
+  //   port: 9000,
+  //   historyApiFallback: true // Ensure this is enabled to serve the index.html file for all routes
   // },
 
-  devtool: 'eval-source-map',
-
-  cache: true
+  devtool: 'eval-source-map', 
+  cache: true,
+  
+  stats: {
+    children: true
+  }
 };
-
-module.exports = config;
-
