@@ -9,6 +9,7 @@
  *************************************************************************/
 
 import EventEmitter from "events"
+import {storeInteractionLogs} from "./utils";
 var logging = true
 export default class SumView extends EventEmitter {
     constructor(container, data, conf) {
@@ -17,6 +18,7 @@ export default class SumView extends EventEmitter {
         this.container = container
         this.data = data
         this.conf = conf
+        this._sessionStarted = false;
 
         this._params = {
             recradius: 0.1,
@@ -106,6 +108,7 @@ export default class SumView extends EventEmitter {
   
 
     _init() {
+
         this.container.select('svg').remove()
         this.svg = this.container.append('svg')
             .attr('width', this.conf.size[0])
@@ -193,83 +196,100 @@ _collectAllRecommendedCharts() {
 
 }
 
-_recommendCharts(attributesHistory, callback) {
-    // Question: When phase of flight has the highest number of birdstrike records in
-    // June (Flight_Date)? :['when_phase_of_flight', 'flight_date']
-    // Question: What speed (IAS) in knots could cause the substantial (Effect Amount
-    // of damage) damage of AVRO RJ 85 (Aircraft Make Model)? :['speed_ias', 'aircraft_make_model']
-    if (attributesHistory == null) {
-        attributesHistory = [];
+ _recommendCharts(attributesHistory, callback) {
+        if (attributesHistory == null) {
+            attributesHistory = [];
+        }
+
+        // Get the selected algorithm and baseline directly
+        var algorithmDropdown = document.getElementById("algorithm");
+        this._algorithm = algorithmDropdown.value;
+
+        var baselinealgorithmDropdown = document.getElementById("baseline");
+        this._baseline = baselinealgorithmDropdown.value;
+
+        // Also send bookmarked charts
+        var JsonRequest = {
+            history: JSON.stringify(attributesHistory),
+            bookmarked: this._bookmarkedCharts,
+            algorithm: this._algorithm,
+            baseline: this._baseline
+        };
+
+        // Function to make the top_k recommendation request
+        const makeRecommendationRequest = () => {
+            $.ajax({
+                context: this,
+                type: 'POST',
+                crossDomain: true,
+                url: this.conf.backend + '/top_k',
+                data: JSON.stringify(JsonRequest),
+                contentType: 'application/json'
+            }).done((data) => {
+                this._charts = [];
+                this._baselinecharts = [];
+                this._performanceData = data['distribution_map'];
+                for (var i = 0; i < data['chart_recommendations'].length; i++) {
+                    if (data['chart_recommendations'][i]) {
+                        var chart = {
+                            originalspec: JSON.parse(data['chart_recommendations'][i]),
+                            created: true,
+                            chid: i + 1,
+                        };
+                        this._charts.push(chart);
+                    }
+                }
+                for (var j = 0; j < data['baseline_chart_recommendations'].length; j++) {
+                    if (data['chart_recommendations'][j]) {
+                        var bchart = {
+                            originalspec: JSON.parse(data['baseline_chart_recommendations'][j]),
+                            created: true,
+                            chid: j,
+                        };
+                        this._baselinecharts.push(bchart);
+                    }
+                }
+                if (logging) {
+                    app.logger.push({ time: Date.now(), action: 'system-recommendations', data: this._charts });
+                    app.logger.push({ time: Date.now(), action: 'current_distribution', data: data['distribution_map'] });
+                }
+                this.emit('recommendchart', this._charts);
+            }).fail((xhr, status, error) => {
+                alert('Cannot Generate Recommendations.');
+            }).always(() => {
+                if (callback) {
+                    callback();
+                }
+            });
+        };
+
+        // Check if the session has already been started
+        if (!this._sessionStarted) {
+            // Call backend to start session first
+            $.ajax({
+                type: 'GET',
+                crossDomain: true,
+                url: 'http://localhost:5500/',
+                contentType: 'application/json'
+            }).done((data) => {
+                var user_session_id = data['session_id'];
+                console.log("Session ID: ", user_session_id);
+                storeInteractionLogs('study begins', user_session_id, new Date());
+                this._sessionStarted = true; // Set the flag to true
+                // Make recommendation request after session has started
+                makeRecommendationRequest();
+            }).fail((xhr, status, error) => {
+                alert('Cannot start session.');
+                if (callback) {
+                    callback();
+                }
+            });
+        } else {
+            // If session is already started, directly make the recommendation request
+            makeRecommendationRequest();
+        }
     }
 
-    // Get the selected algorithm directly here
-    var algorithmDropdown = document.getElementById("algorithm");
-     this._algorithm = algorithmDropdown.value;
 
-      // Get the selected baseline directly here
-    var baselinealgorithmDropdown = document.getElementById("baseline");
-     this._baseline = baselinealgorithmDropdown.value;
-
-    // also send bookmarked charts
-    var JsonRequest = {
-        history: JSON.stringify(attributesHistory),
-        bookmarked: this._bookmarkedCharts,
-        algorithm: this._algorithm,
-        baseline:  this._baseline
-    };
-
-    $.ajax({
-        context: this,
-        type: 'POST',
-        crossDomain: true,
-        url: this.conf.backend + '/top_k',
-        data: JSON.stringify(JsonRequest),
-        contentType: 'application/json'
-    }).done((data) => {
-        this._charts = [];
-        this._baselinecharts = [];
-        this._performanceData = data['distribution_map'];
-        for (var i = 0; i < data['chart_recommendations'].length; i++) {
-            // returns the recommendations and the distribution of fields
-            if (data['chart_recommendations'][i]) {
-                var chart = {
-                    originalspec: JSON.parse(data['chart_recommendations'][i]),
-                    created: true,
-                    chid: i+1,
-                };
-                this._charts.push(chart);
-
-            }
-        }
-        for (var j = 0; j < data['baseline_chart_recommendations'].length; j++) {
-            // returns the recommendations and the distribution of fields
-            if (data['chart_recommendations'][j]) {
-                var bchart = {
-                    originalspec: JSON.parse(data['baseline_chart_recommendations'][j]),
-                    created: true,
-                    chid: j,
-                };
-                this._baselinecharts.push(bchart);
-
-            }
-        }
-        if (logging) {
-            app.logger.push({ time: Date.now(), action: 'system-recommendations', data: this._charts });
-        }
-        if (logging) {
-            app.logger.push({ time: Date.now(), action: 'current_distribution', data: data['distribution_map'] });
-        }
-        // Trigger the render method only on success
-        // this.render();
-        this.emit('recommendchart', this._charts);
-    }).fail((xhr, status, error) => {
-        alert('Cannot Generate Recommendations.');
-    }).always(() => {
-        // Trigger the callback function regardless of success or failure
-        if (callback) {
-            callback();
-        }
-    });
-}
 
     }

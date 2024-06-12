@@ -20,13 +20,13 @@
  var bookmarkedCharts = [];
  var user_session_id = 'user1';
  export var vegaConfig = {
-     axis: {labelFontSize:9, titleFontSize:9, labelAngle:-45, labelLimit:50},
-     legend: {gradientLength:20, labelFontSize:6, titleFontSize:6, clipHeight:20}
+     axis: {labelFontSize:13, titleFontSize:15, labelAngle:-45, labelLimit:50, labelOverlap: "greedy"},
+     legend: {gradientLength:20, labelFontSize:13, titleFontSize:15, clipHeight:20}
  }
 
 
 
- export function createDataTable() {
+export function createDataTable() {
     var columns = _.keys(app.data.chartdata.values[0]).map((d) => {return {title: d} })
     var tabledata = app.data.chartdata.values.map((d) => {
         var record = []
@@ -43,7 +43,7 @@
     // Calculate dynamic scroll height as a percentage of the viewport height
     var scrollH = `${window.innerHeight * 0.2}px`; // Example: 50% of the viewport height
 
-    app.datatable = $('#dataview table').DataTable({
+     app.datatable = $('#dataview table').DataTable({
         columnDefs: [
             {
                 targets: '_all',
@@ -67,22 +67,8 @@
         $('#legend').append('/<span class="legend-item" style="color:' + app.sumview._varclr(c.title) + '">' + c.title + '</span>')
     })
 
-    // call backend to start session
-    $.ajax({
-        type: 'GET',
-        crossDomain: true,
-        url: 'http://localhost:5500/',
-        contentType: 'application/json'
-    }).done((data) => {
-        user_session_id = data['session_id'];
-        //log session id
-        console.log("Session ID: ", user_session_id);
-        storeInteractionLogs('study begins', user_session_id, new Date())
-    }).fail((xhr, status, error) => {
-        alert('Cannot start session.');
-    });
-}
 
+}
 
 export function displayBookmarkCharts(container, created = true) {
     $(container).empty();
@@ -1136,7 +1122,7 @@ function sendLogs() {
         data: JSON.stringify(finalData),
         contentType: 'application/json'
     }).done(() => {
-        if(!alert('Note Stored! Safe to close')){window.location.reload();}
+        alert('Note Stored! Safe to close')
         // Restart the application using pm2
     // setTimeout(() => {
     //     process.exit(0); // Exit the application to allow pm2 to restart it

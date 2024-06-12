@@ -71,10 +71,7 @@ def encode():
     # if elements in field_names are not unique, raise an error
     if len(field_names) != len(set(field_names)):
         raise InvalidUsage('Duplicate fields selected. Please select unique fields.', status_code=400)
-    system.response_history.append(field_names)
-    system.update_models()
 
-    # Get Draco recommendations
     recommendations = draco_test.get_draco_recommendations(field_names, 'birdstrikes', parsed_data, color=True)
     chart_recom = system.remove_irrelevant_recommendations(field_names, recommendations)
     return jsonify(chart_recom[0])
@@ -129,6 +126,8 @@ def top_k(save_csv=False):
         system.state_history = data
     else:
         system.state_history = [['flight_date', 'wildlife_size', 'airport_name']]
+
+    print('State History:', system.state_history)
 
     attributes_list, distribution_map, baselines_distribution_maps, attributes_baseline = system.onlinelearning(algorithms_to_run=['Hotspot', 'Modified-Hotspot', 'ShiftScope'],specified_algorithm=specified_algorithm, specified_baseline=specified_baseline,bookmarked_charts=bookmarked_charts)
 
@@ -204,14 +203,24 @@ def top_k(save_csv=False):
 @app.route('/')
 def index():
     global manual_session
-    global session
+    global system
+    global env
+
+    print('Starting NEW Backend Engine...')
 
     session.clear()
-
-
     session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
     manual_session['session_id'] = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    return jsonify(manual_session)
+
+    response = jsonify(manual_session)
+
+    session.clear()
+    manual_session = {}
+    system = OnlineLearningSystem()
+    env = environment()
+
+    return response
+
 
 @app.route('/submit-form', methods=['POST'])
 def submit_form():
@@ -252,7 +261,6 @@ def submit_form():
     manual_session = {}
     system = OnlineLearningSystem()
     env=environment()
-
 
 
     return jsonify({'message': 'Form submitted successfully. New session started.'})

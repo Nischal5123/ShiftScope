@@ -135,6 +135,20 @@ html, body {
   overflow-x: hidden;
 }
 
+#chartview {
+  top:20px;
+  position: relative; /* Changed from absolute to relative */
+  flex: 8; /* Flex-grow to take 80% of the height */
+  width: 100%;
+  margin: 2px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  vertical-align: top;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 .chartcontainer {
   height: 90%; /* Changed to full height of the parent */
   width: 100%;
