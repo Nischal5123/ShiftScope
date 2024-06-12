@@ -134,6 +134,20 @@ html, body {
     overflow-x: hidden;
 }
 
+#chartview {
+  top:20px;
+  position: relative; /* Changed from absolute to relative */
+  flex: 8; /* Flex-grow to take 80% of the height */
+  width: 100%;
+  margin: 2px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  vertical-align: top;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
 .chartcontainer {
     height: 90%;
     width: 100%;
@@ -190,17 +204,13 @@ html, body {
 }
 
 #dataview {
-    position: absolute;
-    z-index: 1; /* Ensure it's above other content */
-    bottom: 0; /* Align to the bottom */
-    left: 0;
-    width: 100%;
-    font-size: 12px;
-    display: inline-block;
-    border-radius: 5px;
-    margin-bottom: 0%; /* Add some margin from the bottom */
+  flex: 2; /* Flex-grow to take 20% of the height */
+  width: 100%;
+  font-size: 12px;
+  border-radius: 5px;
+  margin-bottom: 0;
+  z-index: 1;
 }
-
 
 
 

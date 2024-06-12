@@ -231,6 +231,9 @@ class OnlineLearningSystem:
 
     #Updating the Actor-Critic Model based on user's feedback
     def update_models(self):
+        if len(self.actor_critic_action_history) == 0:
+            return
+
         Prev_recommended_attributes = self.actor_critic_action_history[-1]
         cur_attributes = self.response_history[-1]
 
