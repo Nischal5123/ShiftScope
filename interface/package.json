@@ -5,7 +5,7 @@
   "main": "app1.js",
   "scripts": {
     "build": "webpack",
-    "build:prod": "webpack -p",
+    "build:prod": "webpack --mode=production",
     "watch": "webpack --watch",
     "start": "nodemon server/server.js",
     "start:prod": "NODE_ENV=prod node server/server.js"
@@ -13,21 +13,23 @@
   "author": "Sanad Saha <sahasa@oregonstate.edu>",
   "license": "GNU",
   "devDependencies": {
-    "@babel/core": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "babel-loader": "^8.1.0",
-    "clean-webpack-plugin": "~0.1.17",
-    "css-loader": "~1.0.1",
-    "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "file-loader": "~2.0.0",
-    "html-loader": "~0.5.1",
-    "html-webpack-plugin": "^3.2.0",
-    "sass": "^1.49.0",
-    "sass-loader": "^10",
-    "style-loader": "~0.23.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "babel-loader": "^9.0.0",
+    "clean-webpack-plugin": "~4.0.0",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "~6.7.0",
+    "file-loader": "~6.2.0",
+    "html-loader": "~4.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.9.0",
+    "sass": "^1.57.0",
+    "sass-loader": "^13.2.0",
+    "style-loader": "~3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-middleware": "^7.2.1",
+    "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
     "ace-builds": "^1.4.11",
@@ -38,6 +40,9 @@
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "nodemon": "^2.0.3",
-    "vega-embed": "^3.30.0"
+    "vega": "^5.29.0",
+    "vega-lite": "^5.18.1",
+    "vega-tooltip": "^0.34.0",
+    "vega-embed": "^6.22.1"
   }
 }
